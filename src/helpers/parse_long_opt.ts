@@ -8,7 +8,7 @@ import { OptConfigMap } from '../interfaces/config';
  * @param errors Any parsing errors will be appended to this.
  * @param opts Parsed options will be added to this.
  * @param input Input to parse.
- * 
+ *
  * Note: the following parameters are modified directly (i.e. sideffect):
  * - errors
  * - opts

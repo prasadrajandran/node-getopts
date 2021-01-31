@@ -26,12 +26,12 @@ const ARGS_INDEX = MODULE_INDEX + 1;
 /**
  * This flag terminates all arguments. Anything after this flag are treated as
  * non-option arguments.
- * 
+ *
  * Note: If this flag is found after an option that requires an argument, it
  * will be treated as an argument for that option.
- * 
+ *
  * Examples:
- * - "-a --" 
+ * - "-a --"
  * - "-a--"
  * where -a requires an argument.
  */
@@ -42,7 +42,7 @@ export const STOP_PROCESSING_OPTS_FLAG = '--';
  * argument is optional, the pattern matches anything that starts with a single
  * dash followed by an alphanumeric character and then followed by anything
  * else.
- * 
+ *
  * E.g.:
  * If "-a" requires arguments and the input is "-a50.00", then "50.00" would
  * be considered the option's argument (i.e. therefore the regex has to match
@@ -56,7 +56,7 @@ export const OPT_REGEX = /^-[a-zA-Z\d].*$/;
 export const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.+)?$/;
 
 /**
- * 
+ *
  * @param schema Schema
  * @param inputArgs User input. Will default to `process.argv`.
  */
