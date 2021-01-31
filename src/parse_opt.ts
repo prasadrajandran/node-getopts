@@ -1,6 +1,6 @@
-import { OptMap } from '../interfaces/opt_map';
-import { ParsingError } from '../interfaces/parsing_error';
-import { OptConfigMap } from '../interfaces/config';
+import { OptMap } from './interfaces/opt_map';
+import { ParsingError } from './interfaces/parsing_error';
+import { OptConfigMap } from './interfaces/config';
 
 /**
  * Parse an option.

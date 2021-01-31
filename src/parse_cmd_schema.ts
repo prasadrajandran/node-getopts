@@ -1,5 +1,5 @@
-import { CmdSchema } from '../interfaces/schema';
-import { OptConfigMap, CmdConfigMap } from '../interfaces/config';
+import { CmdSchema } from './interfaces/schema';
+import { OptConfigMap, CmdConfigMap } from './interfaces/config';
 import { parseSchema } from './parse_schema';
 
 /**

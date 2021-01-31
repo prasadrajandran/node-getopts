@@ -1,5 +1,5 @@
-import { OptSchema } from '../interfaces/schema';
-import { OptConfigMap, OptConfig } from '../interfaces/config';
+import { OptSchema } from './interfaces/schema';
+import { OptConfigMap, OptConfig } from './interfaces/config';
 
 /**
  * A option can only be made out of alphanumeric characters.

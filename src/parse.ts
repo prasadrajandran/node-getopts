@@ -1,9 +1,9 @@
-import { OptMap } from '../interfaces/opt_map';
-import { ParsingError } from '../interfaces/parsing_error';
-import { Schema } from '../interfaces/schema';
-import { parseSchema } from '../helpers/parse_schema';
-import { parseOpt } from '../helpers/parse_opt';
-import { parseLongOpt } from '../helpers/parse_long_opt';
+import { OptMap } from './interfaces/opt_map';
+import { ParsingError } from './interfaces/parsing_error';
+import { Schema } from './interfaces/schema';
+import { parseSchema } from './parse_schema';
+import { parseOpt } from './parse_opt';
+import { parseLongOpt } from './parse_long_opt';
 
 /**
  * Absolute pathname of the executable that started the Node.js process. This
