@@ -4,6 +4,7 @@ import { Schema } from './interfaces/schema';
 import { parseSchema } from './parse_schema';
 import { parseOpt } from './parse_opt';
 import { parseLongOpt } from './parse_long_opt';
+import { ParsedArgs } from './interfaces/parsed_args';
 
 /**
  * Absolute pathname of the executable that started the Node.js process. This
@@ -35,7 +36,7 @@ const ARGS_INDEX = MODULE_INDEX + 1;
  * - "-a--"
  * where -a requires an argument.
  */
-export const STOP_PROCESSING_OPTS_FLAG = '--';
+const STOP_PROCESSING_OPTS_FLAG = '--';
 
 /**
  * Regex pattern for an option. Since the space between an option and its
@@ -48,19 +49,22 @@ export const STOP_PROCESSING_OPTS_FLAG = '--';
  * be considered the option's argument (i.e. therefore the regex has to match
  * anything after even though they're not alphanumeric characters).
  */
-export const OPT_REGEX = /^-[a-zA-Z\d].*$/;
+const OPT_REGEX = /^-[a-zA-Z\d].*$/;
 
 /**
  * Regex pattern of a long option and its argument (if present).
  */
-export const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.+)?$/;
+const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.+)?$/;
 
 /**
- *
- * @param schema Schema
- * @param inputArgs User input. Will default to `process.argv`.
+ * Parse CLI arguments.
+ * @param schema CLI schema.
+ * @param inputArgs CLI input. Will default to `process.argv`.
  */
-export const parse = (schema: Schema, inputArgs: string[] = process.argv) => {
+export const parse = (
+  schema: Schema,
+  inputArgs: NodeJS.Process['argv'] = process.argv,
+): ParsedArgs => {
   const config = parseSchema(schema);
   const execPath = inputArgs[EXEC_PATH_INDEX];
   const module = inputArgs[MODULE_INDEX];
