@@ -1,5 +1,5 @@
 {
-  "name": "ngetopt",
+  "name": "ngetopts",
   "version": "0.1.0",
   "description": "POSIX/GNU compliant CLI argument parser",
   "keywords": [
@@ -12,13 +12,13 @@
     "argp",
     "argv"
   ],
-  "homepage": "https://github.com/prasadrajandran/ngetopt#readme",
+  "homepage": "https://github.com/prasadrajandran/ngetopts#readme",
   "bugs": {
-    "url": "https://github.com/prasadrajandran/ngetopt/issues"
+    "url": "https://github.com/prasadrajandran/ngetopts/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prasadrajandran/ngetopt.git"
+    "url": "git+https://github.com/prasadrajandran/ngetopts.git"
   },
   "license": "MIT",
   "author": "Prasad Rajandran",
@@ -31,7 +31,8 @@
     "build": "tsc --build tsconfig.json",
     "prettier-fix": "npx prettier --write .",
     "test": "jest",
-    "watch": "npm run build -- -w"
+    "watch": "npm run build -- -w",
+    "build-docs": "typedoc ./src/interfaces ./src/parse.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -52,6 +53,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^26.2.2",
     "prettier": "^2.0.5",
+    "typedoc": "^0.20.23",
     "typescript": "^4.0.2"
   }
 }
