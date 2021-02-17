@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [Modules](../modules.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
+[ngetopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
 
 # Interface: CmdSchema
 
@@ -33,7 +33,7 @@ Pass the arguments through a filter for processing.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[argFilter](interfaces_schema.schema.md#argfilter)
 
-Defined in: [interfaces/schema.ts:88](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/schema.ts#L88)
+Defined in: [interfaces/schema.ts:88](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L88)
 
 ---
 
@@ -45,7 +45,7 @@ Commands.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[cmds](interfaces_schema.schema.md#cmds)
 
-Defined in: [interfaces/schema.ts:72](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/schema.ts#L72)
+Defined in: [interfaces/schema.ts:72](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L72)
 
 ---
 
@@ -59,7 +59,7 @@ Note: The default is Infinity.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[maxArgs](interfaces_schema.schema.md#maxargs)
 
-Defined in: [interfaces/schema.ts:84](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/schema.ts#L84)
+Defined in: [interfaces/schema.ts:84](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L84)
 
 ---
 
@@ -73,7 +73,7 @@ Note: The default is 0.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[minArgs](interfaces_schema.schema.md#minargs)
 
-Defined in: [interfaces/schema.ts:78](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/schema.ts#L78)
+Defined in: [interfaces/schema.ts:78](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L78)
 
 ---
 
@@ -83,7 +83,7 @@ Defined in: [interfaces/schema.ts:78](https://github.com/prasadrajandran/ngetopt
 
 Name of the command.
 
-Defined in: [interfaces/schema.ts:58](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/schema.ts#L58)
+Defined in: [interfaces/schema.ts:58](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L58)
 
 ---
 
@@ -95,4 +95,4 @@ Options.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[opts](interfaces_schema.schema.md#opts)
 
-Defined in: [interfaces/schema.ts:68](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/schema.ts#L68)
+Defined in: [interfaces/schema.ts:68](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L68)

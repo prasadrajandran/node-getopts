@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [Modules](../modules.md) / interfaces/parsed_args
+[ngetopts](../README.md) / interfaces/parsed_args
 
 # Module: interfaces/parsed_args
 

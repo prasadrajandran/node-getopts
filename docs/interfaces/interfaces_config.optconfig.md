@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [Modules](../modules.md) / [interfaces/config](../modules/interfaces_config.md) / OptConfig
+[ngetopts](../README.md) / [interfaces/config](../modules/interfaces_config.md) / OptConfig
 
 # Interface: OptConfig
 
@@ -22,7 +22,7 @@ An option's configuration object.
 
 Does the option accept arguments?
 
-Defined in: [interfaces/config.ts:20](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/config.ts#L20)
+Defined in: [interfaces/config.ts:20](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L20)
 
 ---
 
@@ -32,7 +32,7 @@ Defined in: [interfaces/config.ts:20](https://github.com/prasadrajandran/ngetopt
 
 Process the argument.
 
-Defined in: [interfaces/config.ts:28](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/config.ts#L28)
+Defined in: [interfaces/config.ts:28](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L28)
 
 ---
 
@@ -42,4 +42,4 @@ Defined in: [interfaces/config.ts:28](https://github.com/prasadrajandran/ngetopt
 
 Does the option require arguments?
 
-Defined in: [interfaces/config.ts:24](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/config.ts#L24)
+Defined in: [interfaces/config.ts:24](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L24)

@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [Modules](../modules.md) / interfaces/schema
+[ngetopts](../README.md) / interfaces/schema
 
 # Module: interfaces/schema
 

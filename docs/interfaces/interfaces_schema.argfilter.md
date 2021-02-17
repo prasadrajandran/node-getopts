@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [Modules](../modules.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
+[ngetopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
 
 # Interface: ArgFilter
 
@@ -21,4 +21,4 @@ Callback to filter argument(s).
 
 **Returns:** _any_
 
-Defined in: [interfaces/schema.ts:4](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/schema.ts#L4)
+Defined in: [interfaces/schema.ts:4](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L4)

@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [Modules](../modules.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
+[ngetopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
 
 # Interface: OptArgFilter
 
@@ -20,4 +20,4 @@ Callback to filter an option's argument(s).
 
 **Returns:** _any_
 
-Defined in: [interfaces/schema.ts:16](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/schema.ts#L16)
+Defined in: [interfaces/schema.ts:16](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L16)

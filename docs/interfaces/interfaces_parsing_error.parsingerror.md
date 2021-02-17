@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [Modules](../modules.md) / [interfaces/parsing_error](../modules/interfaces_parsing_error.md) / ParsingError
+[ngetopts](../README.md) / [interfaces/parsing_error](../modules/interfaces_parsing_error.md) / ParsingError
 
 # Interface: ParsingError
 
@@ -22,7 +22,7 @@ Parsing error.
 
 Error object (if a native Error was thrown).
 
-Defined in: [interfaces/parsing_error.ts:28](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/parsing_error.ts#L28)
+Defined in: [interfaces/parsing_error.ts:28](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsing_error.ts#L28)
 
 ---
 
@@ -32,7 +32,7 @@ Defined in: [interfaces/parsing_error.ts:28](https://github.com/prasadrajandran/
 
 Error message.
 
-Defined in: [interfaces/parsing_error.ts:24](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/parsing_error.ts#L24)
+Defined in: [interfaces/parsing_error.ts:24](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsing_error.ts#L24)
 
 ---
 
@@ -42,4 +42,4 @@ Defined in: [interfaces/parsing_error.ts:24](https://github.com/prasadrajandran/
 
 Error type.
 
-Defined in: [interfaces/parsing_error.ts:20](https://github.com/prasadrajandran/ngetopts/blob/2ee1844/src/interfaces/parsing_error.ts#L20)
+Defined in: [interfaces/parsing_error.ts:20](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsing_error.ts#L20)
