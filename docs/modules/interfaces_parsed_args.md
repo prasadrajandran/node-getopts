@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / interfaces/parsed_args
+[@prasadrajandran/getopts](../README.md) / interfaces/parsed_args
 
 # Module: interfaces/parsed_args
 

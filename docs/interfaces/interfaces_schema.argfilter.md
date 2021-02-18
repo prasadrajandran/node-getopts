@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
+[@prasadrajandran/getopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
 
 # Interface: ArgFilter
 
@@ -8,7 +8,7 @@ Callback to filter argument(s).
 
 ## Callable
 
-▸ **ArgFilter**(`arg`: _string_, `pos`: _number_): _any_
+▸ **ArgFilter**(`arg`: _string_, `pos`: _number_): _unknown_
 
 Callback to filter argument(s).
 
@@ -19,6 +19,6 @@ Callback to filter argument(s).
 | `arg` | _string_ | Argument value.                                                             |
 | `pos` | _number_ | Position of the argument. Starts from 0. E.g. someutility arg0 arg1 arg2... |
 
-**Returns:** _any_
+**Returns:** _unknown_
 
-Defined in: [interfaces/schema.ts:4](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L4)
+Defined in: [interfaces/schema.ts:4](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L4)

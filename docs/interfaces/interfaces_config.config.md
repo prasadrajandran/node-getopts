@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [interfaces/config](../modules/interfaces_config.md) / Config
+[@prasadrajandran/getopts](../README.md) / [interfaces/config](../modules/interfaces_config.md) / Config
 
 # Interface: Config
 
@@ -25,7 +25,7 @@ Configuration object.
 
 Argument filter.
 
-Defined in: [interfaces/config.ts:69](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L69)
+Defined in: [interfaces/config.ts:70](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L70)
 
 ---
 
@@ -35,7 +35,7 @@ Defined in: [interfaces/config.ts:69](https://github.com/prasadrajandran/ngetopt
 
 Command map.
 
-Defined in: [interfaces/config.ts:57](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L57)
+Defined in: [interfaces/config.ts:58](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L58)
 
 ---
 
@@ -45,7 +45,7 @@ Defined in: [interfaces/config.ts:57](https://github.com/prasadrajandran/ngetopt
 
 Does it expect commands (true) or arguments (false)?
 
-Defined in: [interfaces/config.ts:73](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L73)
+Defined in: [interfaces/config.ts:74](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L74)
 
 ---
 
@@ -55,7 +55,7 @@ Defined in: [interfaces/config.ts:73](https://github.com/prasadrajandran/ngetopt
 
 Maximum number of arguments accepted.
 
-Defined in: [interfaces/config.ts:65](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L65)
+Defined in: [interfaces/config.ts:66](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L66)
 
 ---
 
@@ -65,7 +65,7 @@ Defined in: [interfaces/config.ts:65](https://github.com/prasadrajandran/ngetopt
 
 Minimum number of arguments required.
 
-Defined in: [interfaces/config.ts:61](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L61)
+Defined in: [interfaces/config.ts:62](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L62)
 
 ---
 
@@ -75,4 +75,4 @@ Defined in: [interfaces/config.ts:61](https://github.com/prasadrajandran/ngetopt
 
 Option map.
 
-Defined in: [interfaces/config.ts:53](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L53)
+Defined in: [interfaces/config.ts:54](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L54)

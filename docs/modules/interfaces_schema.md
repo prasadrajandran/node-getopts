@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / interfaces/schema
+[@prasadrajandran/getopts](../README.md) / interfaces/schema
 
 # Module: interfaces/schema
 

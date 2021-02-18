@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
+[@prasadrajandran/getopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
 
 # Interface: OptArgFilter
 
@@ -8,7 +8,7 @@ Callback to filter an option's argument(s).
 
 ## Callable
 
-▸ **OptArgFilter**(`arg`: _string_): _any_
+▸ **OptArgFilter**(`arg`: _string_): _unknown_
 
 Callback to filter an option's argument(s).
 
@@ -18,6 +18,6 @@ Callback to filter an option's argument(s).
 | :---- | :------- | :-------------- |
 | `arg` | _string_ | Argument value. |
 
-**Returns:** _any_
+**Returns:** _unknown_
 
-Defined in: [interfaces/schema.ts:16](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L16)
+Defined in: [interfaces/schema.ts:16](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L16)

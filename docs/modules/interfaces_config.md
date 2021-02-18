@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / interfaces/config
+[@prasadrajandran/getopts](../README.md) / interfaces/config
 
 # Module: interfaces/config
 
@@ -25,7 +25,7 @@
 
 Map of an command's name to its configuration object.
 
-Defined in: [interfaces/config.ts:44](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L44)
+Defined in: [interfaces/config.ts:45](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L45)
 
 ---
 
@@ -35,7 +35,7 @@ Defined in: [interfaces/config.ts:44](https://github.com/prasadrajandran/ngetopt
 
 Command's name.
 
-Defined in: [interfaces/config.ts:39](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L39)
+Defined in: [interfaces/config.ts:39](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L39)
 
 ---
 
@@ -45,7 +45,7 @@ Defined in: [interfaces/config.ts:39](https://github.com/prasadrajandran/ngetopt
 
 Map of an option's name to its configuration object.
 
-Defined in: [interfaces/config.ts:34](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L34)
+Defined in: [interfaces/config.ts:34](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L34)
 
 ---
 
@@ -55,7 +55,7 @@ Defined in: [interfaces/config.ts:34](https://github.com/prasadrajandran/ngetopt
 
 An option's long name.
 
-Defined in: [interfaces/config.ts:11](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L11)
+Defined in: [interfaces/config.ts:11](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L11)
 
 ---
 
@@ -65,4 +65,4 @@ Defined in: [interfaces/config.ts:11](https://github.com/prasadrajandran/ngetopt
 
 An option's name.
 
-Defined in: [interfaces/config.ts:6](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/config.ts#L6)
+Defined in: [interfaces/config.ts:6](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/config.ts#L6)

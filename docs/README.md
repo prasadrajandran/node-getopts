@@ -1,6 +1,6 @@
-ngetopts
+@prasadrajandran/getopts
 
-# ngetopts
+# @prasadrajandran/getopts
 
 ## Table of contents
 

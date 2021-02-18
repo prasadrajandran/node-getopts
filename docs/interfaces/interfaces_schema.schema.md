@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / Schema
+[@prasadrajandran/getopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / Schema
 
 # Interface: Schema
 
@@ -30,7 +30,7 @@ Schema.
 
 Pass the arguments through a filter for processing.
 
-Defined in: [interfaces/schema.ts:88](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L88)
+Defined in: [interfaces/schema.ts:89](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L89)
 
 ---
 
@@ -40,7 +40,7 @@ Defined in: [interfaces/schema.ts:88](https://github.com/prasadrajandran/ngetopt
 
 Commands.
 
-Defined in: [interfaces/schema.ts:72](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L72)
+Defined in: [interfaces/schema.ts:73](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L73)
 
 ---
 
@@ -52,7 +52,7 @@ Maximum number of arguments (i.e. arguments that are not options or
 commands) expected.
 Note: The default is Infinity.
 
-Defined in: [interfaces/schema.ts:84](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L84)
+Defined in: [interfaces/schema.ts:85](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L85)
 
 ---
 
@@ -64,7 +64,7 @@ Minimum number of arguments (i.e. arguments that are not options or
 commands) expected.
 Note: The default is 0.
 
-Defined in: [interfaces/schema.ts:78](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L78)
+Defined in: [interfaces/schema.ts:79](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L79)
 
 ---
 
@@ -74,4 +74,4 @@ Defined in: [interfaces/schema.ts:78](https://github.com/prasadrajandran/ngetopt
 
 Options.
 
-Defined in: [interfaces/schema.ts:68](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/schema.ts#L68)
+Defined in: [interfaces/schema.ts:69](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L69)

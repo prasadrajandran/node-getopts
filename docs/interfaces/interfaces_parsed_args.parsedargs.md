@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / [interfaces/parsed_args](../modules/interfaces_parsed_args.md) / ParsedArgs
+[@prasadrajandran/getopts](../README.md) / [interfaces/parsed_args](../modules/interfaces_parsed_args.md) / ParsedArgs
 
 # Interface: ParsedArgs
 
@@ -23,11 +23,11 @@ Parsed CLI arguments.
 
 ### args
 
-• **args**: _string_[]
+• **args**: _unknown_[]
 
 Array of parsed arguments.
 
-Defined in: [interfaces/parsed_args.ts:36](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsed_args.ts#L36)
+Defined in: [interfaces/parsed_args.ts:36](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/parsed_args.ts#L36)
 
 ---
 
@@ -37,7 +37,7 @@ Defined in: [interfaces/parsed_args.ts:36](https://github.com/prasadrajandran/ng
 
 Array of parsed commands.
 
-Defined in: [interfaces/parsed_args.ts:28](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsed_args.ts#L28)
+Defined in: [interfaces/parsed_args.ts:28](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/parsed_args.ts#L28)
 
 ---
 
@@ -47,7 +47,7 @@ Defined in: [interfaces/parsed_args.ts:28](https://github.com/prasadrajandran/ng
 
 Parsed CLI schema.
 
-Defined in: [interfaces/parsed_args.ts:12](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsed_args.ts#L12)
+Defined in: [interfaces/parsed_args.ts:12](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/parsed_args.ts#L12)
 
 ---
 
@@ -57,7 +57,7 @@ Defined in: [interfaces/parsed_args.ts:12](https://github.com/prasadrajandran/ng
 
 Array of any parsing errors.
 
-Defined in: [interfaces/parsed_args.ts:40](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsed_args.ts#L40)
+Defined in: [interfaces/parsed_args.ts:40](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/parsed_args.ts#L40)
 
 ---
 
@@ -67,7 +67,7 @@ Defined in: [interfaces/parsed_args.ts:40](https://github.com/prasadrajandran/ng
 
 Absolute pathname of the executable that started the Node.js process.
 
-Defined in: [interfaces/parsed_args.ts:16](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsed_args.ts#L16)
+Defined in: [interfaces/parsed_args.ts:16](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/parsed_args.ts#L16)
 
 ---
 
@@ -77,7 +77,7 @@ Defined in: [interfaces/parsed_args.ts:16](https://github.com/prasadrajandran/ng
 
 CLI arguments that were parsed.
 
-Defined in: [interfaces/parsed_args.ts:24](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsed_args.ts#L24)
+Defined in: [interfaces/parsed_args.ts:24](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/parsed_args.ts#L24)
 
 ---
 
@@ -87,7 +87,7 @@ Defined in: [interfaces/parsed_args.ts:24](https://github.com/prasadrajandran/ng
 
 Path to the JavaScript file being executed.
 
-Defined in: [interfaces/parsed_args.ts:20](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsed_args.ts#L20)
+Defined in: [interfaces/parsed_args.ts:20](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/parsed_args.ts#L20)
 
 ---
 
@@ -97,4 +97,4 @@ Defined in: [interfaces/parsed_args.ts:20](https://github.com/prasadrajandran/ng
 
 Map of parsed options.
 
-Defined in: [interfaces/parsed_args.ts:32](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/interfaces/parsed_args.ts#L32)
+Defined in: [interfaces/parsed_args.ts:32](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/parsed_args.ts#L32)

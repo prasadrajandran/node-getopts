@@ -1,4 +1,4 @@
-[ngetopts](../README.md) / parse
+[@prasadrajandran/getopts](../README.md) / parse
 
 # Module: parse
 
@@ -25,4 +25,4 @@ Parse CLI arguments.
 
 **Returns:** [_ParsedArgs_](../interfaces/interfaces_parsed_args.parsedargs.md)
 
-Defined in: [parse.ts:64](https://github.com/prasadrajandran/ngetopts/blob/41ceb2b/src/parse.ts#L64)
+Defined in: [parse.ts:64](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/parse.ts#L64)
