@@ -41,6 +41,7 @@ export type CmdName = string;
 /**
  * Map of an command's name to its configuration object.
  */
+// eslint-disable-next-line no-use-before-define
 export type CmdConfigMap = Map<CmdName, Config>;
 
 /**

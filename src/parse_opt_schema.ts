@@ -22,7 +22,7 @@ export const LONG_OPT_SCHEMA_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*$/;
 
 /**
  * Parse an option's schema.
- * @param optSchemas OptSchemas
+ * @param optSchemas - OptSchemas
  */
 export const parseOptSchema = (optSchemas: OptSchema[]): OptConfigMap => {
   const opts: OptConfigMap = new Map();

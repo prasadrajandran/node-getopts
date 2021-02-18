@@ -4,10 +4,10 @@ import { parseSchema } from './parse_schema';
 
 /**
  * Parse a command schema.
- * @param cmdSchemas Command schemas to parse.
- * @param alreadyDefinedOpts A map of options that have already been defined in
- *     this sequence. This prevents duplicate options from being defined for any
- *     combination of commands (however deeply nested).
+ * @param cmdSchemas - Command schemas to parse.
+ * @param alreadyDefinedOpts - A map of options that have already been defined
+ *     in this sequence. This prevents duplicate options from being defined for
+ *     any combination of commands (however deeply nested).
  */
 export const parseCmdSchema = (
   cmdSchemas: CmdSchema[],

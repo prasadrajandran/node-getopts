@@ -5,11 +5,11 @@ import { parseOptSchema } from './parse_opt_schema';
 
 /**
  * Parse a schema.
- * @param schema Schema to parse.
- * @param alreadyDefinedOpts A map of options that have already been defined in
- *     this sequence. This prevents duplicate options from being defined for any
- *     combination of commands (however deeply nested). This is used internally
- *     by the function.
+ * @param schema - Schema to parse.
+ * @param alreadyDefinedOpts - A map of options that have already been defined
+ *     in this sequence. This prevents duplicate options from being defined for
+ *     any combination of commands (however deeply nested). This is used
+ *     internally by the function.
  */
 export const parseSchema = (
   schema: Schema,

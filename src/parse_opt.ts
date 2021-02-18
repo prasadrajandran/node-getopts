@@ -4,11 +4,11 @@ import { OptConfigMap } from './interfaces/config';
 
 /**
  * Parse an option.
- * @param optSchema Option's schema.
- * @param errors Errors are appended to this.
- * @param opts Options are added to this.
- * @param input Input to parse. E.g. "-a", "-abc", "-a500", etc.
- * @param nextInput Next input (used if the option requires arguments and the
+ * @param optSchema - Option's schema.
+ * @param errors - Errors are appended to this.
+ * @param opts - Options are added to this.
+ * @param input - Input to parse. E.g. "-a", "-abc", "-a500", etc.
+ * @param nextInput - Next input (used if the option requires arguments and the
  *     argument is separated by a space).
  * @returns If the option requires an argument and the argument is separated by
  *     a space, then we would have to consume the next input in order to acquire

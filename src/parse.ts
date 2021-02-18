@@ -58,8 +58,8 @@ const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.+)?$/;
 
 /**
  * Parse CLI arguments.
- * @param schema CLI schema.
- * @param inputArgs CLI input. Will default to `process.argv`.
+ * @param schema - CLI schema.
+ * @param inputArgs - CLI input. Will default to `process.argv`.
  */
 export const parse = (
   schema: Schema,
@@ -71,7 +71,7 @@ export const parse = (
   const errors: ParsingError[] = [];
   const cmds: string[] = [];
   const opts: OptMap = new Map();
-  const args: string[] = [];
+  const args: unknown[] = [];
 
   let optConfigMap = config.opts;
   let cmdConfigMap = config.cmds;

@@ -33,7 +33,7 @@ export interface ParsedArgs {
   /**
    * Array of parsed arguments.
    */
-  args: string[];
+  args: unknown[];
   /**
    * Array of any parsing errors.
    */

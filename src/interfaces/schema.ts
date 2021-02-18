@@ -3,11 +3,11 @@
  */
 export interface ArgFilter {
   /**
-   * @param arg Argument value.
-   * @param pos Position of the argument. Starts from 0.
+   * @param arg - Argument value.
+   * @param pos - Position of the argument. Starts from 0.
    *     E.g. someutility arg0 arg1 arg2...
    */
-  (arg: string, pos: number): any;
+  (arg: string, pos: number): unknown;
 }
 
 /**
@@ -15,9 +15,9 @@ export interface ArgFilter {
  */
 export interface OptArgFilter {
   /**
-   * @param arg Argument value.
+   * @param arg - Argument value.
    */
-  (arg: string): any;
+  (arg: string): unknown;
 }
 
 /**
@@ -51,6 +51,7 @@ export interface OptSchema {
 /**
  * Schema for a command.
  */
+// eslint-disable-next-line no-use-before-define
 export interface CmdSchema extends Schema {
   /**
    * Name of the command.
