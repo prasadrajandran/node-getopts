@@ -1,4 +1,4 @@
-[@prasadrajandran/getopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
+[getopts - v1.0.0-alpha.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
 
 # Interface: ArgFilter
 
@@ -21,4 +21,4 @@ Callback to filter argument(s).
 
 **Returns:** _unknown_
 
-Defined in: [interfaces/schema.ts:4](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L4)
+Defined in: [interfaces/schema.ts:4](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L4)

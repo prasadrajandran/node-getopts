@@ -1,4 +1,4 @@
-[@prasadrajandran/getopts](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
+[getopts - v1.0.0-alpha.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
 
 # Interface: OptSchema
 
@@ -26,7 +26,7 @@ optional.
 Note: It is automatically assumed that the option takes an argument if
 this property is defined.
 
-Defined in: [interfaces/schema.ts:43](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L43)
+Defined in: [interfaces/schema.ts:43](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L43)
 
 ---
 
@@ -37,7 +37,7 @@ Defined in: [interfaces/schema.ts:43](https://github.com/prasadrajandran/ngetopt
 Pass the option's argument through a filter for processing.
 E.g. convert it to a number, etc.
 
-Defined in: [interfaces/schema.ts:48](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L48)
+Defined in: [interfaces/schema.ts:48](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L48)
 
 ---
 
@@ -48,7 +48,7 @@ Defined in: [interfaces/schema.ts:48](https://github.com/prasadrajandran/ngetopt
 Long name of the option.
 E.g.: "--sort-by", "--append", etc.
 
-Defined in: [interfaces/schema.ts:36](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L36)
+Defined in: [interfaces/schema.ts:36](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L36)
 
 ---
 
@@ -59,4 +59,4 @@ Defined in: [interfaces/schema.ts:36](https://github.com/prasadrajandran/ngetopt
 Name of the option.
 E.g.: "-a", "-A", etc.
 
-Defined in: [interfaces/schema.ts:31](https://github.com/prasadrajandran/ngetopts/blob/bd18eb5/src/interfaces/schema.ts#L31)
+Defined in: [interfaces/schema.ts:31](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L31)
