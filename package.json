@@ -29,8 +29,9 @@
   ],
   "scripts": {
     "build": "tsc --build tsconfig.json",
-    "build-docs": "typedoc --readme none ./src/interfaces ./src/parse.ts",
+    "build-docs": "typedoc --readme none --name getopts --includeVersion ./src/interfaces ./src/parse.ts",
     "lint": "eslint ./src",
+    "prep-release": "./prep_release.sh",
     "prettier-fix": "npx prettier --write .",
     "test": "jest",
     "watch": "npm run build -- -w"
