@@ -9,20 +9,23 @@ rm -rf docs
 echo "3. building..."
 npm run build
 
-echo "4. building docs..."
+echo "4. stripping comments from dist JS files..."
+node ./strip_comments.js
+
+echo "5. building docs..."
 npm run build-docs
 
 # Remove the first two lines from README file. The title is duplicated for
 # some reason.
 tail -n +3 ./docs/README.md > ./docs/temp && mv ./docs/temp ./docs/README.md
 
-echo "5. linting..."
+echo "6. linting..."
 npm run lint
 
-echo "6. run prettier..."
+echo "7. run prettier..."
 npm run prettier-fix
 
-echo "7. testing..."
+echo "8. testing..."
 npm test
 
 package_version=`cat package.json | grep version`

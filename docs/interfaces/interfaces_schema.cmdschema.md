@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
+[getopts - v1.0.0-alpha.2](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
 
 # Interface: CmdSchema
 
@@ -33,7 +33,7 @@ Pass the arguments through a filter for processing.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[argFilter](interfaces_schema.schema.md#argfilter)
 
-Defined in: [interfaces/schema.ts:89](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L89)
+Defined in: [interfaces/schema.ts:89](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L89)
 
 ---
 
@@ -45,7 +45,7 @@ Commands.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[cmds](interfaces_schema.schema.md#cmds)
 
-Defined in: [interfaces/schema.ts:73](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L73)
+Defined in: [interfaces/schema.ts:73](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L73)
 
 ---
 
@@ -59,7 +59,7 @@ Note: The default is Infinity.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[maxArgs](interfaces_schema.schema.md#maxargs)
 
-Defined in: [interfaces/schema.ts:85](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L85)
+Defined in: [interfaces/schema.ts:85](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L85)
 
 ---
 
@@ -73,7 +73,7 @@ Note: The default is 0.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[minArgs](interfaces_schema.schema.md#minargs)
 
-Defined in: [interfaces/schema.ts:79](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L79)
+Defined in: [interfaces/schema.ts:79](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L79)
 
 ---
 
@@ -83,7 +83,7 @@ Defined in: [interfaces/schema.ts:79](https://github.com/prasadrajandran/node-ge
 
 Name of the command.
 
-Defined in: [interfaces/schema.ts:59](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L59)
+Defined in: [interfaces/schema.ts:59](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L59)
 
 ---
 
@@ -95,4 +95,4 @@ Options.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[opts](interfaces_schema.schema.md#opts)
 
-Defined in: [interfaces/schema.ts:69](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L69)
+Defined in: [interfaces/schema.ts:69](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L69)

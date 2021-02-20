@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.1](../README.md) / interfaces/opt_map
+[getopts - v1.0.0-alpha.2](../README.md) / interfaces/opt_map
 
 # Module: interfaces/opt_map
 
@@ -17,7 +17,7 @@
 
 Option's argument.
 
-Defined in: [interfaces/opt_map.ts:6](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/opt_map.ts#L6)
+Defined in: [interfaces/opt_map.ts:6](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/opt_map.ts#L6)
 
 ---
 
@@ -27,4 +27,4 @@ Defined in: [interfaces/opt_map.ts:6](https://github.com/prasadrajandran/node-ge
 
 Map of an option's name to its arguments.
 
-Defined in: [interfaces/opt_map.ts:11](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/opt_map.ts#L11)
+Defined in: [interfaces/opt_map.ts:11](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/opt_map.ts#L11)
