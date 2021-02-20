@@ -17,7 +17,7 @@ npm install @prasadrajandran/getopts --save
 ### Example
 
 ```javascript
-const getopts = require('getopts');
+const { getopts } = require('@prasadrajandran/getopts');
 
 const { config, execPath, module, input, cmds, opts, args, errors } = getopts({
   opts: [
