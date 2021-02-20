@@ -1,3 +1,3 @@
-import { parse } from './parse';
+import { parse as getopts } from './parse';
 
-module.exports = parse;
+export { getopts };
