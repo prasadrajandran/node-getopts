@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.1](../README.md) / [interfaces/config](../modules/interfaces_config.md) / Config
+[getopts - v1.0.0-alpha.2](../README.md) / [interfaces/config](../modules/interfaces_config.md) / Config
 
 # Interface: Config
 
@@ -25,7 +25,7 @@ Configuration object.
 
 Argument filter.
 
-Defined in: [interfaces/config.ts:70](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/config.ts#L70)
+Defined in: [interfaces/config.ts:70](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L70)
 
 ---
 
@@ -35,7 +35,7 @@ Defined in: [interfaces/config.ts:70](https://github.com/prasadrajandran/node-ge
 
 Command map.
 
-Defined in: [interfaces/config.ts:58](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/config.ts#L58)
+Defined in: [interfaces/config.ts:58](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L58)
 
 ---
 
@@ -45,7 +45,7 @@ Defined in: [interfaces/config.ts:58](https://github.com/prasadrajandran/node-ge
 
 Does it expect commands (true) or arguments (false)?
 
-Defined in: [interfaces/config.ts:74](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/config.ts#L74)
+Defined in: [interfaces/config.ts:74](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L74)
 
 ---
 
@@ -55,7 +55,7 @@ Defined in: [interfaces/config.ts:74](https://github.com/prasadrajandran/node-ge
 
 Maximum number of arguments accepted.
 
-Defined in: [interfaces/config.ts:66](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/config.ts#L66)
+Defined in: [interfaces/config.ts:66](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L66)
 
 ---
 
@@ -65,7 +65,7 @@ Defined in: [interfaces/config.ts:66](https://github.com/prasadrajandran/node-ge
 
 Minimum number of arguments required.
 
-Defined in: [interfaces/config.ts:62](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/config.ts#L62)
+Defined in: [interfaces/config.ts:62](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L62)
 
 ---
 
@@ -75,4 +75,4 @@ Defined in: [interfaces/config.ts:62](https://github.com/prasadrajandran/node-ge
 
 Option map.
 
-Defined in: [interfaces/config.ts:54](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/config.ts#L54)
+Defined in: [interfaces/config.ts:54](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L54)

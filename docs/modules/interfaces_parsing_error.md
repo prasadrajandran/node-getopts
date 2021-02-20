@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.1](../README.md) / interfaces/parsing_error
+[getopts - v1.0.0-alpha.2](../README.md) / interfaces/parsing_error
 
 # Module: interfaces/parsing_error
 
@@ -20,4 +20,4 @@
 
 Parsing error types.
 
-Defined in: [interfaces/parsing_error.ts:4](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/parsing_error.ts#L4)
+Defined in: [interfaces/parsing_error.ts:4](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/parsing_error.ts#L4)

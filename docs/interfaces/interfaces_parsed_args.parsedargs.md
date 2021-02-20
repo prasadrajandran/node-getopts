@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.1](../README.md) / [interfaces/parsed_args](../modules/interfaces_parsed_args.md) / ParsedArgs
+[getopts - v1.0.0-alpha.2](../README.md) / [interfaces/parsed_args](../modules/interfaces_parsed_args.md) / ParsedArgs
 
 # Interface: ParsedArgs
 
@@ -27,7 +27,7 @@ Parsed CLI arguments.
 
 Array of parsed arguments.
 
-Defined in: [interfaces/parsed_args.ts:36](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/parsed_args.ts#L36)
+Defined in: [interfaces/parsed_args.ts:36](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/parsed_args.ts#L36)
 
 ---
 
@@ -37,7 +37,7 @@ Defined in: [interfaces/parsed_args.ts:36](https://github.com/prasadrajandran/no
 
 Array of parsed commands.
 
-Defined in: [interfaces/parsed_args.ts:28](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/parsed_args.ts#L28)
+Defined in: [interfaces/parsed_args.ts:28](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/parsed_args.ts#L28)
 
 ---
 
@@ -47,7 +47,7 @@ Defined in: [interfaces/parsed_args.ts:28](https://github.com/prasadrajandran/no
 
 Parsed CLI schema.
 
-Defined in: [interfaces/parsed_args.ts:12](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/parsed_args.ts#L12)
+Defined in: [interfaces/parsed_args.ts:12](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/parsed_args.ts#L12)
 
 ---
 
@@ -57,7 +57,7 @@ Defined in: [interfaces/parsed_args.ts:12](https://github.com/prasadrajandran/no
 
 Array of any parsing errors.
 
-Defined in: [interfaces/parsed_args.ts:40](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/parsed_args.ts#L40)
+Defined in: [interfaces/parsed_args.ts:40](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/parsed_args.ts#L40)
 
 ---
 
@@ -67,7 +67,7 @@ Defined in: [interfaces/parsed_args.ts:40](https://github.com/prasadrajandran/no
 
 Absolute pathname of the executable that started the Node.js process.
 
-Defined in: [interfaces/parsed_args.ts:16](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/parsed_args.ts#L16)
+Defined in: [interfaces/parsed_args.ts:16](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/parsed_args.ts#L16)
 
 ---
 
@@ -77,7 +77,7 @@ Defined in: [interfaces/parsed_args.ts:16](https://github.com/prasadrajandran/no
 
 CLI arguments that were parsed.
 
-Defined in: [interfaces/parsed_args.ts:24](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/parsed_args.ts#L24)
+Defined in: [interfaces/parsed_args.ts:24](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/parsed_args.ts#L24)
 
 ---
 
@@ -87,7 +87,7 @@ Defined in: [interfaces/parsed_args.ts:24](https://github.com/prasadrajandran/no
 
 Path to the JavaScript file being executed.
 
-Defined in: [interfaces/parsed_args.ts:20](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/parsed_args.ts#L20)
+Defined in: [interfaces/parsed_args.ts:20](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/parsed_args.ts#L20)
 
 ---
 
@@ -97,4 +97,4 @@ Defined in: [interfaces/parsed_args.ts:20](https://github.com/prasadrajandran/no
 
 Map of parsed options.
 
-Defined in: [interfaces/parsed_args.ts:32](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/parsed_args.ts#L32)
+Defined in: [interfaces/parsed_args.ts:32](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/parsed_args.ts#L32)

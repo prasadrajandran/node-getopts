@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
+[getopts - v1.0.0-alpha.2](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
 
 # Interface: OptArgFilter
 
@@ -20,4 +20,4 @@ Callback to filter an option's argument(s).
 
 **Returns:** _unknown_
 
-Defined in: [interfaces/schema.ts:16](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L16)
+Defined in: [interfaces/schema.ts:16](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L16)

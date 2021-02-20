@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / Schema
+[getopts - v1.0.0-alpha.2](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / Schema
 
 # Interface: Schema
 
@@ -30,7 +30,7 @@ Schema.
 
 Pass the arguments through a filter for processing.
 
-Defined in: [interfaces/schema.ts:89](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L89)
+Defined in: [interfaces/schema.ts:89](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L89)
 
 ---
 
@@ -40,7 +40,7 @@ Defined in: [interfaces/schema.ts:89](https://github.com/prasadrajandran/node-ge
 
 Commands.
 
-Defined in: [interfaces/schema.ts:73](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L73)
+Defined in: [interfaces/schema.ts:73](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L73)
 
 ---
 
@@ -52,7 +52,7 @@ Maximum number of arguments (i.e. arguments that are not options or
 commands) expected.
 Note: The default is Infinity.
 
-Defined in: [interfaces/schema.ts:85](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L85)
+Defined in: [interfaces/schema.ts:85](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L85)
 
 ---
 
@@ -64,7 +64,7 @@ Minimum number of arguments (i.e. arguments that are not options or
 commands) expected.
 Note: The default is 0.
 
-Defined in: [interfaces/schema.ts:79](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L79)
+Defined in: [interfaces/schema.ts:79](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L79)
 
 ---
 
@@ -74,4 +74,4 @@ Defined in: [interfaces/schema.ts:79](https://github.com/prasadrajandran/node-ge
 
 Options.
 
-Defined in: [interfaces/schema.ts:69](https://github.com/prasadrajandran/node-getopts/blob/63a95d9/src/interfaces/schema.ts#L69)
+Defined in: [interfaces/schema.ts:69](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L69)
