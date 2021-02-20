@@ -20,4 +20,5 @@ module.exports = {
   rules: {
     'tsdoc/syntax': 'warn',
   },
+  ignorePatterns: ['strip_comments.js'],
 };
