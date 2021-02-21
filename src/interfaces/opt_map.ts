@@ -7,7 +7,7 @@ export type OptArg = unknown;
 
 /**
  * Map of a CLI option's name to its arguments.
- * 
+ *
  * Note:
  * - It's mapped to an array because all CLI options are capable of receiving
  *   multiple arguments. This can be done by simply repeating the option.

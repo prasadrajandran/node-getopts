@@ -7,7 +7,7 @@ import { OptMap } from './opt_map';
 export interface ParsedArgs {
   /**
    * Parsed CLI schema.
-   * 
+   *
    * Note: can be used to verify if the CLI schema was properly parsed.
    */
   config: Config;

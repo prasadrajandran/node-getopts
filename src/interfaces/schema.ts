@@ -37,7 +37,7 @@ export interface OptSchema {
   /**
    * Specify if the CLI option accepts an argument. If so, further specify if
    * the argument is required or optional.
-   * 
+   *
    * Notes:
    * - If this is defined, it is automatically assumed that the option accepts
    *   arguments.
@@ -47,12 +47,12 @@ export interface OptSchema {
   arg?: 'required' | 'optional';
   /**
    * Pass the CLI option's argument through a filter.
-   * 
+   *
    * Example use cases:
    * - Input validation (is it within some defined range)
    * - Type casting (convert the string to a number)
    * - etc
-   * 
+   *
    * Notes:
    * - Filters are executed within a try/catch block. If an error is thrown, it
    *   will be captured and stored inside the `errors` array.
@@ -77,25 +77,25 @@ export interface CmdSchema extends Schema {
 export interface Schema {
   /**
    * CLI options.
-   * 
+   *
    * Define all options that the CLI is capable of receiving here.
    */
   opts?: OptSchema[];
   /**
    * CLI Commands.
-   * 
+   *
    * Define all commands that the CLI is capable of receiving here.
-   * 
+   *
    * If this is defined, it is assumed that the CLI expects commands instead of
    * arguments (this affects what `minArgs` and `maxArgs` do).
    */
   cmds?: CmdSchema[];
   /**
    * Minimum number of CLI arguments expected.
-   * 
+   *
    * If the CLI expects arguments (i.e. `cmds` is undefined):
    * - The default is 0 (arguments are optional)
-   * 
+   *
    * If the CLI expects commands (i.e. `cmds` is defined):
    * - The only valid values are 0 (command is optional) or 1 (command is
    *   required)
@@ -104,10 +104,10 @@ export interface Schema {
   minArgs?: number;
   /**
    * Maximum number of CLI arguments expected.
-   * 
+   *
    * If the CLI expects arguments (i.e. `cmds` is undefined):
    * - The default is 0 (arguments are optional)
-   * 
+   *
    * If the CLI expects commands (i.e. `cmds` is defined):
    * - The only valid value is 1. This should ideally be left undefined if
    *   commands are expected.
@@ -115,12 +115,12 @@ export interface Schema {
   maxArgs?: number;
   /**
    * Pass the CLI arguments through a filter.
-   * 
+   *
    * Example use cases:
    * - Input validation (is it within some defined range)
    * - Type casting (convert the string to a number)
    * - etc
-   * 
+   *
    * Notes:
    * - This filter is only meant to process arguments. If `cmds` is defined,
    *   this filter will be ignored.

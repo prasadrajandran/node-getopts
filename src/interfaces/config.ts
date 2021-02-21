@@ -59,7 +59,7 @@ export interface Config {
   /**
    * If CLI arguments are expected:
    * - Minimum number CLI arguments expected
-   * 
+   *
    * If CLI commands are expected:
    * - Is the command optional (0) or required (1).
    */
@@ -67,7 +67,7 @@ export interface Config {
   /**
    * If CLI arguments are expected:
    * - Maximum number CLI arguments expected
-   * 
+   *
    * If CLI commands are expected:
    * - Will be set to 1
    */
