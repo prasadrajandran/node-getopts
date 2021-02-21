@@ -1,10 +1,10 @@
-[getopts - v1.0.0-alpha.2](../README.md) / [interfaces/config](../modules/interfaces_config.md) / Config
+[getopts - v1.0.0-alpha.3](../README.md) / [interfaces/config](../modules/interfaces_config.md) / Config
 
 # Interface: Config
 
 [interfaces/config](../modules/interfaces_config.md).Config
 
-Configuration object.
+CLI config.
 
 ## Table of contents
 
@@ -23,9 +23,9 @@ Configuration object.
 
 • **argFilter**: [_ArgFilter_](interfaces_schema.argfilter.md)
 
-Argument filter.
+CLI argument filter (CLI commands are excluded).
 
-Defined in: [interfaces/config.ts:70](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L70)
+Defined in: [src/interfaces/config.ts:78](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L78)
 
 ---
 
@@ -33,9 +33,9 @@ Defined in: [interfaces/config.ts:70](https://github.com/prasadrajandran/node-ge
 
 • **cmds**: [_CmdConfigMap_](../modules/interfaces_config.md#cmdconfigmap)
 
-Command map.
+CLI command config map.
 
-Defined in: [interfaces/config.ts:58](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L58)
+Defined in: [src/interfaces/config.ts:58](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L58)
 
 ---
 
@@ -43,9 +43,9 @@ Defined in: [interfaces/config.ts:58](https://github.com/prasadrajandran/node-ge
 
 • **expectsCmd**: _boolean_
 
-Does it expect commands (true) or arguments (false)?
+Does the CLI expect commands or arguments?
 
-Defined in: [interfaces/config.ts:74](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L74)
+Defined in: [src/interfaces/config.ts:82](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L82)
 
 ---
 
@@ -53,9 +53,15 @@ Defined in: [interfaces/config.ts:74](https://github.com/prasadrajandran/node-ge
 
 • **maxArgs**: _number_
 
-Maximum number of arguments accepted.
+If CLI arguments are expected:
 
-Defined in: [interfaces/config.ts:66](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L66)
+- Maximum number CLI arguments expected
+
+If CLI commands are expected:
+
+- Will be set to 1
+
+Defined in: [src/interfaces/config.ts:74](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L74)
 
 ---
 
@@ -63,9 +69,15 @@ Defined in: [interfaces/config.ts:66](https://github.com/prasadrajandran/node-ge
 
 • **minArgs**: _number_
 
-Minimum number of arguments required.
+If CLI arguments are expected:
 
-Defined in: [interfaces/config.ts:62](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L62)
+- Minimum number CLI arguments expected
+
+If CLI commands are expected:
+
+- Is the command optional (0) or required (1).
+
+Defined in: [src/interfaces/config.ts:66](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L66)
 
 ---
 
@@ -73,6 +85,6 @@ Defined in: [interfaces/config.ts:62](https://github.com/prasadrajandran/node-ge
 
 • **opts**: [_OptConfigMap_](../modules/interfaces_config.md#optconfigmap)
 
-Option map.
+CLI option config map.
 
-Defined in: [interfaces/config.ts:54](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L54)
+Defined in: [src/interfaces/config.ts:54](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L54)

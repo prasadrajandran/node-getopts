@@ -1,10 +1,10 @@
-[getopts - v1.0.0-alpha.2](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
+[getopts - v1.0.0-alpha.3](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
 
 # Interface: CmdSchema
 
 [interfaces/schema](../modules/interfaces_schema.md).CmdSchema
 
-Schema for a command.
+Schema for a CLI command.
 
 ## Hierarchy
 
@@ -29,11 +29,24 @@ Schema for a command.
 
 • `Optional` **argFilter**: _undefined_ \| [_ArgFilter_](interfaces_schema.argfilter.md)
 
-Pass the arguments through a filter for processing.
+Pass the CLI arguments through a filter.
+
+Example use cases:
+
+- Input validation (is it within some defined range)
+- Type casting (convert the string to a number)
+- etc
+
+Notes:
+
+- This filter is only meant to process arguments. If `cmds` is defined,
+  this filter will be ignored.
+- Filters are executed within a try/catch block. If an error is thrown, it
+  will be captured and stored inside the `errors` array.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[argFilter](interfaces_schema.schema.md#argfilter)
 
-Defined in: [interfaces/schema.ts:89](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L89)
+Defined in: [src/interfaces/schema.ts:130](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L130)
 
 ---
 
@@ -41,11 +54,16 @@ Defined in: [interfaces/schema.ts:89](https://github.com/prasadrajandran/node-ge
 
 • `Optional` **cmds**: _undefined_ \| [_CmdSchema_](interfaces_schema.cmdschema.md)[]
 
-Commands.
+CLI Commands.
+
+Define all commands that the CLI is capable of receiving here.
+
+If this is defined, it is assumed that the CLI expects commands instead of
+arguments (this affects what `minArgs` and `maxArgs` do).
 
 Inherited from: [Schema](interfaces_schema.schema.md).[cmds](interfaces_schema.schema.md#cmds)
 
-Defined in: [interfaces/schema.ts:73](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L73)
+Defined in: [src/interfaces/schema.ts:92](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L92)
 
 ---
 
@@ -53,13 +71,20 @@ Defined in: [interfaces/schema.ts:73](https://github.com/prasadrajandran/node-ge
 
 • `Optional` **maxArgs**: _undefined_ \| _number_
 
-Maximum number of arguments (i.e. arguments that are not options or
-commands) expected.
-Note: The default is Infinity.
+Maximum number of CLI arguments expected.
+
+If the CLI expects arguments (i.e. `cmds` is undefined):
+
+- The default is 0 (arguments are optional)
+
+If the CLI expects commands (i.e. `cmds` is defined):
+
+- The only valid value is 1. This should ideally be left undefined if
+  commands are expected.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[maxArgs](interfaces_schema.schema.md#maxargs)
 
-Defined in: [interfaces/schema.ts:85](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L85)
+Defined in: [src/interfaces/schema.ts:115](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L115)
 
 ---
 
@@ -67,13 +92,21 @@ Defined in: [interfaces/schema.ts:85](https://github.com/prasadrajandran/node-ge
 
 • `Optional` **minArgs**: _undefined_ \| _number_
 
-Minimum number of arguments (i.e. arguments that are not options or
-commands) expected.
-Note: The default is 0.
+Minimum number of CLI arguments expected.
+
+If the CLI expects arguments (i.e. `cmds` is undefined):
+
+- The default is 0 (arguments are optional)
+
+If the CLI expects commands (i.e. `cmds` is defined):
+
+- The only valid values are 0 (command is optional) or 1 (command is
+  required)
+- The default is 1 (command is required)
 
 Inherited from: [Schema](interfaces_schema.schema.md).[minArgs](interfaces_schema.schema.md#minargs)
 
-Defined in: [interfaces/schema.ts:79](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L79)
+Defined in: [src/interfaces/schema.ts:104](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L104)
 
 ---
 
@@ -81,9 +114,9 @@ Defined in: [interfaces/schema.ts:79](https://github.com/prasadrajandran/node-ge
 
 • **name**: _string_
 
-Name of the command.
+Name of the CLI command.
 
-Defined in: [interfaces/schema.ts:59](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L59)
+Defined in: [src/interfaces/schema.ts:71](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L71)
 
 ---
 
@@ -91,8 +124,10 @@ Defined in: [interfaces/schema.ts:59](https://github.com/prasadrajandran/node-ge
 
 • `Optional` **opts**: _undefined_ \| [_OptSchema_](interfaces_schema.optschema.md)[]
 
-Options.
+CLI options.
+
+Define all options that the CLI is capable of receiving here.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[opts](interfaces_schema.schema.md#opts)
 
-Defined in: [interfaces/schema.ts:69](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L69)
+Defined in: [src/interfaces/schema.ts:83](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L83)

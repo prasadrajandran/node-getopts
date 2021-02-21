@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.2](../README.md) / interfaces/opt_map
+[getopts - v1.0.0-alpha.3](../README.md) / interfaces/opt_map
 
 # Module: interfaces/opt_map
 
@@ -15,9 +15,9 @@
 
 Ƭ **OptArg**: _unknown_
 
-Option's argument.
+CLI option's argument.
 
-Defined in: [interfaces/opt_map.ts:6](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/opt_map.ts#L6)
+Defined in: [src/interfaces/opt_map.ts:6](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/opt_map.ts#L6)
 
 ---
 
@@ -25,6 +25,13 @@ Defined in: [interfaces/opt_map.ts:6](https://github.com/prasadrajandran/node-ge
 
 Ƭ **OptMap**: _Map_<[_OptName_](interfaces_config.md#optname) \| [_OptLongName_](interfaces_config.md#optlongname), [_OptArg_](interfaces_opt_map.md#optarg)[]\>
 
-Map of an option's name to its arguments.
+Map of a CLI option's name to its arguments.
 
-Defined in: [interfaces/opt_map.ts:11](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/opt_map.ts#L11)
+Note:
+
+- It's mapped to an array because all CLI options are capable of receiving
+  multiple arguments. This can be done by simply repeating the option.
+  Example:
+  someutility -n5 -n10 -n12 run
+
+Defined in: [src/interfaces/opt_map.ts:17](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/opt_map.ts#L17)
