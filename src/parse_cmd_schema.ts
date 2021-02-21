@@ -1,6 +1,7 @@
 import { CmdSchema } from './interfaces/schema';
 import { OptConfigMap, CmdConfigMap } from './interfaces/config';
 import { parseSchema } from './parse_schema';
+import { SchemaError } from './classes/errors';
 
 /**
  * Parse a command schema.
@@ -17,7 +18,7 @@ export const parseCmdSchema = (
 
   for (const { name, ...schema } of cmdSchemas) {
     if (cmds.has(name)) {
-      throw new Error(`[SCHEMA] Duplicate command name: "${name}"`);
+      throw new SchemaError(`"${name}" is a duplicate command`);
     }
     cmds.set(name, parseSchema(schema, alreadyDefinedOpts));
   }

@@ -1,5 +1,6 @@
 import { OptSchema } from './interfaces/schema';
 import { OptConfigMap, OptConfig } from './interfaces/config';
+import { SchemaError } from './classes/errors';
 
 /**
  * A option can only be made out of alphanumeric characters.
@@ -35,33 +36,33 @@ export const parseOptSchema = (optSchemas: OptSchema[]): OptConfigMap => {
     };
 
     if (!name && !longName) {
-      throw new Error(
-        `[SCHEMA] Option must have a name or a long name defined`,
-      );
+      throw new SchemaError(`Option must have a name or a long name defined`);
     }
 
     if (config.argAccepted && !config.argRequired && !longName) {
-      throw new Error(
-        `[SCHEMA] Since arguments are optional for ${name}, a long option ` +
-          `must also be defined because only long options are able to accept ` +
-          `optional arguments`,
+      throw new SchemaError(
+        `Since arguments are optional for "${name}", a long option must also ` +
+          `be defined because only long options are able to accept optional ` +
+          `arguments`,
       );
     }
 
     if (name) {
       if (!OPT_SCHEMA_REGEX.test(name)) {
-        throw new Error(`[SCHEMA] Invalid option name: "${name}"`);
+        throw new SchemaError(`"${name}" is an invalid name for an option`);
       } else if (opts.has(name)) {
-        throw new Error(`[SCHEMA] Duplicate option name: "${name}"`);
+        throw new SchemaError(`"${name}" is a duplicate option`);
       }
       opts.set(name, config);
     }
 
     if (longName) {
       if (!LONG_OPT_SCHEMA_REGEX.test(longName)) {
-        throw new Error(`[SCHEMA] Invalid long option name: "${longName}"`);
+        throw new SchemaError(
+          `"${longName}" is an invalid name for a long option`,
+        );
       } else if (opts.has(longName)) {
-        throw new Error(`[SCHEMA] Duplicate long option name: "${longName}"`);
+        throw new SchemaError(`"${longName}" is a duplicate long option`);
       }
       opts.set(longName, config);
     }
