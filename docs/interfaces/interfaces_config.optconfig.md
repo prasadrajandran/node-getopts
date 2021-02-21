@@ -1,10 +1,10 @@
-[getopts - v1.0.0-alpha.2](../README.md) / [interfaces/config](../modules/interfaces_config.md) / OptConfig
+[getopts - v1.0.0-alpha.3](../README.md) / [interfaces/config](../modules/interfaces_config.md) / OptConfig
 
 # Interface: OptConfig
 
 [interfaces/config](../modules/interfaces_config.md).OptConfig
 
-An option's configuration object.
+A CLI option's configuration object.
 
 ## Table of contents
 
@@ -20,9 +20,9 @@ An option's configuration object.
 
 • **argAccepted**: _boolean_
 
-Does the option accept arguments?
+Does the CLI option accept arguments?
 
-Defined in: [interfaces/config.ts:20](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L20)
+Defined in: [src/interfaces/config.ts:20](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L20)
 
 ---
 
@@ -30,9 +30,9 @@ Defined in: [interfaces/config.ts:20](https://github.com/prasadrajandran/node-ge
 
 • **argFilter**: [_OptArgFilter_](interfaces_schema.optargfilter.md)
 
-Process the argument.
+Process the CLI option's argument.
 
-Defined in: [interfaces/config.ts:28](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L28)
+Defined in: [src/interfaces/config.ts:28](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L28)
 
 ---
 
@@ -40,6 +40,6 @@ Defined in: [interfaces/config.ts:28](https://github.com/prasadrajandran/node-ge
 
 • **argRequired**: _boolean_
 
-Does the option require arguments?
+Does the CLI option require arguments?
 
-Defined in: [interfaces/config.ts:24](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/config.ts#L24)
+Defined in: [src/interfaces/config.ts:24](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L24)

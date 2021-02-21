@@ -1,8 +1,10 @@
 /**
  * Converts `input` into an array (separated by spaces) and adds that to
  * `process.argv` (after index 1).
- * @param input
+ * @param {string} input
  */
-export const setArgv = (input: string): void => {
+const setArgv = (input) => {
   process.argv = [process.argv[0], process.argv[1]].concat(input.split(' '));
 };
+
+module.exports = setArgv;

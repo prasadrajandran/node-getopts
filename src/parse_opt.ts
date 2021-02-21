@@ -1,6 +1,10 @@
 import { OptMap } from './interfaces/opt_map';
-import { ParsingError } from './interfaces/parsing_error';
 import { OptConfigMap } from './interfaces/config';
+import {
+  OptArgFilterError,
+  OptMissingArgError,
+  UnknownOptError,
+} from './classes/errors';
 
 /**
  * Parse an option.
@@ -21,7 +25,7 @@ import { OptConfigMap } from './interfaces/config';
  */
 export const parseOpt = (
   optSchema: OptConfigMap,
-  errors: ParsingError[],
+  errors: Error[],
   opts: OptMap,
   input: string,
   nextInput?: string,
@@ -48,24 +52,25 @@ export const parseOpt = (
         try {
           optArgs.push(argFilter(optArg));
         } catch (err) {
-          errors.push({
-            type: 'OPT_ARG_FILTER_FAILED',
-            msg: `${optName}'s filter failed to process: "${optArg}"`,
-            err,
-          });
+          errors.push(
+            new OptArgFilterError(
+              `${optName}'s argument filter threw an exception when ` +
+                `processing "${optArg}"`,
+              optName,
+              optArg,
+              argFilter,
+              err,
+            ),
+          );
         }
         break;
       } else if (argRequired) {
-        errors.push({
-          type: 'OPT_REQUIRES_ARG',
-          msg: `${optName} requires an argument`,
-        });
+        errors.push(
+          new OptMissingArgError(`${optName} requires an argument`, optName),
+        );
       }
     } else {
-      errors.push({
-        type: 'UNKNOWN_OPT',
-        msg: `Unknown option: "${optName}"`,
-      });
+      errors.push(new UnknownOptError(`"${optName}"`, optName));
     }
   }
 

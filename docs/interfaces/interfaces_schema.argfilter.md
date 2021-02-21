@@ -1,16 +1,16 @@
-[getopts - v1.0.0-alpha.2](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
+[getopts - v1.0.0-alpha.3](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
 
 # Interface: ArgFilter
 
 [interfaces/schema](../modules/interfaces_schema.md).ArgFilter
 
-Callback to filter argument(s).
+Callback function to filter CLI argument(s).
 
 ## Callable
 
 ▸ **ArgFilter**(`arg`: _string_, `pos`: _number_): _unknown_
 
-Callback to filter argument(s).
+Callback function to filter CLI argument(s).
 
 #### Parameters:
 
@@ -21,4 +21,4 @@ Callback to filter argument(s).
 
 **Returns:** _unknown_
 
-Defined in: [interfaces/schema.ts:4](https://github.com/prasadrajandran/node-getopts/blob/e4ad7b6/src/interfaces/schema.ts#L4)
+Defined in: [src/interfaces/schema.ts:4](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L4)

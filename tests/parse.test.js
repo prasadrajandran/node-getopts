@@ -1,6 +1,5 @@
-// @ts-nocheck
-import { setArgv } from './helpers/set_argv';
-import { parse } from '../src/parse';
+const setArgv = require('./helpers/set_argv');
+const { parse } = require('../dist/parse');
 
 beforeEach(() => {
   setArgv('');
