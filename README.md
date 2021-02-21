@@ -4,6 +4,18 @@ Utility program that parses command line arguments for you. The CLI of your
 program is expected to adhere to the POSIX/GNU conventions. The POSIX/GNU
 conventions can be found [here](https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html).
 
+## Highlights
+
+- Adheres POSIX/GNU conventions
+- Strict option/argument/command input validation
+  - All errors are collected into an array
+- Subcommand support (infinite nesting)
+  - All subcommands support their own set of options and arguments
+- Argument filters (including option arguments)
+  - Argument validation
+  - Type casting
+  - etc.
+
 ## How Do I Use It?
 
 Full API documentation can be found [here](https://github.com/prasadrajandran/node-getopts/tree/main/docs).
@@ -11,7 +23,7 @@ Full API documentation can be found [here](https://github.com/prasadrajandran/no
 ### Installation
 
 ```
-npm install @prasadrajandran/getopts --save
+npm i @prasadrajandran/getopts
 ```
 
 ### Example
@@ -19,7 +31,7 @@ npm install @prasadrajandran/getopts --save
 ```javascript
 const { getopts } = require('@prasadrajandran/getopts');
 
-const { config, execPath, module, input, cmds, opts, args, errors } = getopts({
+const { cmds, opts, args, errors } = getopts({
   opts: [
     { name: '-l', argFilter: (v) => parseInt(v, 10) },
     { longName: '--verbose' },
@@ -28,7 +40,11 @@ const { config, execPath, module, input, cmds, opts, args, errors } = getopts({
 });
 
 if (errors.length) {
-  console.error(errors.map(({ msg }) => msg).join('\n'));
+  const errorMessages = errors
+    .map(({ name, message }) => `${name}: ${message}`)
+    .join('\n');
+
+  console.error(errorMessages);
 } else {
   const limit = opts.has('-l') ? opts.get('-l')[0] : Infinity;
   const verbose = opts.has('--verbose');
