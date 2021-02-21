@@ -1,5 +1,5 @@
 /**
- * Callback to filter argument(s).
+ * Callback function to filter CLI argument(s).
  */
 export interface ArgFilter {
   /**
@@ -11,7 +11,7 @@ export interface ArgFilter {
 }
 
 /**
- * Callback to filter an option's argument(s).
+ * Callback function to filter a CLI option's argument(s).
  */
 export interface OptArgFilter {
   /**
@@ -21,70 +21,111 @@ export interface OptArgFilter {
 }
 
 /**
- * Schema for an option.
+ * Schema for a CLI option.
  */
 export interface OptSchema {
   /**
-   * Name of the option.
+   * Name of the CLI option.
    * E.g.: "-a", "-A", etc.
    */
   name?: string;
   /**
-   * Long name of the option.
+   * Long name of the CLI option.
    * E.g.: "--sort-by", "--append", etc.
    */
   longName?: string;
   /**
-   * Does the option accept an argument? If so, is the argument required or
-   * optional.
-   * Note: It is automatically assumed that the option takes an argument if
-   * this property is defined.
+   * Specify if the CLI option accepts an argument. If so, further specify if
+   * the argument is required or optional.
+   * 
+   * Notes:
+   * - If this is defined, it is automatically assumed that the option accepts
+   *   arguments.
+   * - Only long options are capable of receiving optional arguments. If this
+   *   set to "optional", the (short) option will not accept arguments.
    */
   arg?: 'required' | 'optional';
   /**
-   * Pass the option's argument through a filter for processing.
-   * E.g. convert it to a number, etc.
+   * Pass the CLI option's argument through a filter.
+   * 
+   * Example use cases:
+   * - Input validation (is it within some defined range)
+   * - Type casting (convert the string to a number)
+   * - etc
+   * 
+   * Notes:
+   * - Filters are executed within a try/catch block. If an error is thrown, it
+   *   will be captured and stored inside the `errors` array.
    */
   argFilter?: OptArgFilter;
 }
 
 /**
- * Schema for a command.
+ * Schema for a CLI command.
  */
 // eslint-disable-next-line no-use-before-define
 export interface CmdSchema extends Schema {
   /**
-   * Name of the command.
+   * Name of the CLI command.
    */
   name: string;
 }
 
 /**
- * Schema.
+ * CLI schema.
  */
 export interface Schema {
   /**
-   * Options.
+   * CLI options.
+   * 
+   * Define all options that the CLI is capable of receiving here.
    */
   opts?: OptSchema[];
   /**
-   * Commands.
+   * CLI Commands.
+   * 
+   * Define all commands that the CLI is capable of receiving here.
+   * 
+   * If this is defined, it is assumed that the CLI expects commands instead of
+   * arguments (this affects what `minArgs` and `maxArgs` do).
    */
   cmds?: CmdSchema[];
   /**
-   * Minimum number of arguments (i.e. arguments that are not options or
-   * commands) expected.
-   * Note: The default is 0.
+   * Minimum number of CLI arguments expected.
+   * 
+   * If the CLI expects arguments (i.e. `cmds` is undefined):
+   * - The default is 0 (arguments are optional)
+   * 
+   * If the CLI expects commands (i.e. `cmds` is defined):
+   * - The only valid values are 0 (command is optional) or 1 (command is
+   *   required)
+   * - The default is 1 (command is required)
    */
   minArgs?: number;
   /**
-   * Maximum number of arguments (i.e. arguments that are not options or
-   * commands) expected.
-   * Note: The default is Infinity.
+   * Maximum number of CLI arguments expected.
+   * 
+   * If the CLI expects arguments (i.e. `cmds` is undefined):
+   * - The default is 0 (arguments are optional)
+   * 
+   * If the CLI expects commands (i.e. `cmds` is defined):
+   * - The only valid value is 1. This should ideally be left undefined if
+   *   commands are expected.
    */
   maxArgs?: number;
   /**
-   * Pass the arguments through a filter for processing.
+   * Pass the CLI arguments through a filter.
+   * 
+   * Example use cases:
+   * - Input validation (is it within some defined range)
+   * - Type casting (convert the string to a number)
+   * - etc
+   * 
+   * Notes:
+   * - This filter is only meant to process arguments. If `cmds` is defined,
+   *   this filter will be ignored.
+   * - Filters are executed within a try/catch block. If an error is thrown, it
+   *   will be captured and stored inside the `errors` array.
    */
   argFilter?: ArgFilter;
 }

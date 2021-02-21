@@ -1,6 +1,5 @@
 import { Config } from './config';
 import { OptMap } from './opt_map';
-import { ParsingError } from './parsing_error';
 
 /**
  * Parsed CLI arguments.
@@ -8,6 +7,8 @@ import { ParsingError } from './parsing_error';
 export interface ParsedArgs {
   /**
    * Parsed CLI schema.
+   * 
+   * Note: can be used to verify if the CLI schema was properly parsed.
    */
   config: Config;
   /**
@@ -19,23 +20,23 @@ export interface ParsedArgs {
    */
   module: string;
   /**
-   * CLI arguments that were parsed.
+   * CLI input.
    */
   input: string;
   /**
-   * Array of parsed commands.
+   * Array of parsed CLI commands.
    */
   cmds: string[];
   /**
-   * Map of parsed options.
+   * Map of parsed CLI options.
    */
   opts: OptMap;
   /**
-   * Array of parsed arguments.
+   * Array of parsed CLI arguments.
    */
   args: unknown[];
   /**
-   * Array of any parsing errors.
+   * Array of parsing/filter errors.
    */
-  errors: ParsingError[];
+  errors: Error[];
 }

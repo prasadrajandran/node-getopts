@@ -1,75 +1,83 @@
 import { ArgFilter, OptArgFilter } from './schema';
 
 /**
- * An option's name.
+ * A CLI option's name.
  */
 export type OptName = string;
 
 /**
- * An option's long name.
+ * A CLI option's long name.
  */
 export type OptLongName = string;
 
 /**
- * An option's configuration object.
+ * A CLI option's configuration object.
  */
 export interface OptConfig {
   /**
-   * Does the option accept arguments?
+   * Does the CLI option accept arguments?
    */
   argAccepted: boolean;
   /**
-   * Does the option require arguments?
+   * Does the CLI option require arguments?
    */
   argRequired: boolean;
   /**
-   * Process the argument.
+   * Process the CLI option's argument.
    */
   argFilter: OptArgFilter;
 }
 
 /**
- * Map of an option's name to its configuration object.
+ * Map of a CLI option's name to its configuration object.
  */
 export type OptConfigMap = Map<OptName | OptLongName, OptConfig>;
 
 /**
- * Command's name.
+ * CLI command's name.
  */
 export type CmdName = string;
 
 /**
- * Map of an command's name to its configuration object.
+ * Map of a CLI command's name to its configuration object.
  */
 // eslint-disable-next-line no-use-before-define
 export type CmdConfigMap = Map<CmdName, Config>;
 
 /**
- * Configuration object.
+ * CLI config.
  */
 export interface Config {
   /**
-   * Option map.
+   * CLI option config map.
    */
   opts: OptConfigMap;
   /**
-   * Command map.
+   * CLI command config map.
    */
   cmds: CmdConfigMap;
   /**
-   * Minimum number of arguments required.
+   * If CLI arguments are expected:
+   * - Minimum number CLI arguments expected
+   * 
+   * If CLI commands are expected:
+   * - Is the command optional (0) or required (1).
    */
   minArgs: number;
   /**
-   * Maximum number of arguments accepted.
+   * If CLI arguments are expected:
+   * - Maximum number CLI arguments expected
+   * 
+   * If CLI commands are expected:
+   * - Will be set to 1
    */
   maxArgs: number;
   /**
-   * Argument filter.
+   * CLI argument filter (CLI commands are excluded).
    */
   argFilter: ArgFilter;
   /**
-   * Does it expect commands (true) or arguments (false)?
+   * Does the CLI expect commands or arguments?
    */
   expectsCmd: boolean;
 }
