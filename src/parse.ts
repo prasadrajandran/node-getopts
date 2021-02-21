@@ -1,10 +1,16 @@
 import { OptMap } from './interfaces/opt_map';
-import { ParsingError } from './interfaces/parsing_error';
 import { Schema } from './interfaces/schema';
 import { parseSchema } from './parse_schema';
 import { parseOpt } from './parse_opt';
 import { parseLongOpt } from './parse_long_opt';
 import { ParsedArgs } from './interfaces/parsed_args';
+import {
+  ArgFilterError,
+  CmdExpectedError,
+  TooFewArgsError,
+  TooManyArgsError,
+  UnknownCmdError,
+} from './classes/errors';
 
 /**
  * Absolute pathname of the executable that started the Node.js process. This
@@ -68,7 +74,7 @@ export const parse = (
   const config = parseSchema(schema);
   const execPath = inputArgs[EXEC_PATH_INDEX];
   const module = inputArgs[MODULE_INDEX];
-  const errors: ParsingError[] = [];
+  const errors: Error[] = [];
   const cmds: string[] = [];
   const opts: OptMap = new Map();
   const args: unknown[] = [];
@@ -79,6 +85,7 @@ export const parse = (
   let maxArgs = config.maxArgs;
   let argFilter = config.argFilter;
   let expectsCmd = config.expectsCmd;
+  let unknownCmdReceived = false;
   let stillAcceptingOpts = true;
   let argPos = 0;
   for (let i = ARGS_INDEX; i < inputArgs.length; i++) {
@@ -115,10 +122,8 @@ export const parse = (
     if (expectsCmd) {
       const cmdConfig = cmdConfigMap.get(inputArg);
       if (!cmdConfig) {
-        errors.push({
-          type: 'UNKNOWN_CMD',
-          msg: `Unknown command: "${inputArg}"`,
-        });
+        errors.push(new UnknownCmdError(`"${inputArg}"`, inputArg));
+        unknownCmdReceived = true;
         break;
       }
 
@@ -134,31 +139,66 @@ export const parse = (
     }
 
     // (5) ARGUMENTS
-    if (maxArgs === args.length) {
-      errors.push({
-        type: 'TOO_MANY_ARGS',
-        msg: `Maximum number of arguments expected: ${maxArgs}`,
-      });
-      continue;
-    }
-
-    try {
-      args.push(argFilter(inputArg, argPos));
-    } catch (err) {
-      errors.push({
-        type: 'ARG_FILTER_FAILED',
-        msg: `Filter failed to process "${inputArg}" at position ${argPos}`,
-        err,
-      });
+    if (args.length >= maxArgs) {
+      // Too many arguments, no need to run the extra arguments through the
+      // argument filter.
+      args.push(inputArg);
+    } else {
+      try {
+        args.push(argFilter(inputArg, argPos));
+      } catch (err) {
+        errors.push(
+          new ArgFilterError(
+            `Exception thrown when processing "${inputArg}" at position ` +
+              argPos,
+            inputArg,
+            argPos,
+            argFilter,
+            err,
+          ),
+        );
+      }
     }
     argPos++;
   }
 
-  if (argPos < minArgs) {
-    errors.push({
-      type: 'TOO_FEW_ARGS',
-      msg: `Minimum number of arguments expected: ${minArgs}`,
-    });
+  // Add "too many arguments error" if applicable.
+  if (args.length > maxArgs) {
+    // Note: The use of `splice` is intentional as we want to remove the
+    // extra arguments from `args`.
+    const extraArgs = args.splice(maxArgs, Infinity) as string[];
+    errors.push(
+      new TooManyArgsError(
+        `Only ${maxArgs} argument${maxArgs > 1 ? 's' : ''} expected but got ` +
+          `${extraArgs.length > 1 ? 'these' : 'this'} ` +
+          `${extraArgs.map((arg) => `"${arg}"`).join(', ')} extra ` +
+          `argument${extraArgs.length > 1 ? 's' : ''}`,
+        extraArgs,
+        args.length + extraArgs.length,
+        maxArgs,
+      ),
+    );
+  }
+
+  // Add "too few arguments error" or "command expected error" if applicable.
+  if (!unknownCmdReceived && argPos < minArgs) {
+    if (expectsCmd) {
+      const cmds = Array.from(cmdConfigMap.keys());
+      errors.push(
+        new CmdExpectedError(
+          `${cmds.map((cmd) => `"${cmd}"`).join(', ')} expected`,
+          cmds,
+        ),
+      );
+    } else {
+      errors.push(
+        new TooFewArgsError(
+          `At least ${minArgs} argument${minArgs > 1 ? 's' : ''} expected`,
+          args.length,
+          minArgs,
+        ),
+      );
+    }
   }
 
   return {
