@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'eslint-plugin-tsdoc'],
   rules: {
-    'tsdoc/syntax': 'warn',
+    'tsdoc/syntax': 'error',
   },
   ignorePatterns: ['strip_comments.js', '*.test.js'],
 };
