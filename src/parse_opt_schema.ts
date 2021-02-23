@@ -39,6 +39,13 @@ export const parseOptSchema = (optSchemas: OptSchema[]): OptConfigMap => {
       throw new SchemaError(`Option must have a name or a long name defined`);
     }
 
+    if (!config.argAccepted && argFilter) {
+      throw new SchemaError(
+        `argFilter provided but "${name || longName}" does not accept an ` + 
+          `argument. Do not forget to set the "arg" property too.`
+      );
+    }    
+
     if (config.argAccepted && !config.argRequired && !longName) {
       throw new SchemaError(
         `Since arguments are optional for "${name}", a long option must also ` +
