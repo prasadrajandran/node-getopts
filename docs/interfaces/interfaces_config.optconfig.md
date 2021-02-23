@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.3](../README.md) / [interfaces/config](../modules/interfaces_config.md) / OptConfig
+[getopts - v1.0.0-alpha.4](../README.md) / [interfaces/config](../modules/interfaces_config.md) / OptConfig
 
 # Interface: OptConfig
 
@@ -20,9 +20,9 @@ A CLI option's configuration object.
 
 • **argAccepted**: _boolean_
 
-Does the CLI option accept arguments?
+Does the CLI option accept an argument?
 
-Defined in: [src/interfaces/config.ts:20](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L20)
+Defined in: [src/interfaces/config.ts:20](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L20)
 
 ---
 
@@ -32,7 +32,7 @@ Defined in: [src/interfaces/config.ts:20](https://github.com/prasadrajandran/nod
 
 Process the CLI option's argument.
 
-Defined in: [src/interfaces/config.ts:28](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L28)
+Defined in: [src/interfaces/config.ts:28](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L28)
 
 ---
 
@@ -40,6 +40,6 @@ Defined in: [src/interfaces/config.ts:28](https://github.com/prasadrajandran/nod
 
 • **argRequired**: _boolean_
 
-Does the CLI option require arguments?
+Does the CLI option require an argument?
 
-Defined in: [src/interfaces/config.ts:24](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L24)
+Defined in: [src/interfaces/config.ts:24](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L24)

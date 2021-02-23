@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.3](../README.md) / [interfaces/config](../modules/interfaces_config.md) / Config
+[getopts - v1.0.0-alpha.4](../README.md) / [interfaces/config](../modules/interfaces_config.md) / Config
 
 # Interface: Config
 
@@ -25,7 +25,7 @@ CLI config.
 
 CLI argument filter (CLI commands are excluded).
 
-Defined in: [src/interfaces/config.ts:78](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L78)
+Defined in: [src/interfaces/config.ts:78](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L78)
 
 ---
 
@@ -35,7 +35,7 @@ Defined in: [src/interfaces/config.ts:78](https://github.com/prasadrajandran/nod
 
 CLI command config map.
 
-Defined in: [src/interfaces/config.ts:58](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L58)
+Defined in: [src/interfaces/config.ts:58](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L58)
 
 ---
 
@@ -45,7 +45,7 @@ Defined in: [src/interfaces/config.ts:58](https://github.com/prasadrajandran/nod
 
 Does the CLI expect commands or arguments?
 
-Defined in: [src/interfaces/config.ts:82](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L82)
+Defined in: [src/interfaces/config.ts:82](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L82)
 
 ---
 
@@ -61,7 +61,7 @@ If CLI commands are expected:
 
 - Will be set to 1
 
-Defined in: [src/interfaces/config.ts:74](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L74)
+Defined in: [src/interfaces/config.ts:74](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L74)
 
 ---
 
@@ -77,7 +77,7 @@ If CLI commands are expected:
 
 - Is the command optional (0) or required (1).
 
-Defined in: [src/interfaces/config.ts:66](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L66)
+Defined in: [src/interfaces/config.ts:66](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L66)
 
 ---
 
@@ -87,4 +87,4 @@ Defined in: [src/interfaces/config.ts:66](https://github.com/prasadrajandran/nod
 
 CLI option config map.
 
-Defined in: [src/interfaces/config.ts:54](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L54)
+Defined in: [src/interfaces/config.ts:54](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L54)

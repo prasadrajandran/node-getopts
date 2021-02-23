@@ -1,16 +1,16 @@
-[getopts - v1.0.0-alpha.3](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
+[getopts - v1.0.0-alpha.4](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
 
 # Interface: OptArgFilter
 
 [interfaces/schema](../modules/interfaces_schema.md).OptArgFilter
 
-Callback function to filter a CLI option's argument(s).
+Callback function to filter a CLI option's argument.
 
 ## Callable
 
 ▸ **OptArgFilter**(`arg`: _string_): _unknown_
 
-Callback function to filter a CLI option's argument(s).
+Callback function to filter a CLI option's argument.
 
 #### Parameters:
 
@@ -20,4 +20,4 @@ Callback function to filter a CLI option's argument(s).
 
 **Returns:** _unknown_
 
-Defined in: [src/interfaces/schema.ts:16](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L16)
+Defined in: [src/interfaces/schema.ts:16](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L16)

@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.3](../README.md) / [classes/errors](../modules/classes_errors.md) / UnknownCmdError
+[getopts - v1.0.0-alpha.4](../README.md) / [classes/errors](../modules/classes_errors.md) / UnknownCmdError
 
 # Class: UnknownCmdError
 
@@ -18,6 +18,7 @@
 
 ### Properties
 
+- [expectedCmds](classes_errors.unknowncmderror.md#expectedcmds)
 - [message](classes_errors.unknowncmderror.md#message)
 - [name](classes_errors.unknowncmderror.md#name)
 - [prepareStackTrace](classes_errors.unknowncmderror.md#preparestacktrace)
@@ -33,22 +34,33 @@
 
 ### constructor
 
-\+ **new UnknownCmdError**(`message`: _string_, `unknownCmd`: _string_): [_UnknownCmdError_](classes_errors.unknowncmderror.md)
+\+ **new UnknownCmdError**(`message`: _string_, `unknownCmd`: _string_, `expectedCmds`: _string_[]): [_UnknownCmdError_](classes_errors.unknowncmderror.md)
 
 Unknown CLI command error.
 
 #### Parameters:
 
-| Name         | Type     | Description                      |
-| :----------- | :------- | :------------------------------- |
-| `message`    | _string_ | Error message.                   |
-| `unknownCmd` | _string_ | Name of the unknown CLI command. |
+| Name           | Type       | Description                      |
+| :------------- | :--------- | :------------------------------- |
+| `message`      | _string_   | Error message.                   |
+| `unknownCmd`   | _string_   | Name of the unknown CLI command. |
+| `expectedCmds` | _string_[] | CLI commands that were expected. |
 
 **Returns:** [_UnknownCmdError_](classes_errors.unknowncmderror.md)
 
-Defined in: [src/classes/errors.ts:30](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/classes/errors.ts#L30)
+Defined in: [src/classes/errors.ts:34](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L34)
 
 ## Properties
+
+### expectedCmds
+
+• **expectedCmds**: _string_[]
+
+CLI commands that were expected.
+
+Defined in: [src/classes/errors.ts:34](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L34)
+
+---
 
 ### message
 
@@ -62,7 +74,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'UnknownCmdError'
 
-Defined in: [src/classes/errors.ts:26](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/classes/errors.ts#L26)
+Defined in: [src/classes/errors.ts:26](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L26)
 
 ---
 
@@ -100,7 +112,7 @@ Defined in: node_modules/@types/node/globals.d.ts:13
 
 Name of the unknown CLI command
 
-Defined in: [src/classes/errors.ts:30](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/classes/errors.ts#L30)
+Defined in: [src/classes/errors.ts:30](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L30)
 
 ## Methods
 

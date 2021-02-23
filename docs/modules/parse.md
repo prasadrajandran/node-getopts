@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.3](../README.md) / parse
+[getopts - v1.0.0-alpha.4](../README.md) / parse
 
 # Module: parse
 
@@ -18,11 +18,11 @@ Parse CLI arguments.
 
 #### Parameters:
 
-| Name        | Type                                                  | Description                                |
-| :---------- | :---------------------------------------------------- | :----------------------------------------- |
-| `schema`    | [_Schema_](../interfaces/interfaces_schema.schema.md) | CLI schema.                                |
-| `inputArgs` | _string_[]                                            | CLI input. Will default to `process.argv`. |
+| Name        | Type                                                  | Description                                                                                                                                                                |
+| :---------- | :---------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `schema`    | [_Schema_](../interfaces/interfaces_schema.schema.md) | CLI schema.                                                                                                                                                                |
+| `inputArgs` | _string_[]                                            | CLI input. If explicitly provided, it must match the structure of `process.argv` (i.e. index 0 is the exec path, index 1 is the module, and arguments start from index 2). |
 
 **Returns:** [_ParsedArgs_](../interfaces/interfaces_parsed_args.parsedargs.md)
 
-Defined in: [src/parse.ts:70](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/parse.ts#L70)
+Defined in: [src/parse.ts:72](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/parse.ts#L72)
