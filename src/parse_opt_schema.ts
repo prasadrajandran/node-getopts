@@ -41,10 +41,10 @@ export const parseOptSchema = (optSchemas: OptSchema[]): OptConfigMap => {
 
     if (!config.argAccepted && argFilter) {
       throw new SchemaError(
-        `argFilter provided but "${name || longName}" does not accept an ` + 
-          `argument. Do not forget to set the "arg" property too.`
+        `argFilter provided but "${name || longName}" does not accept an ` +
+          `argument. Do not forget to set the "arg" property too.`,
       );
-    }    
+    }
 
     if (config.argAccepted && !config.argRequired && !longName) {
       throw new SchemaError(
