@@ -22,15 +22,17 @@ Full API documentation can be found [here](https://github.com/prasadrajandran/no
 
 ### Installation
 
-```
+```Shell
 npm i @prasadrajandran/getopts
+```
+
+```JavaScript
+const { getopts } = require('@prasadrajandran/getopts');
 ```
 
 ### Example
 
-```javascript
-const { getopts } = require('@prasadrajandran/getopts');
-
+```JavaScript
 const { cmds, opts, args, errors } = getopts({
   opts: [
     { name: '-l', argFilter: (v) => parseInt(v, 10) },
@@ -46,7 +48,7 @@ if (errors.length) {
 
   console.error(errorMessages);
 } else {
-  const limit = opts.has('-l') ? opts.get('-l')[0] : Infinity;
+  const limit = opts.get('-l') || Infinity;
   const verbose = opts.has('--verbose');
 
   switch (cmds[0]) {
