@@ -28,15 +28,21 @@ export class UnknownCmdError extends Error {
    * Name of the unknown CLI command
    */
   unknownCmd: string;
+  /**
+   * CLI commands that were expected.
+   */
+  expectedCmds: string[];
 
   /**
    * Unknown CLI command error.
    * @param message - Error message.
    * @param unknownCmd - Name of the unknown CLI command.
+   * @param expectedCmds - CLI commands that were expected.
    */
-  constructor(message: string, unknownCmd: string) {
+  constructor(message: string, unknownCmd: string, expectedCmds: string[]) {
     super(message);
     this.unknownCmd = unknownCmd;
+    this.expectedCmds = expectedCmds;
   }
 }
 
@@ -55,6 +61,26 @@ export class OptMissingArgError extends Error {
   constructor(message: string, opt: string) {
     super(message);
     this.opt = opt;
+  }
+}
+
+export class UnexpectedOptArgError extends Error {
+  name = 'UnexpectedOptArgError';
+  /**
+   * The unexpected argument the option (that doesn't accept arguments) was
+   * provided.
+   */
+  unexpectedOptArg: string;
+
+  /**
+   * Unexpected Option Argument Error.
+   * @param message - Error message.
+   * @param unexpectedOptArg - The unexpected argument the option (that doesn't
+   * accept arguments) was provided.
+   */
+  constructor(message: string, unexpectedOptArg: string) {
+    super(message);
+    this.unexpectedOptArg = unexpectedOptArg;
   }
 }
 
@@ -222,5 +248,23 @@ export class CmdExpectedError extends Error {
   constructor(message: string, expectedCmds: string[]) {
     super(message);
     this.expectedCmds = expectedCmds;
+  }
+}
+
+export class DuplicateOptError extends Error {
+  name = 'DuplicateOptError';
+  /**
+   * The duplicate option.
+   */
+  duplicateOpt: string;
+
+  /**
+   * Duplicate Option Error.
+   * @param message - Error message.
+   * @param duplicateOpt - The duplicate option.
+   */
+  constructor(message: string, duplicateOpt: string) {
+    super(message);
+    this.duplicateOpt = duplicateOpt;
   }
 }
