@@ -65,7 +65,9 @@ const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.+)?$/;
 /**
  * Parse CLI arguments.
  * @param schema - CLI schema.
- * @param inputArgs - CLI input. Will default to `process.argv`.
+ * @param inputArgs - CLI input. If explicitly provided, it must match the
+ *     structure of `process.argv` (i.e. index 0 is the exec path, index 1 is
+ *     the module, and arguments start from index 2).
  */
 export const parse = (
   schema: Schema,
@@ -122,14 +124,23 @@ export const parse = (
     if (expectsCmd) {
       const cmdConfig = cmdConfigMap.get(inputArg);
       if (!cmdConfig) {
-        errors.push(new UnknownCmdError(`"${inputArg}"`, inputArg));
+        const cmds = Array.from(cmdConfigMap.keys());
+        errors.push(
+          new UnknownCmdError(
+            `Got "${inputArg}" but expected ${cmds
+              .map((cmd) => `"${cmd}"`)
+              .join(', ')}`,
+            inputArg,
+            cmds,
+          ),
+        );
         unknownCmdReceived = true;
         break;
       }
 
       cmds.push(inputArg);
       expectsCmd = cmdConfig.expectsCmd;
-      optConfigMap = cmdConfig.opts;
+      optConfigMap = new Map([...optConfigMap, ...cmdConfig.opts]);
       cmdConfigMap = cmdConfig.cmds;
       minArgs = cmdConfig.minArgs;
       maxArgs = cmdConfig.maxArgs;
