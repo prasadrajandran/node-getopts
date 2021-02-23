@@ -60,7 +60,7 @@ const OPT_REGEX = /^-[a-zA-Z\d].*$/;
 /**
  * Regex pattern of a long option and its argument (if present).
  */
-const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.+)?$/;
+const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.*)?$/;
 
 /**
  * Parse CLI arguments.
