@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.3](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
+[getopts - v1.0.0-alpha.4](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
 
 # Interface: OptSchema
 
@@ -27,11 +27,10 @@ the argument is required or optional.
 Notes:
 
 - If this is defined, it is automatically assumed that the option accepts
-  arguments.
-- Only long options are capable of receiving optional arguments. If this
-  set to "optional", the (short) option will not accept arguments.
+  an argument.
+- Only the long option is capable of receiving an optional argument.
 
-Defined in: [src/interfaces/schema.ts:47](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L47)
+Defined in: [src/interfaces/schema.ts:46](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L46)
 
 ---
 
@@ -52,7 +51,7 @@ Notes:
 - Filters are executed within a try/catch block. If an error is thrown, it
   will be captured and stored inside the `errors` array.
 
-Defined in: [src/interfaces/schema.ts:60](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L60)
+Defined in: [src/interfaces/schema.ts:59](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L59)
 
 ---
 
@@ -63,7 +62,7 @@ Defined in: [src/interfaces/schema.ts:60](https://github.com/prasadrajandran/nod
 Long name of the CLI option.
 E.g.: "--sort-by", "--append", etc.
 
-Defined in: [src/interfaces/schema.ts:36](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L36)
+Defined in: [src/interfaces/schema.ts:36](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L36)
 
 ---
 
@@ -74,4 +73,4 @@ Defined in: [src/interfaces/schema.ts:36](https://github.com/prasadrajandran/nod
 Name of the CLI option.
 E.g.: "-a", "-A", etc.
 
-Defined in: [src/interfaces/schema.ts:31](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L31)
+Defined in: [src/interfaces/schema.ts:31](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L31)

@@ -1,6 +1,7 @@
 import { OptMap } from './interfaces/opt_map';
 import { OptConfigMap } from './interfaces/config';
 import {
+  DuplicateOptError,
   OptArgFilterError,
   OptMissingArgError,
   UnknownOptError,
@@ -37,21 +38,29 @@ export const parseOpt = (
     const optConfig = optSchema.get(optName);
 
     if (optConfig) {
-      const optArgs = opts.get(optName) || [];
-      opts.set(optName, optArgs);
-
       const { argRequired, argFilter } = optConfig;
+
+      // Note: Processing is not halted even though an error has been generated
+      // because this gives users the option to ignore this error.
+      if (opts.has(optName)) {
+        errors.push(
+          new DuplicateOptError(`"${optName}" is a duplicate`, optName),
+        );
+      }
+
+      opts.set(optName, undefined);
 
       // Note: We do not check if the next input might be an option or even the
       // `STOP_PROCESSING_OPTS_FLAG` flag because if the option requires an
       // argument, the next item will be treated as the argument no matter what.
       const optArg = input.slice(i + 1) || (nextInput as string);
+
       if (argRequired && optArg) {
         nextArgConsumed = !input[i + 1] && Boolean(nextInput);
 
         try {
-          optArgs.push(argFilter(optArg));
-        } catch (err) {
+          opts.set(optName, argFilter(optArg));
+        } catch (argFilterError) {
           errors.push(
             new OptArgFilterError(
               `${optName}'s argument filter threw an exception when ` +
@@ -59,7 +68,7 @@ export const parseOpt = (
               optName,
               optArg,
               argFilter,
-              err,
+              argFilterError,
             ),
           );
         }

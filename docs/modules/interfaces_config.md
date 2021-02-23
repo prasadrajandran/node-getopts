@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.3](../README.md) / interfaces/config
+[getopts - v1.0.0-alpha.4](../README.md) / interfaces/config
 
 # Module: interfaces/config
 
@@ -25,7 +25,7 @@
 
 Map of a CLI command's name to its configuration object.
 
-Defined in: [src/interfaces/config.ts:45](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L45)
+Defined in: [src/interfaces/config.ts:45](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L45)
 
 ---
 
@@ -35,7 +35,7 @@ Defined in: [src/interfaces/config.ts:45](https://github.com/prasadrajandran/nod
 
 CLI command's name.
 
-Defined in: [src/interfaces/config.ts:39](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L39)
+Defined in: [src/interfaces/config.ts:39](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L39)
 
 ---
 
@@ -45,7 +45,7 @@ Defined in: [src/interfaces/config.ts:39](https://github.com/prasadrajandran/nod
 
 Map of a CLI option's name to its configuration object.
 
-Defined in: [src/interfaces/config.ts:34](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L34)
+Defined in: [src/interfaces/config.ts:34](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L34)
 
 ---
 
@@ -55,7 +55,7 @@ Defined in: [src/interfaces/config.ts:34](https://github.com/prasadrajandran/nod
 
 A CLI option's long name.
 
-Defined in: [src/interfaces/config.ts:11](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L11)
+Defined in: [src/interfaces/config.ts:11](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L11)
 
 ---
 
@@ -65,4 +65,4 @@ Defined in: [src/interfaces/config.ts:11](https://github.com/prasadrajandran/nod
 
 A CLI option's name.
 
-Defined in: [src/interfaces/config.ts:6](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/config.ts#L6)
+Defined in: [src/interfaces/config.ts:6](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/config.ts#L6)

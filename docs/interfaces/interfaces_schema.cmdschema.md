@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.3](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
+[getopts - v1.0.0-alpha.4](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
 
 # Interface: CmdSchema
 
@@ -46,7 +46,7 @@ Notes:
 
 Inherited from: [Schema](interfaces_schema.schema.md).[argFilter](interfaces_schema.schema.md#argfilter)
 
-Defined in: [src/interfaces/schema.ts:130](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L130)
+Defined in: [src/interfaces/schema.ts:129](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L129)
 
 ---
 
@@ -63,7 +63,7 @@ arguments (this affects what `minArgs` and `maxArgs` do).
 
 Inherited from: [Schema](interfaces_schema.schema.md).[cmds](interfaces_schema.schema.md#cmds)
 
-Defined in: [src/interfaces/schema.ts:92](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L92)
+Defined in: [src/interfaces/schema.ts:91](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L91)
 
 ---
 
@@ -84,7 +84,7 @@ If the CLI expects commands (i.e. `cmds` is defined):
 
 Inherited from: [Schema](interfaces_schema.schema.md).[maxArgs](interfaces_schema.schema.md#maxargs)
 
-Defined in: [src/interfaces/schema.ts:115](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L115)
+Defined in: [src/interfaces/schema.ts:114](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L114)
 
 ---
 
@@ -106,7 +106,7 @@ If the CLI expects commands (i.e. `cmds` is defined):
 
 Inherited from: [Schema](interfaces_schema.schema.md).[minArgs](interfaces_schema.schema.md#minargs)
 
-Defined in: [src/interfaces/schema.ts:104](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L104)
+Defined in: [src/interfaces/schema.ts:103](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L103)
 
 ---
 
@@ -116,7 +116,7 @@ Defined in: [src/interfaces/schema.ts:104](https://github.com/prasadrajandran/no
 
 Name of the CLI command.
 
-Defined in: [src/interfaces/schema.ts:71](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L71)
+Defined in: [src/interfaces/schema.ts:70](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L70)
 
 ---
 
@@ -130,4 +130,4 @@ Define all options that the CLI is capable of receiving here.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[opts](interfaces_schema.schema.md#opts)
 
-Defined in: [src/interfaces/schema.ts:83](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/schema.ts#L83)
+Defined in: [src/interfaces/schema.ts:82](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/schema.ts#L82)

@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.3](../README.md) / [classes/errors](../modules/classes_errors.md) / CmdExpectedError
+[getopts - v1.0.0-alpha.4](../README.md) / [classes/errors](../modules/classes_errors.md) / CmdExpectedError
 
 # Class: CmdExpectedError
 
@@ -46,7 +46,7 @@ Expected CLI command error.
 
 **Returns:** [_CmdExpectedError_](classes_errors.cmdexpectederror.md)
 
-Defined in: [src/classes/errors.ts:215](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/classes/errors.ts#L215)
+Defined in: [src/classes/errors.ts:241](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L241)
 
 ## Properties
 
@@ -56,7 +56,7 @@ Defined in: [src/classes/errors.ts:215](https://github.com/prasadrajandran/node-
 
 CLI commands that were expected.
 
-Defined in: [src/classes/errors.ts:215](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/classes/errors.ts#L215)
+Defined in: [src/classes/errors.ts:241](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L241)
 
 ---
 
@@ -72,7 +72,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'CmdExpectedError'
 
-Defined in: [src/classes/errors.ts:211](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/classes/errors.ts#L211)
+Defined in: [src/classes/errors.ts:237](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L237)
 
 ---
 

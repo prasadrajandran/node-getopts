@@ -15,11 +15,11 @@ export type OptLongName = string;
  */
 export interface OptConfig {
   /**
-   * Does the CLI option accept arguments?
+   * Does the CLI option accept an argument?
    */
   argAccepted: boolean;
   /**
-   * Does the CLI option require arguments?
+   * Does the CLI option require an argument?
    */
   argRequired: boolean;
   /**

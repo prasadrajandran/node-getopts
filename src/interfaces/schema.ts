@@ -11,7 +11,7 @@ export interface ArgFilter {
 }
 
 /**
- * Callback function to filter a CLI option's argument(s).
+ * Callback function to filter a CLI option's argument.
  */
 export interface OptArgFilter {
   /**
@@ -40,9 +40,8 @@ export interface OptSchema {
    *
    * Notes:
    * - If this is defined, it is automatically assumed that the option accepts
-   *   arguments.
-   * - Only long options are capable of receiving optional arguments. If this
-   *   set to "optional", the (short) option will not accept arguments.
+   *   an argument.
+   * - Only the long option is capable of receiving an optional argument.
    */
   arg?: 'required' | 'optional';
   /**

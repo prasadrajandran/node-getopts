@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.3](../README.md) / interfaces/opt_map
+[getopts - v1.0.0-alpha.4](../README.md) / interfaces/opt_map
 
 # Module: interfaces/opt_map
 
@@ -17,21 +17,21 @@
 
 CLI option's argument.
 
-Defined in: [src/interfaces/opt_map.ts:6](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/opt_map.ts#L6)
+Defined in: [src/interfaces/opt_map.ts:6](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/opt_map.ts#L6)
 
 ---
 
 ### OptMap
 
-Ƭ **OptMap**: _Map_<[_OptName_](interfaces_config.md#optname) \| [_OptLongName_](interfaces_config.md#optlongname), [_OptArg_](interfaces_opt_map.md#optarg)[]\>
+Ƭ **OptMap**: _Map_<[_OptName_](interfaces_config.md#optname) \| [_OptLongName_](interfaces_config.md#optlongname), [_OptArg_](interfaces_opt_map.md#optarg)\>
 
-Map of a CLI option's name to its arguments.
+Map of a CLI option to its argument.
 
-Note:
+Notes:
 
-- It's mapped to an array because all CLI options are capable of receiving
-  multiple arguments. This can be done by simply repeating the option.
-  Example:
-  someutility -n5 -n10 -n12 run
+- If the CLI option does not accept an argument, its argument value will set
+  to undefined.
+- If the argument is optional and an argument wasn't provided, the argument
+  value will be undefined.
 
-Defined in: [src/interfaces/opt_map.ts:17](https://github.com/prasadrajandran/node-getopts/blob/1bad317/src/interfaces/opt_map.ts#L17)
+Defined in: [src/interfaces/opt_map.ts:17](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/opt_map.ts#L17)

@@ -1,8 +1,10 @@
 import { OptMap } from './interfaces/opt_map';
 import { OptConfigMap } from './interfaces/config';
 import {
+  DuplicateOptError,
   OptArgFilterError,
   OptMissingArgError,
+  UnexpectedOptArgError,
   UnknownOptError,
 } from './classes/errors';
 
@@ -28,13 +30,21 @@ export const parseLongOpt = (
   const optConfig = optSchema.get(optName);
   if (optConfig) {
     const { argAccepted, argRequired, argFilter } = optConfig;
-    const optArgs = opts.get(optName) || [];
-    opts.set(optName, optArgs);
+
+    // Note: Processing is not halted even though an error has been generated
+    // because this gives users the option to ignore this error.
+    if (opts.has(optName)) {
+      errors.push(
+        new DuplicateOptError(`"${optName}" is a duplicate`, optName),
+      );
+    }
+
+    opts.set(optName, undefined);
 
     if (argAccepted && optArg) {
       try {
-        optArgs.push(argFilter(optArg));
-      } catch (err) {
+        opts.set(optName, argFilter(optArg));
+      } catch (argFilterError) {
         errors.push(
           new OptArgFilterError(
             `${optName}'s argument filter threw an exception when processing ` +
@@ -42,10 +52,17 @@ export const parseLongOpt = (
             optName,
             optArg,
             argFilter,
-            err,
+            argFilterError,
           ),
         );
       }
+    } else if (!argAccepted && optArg) {
+      errors.push(
+        new UnexpectedOptArgError(
+          `"${optName}" does not accept an argument but was given "${optArg}"`,
+          optArg,
+        ),
+      );
     } else if (argRequired && !optArg) {
       errors.push(
         new OptMissingArgError(`${optName} requires an argument`, optName),
