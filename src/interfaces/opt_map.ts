@@ -6,12 +6,12 @@ import { OptLongName, OptName } from './config';
 export type OptArg = unknown;
 
 /**
- * Map of a CLI option's name to its arguments.
+ * Map of a CLI option to its argument.
  *
- * Note:
- * - It's mapped to an array because all CLI options are capable of receiving
- *   multiple arguments. This can be done by simply repeating the option.
- *   Example:
- *   someutility -n5 -n10 -n12 run
+ * Notes:
+ * - If the CLI option does not accept an argument, its argument value will set
+ *   to undefined.
+ * - If the argument is optional and an argument wasn't provided, the argument
+ *   value will be undefined.
  */
-export type OptMap = Map<OptName | OptLongName, OptArg[]>;
+export type OptMap = Map<OptName | OptLongName, OptArg>;
