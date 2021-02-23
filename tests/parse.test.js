@@ -28,13 +28,14 @@ describe('smoke test parse()', () => {
     expect(input).toEqual(argvInput);
     expect(errors).toEqual([]);
 
+    expect(Array.from(opts.keys())).toEqual(['-n', '--verbose', '-f']);
     expect(opts.has('-n')).toBe(true);
     expect(opts.has('--verbose')).toBe(true);
     expect(opts.has('-f')).toBe(true);
 
-    expect(opts.get('-n')).toEqual([5]);
-    expect(opts.get('--verbose')).toEqual([]);
-    expect(opts.get('-f')).toEqual([]);
+    expect(opts.get('-n')).toEqual(5);
+    expect(opts.get('--verbose')).toEqual(undefined);
+    expect(opts.get('-f')).toEqual(undefined);
 
     expect(cmds[0]).toEqual('create');
 
