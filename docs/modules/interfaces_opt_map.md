@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.4](../README.md) / interfaces/opt_map
+[getopts - v1.0.0-alpha.5](../README.md) / interfaces/opt_map
 
 # Module: interfaces/opt_map
 
@@ -7,7 +7,9 @@
 ### Type aliases
 
 - [OptArg](interfaces_opt_map.md#optarg)
+- [OptLongName](interfaces_opt_map.md#optlongname)
 - [OptMap](interfaces_opt_map.md#optmap)
+- [OptName](interfaces_opt_map.md#optname)
 
 ## Type aliases
 
@@ -17,13 +19,23 @@
 
 CLI option's argument.
 
-Defined in: [src/interfaces/opt_map.ts:6](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/opt_map.ts#L6)
+Defined in: [src/interfaces/opt_map.ts:14](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/opt_map.ts#L14)
+
+---
+
+### OptLongName
+
+Ƭ **OptLongName**: _string_
+
+A CLI option's long name.
+
+Defined in: [src/interfaces/opt_map.ts:9](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/opt_map.ts#L9)
 
 ---
 
 ### OptMap
 
-Ƭ **OptMap**: _Map_<[_OptName_](interfaces_config.md#optname) \| [_OptLongName_](interfaces_config.md#optlongname), [_OptArg_](interfaces_opt_map.md#optarg)\>
+Ƭ **OptMap**: _Map_<[_OptName_](interfaces_opt_map.md#optname) \| [_OptLongName_](interfaces_opt_map.md#optlongname), [_OptArg_](interfaces_opt_map.md#optarg)\>
 
 Map of a CLI option to its argument.
 
@@ -34,4 +46,14 @@ Notes:
 - If the argument is optional and an argument wasn't provided, the argument
   value will be undefined.
 
-Defined in: [src/interfaces/opt_map.ts:17](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/interfaces/opt_map.ts#L17)
+Defined in: [src/interfaces/opt_map.ts:25](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/opt_map.ts#L25)
+
+---
+
+### OptName
+
+Ƭ **OptName**: _string_
+
+A CLI option's name.
+
+Defined in: [src/interfaces/opt_map.ts:4](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/opt_map.ts#L4)

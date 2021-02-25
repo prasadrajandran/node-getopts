@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.4](../README.md) / [classes/errors](../modules/classes_errors.md) / UnknownCmdError
+[getopts - v1.0.0-alpha.5](../README.md) / [classes/errors](../modules/classes_errors.md) / UnknownCmdError
 
 # Class: UnknownCmdError
 
@@ -48,7 +48,7 @@ Unknown CLI command error.
 
 **Returns:** [_UnknownCmdError_](classes_errors.unknowncmderror.md)
 
-Defined in: [src/classes/errors.ts:34](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L34)
+Defined in: [src/classes/errors.ts:34](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L34)
 
 ## Properties
 
@@ -58,7 +58,7 @@ Defined in: [src/classes/errors.ts:34](https://github.com/prasadrajandran/node-g
 
 CLI commands that were expected.
 
-Defined in: [src/classes/errors.ts:34](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L34)
+Defined in: [src/classes/errors.ts:34](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L34)
 
 ---
 
@@ -74,7 +74,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'UnknownCmdError'
 
-Defined in: [src/classes/errors.ts:26](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L26)
+Defined in: [src/classes/errors.ts:26](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L26)
 
 ---
 
@@ -112,7 +112,7 @@ Defined in: node_modules/@types/node/globals.d.ts:13
 
 Name of the unknown CLI command
 
-Defined in: [src/classes/errors.ts:30](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L30)
+Defined in: [src/classes/errors.ts:30](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L30)
 
 ## Methods
 

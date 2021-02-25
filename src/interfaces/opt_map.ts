@@ -1,4 +1,12 @@
-import { OptLongName, OptName } from './config';
+/**
+ * A CLI option's name.
+ */
+export type OptName = string;
+
+/**
+ * A CLI option's long name.
+ */
+export type OptLongName = string;
 
 /**
  * CLI option's argument.

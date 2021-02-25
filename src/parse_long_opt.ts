@@ -34,9 +34,18 @@ export const parseLongOpt = (
     // Note: Processing is not halted even though an error has been generated
     // because this gives users the option to ignore this error.
     if (opts.has(optName)) {
-      errors.push(
-        new DuplicateOptError(`"${optName}" is a duplicate`, optName),
-      );
+      const duplicateOptError = errors.find(
+        (e) => e instanceof DuplicateOptError && e.duplicateOpt === optName,
+      ) as DuplicateOptError;
+      if (duplicateOptError) {
+        duplicateOptError.count++;
+        duplicateOptError.message =
+          `"${optName}" was entered ` + `${duplicateOptError.count} times`;
+      } else {
+        errors.push(
+          new DuplicateOptError(`"${optName}" was entered 2 times`, optName, 2),
+        );
+      }
     }
 
     opts.set(optName, undefined);

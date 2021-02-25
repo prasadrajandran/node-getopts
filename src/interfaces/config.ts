@@ -1,14 +1,5 @@
+import { OptName, OptLongName } from './opt_map';
 import { ArgFilter, OptArgFilter } from './schema';
-
-/**
- * A CLI option's name.
- */
-export type OptName = string;
-
-/**
- * A CLI option's long name.
- */
-export type OptLongName = string;
 
 /**
  * A CLI option's configuration object.

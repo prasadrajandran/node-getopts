@@ -15,7 +15,7 @@ describe('smoke test parse()', () => {
     const argvInput = '-n5 --verbose create -f -- some_file1 some_file2 -x';
     setArgv(argvInput);
 
-    const { execPath, module, input, opts, cmds, args, errors } = parse({
+    const { opts, cmds, args, errors } = parse({
       opts: [
         { name: '-n', arg: 'required', argFilter: (v) => parseInt(v, 10) },
         { longName: '--verbose' },
@@ -23,9 +23,6 @@ describe('smoke test parse()', () => {
       cmds: [{ name: 'create', opts: [{ name: '-f' }] }],
     });
 
-    expect(execPath).toEqual(process.argv[0]);
-    expect(module).toEqual(process.argv[1]);
-    expect(input).toEqual(argvInput);
     expect(errors).toEqual([]);
 
     expect(Array.from(opts.keys())).toEqual(['-n', '--verbose', '-f']);

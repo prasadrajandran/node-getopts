@@ -11,24 +11,12 @@ import {
   TooManyArgsError,
   UnknownCmdError,
 } from './classes/errors';
+import { Settings } from './interfaces/settings';
 
 /**
- * Absolute pathname of the executable that started the Node.js process. This
- * is the first item in `process.argv`.
- * @see {@link https://nodejs.org/docs/latest/api/process.html#process_process_execpath}
+ * Starting index of command line arguments in `process.argv`.
  */
-const EXEC_PATH_INDEX = 0;
-
-/**
- * Path to the JavaScript file being executed. This is the second item in
- * `process.argv`.
- */
-const MODULE_INDEX = EXEC_PATH_INDEX + 1;
-
-/**
- * The remaining elements in `process.argv`.
- */
-const ARGS_INDEX = MODULE_INDEX + 1;
+const ARGS_INDEX = 2;
 
 /**
  * This flag terminates all arguments. Anything after this flag are treated as
@@ -65,17 +53,17 @@ const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.*)?$/;
 /**
  * Parse CLI arguments.
  * @param schema - CLI schema.
- * @param inputArgs - CLI input. If explicitly provided, it must match the
- *     structure of `process.argv` (i.e. index 0 is the exec path, index 1 is
- *     the module, and arguments start from index 2).
+ * @param settings - CLI settings.
  */
-export const parse = (
-  schema: Schema,
-  inputArgs: NodeJS.Process['argv'] = process.argv,
-): ParsedArgs => {
+export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
+  const { argv: inputArgs } = Object.assign(
+    {
+      argv: process.argv.slice(ARGS_INDEX),
+    },
+    settings || {},
+  );
   const config = parseSchema(schema);
-  const execPath = inputArgs[EXEC_PATH_INDEX];
-  const module = inputArgs[MODULE_INDEX];
+
   const errors: Error[] = [];
   const cmds: string[] = [];
   const opts: OptMap = new Map();
@@ -90,7 +78,7 @@ export const parse = (
   let unknownCmdReceived = false;
   let stillAcceptingOpts = true;
   let argPos = 0;
-  for (let i = ARGS_INDEX; i < inputArgs.length; i++) {
+  for (let i = 0; i < inputArgs.length; i++) {
     const inputArg = inputArgs[i];
 
     // (1) STOP PROCESSING ARGUMENT FLAG
@@ -213,10 +201,6 @@ export const parse = (
   }
 
   return {
-    config,
-    execPath,
-    module,
-    input: inputArgs.slice(ARGS_INDEX).join(' '),
     cmds,
     opts,
     args,
