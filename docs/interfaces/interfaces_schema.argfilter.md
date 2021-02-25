@@ -21,4 +21,4 @@ Callback function to filter CLI argument(s).
 
 **Returns:** _unknown_
 
-Defined in: [src/interfaces/schema.ts:4](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/interfaces/schema.ts#L4)
+Defined in: [src/interfaces/schema.ts:4](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/schema.ts#L4)

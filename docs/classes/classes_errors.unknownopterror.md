@@ -46,7 +46,7 @@ Unknown CLI option error.
 
 **Returns:** [_UnknownOptError_](classes_errors.unknownopterror.md)
 
-Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L12)
+Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L12)
 
 ## Properties
 
@@ -62,7 +62,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'UnknownOptError'
 
-Defined in: [src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L8)
+Defined in: [src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L8)
 
 ---
 
@@ -100,7 +100,7 @@ Defined in: node_modules/@types/node/globals.d.ts:13
 
 Name of the unknown CLI option.
 
-Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L12)
+Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L12)
 
 ## Methods
 

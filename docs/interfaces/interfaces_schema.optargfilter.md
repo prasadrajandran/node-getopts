@@ -20,4 +20,4 @@ Callback function to filter a CLI option's argument.
 
 **Returns:** _unknown_
 
-Defined in: [src/interfaces/schema.ts:16](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/interfaces/schema.ts#L16)
+Defined in: [src/interfaces/schema.ts:16](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/schema.ts#L16)

@@ -50,7 +50,7 @@ Too many CLI arguments error.
 
 **Returns:** [_TooManyArgsError_](classes_errors.toomanyargserror.md)
 
-Defined in: [src/classes/errors.ts:186](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L186)
+Defined in: [src/classes/errors.ts:186](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L186)
 
 ## Properties
 
@@ -60,7 +60,7 @@ Defined in: [src/classes/errors.ts:186](https://github.com/prasadrajandran/node-
 
 The extra CLI arguments.
 
-Defined in: [src/classes/errors.ts:178](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L178)
+Defined in: [src/classes/errors.ts:178](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L178)
 
 ---
 
@@ -70,7 +70,7 @@ Defined in: [src/classes/errors.ts:178](https://github.com/prasadrajandran/node-
 
 The maximum number of arguments the CLI accepts.
 
-Defined in: [src/classes/errors.ts:186](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L186)
+Defined in: [src/classes/errors.ts:186](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L186)
 
 ---
 
@@ -86,7 +86,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'TooManyArgsError'
 
-Defined in: [src/classes/errors.ts:174](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L174)
+Defined in: [src/classes/errors.ts:174](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L174)
 
 ---
 
@@ -96,7 +96,7 @@ Defined in: [src/classes/errors.ts:174](https://github.com/prasadrajandran/node-
 
 The total number of arguments the CLI received.
 
-Defined in: [src/classes/errors.ts:182](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L182)
+Defined in: [src/classes/errors.ts:182](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L182)
 
 ---
 

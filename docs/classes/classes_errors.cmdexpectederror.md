@@ -46,7 +46,7 @@ Expected CLI command error.
 
 **Returns:** [_CmdExpectedError_](classes_errors.cmdexpectederror.md)
 
-Defined in: [src/classes/errors.ts:241](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L241)
+Defined in: [src/classes/errors.ts:241](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L241)
 
 ## Properties
 
@@ -56,7 +56,7 @@ Defined in: [src/classes/errors.ts:241](https://github.com/prasadrajandran/node-
 
 CLI commands that were expected.
 
-Defined in: [src/classes/errors.ts:241](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L241)
+Defined in: [src/classes/errors.ts:241](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L241)
 
 ---
 
@@ -72,7 +72,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'CmdExpectedError'
 
-Defined in: [src/classes/errors.ts:237](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L237)
+Defined in: [src/classes/errors.ts:237](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L237)
 
 ---
 

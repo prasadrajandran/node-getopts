@@ -58,7 +58,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'SchemaError'
 
-Defined in: [src/classes/errors.ts:4](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L4)
+Defined in: [src/classes/errors.ts:4](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L4)
 
 ---
 

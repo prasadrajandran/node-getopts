@@ -52,7 +52,7 @@ CLI option argument filter error.
 
 **Returns:** [_OptArgFilterError_](classes_errors.optargfiltererror.md)
 
-Defined in: [src/classes/errors.ts:147](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L147)
+Defined in: [src/classes/errors.ts:147](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L147)
 
 ## Properties
 
@@ -62,7 +62,7 @@ Defined in: [src/classes/errors.ts:147](https://github.com/prasadrajandran/node-
 
 CLI option's argument that generated the exception.
 
-Defined in: [src/classes/errors.ts:139](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L139)
+Defined in: [src/classes/errors.ts:139](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L139)
 
 ---
 
@@ -72,7 +72,7 @@ Defined in: [src/classes/errors.ts:139](https://github.com/prasadrajandran/node-
 
 CLI option's argument filter that threw the exception.
 
-Defined in: [src/classes/errors.ts:143](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L143)
+Defined in: [src/classes/errors.ts:143](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L143)
 
 ---
 
@@ -82,7 +82,7 @@ Defined in: [src/classes/errors.ts:143](https://github.com/prasadrajandran/node-
 
 Exception that was thrown by the CLI option's argument filter.
 
-Defined in: [src/classes/errors.ts:147](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L147)
+Defined in: [src/classes/errors.ts:147](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L147)
 
 ---
 
@@ -98,7 +98,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'OptArgFilterError'
 
-Defined in: [src/classes/errors.ts:131](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L131)
+Defined in: [src/classes/errors.ts:131](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L131)
 
 ---
 
@@ -108,7 +108,7 @@ Defined in: [src/classes/errors.ts:131](https://github.com/prasadrajandran/node-
 
 CLI option that owns the filter that threw the exception.
 
-Defined in: [src/classes/errors.ts:135](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L135)
+Defined in: [src/classes/errors.ts:135](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L135)
 
 ---
 

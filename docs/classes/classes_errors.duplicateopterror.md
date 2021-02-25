@@ -40,15 +40,15 @@ Duplicate Option Error.
 
 #### Parameters:
 
-| Name           | Type     | Description                                                     |
-| :------------- | :------- | :-------------------------------------------------------------- |
-| `message`      | _string_ | Error message.                                                  |
-| `duplicateOpt` | _string_ | The duplicate option.                                           |
-| `count`        | _number_ | Number of times the option was enterred (i.e. starting from 2). |
+| Name           | Type     | Description                                                    |
+| :------------- | :------- | :------------------------------------------------------------- |
+| `message`      | _string_ | Error message.                                                 |
+| `duplicateOpt` | _string_ | The duplicate option.                                          |
+| `count`        | _number_ | Number of times the option was entered (i.e. starting from 2). |
 
 **Returns:** [_DuplicateOptError_](classes_errors.duplicateopterror.md)
 
-Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L263)
+Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L263)
 
 ## Properties
 
@@ -56,9 +56,9 @@ Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-
 
 • **count**: _number_
 
-Number of times the option was enterred (i.e. starting from 2).
+Number of times the option was entered (i.e. starting from 2).
 
-Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L263)
+Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L263)
 
 ---
 
@@ -68,7 +68,7 @@ Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-
 
 The duplicate option.
 
-Defined in: [src/classes/errors.ts:259](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L259)
+Defined in: [src/classes/errors.ts:259](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L259)
 
 ---
 
@@ -84,7 +84,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'DuplicateOptError'
 
-Defined in: [src/classes/errors.ts:255](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L255)
+Defined in: [src/classes/errors.ts:255](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L255)
 
 ---
 

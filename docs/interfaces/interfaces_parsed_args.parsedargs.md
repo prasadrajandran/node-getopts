@@ -23,7 +23,7 @@ Parsed CLI arguments.
 
 Array of parsed CLI arguments.
 
-Defined in: [src/interfaces/parsed_args.ts:18](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/interfaces/parsed_args.ts#L18)
+Defined in: [src/interfaces/parsed_args.ts:18](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/parsed_args.ts#L18)
 
 ---
 
@@ -33,7 +33,7 @@ Defined in: [src/interfaces/parsed_args.ts:18](https://github.com/prasadrajandra
 
 Array of parsed CLI commands.
 
-Defined in: [src/interfaces/parsed_args.ts:10](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/interfaces/parsed_args.ts#L10)
+Defined in: [src/interfaces/parsed_args.ts:10](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/parsed_args.ts#L10)
 
 ---
 
@@ -43,7 +43,7 @@ Defined in: [src/interfaces/parsed_args.ts:10](https://github.com/prasadrajandra
 
 Array of parsing/filter errors.
 
-Defined in: [src/interfaces/parsed_args.ts:22](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/interfaces/parsed_args.ts#L22)
+Defined in: [src/interfaces/parsed_args.ts:22](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/parsed_args.ts#L22)
 
 ---
 
@@ -53,4 +53,4 @@ Defined in: [src/interfaces/parsed_args.ts:22](https://github.com/prasadrajandra
 
 Map of parsed CLI options.
 
-Defined in: [src/interfaces/parsed_args.ts:14](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/interfaces/parsed_args.ts#L14)
+Defined in: [src/interfaces/parsed_args.ts:14](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/parsed_args.ts#L14)

@@ -20,4 +20,4 @@ CLI parser settings.
 
 CLI input override. Will default to `process.argv.slice(2)`.
 
-Defined in: [src/interfaces/settings.ts:8](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/interfaces/settings.ts#L8)
+Defined in: [src/interfaces/settings.ts:8](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/interfaces/settings.ts#L8)

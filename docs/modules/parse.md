@@ -25,4 +25,4 @@ Parse CLI arguments.
 
 **Returns:** [_ParsedArgs_](../interfaces/interfaces_parsed_args.parsedargs.md)
 
-Defined in: [src/parse.ts:58](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/parse.ts#L58)
+Defined in: [src/parse.ts:58](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/parse.ts#L58)
