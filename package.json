@@ -1,6 +1,6 @@
 {
   "name": "@prasadrajandran/getopts",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "POSIX/GNU compliant CLI argument parser",
   "keywords": [
     "posix",
@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "build": "tsc --build tsconfig.json",
-    "build-docs": "typedoc --readme none --name getopts --includeVersion ./src/interfaces ./src/classes ./src/parse.ts",
+    "build-docs": "typedoc --readme none --name getopts --includeVersion ./src/interfaces/opt_map.ts ./src/interfaces/parsed_args.ts ./src/interfaces/schema.ts ./src/interfaces/settings.ts ./src/classes ./src/parse.ts",
     "lint": "eslint ./src",
     "prep-release": "./prep_release.sh",
     "prettier-fix": "npx prettier --write .",
