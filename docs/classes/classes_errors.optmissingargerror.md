@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.4](../README.md) / [classes/errors](../modules/classes_errors.md) / OptMissingArgError
+[getopts - v1.0.0-alpha.5](../README.md) / [classes/errors](../modules/classes_errors.md) / OptMissingArgError
 
 # Class: OptMissingArgError
 
@@ -46,7 +46,7 @@ CLI option missing argument error.
 
 **Returns:** [_OptMissingArgError_](classes_errors.optmissingargerror.md)
 
-Defined in: [src/classes/errors.ts:54](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L54)
+Defined in: [src/classes/errors.ts:54](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L54)
 
 ## Properties
 
@@ -62,7 +62,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'OptMissingArgError'
 
-Defined in: [src/classes/errors.ts:50](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L50)
+Defined in: [src/classes/errors.ts:50](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L50)
 
 ---
 
@@ -72,7 +72,7 @@ Defined in: [src/classes/errors.ts:50](https://github.com/prasadrajandran/node-g
 
 CLI option that is missing its argument.
 
-Defined in: [src/classes/errors.ts:54](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L54)
+Defined in: [src/classes/errors.ts:54](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L54)
 
 ---
 

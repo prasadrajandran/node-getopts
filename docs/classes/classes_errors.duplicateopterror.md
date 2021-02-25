@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.4](../README.md) / [classes/errors](../modules/classes_errors.md) / DuplicateOptError
+[getopts - v1.0.0-alpha.5](../README.md) / [classes/errors](../modules/classes_errors.md) / DuplicateOptError
 
 # Class: DuplicateOptError
 
@@ -18,6 +18,7 @@
 
 ### Properties
 
+- [count](classes_errors.duplicateopterror.md#count)
 - [duplicateOpt](classes_errors.duplicateopterror.md#duplicateopt)
 - [message](classes_errors.duplicateopterror.md#message)
 - [name](classes_errors.duplicateopterror.md#name)
@@ -33,22 +34,33 @@
 
 ### constructor
 
-\+ **new DuplicateOptError**(`message`: _string_, `duplicateOpt`: _string_): [_DuplicateOptError_](classes_errors.duplicateopterror.md)
+\+ **new DuplicateOptError**(`message`: _string_, `duplicateOpt`: _string_, `count`: _number_): [_DuplicateOptError_](classes_errors.duplicateopterror.md)
 
 Duplicate Option Error.
 
 #### Parameters:
 
-| Name           | Type     | Description           |
-| :------------- | :------- | :-------------------- |
-| `message`      | _string_ | Error message.        |
-| `duplicateOpt` | _string_ | The duplicate option. |
+| Name           | Type     | Description                                                     |
+| :------------- | :------- | :-------------------------------------------------------------- |
+| `message`      | _string_ | Error message.                                                  |
+| `duplicateOpt` | _string_ | The duplicate option.                                           |
+| `count`        | _number_ | Number of times the option was enterred (i.e. starting from 2). |
 
 **Returns:** [_DuplicateOptError_](classes_errors.duplicateopterror.md)
 
-Defined in: [src/classes/errors.ts:259](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L259)
+Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L263)
 
 ## Properties
+
+### count
+
+• **count**: _number_
+
+Number of times the option was enterred (i.e. starting from 2).
+
+Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L263)
+
+---
 
 ### duplicateOpt
 
@@ -56,7 +68,7 @@ Defined in: [src/classes/errors.ts:259](https://github.com/prasadrajandran/node-
 
 The duplicate option.
 
-Defined in: [src/classes/errors.ts:259](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L259)
+Defined in: [src/classes/errors.ts:259](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L259)
 
 ---
 
@@ -72,7 +84,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'DuplicateOptError'
 
-Defined in: [src/classes/errors.ts:255](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L255)
+Defined in: [src/classes/errors.ts:255](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L255)
 
 ---
 

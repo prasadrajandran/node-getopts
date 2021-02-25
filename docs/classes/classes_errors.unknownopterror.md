@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.4](../README.md) / [classes/errors](../modules/classes_errors.md) / UnknownOptError
+[getopts - v1.0.0-alpha.5](../README.md) / [classes/errors](../modules/classes_errors.md) / UnknownOptError
 
 # Class: UnknownOptError
 
@@ -46,7 +46,7 @@ Unknown CLI option error.
 
 **Returns:** [_UnknownOptError_](classes_errors.unknownopterror.md)
 
-Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L12)
+Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L12)
 
 ## Properties
 
@@ -62,7 +62,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'UnknownOptError'
 
-Defined in: [src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L8)
+Defined in: [src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L8)
 
 ---
 
@@ -100,7 +100,7 @@ Defined in: node_modules/@types/node/globals.d.ts:13
 
 Name of the unknown CLI option.
 
-Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L12)
+Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L12)
 
 ## Methods
 

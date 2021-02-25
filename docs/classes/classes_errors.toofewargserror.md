@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.4](../README.md) / [classes/errors](../modules/classes_errors.md) / TooFewArgsError
+[getopts - v1.0.0-alpha.5](../README.md) / [classes/errors](../modules/classes_errors.md) / TooFewArgsError
 
 # Class: TooFewArgsError
 
@@ -48,7 +48,7 @@ Too few CLI arguments error.
 
 **Returns:** [_TooFewArgsError_](classes_errors.toofewargserror.md)
 
-Defined in: [src/classes/errors.ts:217](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L217)
+Defined in: [src/classes/errors.ts:217](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L217)
 
 ## Properties
 
@@ -66,7 +66,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 The minimum number of arguments the CLI expects.
 
-Defined in: [src/classes/errors.ts:217](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L217)
+Defined in: [src/classes/errors.ts:217](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L217)
 
 ---
 
@@ -74,7 +74,7 @@ Defined in: [src/classes/errors.ts:217](https://github.com/prasadrajandran/node-
 
 • **name**: _string_= 'TooFewArgsError'
 
-Defined in: [src/classes/errors.ts:209](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L209)
+Defined in: [src/classes/errors.ts:209](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L209)
 
 ---
 
@@ -84,7 +84,7 @@ Defined in: [src/classes/errors.ts:209](https://github.com/prasadrajandran/node-
 
 The total number of CLI arguments received.
 
-Defined in: [src/classes/errors.ts:213](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L213)
+Defined in: [src/classes/errors.ts:213](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L213)
 
 ---
 

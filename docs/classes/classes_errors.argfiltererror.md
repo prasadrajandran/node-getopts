@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.4](../README.md) / [classes/errors](../modules/classes_errors.md) / ArgFilterError
+[getopts - v1.0.0-alpha.5](../README.md) / [classes/errors](../modules/classes_errors.md) / ArgFilterError
 
 # Class: ArgFilterError
 
@@ -52,7 +52,7 @@ CLI argument filter error.
 
 **Returns:** [_ArgFilterError_](classes_errors.argfiltererror.md)
 
-Defined in: [src/classes/errors.ts:104](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L104)
+Defined in: [src/classes/errors.ts:104](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L104)
 
 ## Properties
 
@@ -62,7 +62,7 @@ Defined in: [src/classes/errors.ts:104](https://github.com/prasadrajandran/node-
 
 CLI argument value.
 
-Defined in: [src/classes/errors.ts:92](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L92)
+Defined in: [src/classes/errors.ts:92](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L92)
 
 ---
 
@@ -72,7 +72,7 @@ Defined in: [src/classes/errors.ts:92](https://github.com/prasadrajandran/node-g
 
 CLI argument's filter that threw the exception.
 
-Defined in: [src/classes/errors.ts:100](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L100)
+Defined in: [src/classes/errors.ts:100](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L100)
 
 ---
 
@@ -82,7 +82,7 @@ Defined in: [src/classes/errors.ts:100](https://github.com/prasadrajandran/node-
 
 Exception that was thrown by the CLI argument's filter.
 
-Defined in: [src/classes/errors.ts:104](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L104)
+Defined in: [src/classes/errors.ts:104](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L104)
 
 ---
 
@@ -92,7 +92,7 @@ Defined in: [src/classes/errors.ts:104](https://github.com/prasadrajandran/node-
 
 CLI argument's position (starting from 0).
 
-Defined in: [src/classes/errors.ts:96](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L96)
+Defined in: [src/classes/errors.ts:96](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L96)
 
 ---
 
@@ -108,7 +108,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'ArgFilterError'
 
-Defined in: [src/classes/errors.ts:88](https://github.com/prasadrajandran/node-getopts/blob/62e4ad2/src/classes/errors.ts#L88)
+Defined in: [src/classes/errors.ts:88](https://github.com/prasadrajandran/node-getopts/blob/086dff0/src/classes/errors.ts#L88)
 
 ---
 

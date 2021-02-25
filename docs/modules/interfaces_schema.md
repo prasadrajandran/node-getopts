@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.4](../README.md) / interfaces/schema
+[getopts - v1.0.0-alpha.5](../README.md) / interfaces/schema
 
 # Module: interfaces/schema
 
