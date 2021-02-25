@@ -257,14 +257,21 @@ export class DuplicateOptError extends Error {
    * The duplicate option.
    */
   duplicateOpt: string;
+  /**
+   * Number of times the option was enterred (i.e. starting from 2).
+   */
+  count: number;
 
   /**
    * Duplicate Option Error.
    * @param message - Error message.
    * @param duplicateOpt - The duplicate option.
+   * @param count - Number of times the option was enterred (i.e. starting from
+   *     2).
    */
-  constructor(message: string, duplicateOpt: string) {
+  constructor(message: string, duplicateOpt: string, count: number) {
     super(message);
     this.duplicateOpt = duplicateOpt;
+    this.count = count;
   }
 }
