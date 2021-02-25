@@ -1,8 +1,9 @@
 # getopts
 
-Utility program that parses command line arguments for you. The CLI of your
-program is expected to adhere to the POSIX/GNU conventions. The POSIX/GNU
-conventions can be found [here](https://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html).
+Utility that parses command line arguments for you. The CLI of your utility is
+expected to adhere to the POSIX/GNU conventions. A copy of the POSIX guidelines
+can be found [here](https://github.com/prasadrajandran/node-getopts/blob/development/resources/posix_utility_syntax_guidelines.md)
+and a copy of the GNU guidelines can be found [here](https://github.com/prasadrajandran/node-getopts/blob/development/resources/gnu_program_argument_syntax.md).
 
 ## Highlights
 
