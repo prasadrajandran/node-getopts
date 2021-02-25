@@ -258,7 +258,7 @@ export class DuplicateOptError extends Error {
    */
   duplicateOpt: string;
   /**
-   * Number of times the option was enterred (i.e. starting from 2).
+   * Number of times the option was entered (i.e. starting from 2).
    */
   count: number;
 
@@ -266,7 +266,7 @@ export class DuplicateOptError extends Error {
    * Duplicate Option Error.
    * @param message - Error message.
    * @param duplicateOpt - The duplicate option.
-   * @param count - Number of times the option was enterred (i.e. starting from
+   * @param count - Number of times the option was entered (i.e. starting from
    *     2).
    */
   constructor(message: string, duplicateOpt: string, count: number) {
