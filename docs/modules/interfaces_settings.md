@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.5](../README.md) / interfaces/settings
+[getopts - v1.0.0-alpha.6](../README.md) / interfaces/settings
 
 # Module: interfaces/settings
 

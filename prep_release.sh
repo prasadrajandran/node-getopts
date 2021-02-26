@@ -36,7 +36,9 @@ echo
 echo
 echo "--- RELEASE PREP COMPLETE ---"
 echo
-echo "- update the package version if necessary: $package_version"
-echo "- do not forget to run \"npm install\" if the package version is updated"
-echo "- push all changes to GitHub and author a release"
-echo "- to publish the package run: \"npm publish --access public\""
+echo "1. update the package version if necessary: $package_version"
+echo "2. do not forget to run \"npm install\" if the package version is updated"
+echo "3. create PR to main (from development), merge PR, and create a GitHub release"
+echo "4. switch to the main branch locally and run \"git pull\""
+echo "5. to publish the package run: \"npm publish --access public\""
+echo "6. switch back to development and run \"git pull\""

@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.5](../README.md) / [classes/errors](../modules/classes_errors.md) / DuplicateOptError
+[getopts - v1.0.0-alpha.6](../README.md) / [classes/errors](../modules/classes_errors.md) / DuplicateOptError
 
 # Class: DuplicateOptError
 
@@ -48,7 +48,7 @@ Duplicate Option Error.
 
 **Returns:** [_DuplicateOptError_](classes_errors.duplicateopterror.md)
 
-Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L263)
+Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L263)
 
 ## Properties
 
@@ -58,7 +58,7 @@ Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-
 
 Number of times the option was entered (i.e. starting from 2).
 
-Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L263)
+Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L263)
 
 ---
 
@@ -68,7 +68,7 @@ Defined in: [src/classes/errors.ts:263](https://github.com/prasadrajandran/node-
 
 The duplicate option.
 
-Defined in: [src/classes/errors.ts:259](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L259)
+Defined in: [src/classes/errors.ts:259](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L259)
 
 ---
 
@@ -84,7 +84,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'DuplicateOptError'
 
-Defined in: [src/classes/errors.ts:255](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L255)
+Defined in: [src/classes/errors.ts:255](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L255)
 
 ---
 

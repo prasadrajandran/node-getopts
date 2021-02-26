@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.5](../README.md) / [classes/errors](../modules/classes_errors.md) / UnexpectedOptArgError
+[getopts - v1.0.0-alpha.6](../README.md) / [classes/errors](../modules/classes_errors.md) / UnexpectedOptArgError
 
 # Class: UnexpectedOptArgError
 
@@ -46,7 +46,7 @@ Unexpected Option Argument Error.
 
 **Returns:** [_UnexpectedOptArgError_](classes_errors.unexpectedoptargerror.md)
 
-Defined in: [src/classes/errors.ts:73](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L73)
+Defined in: [src/classes/errors.ts:73](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L73)
 
 ## Properties
 
@@ -62,7 +62,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'UnexpectedOptArgError'
 
-Defined in: [src/classes/errors.ts:68](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L68)
+Defined in: [src/classes/errors.ts:68](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L68)
 
 ---
 
@@ -101,7 +101,7 @@ Defined in: node_modules/@types/node/globals.d.ts:13
 The unexpected argument the option (that doesn't accept arguments) was
 provided.
 
-Defined in: [src/classes/errors.ts:73](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L73)
+Defined in: [src/classes/errors.ts:73](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L73)
 
 ## Methods
 

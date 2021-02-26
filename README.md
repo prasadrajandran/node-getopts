@@ -1,18 +1,17 @@
 # getopts
 
-Utility that parses command line arguments for you. The CLI of your utility is
-expected to adhere to the POSIX/GNU conventions. A copy of the POSIX guidelines
-can be found [here](https://github.com/prasadrajandran/node-getopts/blob/development/resources/posix_utility_syntax_guidelines.md)
-and a copy of the GNU guidelines can be found [here](https://github.com/prasadrajandran/node-getopts/blob/development/resources/gnu_program_argument_syntax.md).
+Takes care of CLI argument parsing and validation for you.
 
 ## Highlights
 
 - Adheres POSIX/GNU conventions
-- Strict option/argument/command input validation
-  - All errors are collected into an array
-- Subcommand support (infinite nesting)
-  - All subcommands support their own set of options and arguments
-- Argument filters (including option arguments)
+  - [POSIX guidelines](https://github.com/prasadrajandran/node-getopts/blob/development/resources/posix_utility_syntax_guidelines.md)
+  - [GNU guidelines (for long options)](https://github.com/prasadrajandran/node-getopts/blob/development/resources/gnu_program_argument_syntax.md)
+- Strict input validation
+  - Errors are collected into an array
+- Subcommand support (with infinite nesting)
+  - Subcommands support their own set of options and arguments
+- Argument and option argument filters
   - Argument validation
   - Type casting
   - etc.
@@ -31,34 +30,79 @@ npm i @prasadrajandran/getopts
 const { getopts } = require('@prasadrajandran/getopts');
 ```
 
-### Example
+### Examples
+
+#### 1. Parsing Options/Arguments, Using Filters, and Checking for Errors
 
 ```JavaScript
-const { cmds, opts, args, errors } = getopts({
+const { opts, args, errors } = getopts({
   opts: [
-    { name: '-l', argFilter: (v) => parseInt(v, 10) },
-    { longName: '--verbose' },
+    { name: '-l', longName: '--limit', argFilter: (arg) => parseInt(arg) },
+    { longName: '--version' },
+    { longName: '--help' },
   ],
-  cmds: [{ name: 'up' }, { name: 'down' }],
+  minArgs: 1,
+  maxArgs: 1,
+  argFilter: (arg) => {
+    const filename = path.resolve(arg);
+    if (!fs.lstatSync(filename).isFile()) {
+      throw new Error(`${filename} is not a file`);
+    }
+    return filename;
+  },
 });
 
 if (errors.length) {
   const errorMessages = errors
-    .map(({ name, message }) => `${name}: ${message}`)
+    .map(({ name, message }) => `${name}:${message}`)
     .join('\n');
-
   console.error(errorMessages);
+} else if (opts.has('--help')) {
+  printHelp();
+} else if (opts.has('--version')) {
+  printVersion();
 } else {
-  const limit = opts.get('-l') || Infinity;
-  const verbose = opts.has('--verbose');
+  const limit = opts.get('-l') || opts.get('--limit') || Infinity;
+  const filename = args[0];
+  // Do things...
+}
+```
 
-  switch (cmds[0]) {
-    case 'up':
-      // Up...
-      break;
-    case 'down':
-      // Down...
-      break;
-  }
+#### 2. Parsing Commands
+
+```JavaScript
+const { cmds, opts, errors } = getopts({
+  cmds: [
+    {
+      name: 'up',
+      opts: [
+        { name: '-v', longName: '--verbose' },
+      ],
+      maxArgs: 0,
+    },
+    {
+      name: 'down',
+      maxArgs: 0,
+    },
+  ],
+  opts: [
+    { longName: '--version' },
+    { longName: '--help' },
+  ],
+  // Expects one argument so that means that the command is required. If set to
+  // 0, the command would be optional.
+  minArgs: 1,
+});
+
+const cmd = cmds[0];
+
+switch (cmd) {
+  case 'up':
+    const verbose = opts.has('-v') || opts.has('--verbose');
+    // up...
+    break;
+  case 'down':
+    // down...
+    break;
 }
 ```
