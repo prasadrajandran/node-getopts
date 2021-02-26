@@ -1,21 +1,21 @@
 const setArgv = require('./helpers/set_argv');
-const { parse } = require('../dist/parse');
+const { getopts } = require('../dist/index');
 
-beforeEach(() => {
-  setArgv('');
-});
+const resetArgv = () => setArgv('');
 
-describe('smoke test parse()', () => {
+beforeEach(resetArgv);
+
+describe('smoke test', () => {
   test('schema is required', () => {
-    expect(() => parse()).toThrowError();
-    expect(() => parse({})).not.toThrowError();
+    expect(() => getopts()).toThrowError();
+    expect(() => getopts({})).not.toThrowError();
   });
 
-  test('parses input', () => {
-    const argvInput = '-n5 --verbose create -f -- some_file1 some_file2 -x';
+  test('parses options/commands/arguments', () => {
+    const argvInput = '-n5 --verbose create -f -- somefile1 somefile2 -x';
     setArgv(argvInput);
 
-    const { opts, cmds, args, errors } = parse({
+    const { opts, cmds, args, errors } = getopts({
       opts: [
         { name: '-n', arg: 'required', argFilter: (v) => parseInt(v, 10) },
         { longName: '--verbose' },
@@ -34,8 +34,9 @@ describe('smoke test parse()', () => {
     expect(opts.get('--verbose')).toEqual(undefined);
     expect(opts.get('-f')).toEqual(undefined);
 
+    expect(cmds.length).toEqual(1);
     expect(cmds[0]).toEqual('create');
 
-    expect(args).toEqual(['some_file1', 'some_file2', '-x']);
+    expect(args).toEqual(['somefile1', 'somefile2', '-x']);
   });
 });
