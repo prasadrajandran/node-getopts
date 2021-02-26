@@ -1,40 +1,40 @@
-[getopts - v1.0.0-alpha.5](../README.md) / [classes/errors](../modules/classes_errors.md) / TooFewArgsError
+[getopts - v1.0.0-alpha.6](../README.md) / [classes/errors](../modules/classes_errors.md) / InsufficientArgsError
 
-# Class: TooFewArgsError
+# Class: InsufficientArgsError
 
-[classes/errors](../modules/classes_errors.md).TooFewArgsError
+[classes/errors](../modules/classes_errors.md).InsufficientArgsError
 
 ## Hierarchy
 
 - _Error_
 
-  ↳ **TooFewArgsError**
+  ↳ **InsufficientArgsError**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](classes_errors.toofewargserror.md#constructor)
+- [constructor](classes_errors.insufficientargserror.md#constructor)
 
 ### Properties
 
-- [message](classes_errors.toofewargserror.md#message)
-- [minArgsExpected](classes_errors.toofewargserror.md#minargsexpected)
-- [name](classes_errors.toofewargserror.md#name)
-- [numArgsReceived](classes_errors.toofewargserror.md#numargsreceived)
-- [prepareStackTrace](classes_errors.toofewargserror.md#preparestacktrace)
-- [stack](classes_errors.toofewargserror.md#stack)
-- [stackTraceLimit](classes_errors.toofewargserror.md#stacktracelimit)
+- [message](classes_errors.insufficientargserror.md#message)
+- [minArgsExpected](classes_errors.insufficientargserror.md#minargsexpected)
+- [name](classes_errors.insufficientargserror.md#name)
+- [numArgsReceived](classes_errors.insufficientargserror.md#numargsreceived)
+- [prepareStackTrace](classes_errors.insufficientargserror.md#preparestacktrace)
+- [stack](classes_errors.insufficientargserror.md#stack)
+- [stackTraceLimit](classes_errors.insufficientargserror.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](classes_errors.toofewargserror.md#capturestacktrace)
+- [captureStackTrace](classes_errors.insufficientargserror.md#capturestacktrace)
 
 ## Constructors
 
 ### constructor
 
-\+ **new TooFewArgsError**(`message`: _string_, `numArgsReceived`: _number_, `minArgsExpected`: _number_): [_TooFewArgsError_](classes_errors.toofewargserror.md)
+\+ **new InsufficientArgsError**(`message`: _string_, `numArgsReceived`: _number_, `minArgsExpected`: _number_): [_InsufficientArgsError_](classes_errors.insufficientargserror.md)
 
 Too few CLI arguments error.
 
@@ -46,9 +46,9 @@ Too few CLI arguments error.
 | `numArgsReceived` | _number_ | The total number of CLI arguments received.      |
 | `minArgsExpected` | _number_ | The minimum number of arguments the CLI expects. |
 
-**Returns:** [_TooFewArgsError_](classes_errors.toofewargserror.md)
+**Returns:** [_InsufficientArgsError_](classes_errors.insufficientargserror.md)
 
-Defined in: [src/classes/errors.ts:217](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L217)
+Defined in: [src/classes/errors.ts:217](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L217)
 
 ## Properties
 
@@ -66,15 +66,15 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 The minimum number of arguments the CLI expects.
 
-Defined in: [src/classes/errors.ts:217](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L217)
+Defined in: [src/classes/errors.ts:217](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L217)
 
 ---
 
 ### name
 
-• **name**: _string_= 'TooFewArgsError'
+• **name**: _string_= 'InsufficientArgsError'
 
-Defined in: [src/classes/errors.ts:209](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L209)
+Defined in: [src/classes/errors.ts:209](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L209)
 
 ---
 
@@ -84,7 +84,7 @@ Defined in: [src/classes/errors.ts:209](https://github.com/prasadrajandran/node-
 
 The total number of CLI arguments received.
 
-Defined in: [src/classes/errors.ts:213](https://github.com/prasadrajandran/node-getopts/blob/8cf4bad/src/classes/errors.ts#L213)
+Defined in: [src/classes/errors.ts:213](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L213)
 
 ---
 
