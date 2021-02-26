@@ -170,12 +170,12 @@ export class OptArgFilterError extends Error {
   }
 }
 
-export class TooManyArgsError extends Error {
-  name = 'TooManyArgsError';
+export class ExcessArgsError extends Error {
+  name = 'ExcessArgsError';
   /**
-   * The extra CLI arguments.
+   * The excess CLI arguments.
    */
-  extraArgs: string[];
+  excessArgs: string[];
   /**
    * The total number of arguments the CLI received.
    */
@@ -188,25 +188,25 @@ export class TooManyArgsError extends Error {
   /**
    * Too many CLI arguments error.
    * @param message - Error message.
-   * @param extraArgs - The extra CLI arguments.
+   * @param excessArgs - The excess CLI arguments.
    * @param numArgsReceived - The total number of arguments the CLI received.
    * @param maxArgsExpected - The maximum number of arguments the CLI accepts.
    */
   constructor(
     message: string,
-    extraArgs: string[],
+    excessArgs: string[],
     numArgsReceived: number,
     maxArgsExpected: number,
   ) {
     super(message);
-    this.extraArgs = extraArgs;
+    this.excessArgs = excessArgs;
     this.numArgsReceived = numArgsReceived;
     this.maxArgsExpected = maxArgsExpected;
   }
 }
 
-export class TooFewArgsError extends Error {
-  name = 'TooFewArgsError';
+export class InsufficientArgsError extends Error {
+  name = 'InsufficientArgsError';
   /**
    * The total number of CLI arguments received.
    */

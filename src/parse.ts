@@ -1,17 +1,17 @@
 import { OptMap } from './interfaces/opt_map';
 import { Schema } from './interfaces/schema';
+import { ParsedArgs } from './interfaces/parsed_args';
+import { Settings } from './interfaces/settings';
 import { parseSchema } from './parse_schema';
 import { parseOpt } from './parse_opt';
 import { parseLongOpt } from './parse_long_opt';
-import { ParsedArgs } from './interfaces/parsed_args';
 import {
   ArgFilterError,
   CmdExpectedError,
-  TooFewArgsError,
-  TooManyArgsError,
+  InsufficientArgsError,
+  ExcessArgsError,
   UnknownCmdError,
 } from './classes/errors';
-import { Settings } from './interfaces/settings';
 
 /**
  * Starting index of command line arguments in `process.argv`.
@@ -161,25 +161,26 @@ export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
     argPos++;
   }
 
-  // Add "too many arguments error" if applicable.
+  // Add "excess arguments error" if applicable.
   if (args.length > maxArgs) {
     // Note: The use of `splice` is intentional as we want to remove the
     // extra arguments from `args`.
-    const extraArgs = args.splice(maxArgs, Infinity) as string[];
+    const excessArgs = args.splice(maxArgs, Infinity) as string[];
     errors.push(
-      new TooManyArgsError(
+      new ExcessArgsError(
         `Only ${maxArgs} argument${maxArgs > 1 ? 's' : ''} expected but got ` +
-          `${extraArgs.length > 1 ? 'these' : 'this'} ` +
-          `${extraArgs.map((arg) => `"${arg}"`).join(', ')} extra ` +
-          `argument${extraArgs.length > 1 ? 's' : ''}`,
-        extraArgs,
-        args.length + extraArgs.length,
+          `${excessArgs.length > 1 ? 'these' : 'this'} ` +
+          `${excessArgs.map((arg) => `"${arg}"`).join(', ')} additional ` +
+          `argument${excessArgs.length > 1 ? 's' : ''}`,
+        excessArgs,
+        args.length + excessArgs.length,
         maxArgs,
       ),
     );
   }
 
-  // Add "too few arguments error" or "command expected error" if applicable.
+  // Add "insufficient arguments error" or "command expected error" if
+  // applicable.
   if (!unknownCmdReceived && argPos < minArgs) {
     if (expectsCmd) {
       const cmds = Array.from(cmdConfigMap.keys());
@@ -191,7 +192,7 @@ export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
       );
     } else {
       errors.push(
-        new TooFewArgsError(
+        new InsufficientArgsError(
           `At least ${minArgs} argument${minArgs > 1 ? 's' : ''} expected`,
           args.length,
           minArgs,
