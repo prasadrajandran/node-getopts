@@ -1,6 +1,5 @@
 module.exports = {
   env: {
-    browser: true,
     es2021: true,
     node: true,
   },
@@ -19,5 +18,5 @@ module.exports = {
   rules: {
     'tsdoc/syntax': 'error',
   },
-  ignorePatterns: ['strip_comments.js', '*.test.js'],
+  ignorePatterns: ['strip_comments.js', 'tests/'],
 };
