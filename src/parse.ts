@@ -1,11 +1,12 @@
-import { OptMap } from './interfaces/opt_map';
 import { Schema } from './interfaces/schema';
-import { ParsedArgs } from './interfaces/parsed_args';
 import { Settings } from './interfaces/settings';
+import { OptMap } from './interfaces/opt_map';
+import { ParsedArgs } from './interfaces/parsed_args';
 import { parseSchema } from './parse_schema';
 import { parseOpt } from './parse_opt';
 import { parseLongOpt } from './parse_long_opt';
 import {
+  ParseError,
   ArgFilterError,
   CmdExpectedError,
   InsufficientArgsError,
@@ -64,7 +65,7 @@ export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
   );
   const config = parseSchema(schema);
 
-  const errors: Error[] = [];
+  const errors: ParseError[] = [];
   const cmds: string[] = [];
   const opts: OptMap = new Map();
   const args: unknown[] = [];
@@ -113,15 +114,7 @@ export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
       const cmdConfig = cmdConfigMap.get(inputArg);
       if (!cmdConfig) {
         const cmds = Array.from(cmdConfigMap.keys());
-        errors.push(
-          new UnknownCmdError(
-            `Got "${inputArg}" but expected ${cmds
-              .map((cmd) => `"${cmd}"`)
-              .join(', ')}`,
-            inputArg,
-            cmds,
-          ),
-        );
+        errors.push(new UnknownCmdError(inputArg, cmds));
         unknownCmdReceived = true;
         break;
       }
@@ -146,16 +139,7 @@ export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
       try {
         args.push(argFilter(inputArg, argPos));
       } catch (err) {
-        errors.push(
-          new ArgFilterError(
-            `Exception thrown when processing "${inputArg}" at position ` +
-              argPos,
-            inputArg,
-            argPos,
-            argFilter,
-            err,
-          ),
-        );
+        errors.push(new ArgFilterError(inputArg, argFilter, err));
       }
     }
     argPos++;
@@ -163,20 +147,12 @@ export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
 
   // Add "excess arguments error" if applicable.
   if (args.length > maxArgs) {
+    // Note: This has to be done before the array is spliced.
+    const numArgsReceived = args.length;
     // Note: The use of `splice` is intentional as we want to remove the
     // extra arguments from `args`.
     const excessArgs = args.splice(maxArgs, Infinity) as string[];
-    errors.push(
-      new ExcessArgsError(
-        `Only ${maxArgs} argument${maxArgs > 1 ? 's' : ''} expected but got ` +
-          `${excessArgs.length > 1 ? 'these' : 'this'} ` +
-          `${excessArgs.map((arg) => `"${arg}"`).join(', ')} additional ` +
-          `argument${excessArgs.length > 1 ? 's' : ''}`,
-        excessArgs,
-        args.length + excessArgs.length,
-        maxArgs,
-      ),
-    );
+    errors.push(new ExcessArgsError(excessArgs, numArgsReceived, maxArgs));
   }
 
   // Add "insufficient arguments error" or "command expected error" if
@@ -184,20 +160,9 @@ export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
   if (!unknownCmdReceived && argPos < minArgs) {
     if (expectsCmd) {
       const cmds = Array.from(cmdConfigMap.keys());
-      errors.push(
-        new CmdExpectedError(
-          `${cmds.map((cmd) => `"${cmd}"`).join(', ')} expected`,
-          cmds,
-        ),
-      );
+      errors.push(new CmdExpectedError(cmds));
     } else {
-      errors.push(
-        new InsufficientArgsError(
-          `At least ${minArgs} argument${minArgs > 1 ? 's' : ''} expected`,
-          args.length,
-          minArgs,
-        ),
-      );
+      errors.push(new InsufficientArgsError(args.length, minArgs));
     }
   }
 

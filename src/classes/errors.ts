@@ -4,151 +4,106 @@ export class SchemaError extends Error {
   name = 'SchemaError';
 }
 
-export class UnknownOptError extends Error {
-  name = 'UnknownOptError';
+export class ParseError extends Error {
+  name = 'ParseError';
   /**
-   * Name of the unknown CLI option.
+   * Additional error data.
    */
-  unknownOpt: string;
+  details = new Map<string, unknown>();
+}
+
+export class UnknownOptError extends ParseError {
+  name = 'UnknownOptError';
 
   /**
    * Unknown CLI option error.
-   * @param message - Error message.
    * @param unknownOpt - Name of the unknown CLI option.
    */
-  constructor(message: string, unknownOpt: string) {
-    super(message);
-    this.unknownOpt = unknownOpt;
+  constructor(unknownOpt: string) {
+    super(`"${unknownOpt}" not recognized`);
+    this.details.set('unknownOpt', unknownOpt);
   }
 }
 
-export class UnknownCmdError extends Error {
+export class UnknownCmdError extends ParseError {
   name = 'UnknownCmdError';
-  /**
-   * Name of the unknown CLI command
-   */
-  unknownCmd: string;
-  /**
-   * CLI commands that were expected.
-   */
-  expectedCmds: string[];
 
   /**
    * Unknown CLI command error.
-   * @param message - Error message.
    * @param unknownCmd - Name of the unknown CLI command.
    * @param expectedCmds - CLI commands that were expected.
    */
-  constructor(message: string, unknownCmd: string, expectedCmds: string[]) {
-    super(message);
-    this.unknownCmd = unknownCmd;
-    this.expectedCmds = expectedCmds;
+  constructor(unknownCmd: string, expectedCmds: string[]) {
+    super(
+      `Got "${unknownCmd}" but expected ` +
+        `${expectedCmds.map((cmd) => `"${cmd}"`).join(', ')}`,
+    );
+    this.details.set('unknownCmd', unknownCmd);
+    this.details.set('expectedCmds', expectedCmds);
   }
 }
 
-export class OptMissingArgError extends Error {
+export class OptMissingArgError extends ParseError {
   name = 'OptMissingArgError';
-  /**
-   * CLI option that is missing its argument.
-   */
-  opt: string;
 
   /**
    * CLI option missing argument error.
-   * @param message - Error message.
    * @param opt - CLI option that is missing its argument.
    */
-  constructor(message: string, opt: string) {
-    super(message);
-    this.opt = opt;
+  constructor(opt: string) {
+    super(`${opt} requires an argument`);
+    this.details.set('opt', opt);
   }
 }
 
-export class UnexpectedOptArgError extends Error {
+export class UnexpectedOptArgError extends ParseError {
   name = 'UnexpectedOptArgError';
-  /**
-   * The unexpected argument the option (that doesn't accept arguments) was
-   * provided.
-   */
-  unexpectedOptArg: string;
 
   /**
-   * Unexpected Option Argument Error.
-   * @param message - Error message.
-   * @param unexpectedOptArg - The unexpected argument the option (that doesn't
-   * accept arguments) was provided.
+   * Unexpected CLI option argument error.
+   * @param opt - Option that received the unexpected argument.
+   * @param arg - The unexpected argument the option (that doesn't accept
+   *     arguments) was provided.
    */
-  constructor(message: string, unexpectedOptArg: string) {
-    super(message);
-    this.unexpectedOptArg = unexpectedOptArg;
+  constructor(opt: string, arg: string) {
+    super(`"${opt}" does not accept an argument but was given "${arg}"`);
+    this.details.set('opt', opt);
+    this.details.set('arg', arg);
   }
 }
 
-export class ArgFilterError extends Error {
+export class ArgFilterError extends ParseError {
   name = 'ArgFilterError';
-  /**
-   * CLI argument value.
-   */
-  arg: string;
-  /**
-   * CLI argument's position (starting from 0).
-   */
-  argPos: number;
-  /**
-   * CLI argument's filter that threw the exception.
-   */
-  argFilter: ArgFilter;
-  /**
-   * Exception that was thrown by the CLI argument's filter.
-   */
-  argFilterError: Error;
 
   /**
    * CLI argument filter error.
-   * @param message - Error message.
    * @param arg - CLI argument value.
-   * @param argPos - CLI argument's position (starting from 0).
    * @param argFilter - CLI argument's filter that threw the exception.
    * @param argFilterError - Exception that was thrown by the CLI argument's
    *     filter.
    */
   constructor(
-    message: string,
     arg: string,
-    argPos: number,
     argFilter: ArgFilter,
-    argFilterError: Error,
+    argFilterError: Error | unknown,
   ) {
-    super(message);
-    this.arg = arg;
-    this.argPos = argPos;
-    this.argFilter = argFilter;
-    this.argFilterError = argFilterError;
+    super(
+      `Exception thrown when processing "${arg}" through its argument filter` +
+        `${
+          argFilterError instanceof Error ? `:\n${argFilterError.message}` : ''
+        }`,
+    );
+    this.details.set('arg', arg);
+    this.details.set('argFilter', argFilter);
+    this.details.set('argFilterError', argFilterError);
   }
 }
 
-export class OptArgFilterError extends Error {
+export class OptArgFilterError extends ParseError {
   name = 'OptArgFilterError';
-  /**
-   * CLI option that owns the filter that threw the exception.
-   */
-  opt: string;
-  /**
-   * CLI option's argument that generated the exception.
-   */
-  arg: string;
-  /**
-   * CLI option's argument filter that threw the exception.
-   */
-  argFilter: OptArgFilter;
-  /**
-   * Exception that was thrown by the CLI option's argument filter.
-   */
-  argFilterError: Error;
 
   /**
    * CLI option argument filter error.
-   * @param message - Error message.
    * @param opt - CLI option that owns the filter that threw the exception.
    * @param arg - CLI option's argument that generated the exception.
    * @param argFilter - CLI option's argument filter that threw the exception.
@@ -156,122 +111,94 @@ export class OptArgFilterError extends Error {
    *     argument filter.
    */
   constructor(
-    message: string,
     opt: string,
     arg: string,
     argFilter: OptArgFilter,
-    argFilterError: Error,
+    argFilterError: Error | unknown,
   ) {
-    super(message);
-    this.opt = opt;
-    this.arg = arg;
-    this.argFilter = argFilter;
-    this.argFilterError = argFilterError;
+    super(
+      `${opt}'s argument filter threw an exception when processing "${arg}"` +
+        `${
+          argFilterError instanceof Error ? `:\n${argFilterError.message}` : ''
+        }`,
+    );
+    this.details.set('opt', opt);
+    this.details.set('arg', arg);
+    this.details.set('argFilter', argFilter);
+    this.details.set('argFilterError', argFilterError);
   }
 }
 
-export class ExcessArgsError extends Error {
+export class ExcessArgsError extends ParseError {
   name = 'ExcessArgsError';
-  /**
-   * The excess CLI arguments.
-   */
-  excessArgs: string[];
-  /**
-   * The total number of arguments the CLI received.
-   */
-  numArgsReceived: number;
-  /**
-   * The maximum number of arguments the CLI accepts.
-   */
-  maxArgsExpected: number;
 
   /**
-   * Too many CLI arguments error.
-   * @param message - Error message.
+   * Excess CLI arguments error.
    * @param excessArgs - The excess CLI arguments.
    * @param numArgsReceived - The total number of arguments the CLI received.
    * @param maxArgsExpected - The maximum number of arguments the CLI accepts.
    */
   constructor(
-    message: string,
     excessArgs: string[],
     numArgsReceived: number,
     maxArgsExpected: number,
   ) {
-    super(message);
-    this.excessArgs = excessArgs;
-    this.numArgsReceived = numArgsReceived;
-    this.maxArgsExpected = maxArgsExpected;
+    super(
+      `Only ${maxArgsExpected} argument${maxArgsExpected > 1 ? 's' : ''} ` +
+        `expected but got ${excessArgs.length > 1 ? 'these' : 'this'} ` +
+        `${excessArgs.map((arg) => `"${arg}"`).join(', ')} additional ` +
+        `argument${excessArgs.length > 1 ? 's' : ''}`,
+    );
+    this.details.set('excessArgs', excessArgs);
+    this.details.set('numArgsReceived', numArgsReceived);
+    this.details.set('maxArgsExpected', maxArgsExpected);
   }
 }
 
-export class InsufficientArgsError extends Error {
+export class InsufficientArgsError extends ParseError {
   name = 'InsufficientArgsError';
-  /**
-   * The total number of CLI arguments received.
-   */
-  numArgsReceived: number;
-  /**
-   * The minimum number of arguments the CLI expects.
-   */
-  minArgsExpected: number;
 
   /**
-   * Too few CLI arguments error.
-   * @param message - Error message.
+   * Insufficient CLI arguments error.
    * @param numArgsReceived - The total number of CLI arguments received.
    * @param minArgsExpected - The minimum number of arguments the CLI expects.
    */
-  constructor(
-    message: string,
-    numArgsReceived: number,
-    minArgsExpected: number,
-  ) {
-    super(message);
-    this.numArgsReceived = numArgsReceived;
-    this.minArgsExpected = minArgsExpected;
+  constructor(numArgsReceived: number, minArgsExpected: number) {
+    super(
+      `At least ${minArgsExpected} argument${
+        minArgsExpected > 1 ? 's' : ''
+      } expected but only got ${numArgsReceived}`,
+    );
+    this.details.set('numArgsReceived', numArgsReceived);
+    this.details.set('minArgsExpected', minArgsExpected);
   }
 }
 
-export class CmdExpectedError extends Error {
+export class CmdExpectedError extends ParseError {
   name = 'CmdExpectedError';
-  /**
-   * CLI commands that were expected.
-   */
-  expectedCmds: string[];
 
   /**
    * Expected CLI command error.
-   * @param message - Error message.
    * @param expectedCmds - CLI commands that were expected.
    */
-  constructor(message: string, expectedCmds: string[]) {
-    super(message);
-    this.expectedCmds = expectedCmds;
+  constructor(expectedCmds: string[]) {
+    super(
+      `The following ${expectedCmds.map((cmd) => `"${cmd}"`).join(', ')} ` +
+        `was expected`,
+    );
+    this.details.set('expectedCmds', expectedCmds);
   }
 }
 
-export class DuplicateOptError extends Error {
+export class DuplicateOptError extends ParseError {
   name = 'DuplicateOptError';
-  /**
-   * The duplicate option.
-   */
-  duplicateOpt: string;
-  /**
-   * Number of times the option was entered (i.e. starting from 2).
-   */
-  count: number;
 
   /**
-   * Duplicate Option Error.
-   * @param message - Error message.
+   * Duplicate CLI option error.
    * @param duplicateOpt - The duplicate option.
-   * @param count - Number of times the option was entered (i.e. starting from
-   *     2).
    */
-  constructor(message: string, duplicateOpt: string, count: number) {
-    super(message);
-    this.duplicateOpt = duplicateOpt;
-    this.count = count;
+  constructor(duplicateOpt: string) {
+    super(`"${duplicateOpt}" was entered more than once`);
+    this.details.set('duplicateOpt', duplicateOpt);
   }
 }
