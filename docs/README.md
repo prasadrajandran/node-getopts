@@ -1,4 +1,4 @@
-# getopts - v1.0.0-alpha.6
+# getopts - v1.0.0-alpha.7
 
 ## Table of contents
 
