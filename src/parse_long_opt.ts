@@ -1,6 +1,7 @@
 import { OptMap } from './interfaces/opt_map';
 import { OptConfigMap } from './interfaces/config';
 import {
+  ParseError,
   DuplicateOptError,
   OptArgFilterError,
   OptMissingArgError,
@@ -21,7 +22,7 @@ import {
  */
 export const parseLongOpt = (
   optSchema: OptConfigMap,
-  errors: Error[],
+  errors: ParseError[],
   opts: OptMap,
   input: string,
 ): void => {
@@ -34,17 +35,14 @@ export const parseLongOpt = (
     // Note: Processing is not halted even though an error has been generated
     // because this gives users the option to ignore this error.
     if (opts.has(optName)) {
-      const duplicateOptError = errors.find(
-        (e) => e instanceof DuplicateOptError && e.duplicateOpt === optName,
-      ) as DuplicateOptError;
-      if (duplicateOptError) {
-        duplicateOptError.count++;
-        duplicateOptError.message =
-          `"${optName}" was entered ` + `${duplicateOptError.count} times`;
-      } else {
-        errors.push(
-          new DuplicateOptError(`"${optName}" was entered 2 times`, optName, 2),
+      const duplicateOptError = errors.find((err) => {
+        return (
+          err instanceof DuplicateOptError &&
+          err.details.get('duplicateOpt') === optName
         );
+      });
+      if (!duplicateOptError) {
+        errors.push(new DuplicateOptError(optName));
       }
     }
 
@@ -53,31 +51,15 @@ export const parseLongOpt = (
     if (argAccepted && optArg) {
       try {
         opts.set(optName, argFilter(optArg));
-      } catch (argFilterError) {
-        errors.push(
-          new OptArgFilterError(
-            `${optName}'s argument filter threw an exception when processing ` +
-              `"${optArg}"`,
-            optName,
-            optArg,
-            argFilter,
-            argFilterError,
-          ),
-        );
+      } catch (err) {
+        errors.push(new OptArgFilterError(optName, optArg, argFilter, err));
       }
     } else if (!argAccepted && optArg) {
-      errors.push(
-        new UnexpectedOptArgError(
-          `"${optName}" does not accept an argument but was given "${optArg}"`,
-          optArg,
-        ),
-      );
+      errors.push(new UnexpectedOptArgError(optName, optArg));
     } else if (argRequired && !optArg) {
-      errors.push(
-        new OptMissingArgError(`${optName} requires an argument`, optName),
-      );
+      errors.push(new OptMissingArgError(optName));
     }
   } else {
-    errors.push(new UnknownOptError(`"${optName}"`, optName));
+    errors.push(new UnknownOptError(optName));
   }
 };

@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.6](../README.md) / [classes/errors](../modules/classes_errors.md) / ArgFilterError
+[getopts - v1.0.0-alpha.7](../README.md) / [classes/errors](../modules/classes_errors.md) / ArgFilterError
 
 # Class: ArgFilterError
 
@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- _Error_
+- [_ParseError_](classes_errors.parseerror.md)
 
   ↳ **ArgFilterError**
 
@@ -18,10 +18,7 @@
 
 ### Properties
 
-- [arg](classes_errors.argfiltererror.md#arg)
-- [argFilter](classes_errors.argfiltererror.md#argfilter)
-- [argFilterError](classes_errors.argfiltererror.md#argfiltererror)
-- [argPos](classes_errors.argfiltererror.md#argpos)
+- [details](classes_errors.argfiltererror.md#details)
 - [message](classes_errors.argfiltererror.md#message)
 - [name](classes_errors.argfiltererror.md#name)
 - [prepareStackTrace](classes_errors.argfiltererror.md#preparestacktrace)
@@ -36,7 +33,7 @@
 
 ### constructor
 
-\+ **new ArgFilterError**(`message`: _string_, `arg`: _string_, `argPos`: _number_, `argFilter`: [_ArgFilter_](../interfaces/interfaces_schema.argfilter.md), `argFilterError`: Error): [_ArgFilterError_](classes_errors.argfiltererror.md)
+\+ **new ArgFilterError**(`arg`: _string_, `argFilter`: [_ArgFilter_](../interfaces/interfaces_schema.argfilter.md), `argFilterError`: _unknown_): [_ArgFilterError_](classes_errors.argfiltererror.md)
 
 CLI argument filter error.
 
@@ -44,61 +41,35 @@ CLI argument filter error.
 
 | Name             | Type                                                        | Description                                             |
 | :--------------- | :---------------------------------------------------------- | :------------------------------------------------------ |
-| `message`        | _string_                                                    | Error message.                                          |
 | `arg`            | _string_                                                    | CLI argument value.                                     |
-| `argPos`         | _number_                                                    | CLI argument's position (starting from 0).              |
 | `argFilter`      | [_ArgFilter_](../interfaces/interfaces_schema.argfilter.md) | CLI argument's filter that threw the exception.         |
-| `argFilterError` | Error                                                       | Exception that was thrown by the CLI argument's filter. |
+| `argFilterError` | _unknown_                                                   | Exception that was thrown by the CLI argument's filter. |
 
 **Returns:** [_ArgFilterError_](classes_errors.argfiltererror.md)
 
-Defined in: [src/classes/errors.ts:104](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L104)
+Inherited from: [ParseError](classes_errors.parseerror.md)
+
+Defined in: [src/classes/errors.ts:76](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/classes/errors.ts#L76)
 
 ## Properties
 
-### arg
+### details
 
-• **arg**: _string_
+• **details**: _Map_<string, unknown\>
 
-CLI argument value.
+Additional error data.
 
-Defined in: [src/classes/errors.ts:92](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L92)
+Inherited from: [ParseError](classes_errors.parseerror.md).[details](classes_errors.parseerror.md#details)
 
----
-
-### argFilter
-
-• **argFilter**: [_ArgFilter_](../interfaces/interfaces_schema.argfilter.md)
-
-CLI argument's filter that threw the exception.
-
-Defined in: [src/classes/errors.ts:100](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L100)
-
----
-
-### argFilterError
-
-• **argFilterError**: Error
-
-Exception that was thrown by the CLI argument's filter.
-
-Defined in: [src/classes/errors.ts:104](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L104)
-
----
-
-### argPos
-
-• **argPos**: _number_
-
-CLI argument's position (starting from 0).
-
-Defined in: [src/classes/errors.ts:96](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L96)
+Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/classes/errors.ts#L12)
 
 ---
 
 ### message
 
 • **message**: _string_
+
+Inherited from: [ParseError](classes_errors.parseerror.md).[message](classes_errors.parseerror.md#message)
 
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
@@ -108,7 +79,9 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'ArgFilterError'
 
-Defined in: [src/classes/errors.ts:88](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L88)
+Overrides: [ParseError](classes_errors.parseerror.md).[name](classes_errors.parseerror.md#name)
+
+Defined in: [src/classes/errors.ts:76](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/classes/errors.ts#L76)
 
 ---
 
@@ -120,6 +93,8 @@ Optional override for formatting stack traces
 
 **`see`** https://github.com/v8/v8/wiki/Stack%20Trace%20API#customizing-stack-traces
 
+Inherited from: [ParseError](classes_errors.parseerror.md).[prepareStackTrace](classes_errors.parseerror.md#preparestacktrace)
+
 Defined in: node_modules/@types/node/globals.d.ts:11
 
 ---
@@ -128,6 +103,8 @@ Defined in: node_modules/@types/node/globals.d.ts:11
 
 • `Optional` **stack**: _undefined_ \| _string_
 
+Inherited from: [ParseError](classes_errors.parseerror.md).[stack](classes_errors.parseerror.md#stack)
+
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 
 ---
@@ -135,6 +112,8 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 ### stackTraceLimit
 
 • **stackTraceLimit**: _number_
+
+Inherited from: [ParseError](classes_errors.parseerror.md).[stackTraceLimit](classes_errors.parseerror.md#stacktracelimit)
 
 Defined in: node_modules/@types/node/globals.d.ts:13
 
@@ -154,5 +133,7 @@ Create .stack property on a target object
 | `constructorOpt?` | Function |
 
 **Returns:** _void_
+
+Inherited from: [ParseError](classes_errors.parseerror.md)
 
 Defined in: node_modules/@types/node/globals.d.ts:4

@@ -1,4 +1,4 @@
-const { getopts } = require('../dist/index');
+const { getopts } = require('../../dist/index');
 
 const ALPHABET_LOWERCASE = 'abcdefghijklmnopqrstuvwxyz';
 const ALPHABET_UPPERCASE = ALPHABET_LOWERCASE.toUpperCase();
@@ -39,9 +39,9 @@ const INVALID_LONG_OPT_NAMES = [
   '--a--a',
 ];
 
-describe('[SCHEMA] option names', () => {
-  test('valid option names', () => {
-    VALID_OPT_NAMES.forEach((name) => {
+describe('[SCHEMA] valid option names', () => {
+  VALID_OPT_NAMES.forEach((name) => {
+    test(`"${name}" is a valid name for an option`, () => {
       // Defined as a regular option.
       expect(() => getopts({ opts: [{ name }] })).not.toThrowError();
 
@@ -52,14 +52,12 @@ describe('[SCHEMA] option names', () => {
     });
   });
 
-  test('invalid option names', () => {
-    // Defined as a regular option.
-    INVALID_OPT_NAMES.forEach((name) => {
+  INVALID_OPT_NAMES.forEach((name) => {
+    test(`"${name}" is not a valid name for an option`, () => {
+      // Defined as a regular option.
       expect(() => getopts({ opts: [{ name }] })).toThrowError();
-    });
 
-    // Defined as an option under a command.
-    INVALID_OPT_NAMES.forEach((name) => {
+      // Defined as an option under a command.
       expect(() =>
         getopts({ cmds: [{ name: 'up', opts: [{ name }] }] }),
       ).toThrowError();

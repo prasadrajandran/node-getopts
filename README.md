@@ -20,6 +20,13 @@ Takes care of CLI argument parsing and validation for you.
 
 Full API documentation can be found [here](https://github.com/prasadrajandran/node-getopts/tree/main/docs).
 
+The most relevant parts are:
+
+- [getopts()](https://github.com/prasadrajandran/node-getopts/blob/main/docs/modules/parse.md) (internally known as `parse()`)
+  - [GetOptsSchema](https://github.com/prasadrajandran/node-getopts/blob/main/docs/interfaces/interfaces_schema.schema.md) (#1 argument)
+  - [GetOptsSettings](https://github.com/prasadrajandran/node-getopts/blob/main/docs/interfaces/interfaces_settings.settings.md) (#2 argument which is optional)
+- [ParsedArgs](https://github.com/prasadrajandran/node-getopts/blob/main/docs/interfaces/interfaces_parsed_args.parsedargs.md) - what `getopts()` returns.
+
 ### Installation
 
 ```Shell
@@ -52,15 +59,16 @@ const { opts, args, errors } = getopts({
   },
 });
 
-if (errors.length) {
+if (opts.has('--help')) {
+  printHelp();
+} else if (opts.has('--version')) {
+  printVersion();
+} else if (errors.length) {
   const errorMessages = errors
     .map(({ name, message }) => `${name}:${message}`)
     .join('\n');
   console.error(errorMessages);
-} else if (opts.has('--help')) {
   printHelp();
-} else if (opts.has('--version')) {
-  printVersion();
 } else {
   const limit = opts.get('-l') || opts.get('--limit') || Infinity;
   const filename = args[0];

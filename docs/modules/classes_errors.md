@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.6](../README.md) / classes/errors
+[getopts - v1.0.0-alpha.7](../README.md) / classes/errors
 
 # Module: classes/errors
 
@@ -13,6 +13,7 @@
 - [InsufficientArgsError](../classes/classes_errors.insufficientargserror.md)
 - [OptArgFilterError](../classes/classes_errors.optargfiltererror.md)
 - [OptMissingArgError](../classes/classes_errors.optmissingargerror.md)
+- [ParseError](../classes/classes_errors.parseerror.md)
 - [SchemaError](../classes/classes_errors.schemaerror.md)
 - [UnexpectedOptArgError](../classes/classes_errors.unexpectedoptargerror.md)
 - [UnknownCmdError](../classes/classes_errors.unknowncmderror.md)

@@ -1,4 +1,5 @@
 import { OptMap } from './opt_map';
+import { ParseError } from '../classes/errors';
 
 /**
  * Parsed CLI arguments.
@@ -19,5 +20,5 @@ export interface ParsedArgs {
   /**
    * Array of parsing/filter errors.
    */
-  errors: Error[];
+  errors: ParseError[];
 }

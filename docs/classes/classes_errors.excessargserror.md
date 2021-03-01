@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.6](../README.md) / [classes/errors](../modules/classes_errors.md) / ExcessArgsError
+[getopts - v1.0.0-alpha.7](../README.md) / [classes/errors](../modules/classes_errors.md) / ExcessArgsError
 
 # Class: ExcessArgsError
 
@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- _Error_
+- [_ParseError_](classes_errors.parseerror.md)
 
   ↳ **ExcessArgsError**
 
@@ -18,11 +18,9 @@
 
 ### Properties
 
-- [excessArgs](classes_errors.excessargserror.md#excessargs)
-- [maxArgsExpected](classes_errors.excessargserror.md#maxargsexpected)
+- [details](classes_errors.excessargserror.md#details)
 - [message](classes_errors.excessargserror.md#message)
 - [name](classes_errors.excessargserror.md#name)
-- [numArgsReceived](classes_errors.excessargserror.md#numargsreceived)
 - [prepareStackTrace](classes_errors.excessargserror.md#preparestacktrace)
 - [stack](classes_errors.excessargserror.md#stack)
 - [stackTraceLimit](classes_errors.excessargserror.md#stacktracelimit)
@@ -35,48 +33,43 @@
 
 ### constructor
 
-\+ **new ExcessArgsError**(`message`: _string_, `excessArgs`: _string_[], `numArgsReceived`: _number_, `maxArgsExpected`: _number_): [_ExcessArgsError_](classes_errors.excessargserror.md)
+\+ **new ExcessArgsError**(`excessArgs`: _string_[], `numArgsReceived`: _number_, `maxArgsExpected`: _number_): [_ExcessArgsError_](classes_errors.excessargserror.md)
 
-Too many CLI arguments error.
+Excess CLI arguments error.
 
 #### Parameters:
 
 | Name              | Type       | Description                                      |
 | :---------------- | :--------- | :----------------------------------------------- |
-| `message`         | _string_   | Error message.                                   |
 | `excessArgs`      | _string_[] | The excess CLI arguments.                        |
 | `numArgsReceived` | _number_   | The total number of arguments the CLI received.  |
 | `maxArgsExpected` | _number_   | The maximum number of arguments the CLI accepts. |
 
 **Returns:** [_ExcessArgsError_](classes_errors.excessargserror.md)
 
-Defined in: [src/classes/errors.ts:186](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L186)
+Inherited from: [ParseError](classes_errors.parseerror.md)
+
+Defined in: [src/classes/errors.ts:133](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/classes/errors.ts#L133)
 
 ## Properties
 
-### excessArgs
+### details
 
-• **excessArgs**: _string_[]
+• **details**: _Map_<string, unknown\>
 
-The excess CLI arguments.
+Additional error data.
 
-Defined in: [src/classes/errors.ts:178](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L178)
+Inherited from: [ParseError](classes_errors.parseerror.md).[details](classes_errors.parseerror.md#details)
 
----
-
-### maxArgsExpected
-
-• **maxArgsExpected**: _number_
-
-The maximum number of arguments the CLI accepts.
-
-Defined in: [src/classes/errors.ts:186](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L186)
+Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/classes/errors.ts#L12)
 
 ---
 
 ### message
 
 • **message**: _string_
+
+Inherited from: [ParseError](classes_errors.parseerror.md).[message](classes_errors.parseerror.md#message)
 
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
@@ -86,17 +79,9 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'ExcessArgsError'
 
-Defined in: [src/classes/errors.ts:174](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L174)
+Overrides: [ParseError](classes_errors.parseerror.md).[name](classes_errors.parseerror.md#name)
 
----
-
-### numArgsReceived
-
-• **numArgsReceived**: _number_
-
-The total number of arguments the CLI received.
-
-Defined in: [src/classes/errors.ts:182](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/classes/errors.ts#L182)
+Defined in: [src/classes/errors.ts:133](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/classes/errors.ts#L133)
 
 ---
 
@@ -108,6 +93,8 @@ Optional override for formatting stack traces
 
 **`see`** https://github.com/v8/v8/wiki/Stack%20Trace%20API#customizing-stack-traces
 
+Inherited from: [ParseError](classes_errors.parseerror.md).[prepareStackTrace](classes_errors.parseerror.md#preparestacktrace)
+
 Defined in: node_modules/@types/node/globals.d.ts:11
 
 ---
@@ -116,6 +103,8 @@ Defined in: node_modules/@types/node/globals.d.ts:11
 
 • `Optional` **stack**: _undefined_ \| _string_
 
+Inherited from: [ParseError](classes_errors.parseerror.md).[stack](classes_errors.parseerror.md#stack)
+
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 
 ---
@@ -123,6 +112,8 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 ### stackTraceLimit
 
 • **stackTraceLimit**: _number_
+
+Inherited from: [ParseError](classes_errors.parseerror.md).[stackTraceLimit](classes_errors.parseerror.md#stacktracelimit)
 
 Defined in: node_modules/@types/node/globals.d.ts:13
 
@@ -142,5 +133,7 @@ Create .stack property on a target object
 | `constructorOpt?` | Function |
 
 **Returns:** _void_
+
+Inherited from: [ParseError](classes_errors.parseerror.md)
 
 Defined in: node_modules/@types/node/globals.d.ts:4

@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.6](../README.md) / [interfaces/parsed_args](../modules/interfaces_parsed_args.md) / ParsedArgs
+[getopts - v1.0.0-alpha.7](../README.md) / [interfaces/parsed_args](../modules/interfaces_parsed_args.md) / ParsedArgs
 
 # Interface: ParsedArgs
 
@@ -23,7 +23,7 @@ Parsed CLI arguments.
 
 Array of parsed CLI arguments.
 
-Defined in: [src/interfaces/parsed_args.ts:18](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/interfaces/parsed_args.ts#L18)
+Defined in: [src/interfaces/parsed_args.ts:19](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/parsed_args.ts#L19)
 
 ---
 
@@ -33,17 +33,17 @@ Defined in: [src/interfaces/parsed_args.ts:18](https://github.com/prasadrajandra
 
 Array of parsed CLI commands.
 
-Defined in: [src/interfaces/parsed_args.ts:10](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/interfaces/parsed_args.ts#L10)
+Defined in: [src/interfaces/parsed_args.ts:11](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/parsed_args.ts#L11)
 
 ---
 
 ### errors
 
-• **errors**: Error[]
+• **errors**: [_ParseError_](../classes/classes_errors.parseerror.md)[]
 
 Array of parsing/filter errors.
 
-Defined in: [src/interfaces/parsed_args.ts:22](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/interfaces/parsed_args.ts#L22)
+Defined in: [src/interfaces/parsed_args.ts:23](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/parsed_args.ts#L23)
 
 ---
 
@@ -53,4 +53,4 @@ Defined in: [src/interfaces/parsed_args.ts:22](https://github.com/prasadrajandra
 
 Map of parsed CLI options.
 
-Defined in: [src/interfaces/parsed_args.ts:14](https://github.com/prasadrajandran/node-getopts/blob/5821226/src/interfaces/parsed_args.ts#L14)
+Defined in: [src/interfaces/parsed_args.ts:15](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/parsed_args.ts#L15)
