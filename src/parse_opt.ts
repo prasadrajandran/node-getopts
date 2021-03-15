@@ -13,6 +13,8 @@ import {
  * @param optSchema - Option's schema.
  * @param errors - Errors are appended to this.
  * @param opts - Options are added to this.
+ * @param duplicateOpts - Set to ensure that only unique instances of
+ *     "DuplicateOptError" and "UnknownOptError" are generated.
  * @param input - Input to parse. E.g. "-a", "-abc", "-a500", etc.
  * @param nextInput - Next input (used if the option requires arguments and the
  *     argument is separated by a space).
@@ -29,6 +31,7 @@ export const parseOpt = (
   optSchema: OptConfigMap,
   errors: ParseError[],
   opts: OptMap,
+  duplicateOpts: Set<string>,
   input: string,
   nextInput?: string,
 ): { nextArgConsumed: boolean } => {
@@ -43,16 +46,9 @@ export const parseOpt = (
 
       // Note: Processing is not halted even though an error has been generated
       // because this gives users the option to ignore this error.
-      if (opts.has(optName)) {
-        const duplicateOptError = errors.find((err) => {
-          return (
-            err instanceof DuplicateOptError &&
-            err.details.get('duplicateOpt') === optName
-          );
-        });
-        if (!duplicateOptError) {
-          errors.push(new DuplicateOptError(optName));
-        }
+      if (opts.has(optName) && !duplicateOpts.has(optName)) {
+        duplicateOpts.add(optName);
+        errors.push(new DuplicateOptError(optName));
       }
 
       opts.set(optName, undefined);
@@ -74,7 +70,8 @@ export const parseOpt = (
       } else if (argRequired) {
         errors.push(new OptMissingArgError(optName));
       }
-    } else {
+    } else if (!duplicateOpts.has(optName)) {
+      duplicateOpts.add(optName);
       errors.push(new UnknownOptError(optName));
     }
   }
