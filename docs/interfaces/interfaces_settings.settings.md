@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.7](../README.md) / [interfaces/settings](../modules/interfaces_settings.md) / Settings
+[getopts - v1.0.0-beta.1](../README.md) / [interfaces/settings](../modules/interfaces_settings.md) / Settings
 
 # Interface: Settings
 
@@ -16,8 +16,8 @@ CLI parser settings.
 
 ### argv
 
-• `Optional` **argv**: _undefined_ \| _string_[]
+• `Optional` **argv**: _string_[]
 
 CLI input override. Will default to `process.argv.slice(2)`.
 
-Defined in: [src/interfaces/settings.ts:8](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/settings.ts#L8)
+Defined in: [src/interfaces/settings.ts:8](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/settings.ts#L8)

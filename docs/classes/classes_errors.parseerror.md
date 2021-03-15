@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.7](../README.md) / [classes/errors](../modules/classes_errors.md) / ParseError
+[getopts - v1.0.0-beta.1](../README.md) / [classes/errors](../modules/classes_errors.md) / ParseError
 
 # Class: ParseError
 
@@ -73,7 +73,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:978
 
 Additional error data.
 
-Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/classes/errors.ts#L12)
+Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/classes/errors.ts#L12)
 
 ---
 
@@ -89,17 +89,32 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'ParseError'
 
-Defined in: [src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/classes/errors.ts#L8)
+Defined in: [src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/classes/errors.ts#L8)
 
 ---
 
 ### prepareStackTrace
 
-• `Optional` **prepareStackTrace**: _undefined_ \| (`err`: Error, `stackTraces`: CallSite[]) => _any_
+• `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => _any_
 
 Optional override for formatting stack traces
 
-**`see`** https://github.com/v8/v8/wiki/Stack%20Trace%20API#customizing-stack-traces
+**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+#### Type declaration:
+
+▸ (`err`: Error, `stackTraces`: CallSite[]): _any_
+
+#### Parameters:
+
+| Name          | Type       |
+| :------------ | :--------- |
+| `err`         | Error      |
+| `stackTraces` | CallSite[] |
+
+**Returns:** _any_
+
+Defined in: node_modules/@types/node/globals.d.ts:11
 
 Defined in: node_modules/@types/node/globals.d.ts:11
 
@@ -107,7 +122,7 @@ Defined in: node_modules/@types/node/globals.d.ts:11
 
 ### stack
 
-• `Optional` **stack**: _undefined_ \| _string_
+• `Optional` **stack**: _string_
 
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 

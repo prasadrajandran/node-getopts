@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.7](../README.md) / interfaces/opt_map
+[getopts - v1.0.0-beta.1](../README.md) / interfaces/opt_map
 
 # Module: interfaces/opt_map
 
@@ -19,7 +19,7 @@
 
 CLI option's argument.
 
-Defined in: [src/interfaces/opt_map.ts:14](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/opt_map.ts#L14)
+Defined in: [src/interfaces/opt_map.ts:14](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/opt_map.ts#L14)
 
 ---
 
@@ -29,7 +29,7 @@ Defined in: [src/interfaces/opt_map.ts:14](https://github.com/prasadrajandran/no
 
 A CLI option's long name.
 
-Defined in: [src/interfaces/opt_map.ts:9](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/opt_map.ts#L9)
+Defined in: [src/interfaces/opt_map.ts:9](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/opt_map.ts#L9)
 
 ---
 
@@ -46,7 +46,7 @@ Notes:
 - If the argument is optional and an argument wasn't provided, the argument
   value will be undefined.
 
-Defined in: [src/interfaces/opt_map.ts:25](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/opt_map.ts#L25)
+Defined in: [src/interfaces/opt_map.ts:25](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/opt_map.ts#L25)
 
 ---
 
@@ -56,4 +56,4 @@ Defined in: [src/interfaces/opt_map.ts:25](https://github.com/prasadrajandran/no
 
 A CLI option's name.
 
-Defined in: [src/interfaces/opt_map.ts:4](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/opt_map.ts#L4)
+Defined in: [src/interfaces/opt_map.ts:4](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/opt_map.ts#L4)

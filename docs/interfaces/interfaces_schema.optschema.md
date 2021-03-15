@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.7](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
+[getopts - v1.0.0-beta.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
 
 # Interface: OptSchema
 
@@ -19,7 +19,7 @@ Schema for a CLI option.
 
 ### arg
 
-• `Optional` **arg**: _undefined_ \| _required_ \| _optional_
+• `Optional` **arg**: _required_ \| _optional_
 
 Specify if the CLI option accepts an argument. If so, further specify if
 the argument is required or optional.
@@ -30,13 +30,13 @@ Notes:
   an argument.
 - Only the long option is capable of receiving an optional argument.
 
-Defined in: [src/interfaces/schema.ts:46](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/schema.ts#L46)
+Defined in: [src/interfaces/schema.ts:46](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L46)
 
 ---
 
 ### argFilter
 
-• `Optional` **argFilter**: _undefined_ \| [_OptArgFilter_](interfaces_schema.optargfilter.md)
+• `Optional` **argFilter**: [_OptArgFilter_](interfaces_schema.optargfilter.md)
 
 Pass the CLI option's argument through a filter.
 
@@ -51,26 +51,26 @@ Notes:
 - Filters are executed within a try/catch block. If an error is thrown, it
   will be captured and stored inside the `errors` array.
 
-Defined in: [src/interfaces/schema.ts:59](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/schema.ts#L59)
+Defined in: [src/interfaces/schema.ts:59](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L59)
 
 ---
 
 ### longName
 
-• `Optional` **longName**: _undefined_ \| _string_
+• `Optional` **longName**: _string_
 
 Long name of the CLI option.
 E.g.: "--sort-by", "--append", etc.
 
-Defined in: [src/interfaces/schema.ts:36](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/schema.ts#L36)
+Defined in: [src/interfaces/schema.ts:36](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L36)
 
 ---
 
 ### name
 
-• `Optional` **name**: _undefined_ \| _string_
+• `Optional` **name**: _string_
 
 Name of the CLI option.
 E.g.: "-a", "-A", etc.
 
-Defined in: [src/interfaces/schema.ts:31](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/schema.ts#L31)
+Defined in: [src/interfaces/schema.ts:31](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L31)
