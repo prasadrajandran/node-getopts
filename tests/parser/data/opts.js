@@ -152,6 +152,15 @@ opts.set(`[opts]`, [
     optArgs: [undefined, undefined, '100'],
     errorClasses: [DuplicateOptError, DuplicateOptError],
   },
+  {
+    schema: schemaWithCmd,
+    argv: '-d 100 -y up arg1 arg2 -x -b -d600 -x -y -a -y -y',
+    cmdValues: ['up'],
+    argValues: ['arg1', 'arg2'],
+    optNames: ['-d', '-b', '-a'],
+    optArgs: ['600', undefined, undefined],
+    errorClasses: [UnknownOptError, UnknownOptError, DuplicateOptError],
+  },
 ]);
 
 module.exports = opts;

@@ -1,6 +1,6 @@
 # getopts
 
-Takes care of CLI argument parsing and validation for you.
+Takes care of CLI argument parsing and validation so you don't have to.
 
 ## Highlights
 
@@ -64,10 +64,9 @@ if (opts.has('--help')) {
 } else if (opts.has('--version')) {
   printVersion();
 } else if (errors.length) {
-  const errorMessages = errors
-    .map(({ name, message }) => `${name}:${message}`)
-    .join('\n');
-  console.error(errorMessages);
+  errors.forEach(({ name, message }) => {
+    console.error(`[${name}] ${message}`);
+  });
   printHelp();
 } else {
   const limit = opts.get('-l') || opts.get('--limit') || Infinity;

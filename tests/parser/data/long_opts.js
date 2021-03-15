@@ -64,10 +64,43 @@ longOpts.set(`[long opts]`, [
   },
   {
     schema: schemaWithCmd,
-    argv: '--a --b --c --d500',
-    optNames: ['--a', '--b', '--c'],
-    errorClasses: [UnknownOptError],
-    optArgs: [undefined, undefined, undefined],
+    argv: 'up arg1 arg2 --a --b 7000 --c --d=',
+    cmdValues: ['up'],
+    argValues: ['arg1', 'arg2', '7000'],
+    optNames: ['--a', '--b', '--c', '--d'],
+    optArgs: [undefined, undefined, undefined, undefined],
+    errorClasses: [OptMissingArgError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up arg1 arg2 --a --b 7000 --c --d',
+    cmdValues: ['up'],
+    argValues: ['arg1', 'arg2', '7000'],
+    optNames: ['--a', '--b', '--c', '--d'],
+    optArgs: [undefined, undefined, undefined, undefined],
+    errorClasses: [OptMissingArgError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--d=500 --a --c up arg1 --a arg2 --b --a --b --b --b 7000 --b',
+    optNames: ['--d', '--a', '--c', '--b'],
+    argValues: ['arg1', 'arg2', '7000'],
+    errorClasses: [DuplicateOptError, DuplicateOptError],
+    optArgs: ['500', undefined, undefined, undefined],
+  },
+  {
+    schema: schemaWithCmd,
+    argv:
+      '--a --x up --d=5 --c --x arg1 --c arg2 --x --x arg3 --y --b --d=10 --y',
+    optNames: ['--a', '--d', '--c', '--b'],
+    argValues: ['arg1', 'arg2', 'arg3'],
+    errorClasses: [
+      UnknownOptError,
+      DuplicateOptError,
+      UnknownOptError,
+      DuplicateOptError,
+    ],
+    optArgs: [undefined, '10', undefined, undefined],
   },
 ]);
 

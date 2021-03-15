@@ -65,6 +65,10 @@ export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
   );
   const config = parseSchema(schema);
 
+  // Ensures only unique instances of "DuplicateOptError" and "UnknownOptError"
+  // are generated.
+  const duplicateOpts: Set<string> = new Set();
+
   const errors: ParseError[] = [];
   const cmds: string[] = [];
   const opts: OptMap = new Map();
@@ -94,6 +98,7 @@ export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
         optConfigMap,
         errors,
         opts,
+        duplicateOpts,
         inputArg,
         inputArgs[i + 1],
       );
@@ -105,7 +110,7 @@ export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
 
     // (3) LONG OPTIONS
     if (stillAcceptingOpts && LONG_OPT_REGEX.test(inputArg)) {
-      parseLongOpt(optConfigMap, errors, opts, inputArg);
+      parseLongOpt(optConfigMap, errors, opts, duplicateOpts, inputArg);
       continue;
     }
 

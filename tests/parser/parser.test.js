@@ -20,12 +20,12 @@ const longOptsTestData = require('./data/long_opts');
           const { opts, cmds, args, errors } = getopts(schema);
 
           if (errorClasses) {
-            expect(errors.length).toBe(errorClasses.length);
+            expect(errors).toHaveLength(errorClasses.length);
             errorClasses.forEach((ErrorClass, i) => {
-              expect(errors[i] instanceof ErrorClass).toBe(true);
+              expect(errors[i]).toBeInstanceOf(ErrorClass);
             });
           } else {
-            expect(errors.length).toBe(0);
+            expect(errors).toHaveLength(0);
           }
           if (cmdValues) {
             expect(cmds).toStrictEqual(cmdValues);

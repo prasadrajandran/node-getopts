@@ -1,4 +1,4 @@
-[getopts - v1.0.0-alpha.7](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
+[getopts - v1.0.0-beta.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
 
 # Interface: CmdSchema
 
@@ -27,7 +27,7 @@ Schema for a CLI command.
 
 ### argFilter
 
-• `Optional` **argFilter**: _undefined_ \| [_ArgFilter_](interfaces_schema.argfilter.md)
+• `Optional` **argFilter**: [_ArgFilter_](interfaces_schema.argfilter.md)
 
 Pass the CLI arguments through a filter.
 
@@ -46,13 +46,13 @@ Notes:
 
 Inherited from: [Schema](interfaces_schema.schema.md).[argFilter](interfaces_schema.schema.md#argfilter)
 
-Defined in: [src/interfaces/schema.ts:129](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/schema.ts#L129)
+Defined in: [src/interfaces/schema.ts:129](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L129)
 
 ---
 
 ### cmds
 
-• `Optional` **cmds**: _undefined_ \| [_CmdSchema_](interfaces_schema.cmdschema.md)[]
+• `Optional` **cmds**: [_CmdSchema_](interfaces_schema.cmdschema.md)[]
 
 CLI Commands.
 
@@ -63,13 +63,13 @@ arguments (this affects what `minArgs` and `maxArgs` do).
 
 Inherited from: [Schema](interfaces_schema.schema.md).[cmds](interfaces_schema.schema.md#cmds)
 
-Defined in: [src/interfaces/schema.ts:91](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/schema.ts#L91)
+Defined in: [src/interfaces/schema.ts:91](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L91)
 
 ---
 
 ### maxArgs
 
-• `Optional` **maxArgs**: _undefined_ \| _number_
+• `Optional` **maxArgs**: _number_
 
 Maximum number of CLI arguments expected.
 
@@ -84,13 +84,13 @@ If the CLI expects commands (i.e. `cmds` is defined):
 
 Inherited from: [Schema](interfaces_schema.schema.md).[maxArgs](interfaces_schema.schema.md#maxargs)
 
-Defined in: [src/interfaces/schema.ts:114](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/schema.ts#L114)
+Defined in: [src/interfaces/schema.ts:114](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L114)
 
 ---
 
 ### minArgs
 
-• `Optional` **minArgs**: _undefined_ \| _number_
+• `Optional` **minArgs**: _number_
 
 Minimum number of CLI arguments expected.
 
@@ -106,7 +106,7 @@ If the CLI expects commands (i.e. `cmds` is defined):
 
 Inherited from: [Schema](interfaces_schema.schema.md).[minArgs](interfaces_schema.schema.md#minargs)
 
-Defined in: [src/interfaces/schema.ts:103](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/schema.ts#L103)
+Defined in: [src/interfaces/schema.ts:103](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L103)
 
 ---
 
@@ -116,13 +116,13 @@ Defined in: [src/interfaces/schema.ts:103](https://github.com/prasadrajandran/no
 
 Name of the CLI command.
 
-Defined in: [src/interfaces/schema.ts:70](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/schema.ts#L70)
+Defined in: [src/interfaces/schema.ts:70](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L70)
 
 ---
 
 ### opts
 
-• `Optional` **opts**: _undefined_ \| [_OptSchema_](interfaces_schema.optschema.md)[]
+• `Optional` **opts**: [_OptSchema_](interfaces_schema.optschema.md)[]
 
 CLI options.
 
@@ -130,4 +130,4 @@ Define all options that the CLI is capable of receiving here.
 
 Inherited from: [Schema](interfaces_schema.schema.md).[opts](interfaces_schema.schema.md#opts)
 
-Defined in: [src/interfaces/schema.ts:82](https://github.com/prasadrajandran/node-getopts/blob/4a1b437/src/interfaces/schema.ts#L82)
+Defined in: [src/interfaces/schema.ts:82](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L82)

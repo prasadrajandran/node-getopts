@@ -88,9 +88,11 @@ export class ArgFilterError extends ParseError {
     argFilterError: Error | unknown,
   ) {
     super(
-      `Exception thrown when processing "${arg}" through its argument filter` +
+      `Processing "${arg}" through the argument filter threw an exception: ` +
         `${
-          argFilterError instanceof Error ? `:\n${argFilterError.message}` : ''
+          argFilterError instanceof Error
+            ? `${argFilterError.name} - ${argFilterError.message}`
+            : argFilterError
         }`,
     );
     this.details.set('arg', arg);
@@ -117,9 +119,11 @@ export class OptArgFilterError extends ParseError {
     argFilterError: Error | unknown,
   ) {
     super(
-      `${opt}'s argument filter threw an exception when processing "${arg}"` +
+      `${opt}'s argument filter threw an exception when processing "${arg}": ` +
         `${
-          argFilterError instanceof Error ? `:\n${argFilterError.message}` : ''
+          argFilterError instanceof Error
+            ? `${argFilterError.name} - ${argFilterError.message}`
+            : argFilterError
         }`,
     );
     this.details.set('opt', opt);
