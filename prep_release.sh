@@ -1,35 +1,38 @@
 #!/usr/bin/env bash
 
-echo "1. sort package.json"
+echo "1. run npm install"
+npm install
+
+echo "2. sort package.json"
 npx sort-package-json
 
-echo "2. cleaning dist dir..."
+echo "3. cleaning dist dir..."
 rm -rf dist
 
-echo "3. cleaning docs dir..."
+echo "4. cleaning docs dir..."
 rm -rf docs
 
-echo "4. building..."
+echo "5. building..."
 npm run build
 
-echo "5. stripping comments from dist JS files..."
+echo "6. stripping comments from dist JS files..."
 shopt -s globstar # enable recursive globbing
 npx stripcomments ./dist/**/*.js --write --confirm-overwrite
 
-echo "6. building docs..."
+echo "7. building docs..."
 npm run build-docs
 
 # Remove the first two lines from README file. The title is duplicated for
 # some reason.
 tail -n +3 ./docs/README.md > ./docs/temp && mv ./docs/temp ./docs/README.md
 
-echo "7. linting..."
+echo "8. linting..."
 npm run lint
 
-echo "8. run prettier..."
+echo "9. run prettier..."
 npm run prettier-fix
 
-echo "9. testing..."
+echo "10. testing..."
 npm test
 
 package_version=`cat package.json | grep version`
