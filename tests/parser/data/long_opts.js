@@ -2,13 +2,25 @@ const {
   OptMissingArgError,
   UnknownOptError,
   DuplicateOptError,
+  UnexpectedOptArgError,
+  OptArgFilterError,
 } = require('../../../dist/classes/errors');
 
 const schemaWithCmd = {
   opts: [
     { name: '-a', longName: '--a' },
     { name: '-b', longName: '--b' },
-    { longName: '--c', arg: 'optional' },
+    {
+      longName: '--c',
+      arg: 'optional',
+      argFilter: (v) => {
+        const num = Number(v);
+        if (!Number.isFinite(num)) {
+          throw new Error(`${v} is not a finite number`);
+        }
+        return num;
+      },
+    },
     { longName: '--d', arg: 'required' },
   ],
   cmds: [{ name: 'up' }],
@@ -17,7 +29,7 @@ const schemaWithCmd = {
 
 const longOpts = new Map();
 
-longOpts.set(`[long opts]`, [
+longOpts.set(`[long opts] "--" operator`, [
   {
     schema: schemaWithCmd,
     argv: '-- up arg1 -- --a--b--c--d',
@@ -46,6 +58,9 @@ longOpts.set(`[long opts]`, [
     optNames: ['--a', '--b'],
     optValues: [undefined, undefined],
   },
+]);
+
+longOpts.set(`[long opts] order of options and option arguments`, [
   {
     schema: schemaWithCmd,
     argv: '--a up something --b --c like this',
@@ -55,6 +70,25 @@ longOpts.set(`[long opts]`, [
     optArgs: [undefined, undefined, undefined],
   },
   {
+    // Does not expect an argument and "=" without an argument is fine.
+    schema: schemaWithCmd,
+    argv: '--a=',
+    optNames: ['--a'],
+    optArgs: [undefined],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--c=',
+    optNames: ['--c'],
+    optArgs: [undefined],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--c= --d=400',
+    optNames: ['--c', '--d'],
+    optArgs: [undefined, '400'],
+  },
+  {
     schema: schemaWithCmd,
     argv: 'up arg1 arg2 --a --b 7000 --c --d=500',
     cmdValues: ['up'],
@@ -62,45 +96,88 @@ longOpts.set(`[long opts]`, [
     optNames: ['--a', '--b', '--c', '--d'],
     optArgs: [undefined, undefined, undefined, '500'],
   },
+]);
+
+longOpts.set(`[long opts] errors`, [
   {
     schema: schemaWithCmd,
-    argv: 'up arg1 arg2 --a --b 7000 --c --d=',
+    argv: '--y --a',
+    optNames: ['--a'],
+    optArgs: [undefined],
+    errorClasses: [UnknownOptError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--y up --a',
     cmdValues: ['up'],
-    argValues: ['arg1', 'arg2', '7000'],
-    optNames: ['--a', '--b', '--c', '--d'],
-    optArgs: [undefined, undefined, undefined, undefined],
+    optNames: ['--a'],
+    optArgs: [undefined],
+    errorClasses: [UnknownOptError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--c --a --d',
+    optNames: ['--c', '--a', '--d'],
+    optArgs: [undefined, undefined, undefined],
     errorClasses: [OptMissingArgError],
   },
   {
     schema: schemaWithCmd,
-    argv: 'up arg1 arg2 --a --b 7000 --c --d',
+    argv: '--c --a up arg1 --d= arg2',
     cmdValues: ['up'],
-    argValues: ['arg1', 'arg2', '7000'],
-    optNames: ['--a', '--b', '--c', '--d'],
-    optArgs: [undefined, undefined, undefined, undefined],
+    argValues: ['arg1', 'arg2'],
+    optNames: ['--c', '--a', '--d'],
+    optArgs: [undefined, undefined, undefined],
     errorClasses: [OptMissingArgError],
   },
   {
     schema: schemaWithCmd,
-    argv: '--d=500 --a --c up arg1 --a arg2 --b --a --b --b --b 7000 --b',
-    optNames: ['--d', '--a', '--c', '--b'],
-    argValues: ['arg1', 'arg2', '7000'],
+    argv: '--c up --a=5 arg1',
+    cmdValues: ['up'],
+    argValues: ['arg1'],
+    optNames: ['--c', '--a'],
+    optArgs: [undefined, undefined],
+    errorClasses: [UnexpectedOptArgError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--c=something up',
+    cmdValues: ['up'],
+    optNames: ['--c'],
+    optArgs: [undefined],
+    errorClasses: [OptArgFilterError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--a --c up --a',
+    cmdValues: ['up'],
+    optNames: ['--a', '--c'],
+    optArgs: [undefined, undefined],
+    errorClasses: [DuplicateOptError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--a --c up --b --a arg1 --b',
+    cmdValues: ['up'],
+    argValues: ['arg1'],
+    optNames: ['--a', '--c', '--b'],
+    optArgs: [undefined, undefined, undefined],
     errorClasses: [DuplicateOptError, DuplicateOptError],
-    optArgs: ['500', undefined, undefined, undefined],
   },
   {
     schema: schemaWithCmd,
-    argv:
-      '--a --x up --d=5 --c --x arg1 --c arg2 --x --x arg3 --y --b --d=10 --y',
-    optNames: ['--a', '--d', '--c', '--b'],
-    argValues: ['arg1', 'arg2', 'arg3'],
+    argv: '--x --a up arg1 --d --b=5 --c=something --a',
+    cmdValues: ['up'],
+    argValues: ['arg1'],
+    optNames: ['--a', '--d', '--b', '--c'],
+    optArgs: [undefined, undefined, undefined, undefined],
     errorClasses: [
       UnknownOptError,
-      DuplicateOptError,
-      UnknownOptError,
+      OptMissingArgError,
+      UnexpectedOptArgError,
+      OptArgFilterError,
       DuplicateOptError,
     ],
-    optArgs: [undefined, '10', undefined, undefined],
   },
 ]);
 
