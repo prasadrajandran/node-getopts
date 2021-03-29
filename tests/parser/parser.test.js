@@ -1,9 +1,18 @@
 const { getopts } = require('../../dist/index');
 const setArgv = require('../helpers/set_argv');
+const cmdsTestData = require('./data/cmds');
+const argsTestData = require('./data/args');
 const optsTestData = require('./data/opts');
 const longOptsTestData = require('./data/long_opts');
 
-[...optsTestData, ...longOptsTestData].forEach(([description, testData]) => {
+const testData = [
+  ...cmdsTestData,
+  ...argsTestData,
+  ...optsTestData,
+  ...longOptsTestData,
+];
+
+testData.forEach(([description, testData]) => {
   describe(description, () => {
     testData.forEach(
       ({
