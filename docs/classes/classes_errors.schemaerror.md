@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.1](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
+[getopts - v1.0.0-beta.2](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
 
 # Class: SchemaError
 
@@ -42,6 +42,8 @@
 
 **Returns:** [_SchemaError_](classes_errors.schemaerror.md)
 
+Inherited from: void
+
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:978
 
 ## Properties
@@ -49,6 +51,8 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:978
 ### message
 
 • **message**: _string_
+
+Inherited from: void
 
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
@@ -58,7 +62,9 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'SchemaError'
 
-Defined in: [src/classes/errors.ts:4](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/classes/errors.ts#L4)
+Overrides: void
+
+Defined in: [src/classes/errors.ts:4](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L4)
 
 ---
 
@@ -66,13 +72,15 @@ Defined in: [src/classes/errors.ts:4](https://github.com/prasadrajandran/node-ge
 
 • `Optional` **stack**: _string_
 
+Inherited from: void
+
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 
 ---
 
 ### prepareStackTrace
 
-▪ `Optional` `Static` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => _any_
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => _any_
 
 Optional override for formatting stack traces
 
@@ -93,6 +101,8 @@ Optional override for formatting stack traces
 
 Defined in: node_modules/@types/node/globals.d.ts:11
 
+Inherited from: void
+
 Defined in: node_modules/@types/node/globals.d.ts:11
 
 ---
@@ -100,6 +110,8 @@ Defined in: node_modules/@types/node/globals.d.ts:11
 ### stackTraceLimit
 
 ▪ `Static` **stackTraceLimit**: _number_
+
+Inherited from: void
 
 Defined in: node_modules/@types/node/globals.d.ts:13
 
@@ -119,5 +131,7 @@ Create .stack property on a target object
 | `constructorOpt?` | Function |
 
 **Returns:** _void_
+
+Inherited from: void
 
 Defined in: node_modules/@types/node/globals.d.ts:4

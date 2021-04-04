@@ -56,14 +56,14 @@ const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.*)?$/;
  * @param schema - CLI schema.
  * @param settings - CLI settings.
  */
-export const parse = (schema: Schema, settings?: Settings): ParsedArgs => {
+export const parse = (schema?: Schema, settings?: Settings): ParsedArgs => {
   const { argv: inputArgs } = Object.assign(
     {
       argv: process.argv.slice(ARGS_INDEX),
     },
     settings || {},
   );
-  const config = parseSchema(schema);
+  const config = parseSchema(schema || {});
 
   // Ensures only unique instances of "DuplicateOptError" and "UnknownOptError"
   // are generated.

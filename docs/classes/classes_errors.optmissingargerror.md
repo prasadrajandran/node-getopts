@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.1](../README.md) / [classes/errors](../modules/classes_errors.md) / OptMissingArgError
+[getopts - v1.0.0-beta.2](../README.md) / [classes/errors](../modules/classes_errors.md) / OptMissingArgError
 
 # Class: OptMissingArgError
 
@@ -21,8 +21,8 @@
 - [details](classes_errors.optmissingargerror.md#details)
 - [message](classes_errors.optmissingargerror.md#message)
 - [name](classes_errors.optmissingargerror.md#name)
-- [prepareStackTrace](classes_errors.optmissingargerror.md#preparestacktrace)
 - [stack](classes_errors.optmissingargerror.md#stack)
+- [prepareStackTrace](classes_errors.optmissingargerror.md#preparestacktrace)
 - [stackTraceLimit](classes_errors.optmissingargerror.md#stacktracelimit)
 
 ### Methods
@@ -45,9 +45,9 @@ CLI option missing argument error.
 
 **Returns:** [_OptMissingArgError_](classes_errors.optmissingargerror.md)
 
-Inherited from: [ParseError](classes_errors.parseerror.md)
+Overrides: [ParseError](classes_errors.parseerror.md)
 
-Defined in: [src/classes/errors.ts:47](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/classes/errors.ts#L47)
+Defined in: [src/classes/errors.ts:47](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L47)
 
 ## Properties
 
@@ -59,7 +59,7 @@ Additional error data.
 
 Inherited from: [ParseError](classes_errors.parseerror.md).[details](classes_errors.parseerror.md#details)
 
-Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/classes/errors.ts#L12)
+Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L12)
 
 ---
 
@@ -79,13 +79,23 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 Overrides: [ParseError](classes_errors.parseerror.md).[name](classes_errors.parseerror.md#name)
 
-Defined in: [src/classes/errors.ts:47](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/classes/errors.ts#L47)
+Defined in: [src/classes/errors.ts:47](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L47)
+
+---
+
+### stack
+
+• `Optional` **stack**: _string_
+
+Inherited from: [ParseError](classes_errors.parseerror.md).[stack](classes_errors.parseerror.md#stack)
+
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 
 ---
 
 ### prepareStackTrace
 
-• `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => _any_
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => _any_
 
 Optional override for formatting stack traces
 
@@ -112,19 +122,9 @@ Defined in: node_modules/@types/node/globals.d.ts:11
 
 ---
 
-### stack
-
-• `Optional` **stack**: _string_
-
-Inherited from: [ParseError](classes_errors.parseerror.md).[stack](classes_errors.parseerror.md#stack)
-
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
-
----
-
 ### stackTraceLimit
 
-• **stackTraceLimit**: _number_
+▪ `Static` **stackTraceLimit**: _number_
 
 Inherited from: [ParseError](classes_errors.parseerror.md).[stackTraceLimit](classes_errors.parseerror.md#stacktracelimit)
 
@@ -134,7 +134,7 @@ Defined in: node_modules/@types/node/globals.d.ts:13
 
 ### captureStackTrace
 
-▸ **captureStackTrace**(`targetObject`: _object_, `constructorOpt?`: Function): _void_
+▸ `Static`**captureStackTrace**(`targetObject`: _object_, `constructorOpt?`: Function): _void_
 
 Create .stack property on a target object
 
