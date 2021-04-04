@@ -16,7 +16,7 @@ export const parseSchema = (
   schema: Schema,
   alreadyDefinedOpts: OptConfigMap = new Map(),
 ): Config => {
-  const expectsCmd = Boolean(schema.cmds);
+  const expectsCmd = Boolean(schema.cmds?.length);
   const minArgs = schema.minArgs ?? (expectsCmd ? 1 : 0);
   const maxArgs = schema.maxArgs ?? (expectsCmd ? 1 : Infinity);
 
