@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.1](../README.md) / interfaces/parsed_args
+[getopts - v1.0.0-beta.2](../README.md) / interfaces/parsed_args
 
 # Module: interfaces/parsed_args
 

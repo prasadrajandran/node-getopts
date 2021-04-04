@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.1](../README.md) / parse
+[getopts - v1.0.0-beta.2](../README.md) / parse
 
 # Module: parse
 
@@ -12,7 +12,7 @@
 
 ### parse
 
-▸ `Const`**parse**(`schema`: [_Schema_](../interfaces/interfaces_schema.schema.md), `settings?`: [_Settings_](../interfaces/interfaces_settings.settings.md)): [_ParsedArgs_](../interfaces/interfaces_parsed_args.parsedargs.md)
+▸ `Const`**parse**(`schema?`: [_Schema_](../interfaces/interfaces_schema.schema.md), `settings?`: [_Settings_](../interfaces/interfaces_settings.settings.md)): [_ParsedArgs_](../interfaces/interfaces_parsed_args.parsedargs.md)
 
 Parse CLI arguments.
 
@@ -20,9 +20,9 @@ Parse CLI arguments.
 
 | Name        | Type                                                        | Description   |
 | :---------- | :---------------------------------------------------------- | :------------ |
-| `schema`    | [_Schema_](../interfaces/interfaces_schema.schema.md)       | CLI schema.   |
+| `schema?`   | [_Schema_](../interfaces/interfaces_schema.schema.md)       | CLI schema.   |
 | `settings?` | [_Settings_](../interfaces/interfaces_settings.settings.md) | CLI settings. |
 
 **Returns:** [_ParsedArgs_](../interfaces/interfaces_parsed_args.parsedargs.md)
 
-Defined in: [src/parse.ts:59](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/parse.ts#L59)
+Defined in: [src/parse.ts:59](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/parse.ts#L59)

@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.1](../README.md) / [classes/errors](../modules/classes_errors.md) / ParseError
+[getopts - v1.0.0-beta.2](../README.md) / [classes/errors](../modules/classes_errors.md) / ParseError
 
 # Class: ParseError
 
@@ -41,8 +41,8 @@
 - [details](classes_errors.parseerror.md#details)
 - [message](classes_errors.parseerror.md#message)
 - [name](classes_errors.parseerror.md#name)
-- [prepareStackTrace](classes_errors.parseerror.md#preparestacktrace)
 - [stack](classes_errors.parseerror.md#stack)
+- [prepareStackTrace](classes_errors.parseerror.md#preparestacktrace)
 - [stackTraceLimit](classes_errors.parseerror.md#stacktracelimit)
 
 ### Methods
@@ -63,6 +63,8 @@
 
 **Returns:** [_ParseError_](classes_errors.parseerror.md)
 
+Inherited from: void
+
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:978
 
 ## Properties
@@ -73,13 +75,15 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:978
 
 Additional error data.
 
-Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/classes/errors.ts#L12)
+Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L12)
 
 ---
 
 ### message
 
 • **message**: _string_
+
+Inherited from: void
 
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
@@ -89,13 +93,25 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'ParseError'
 
-Defined in: [src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/classes/errors.ts#L8)
+Overrides: void
+
+Defined in: [src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L8)
+
+---
+
+### stack
+
+• `Optional` **stack**: _string_
+
+Inherited from: void
+
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 
 ---
 
 ### prepareStackTrace
 
-• `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => _any_
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => _any_
 
 Optional override for formatting stack traces
 
@@ -116,21 +132,17 @@ Optional override for formatting stack traces
 
 Defined in: node_modules/@types/node/globals.d.ts:11
 
+Inherited from: void
+
 Defined in: node_modules/@types/node/globals.d.ts:11
-
----
-
-### stack
-
-• `Optional` **stack**: _string_
-
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 
 ---
 
 ### stackTraceLimit
 
-• **stackTraceLimit**: _number_
+▪ `Static` **stackTraceLimit**: _number_
+
+Inherited from: void
 
 Defined in: node_modules/@types/node/globals.d.ts:13
 
@@ -138,7 +150,7 @@ Defined in: node_modules/@types/node/globals.d.ts:13
 
 ### captureStackTrace
 
-▸ **captureStackTrace**(`targetObject`: _object_, `constructorOpt?`: Function): _void_
+▸ `Static`**captureStackTrace**(`targetObject`: _object_, `constructorOpt?`: Function): _void_
 
 Create .stack property on a target object
 
@@ -150,5 +162,7 @@ Create .stack property on a target object
 | `constructorOpt?` | Function |
 
 **Returns:** _void_
+
+Inherited from: void
 
 Defined in: node_modules/@types/node/globals.d.ts:4

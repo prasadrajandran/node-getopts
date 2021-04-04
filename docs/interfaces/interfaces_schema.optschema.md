@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
+[getopts - v1.0.0-beta.2](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
 
 # Interface: OptSchema
 
@@ -30,7 +30,7 @@ Notes:
   an argument.
 - Only the long option is capable of receiving an optional argument.
 
-Defined in: [src/interfaces/schema.ts:46](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L46)
+Defined in: [src/interfaces/schema.ts:46](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/interfaces/schema.ts#L46)
 
 ---
 
@@ -51,7 +51,7 @@ Notes:
 - Filters are executed within a try/catch block. If an error is thrown, it
   will be captured and stored inside the `errors` array.
 
-Defined in: [src/interfaces/schema.ts:59](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L59)
+Defined in: [src/interfaces/schema.ts:59](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/interfaces/schema.ts#L59)
 
 ---
 
@@ -62,7 +62,7 @@ Defined in: [src/interfaces/schema.ts:59](https://github.com/prasadrajandran/nod
 Long name of the CLI option.
 E.g.: "--sort-by", "--append", etc.
 
-Defined in: [src/interfaces/schema.ts:36](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L36)
+Defined in: [src/interfaces/schema.ts:36](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/interfaces/schema.ts#L36)
 
 ---
 
@@ -73,4 +73,4 @@ Defined in: [src/interfaces/schema.ts:36](https://github.com/prasadrajandran/nod
 Name of the CLI option.
 E.g.: "-a", "-A", etc.
 
-Defined in: [src/interfaces/schema.ts:31](https://github.com/prasadrajandran/node-getopts/blob/287b5e4/src/interfaces/schema.ts#L31)
+Defined in: [src/interfaces/schema.ts:31](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/interfaces/schema.ts#L31)
