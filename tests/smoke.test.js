@@ -6,8 +6,8 @@ const resetArgv = () => setArgv('');
 beforeEach(resetArgv);
 
 describe('smoke test', () => {
-  test('schema is required', () => {
-    expect(() => getopts()).toThrowError();
+  test('schema is not required', () => {
+    expect(() => getopts()).not.toThrowError();
     expect(() => getopts({})).not.toThrowError();
   });
 
