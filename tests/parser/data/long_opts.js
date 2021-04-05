@@ -41,7 +41,7 @@ longOpts.set(`[long opts] "--" operator`, [
     argv: 'up arg1 - --a --b --c',
     cmdValues: ['up'],
     optNames: ['--a', '--b', '--c'],
-    optValues: [undefined, undefined, undefined],
+    optArgs: [undefined, undefined, undefined],
     argValues: ['arg1', '-'],
   },
   {
@@ -56,7 +56,7 @@ longOpts.set(`[long opts] "--" operator`, [
     cmdValues: ['up'],
     argValues: ['arg1', '--a', '--b', '--c', '--d'],
     optNames: ['--a', '--b'],
-    optValues: [undefined, undefined],
+    optArgs: [undefined, undefined],
   },
 ]);
 

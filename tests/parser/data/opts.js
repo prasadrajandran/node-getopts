@@ -41,7 +41,7 @@ opts.set(`[opts] "--" operator`, [
     argv: 'up arg1 - -abc',
     cmdValues: ['up'],
     optNames: ['-a', '-b', '-c'],
-    optValues: [undefined, undefined, undefined],
+    optArgs: [undefined, undefined, undefined],
     argValues: ['arg1', '-'],
   },
   {
@@ -62,7 +62,7 @@ opts.set(`[opts] "--" operator`, [
     cmdValues: ['up'],
     argValues: ['arg1', '-abcd'],
     optNames: ['-a', '-b', '-c', '-d'],
-    optValues: [undefined, undefined, undefined, '500'],
+    optArgs: [undefined, undefined, undefined, '500'],
   },
 ]);
 
@@ -169,6 +169,7 @@ opts.set(`[opts] errors`, [
   {
     schema: schemaWithCmd,
     argv: '-x up -abc',
+    cmdValues: ['up'],
     optNames: ['-a', '-b', '-c'],
     optArgs: [undefined, undefined, undefined],
     errorClasses: [UnknownOptError],
@@ -190,6 +191,7 @@ opts.set(`[opts] errors`, [
   {
     schema: schemaWithCmd,
     argv: '-abc up -d',
+    cmdValues: ['up'],
     optNames: ['-a', '-b', '-c', '-d'],
     optArgs: [undefined, undefined, undefined, undefined],
     errorClasses: [OptMissingArgError],
@@ -232,6 +234,7 @@ opts.set(`[opts] errors`, [
   {
     schema: schemaWithCmd,
     argv: '-b up -a -b',
+    cmdValues: ['up'],
     optNames: ['-b', '-a'],
     optArgs: [undefined, undefined],
     errorClasses: [DuplicateOptError],
