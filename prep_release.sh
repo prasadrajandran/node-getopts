@@ -9,8 +9,13 @@ npx sort-package-json
 echo "3. cleaning dist dir..."
 rm -rf dist
 
-echo "4. cleaning docs dir..."
-rm -rf docs
+if [$1 != 'test']
+then
+  echo "4. cleaning docs dir..."
+  rm -rf docs
+else
+  echo "4. test mode activated, will not clear docs dir..."
+fi
 
 echo "5. building..."
 npm run build
@@ -19,12 +24,17 @@ echo "6. stripping comments from dist JS files..."
 shopt -s globstar # enable recursive globbing
 npx stripcomments ./dist/**/*.js --write --confirm-overwrite
 
-echo "7. building docs..."
-npm run build-docs
 
-# Remove the first two lines from README file. The title is duplicated for
-# some reason.
-tail -n +3 ./docs/README.md > ./docs/temp && mv ./docs/temp ./docs/README.md
+if [$1 != 'test']
+then
+  echo "7. building docs..."
+  npm run build-docs
+  # Remove the first two lines from README file. The title is duplicated for
+  # some reason.
+  tail -n +3 ./docs/README.md > ./docs/temp && mv ./docs/temp ./docs/README.md
+else
+  echo "7. test mode activated, will not build docs..."
+fi
 
 echo "8. linting..."
 npm run lint
