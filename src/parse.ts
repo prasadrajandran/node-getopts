@@ -94,7 +94,7 @@ export const parse = (schema?: Schema, settings?: Settings): ParsedArgs => {
 
     // (2) OPTIONS
     if (stillAcceptingOpts && OPT_REGEX.test(inputArg)) {
-      const { nextArgConsumed } = parseOpt(
+      const { valid, nextArgConsumed } = parseOpt(
         optConfigMap,
         errors,
         opts,
@@ -102,10 +102,12 @@ export const parse = (schema?: Schema, settings?: Settings): ParsedArgs => {
         inputArg,
         inputArgs[i + 1],
       );
-      if (nextArgConsumed) {
+      if (valid && nextArgConsumed) {
         i++;
       }
-      continue;
+      if (valid) {
+        continue;
+      }
     }
 
     // (3) LONG OPTIONS

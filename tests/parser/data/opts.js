@@ -66,6 +66,34 @@ opts.set(`[opts] "--" operator`, [
   },
 ]);
 
+opts.set(`[opts] invalid opts are considered args`, [
+  {
+    schema: schemaWithCmd,
+    argv: 'up -a=500',
+    cmdValues: ['up'],
+    argValues: ['-a=500'],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up -abc=500',
+    cmdValues: ['up'],
+    argValues: ['-abc=500'],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up -abc?500',
+    cmdValues: ['up'],
+    argValues: ['-abc?500'],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up -d=500',
+    cmdValues: ['up'],
+    optNames: ['-d'],
+    optArgs: ['=500'],
+  },
+]);
+
 opts.set(`[opts] order of options and option arguments`, [
   {
     schema: schemaWithCmd,

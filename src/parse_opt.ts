@@ -1,3 +1,4 @@
+import { OPT_SCHEMA_REGEX } from './parse_opt_schema';
 import { OptMap } from './interfaces/opt_map';
 import { OptConfigMap } from './interfaces/config';
 import {
@@ -34,7 +35,9 @@ export const parseOpt = (
   duplicateOpts: Set<string>,
   input: string,
   nextInput?: string,
-): { nextArgConsumed: boolean } => {
+): { valid: boolean; nextArgConsumed: boolean } => {
+  const parsedOpts: OptMap = new Map([...opts]);
+  let valid = true;
   let nextArgConsumed = false;
 
   for (let i = 1; i < input.length; i++) {
@@ -46,12 +49,12 @@ export const parseOpt = (
 
       // Note: Processing is not halted even though an error has been generated
       // because this gives users the option to ignore this error.
-      if (opts.has(optName) && !duplicateOpts.has(optName)) {
+      if (parsedOpts.has(optName) && !duplicateOpts.has(optName)) {
         duplicateOpts.add(optName);
         errors.push(new DuplicateOptError(optName));
       }
 
-      opts.set(optName, undefined);
+      parsedOpts.set(optName, undefined);
 
       // Note: We do not check if the next input might be an option or even the
       // `STOP_PROCESSING_OPTS_FLAG` flag because if the option requires an
@@ -62,7 +65,7 @@ export const parseOpt = (
         nextArgConsumed = !input[i + 1] && Boolean(nextInput);
 
         try {
-          opts.set(optName, argFilter(optArg));
+          parsedOpts.set(optName, argFilter(optArg));
         } catch (err) {
           errors.push(new OptArgFilterError(optName, optArg, argFilter, err));
         }
@@ -70,11 +73,20 @@ export const parseOpt = (
       } else if (argRequired) {
         errors.push(new OptMissingArgError(optName));
       }
+    } else if (!OPT_SCHEMA_REGEX.test(optName)) {
+      valid = false;
+      break;
     } else if (!duplicateOpts.has(optName)) {
       duplicateOpts.add(optName);
       errors.push(new UnknownOptError(optName));
     }
   }
 
-  return { nextArgConsumed };
+  if (valid) {
+    parsedOpts.forEach((optArg, optName) => {
+      opts.set(optName, optArg);
+    });
+  }
+
+  return { valid, nextArgConsumed };
 };
