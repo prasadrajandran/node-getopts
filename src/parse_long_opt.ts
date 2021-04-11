@@ -34,17 +34,12 @@ export const parseLongOpt = (
 
   const optConfig = optSchema.get(optName);
   if (optConfig) {
-    const {
-      argAccepted,
-      argRequired,
-      argFilter,
-      duplicatedParsedNames,
-    } = optConfig;
+    const { argAccepted, argRequired, argFilter, parsedDuplicates } = optConfig;
 
     // Note: Processing is not halted even though an error has been generated
     // because this gives users the option to ignore this error.
-    if (opts.has(optName) && !duplicatedParsedNames.has(optName)) {
-      duplicatedParsedNames.add(optName);
+    if (opts.has(optName) && !parsedDuplicates.has(optName)) {
+      parsedDuplicates.add(optName);
       errors.push(new DuplicateOptError(optName));
     }
 
@@ -55,7 +50,7 @@ export const parseLongOpt = (
 
     // Note: Processing is not halted even though an error has been generated
     // because this gives users the option to ignore this error.
-    if (optConfig.parsed !== optName && !duplicatedParsedNames.has(optName)) {
+    if (optConfig.parsed !== optName && !parsedDuplicates.has(optName)) {
       errors.push(new DuplicateAliasOptError(optConfig.parsed, optName));
     }
 

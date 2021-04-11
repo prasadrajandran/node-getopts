@@ -18,10 +18,10 @@ export interface OptConfig {
    */
   argFilter: OptArgFilter;
   /**
-   * Keeps track of duplicated parsed options. This is so that the `errors`
-   * array will only contain unique instances of "DuplicatedOptError".
+   * Keeps track of parsed duplicate options. This is so that the `errors` array
+   * will only contain unique instances of "DuplicateOptError".
    */
-  duplicatedParsedNames: Set<OptName | OptLongName>;
+  parsedDuplicates: Set<OptName | OptLongName>;
   /**
    * Keeps track of the parsed option. This is used to detect when two or more
    * options are aliases of each other (so they shouldn't be used at the same
