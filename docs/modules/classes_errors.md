@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.2](../README.md) / classes/errors
+[getopts - v1.0.0-beta.3](../README.md) / classes/errors
 
 # Module: classes/errors
 
@@ -8,6 +8,7 @@
 
 - [ArgFilterError](../classes/classes_errors.argfiltererror.md)
 - [CmdExpectedError](../classes/classes_errors.cmdexpectederror.md)
+- [DuplicateAliasOptError](../classes/classes_errors.duplicatealiasopterror.md)
 - [DuplicateOptError](../classes/classes_errors.duplicateopterror.md)
 - [ExcessArgsError](../classes/classes_errors.excessargserror.md)
 - [InsufficientArgsError](../classes/classes_errors.insufficientargserror.md)

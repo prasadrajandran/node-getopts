@@ -1,56 +1,54 @@
-[getopts - v1.0.0-beta.3](../README.md) / [classes/errors](../modules/classes_errors.md) / OptArgFilterError
+[getopts - v1.0.0-beta.3](../README.md) / [classes/errors](../modules/classes_errors.md) / DuplicateAliasOptError
 
-# Class: OptArgFilterError
+# Class: DuplicateAliasOptError
 
-[classes/errors](../modules/classes_errors.md).OptArgFilterError
+[classes/errors](../modules/classes_errors.md).DuplicateAliasOptError
 
 ## Hierarchy
 
 - [_ParseError_](classes_errors.parseerror.md)
 
-  ↳ **OptArgFilterError**
+  ↳ **DuplicateAliasOptError**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](classes_errors.optargfiltererror.md#constructor)
+- [constructor](classes_errors.duplicatealiasopterror.md#constructor)
 
 ### Properties
 
-- [details](classes_errors.optargfiltererror.md#details)
-- [message](classes_errors.optargfiltererror.md#message)
-- [name](classes_errors.optargfiltererror.md#name)
-- [stack](classes_errors.optargfiltererror.md#stack)
-- [prepareStackTrace](classes_errors.optargfiltererror.md#preparestacktrace)
-- [stackTraceLimit](classes_errors.optargfiltererror.md#stacktracelimit)
+- [details](classes_errors.duplicatealiasopterror.md#details)
+- [message](classes_errors.duplicatealiasopterror.md#message)
+- [name](classes_errors.duplicatealiasopterror.md#name)
+- [stack](classes_errors.duplicatealiasopterror.md#stack)
+- [prepareStackTrace](classes_errors.duplicatealiasopterror.md#preparestacktrace)
+- [stackTraceLimit](classes_errors.duplicatealiasopterror.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](classes_errors.optargfiltererror.md#capturestacktrace)
+- [captureStackTrace](classes_errors.duplicatealiasopterror.md#capturestacktrace)
 
 ## Constructors
 
 ### constructor
 
-\+ **new OptArgFilterError**(`opt`: _string_, `arg`: _string_, `argFilter`: [_OptArgFilter_](../interfaces/interfaces_schema.optargfilter.md), `argFilterError`: _unknown_): [_OptArgFilterError_](classes_errors.optargfiltererror.md)
+\+ **new DuplicateAliasOptError**(`parsedOpt`: _string_, `aliasOpt`: _string_): [_DuplicateAliasOptError_](classes_errors.duplicatealiasopterror.md)
 
-CLI option argument filter error.
+Duplicate alias CLI option error.
 
 #### Parameters:
 
-| Name             | Type                                                              | Description                                                    |
-| :--------------- | :---------------------------------------------------------------- | :------------------------------------------------------------- |
-| `opt`            | _string_                                                          | CLI option that owns the filter that threw the exception.      |
-| `arg`            | _string_                                                          | CLI option's argument that generated the exception.            |
-| `argFilter`      | [_OptArgFilter_](../interfaces/interfaces_schema.optargfilter.md) | CLI option's argument filter that threw the exception.         |
-| `argFilterError` | _unknown_                                                         | Exception that was thrown by the CLI option's argument filter. |
+| Name        | Type     | Description             |
+| :---------- | :------- | :---------------------- |
+| `parsedOpt` | _string_ | Option that was parsed. |
+| `aliasOpt`  | _string_ | Alias of parsed option. |
 
-**Returns:** [_OptArgFilterError_](classes_errors.optargfiltererror.md)
+**Returns:** [_DuplicateAliasOptError_](classes_errors.duplicatealiasopterror.md)
 
 Overrides: [ParseError](classes_errors.parseerror.md)
 
-Defined in: [src/classes/errors.ts:107](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L107)
+Defined in: [src/classes/errors.ts:213](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L213)
 
 ## Properties
 
@@ -78,11 +76,11 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 ### name
 
-• **name**: _string_= 'OptArgFilterError'
+• **name**: _string_= 'DuplicateAliasOptError'
 
 Overrides: [ParseError](classes_errors.parseerror.md).[name](classes_errors.parseerror.md#name)
 
-Defined in: [src/classes/errors.ts:107](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L107)
+Defined in: [src/classes/errors.ts:213](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L213)
 
 ---
 
