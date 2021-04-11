@@ -9,7 +9,7 @@ npx sort-package-json
 echo "3. cleaning dist dir..."
 rm -rf dist
 
-if [$1 != 'test']
+if [ $1 != 'test' ]
 then
   echo "4. cleaning docs dir..."
   rm -rf docs
@@ -25,7 +25,7 @@ shopt -s globstar # enable recursive globbing
 npx stripcomments ./dist/**/*.js --write --confirm-overwrite
 
 
-if [$1 != 'test']
+if [ $1 != 'test' ]
 then
   echo "7. building docs..."
   npm run build-docs
@@ -45,16 +45,22 @@ npm run prettier-fix
 echo "10. testing..."
 npm test
 
-package_version=`cat package.json | grep version`
-package_version=${package_version/  \"version\"\: /} # remove `  "version": `
-package_version=${package_version/,/} # remove `,`
+if [ $1 != 'test' ]
+then
+  package_version=`cat package.json | grep version`
+  package_version=${package_version/  \"version\"\: /} # remove `  "version": `
+  package_version=${package_version/,/} # remove `,`
 
-echo
-echo "--- RELEASE PREP COMPLETE ---"
-echo
-echo "1. update the package version if necessary: $package_version"
-echo "2. do not forget to run \"npm install\" if the package version is updated so that the lockfile is updated too"
-echo "3. create PR to main (from development), merge PR, and create a GitHub release"
-echo "4. switch to the main branch locally and run \"git pull\""
-echo "5. to publish the package run: \"npm publish --access public\""
-echo "6. switch back to development, merge main, and run \"git push\""
+
+  echo
+  echo "--- RELEASE PREP COMPLETE ---"
+  echo
+  echo "1. update the package version if necessary: $package_version"
+  echo "2. do not forget to run \"npm install\" if the package version is updated so that the lockfile is updated too"
+  echo "3. create PR to main (from development), merge PR, and create a GitHub release"
+  echo "4. switch to the main branch locally and run \"git pull\""
+  echo "5. to publish the package run: \"npm publish --access public\""
+  echo "6. switch back to development, merge main, and run \"git push\""
+else
+  echo "--- PREP COMPLETE FOR TESTING ---"
+fi
