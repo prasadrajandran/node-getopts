@@ -9,7 +9,7 @@ npx sort-package-json
 echo "3. cleaning dist dir..."
 rm -rf dist
 
-if [ $1 != 'test' ]
+if [ "$1" != 'test' ]
 then
   echo "4. cleaning docs dir..."
   rm -rf docs
@@ -25,7 +25,7 @@ shopt -s globstar # enable recursive globbing
 npx stripcomments ./dist/**/*.js --write --confirm-overwrite
 
 
-if [ $1 != 'test' ]
+if [ "$1" != 'test' ]
 then
   echo "7. building docs..."
   npm run build-docs
@@ -45,7 +45,7 @@ npm run prettier-fix
 echo "10. testing..."
 npm test
 
-if [ $1 != 'test' ]
+if [ "$1" != 'test' ]
 then
   package_version=`cat package.json | grep version`
   package_version=${package_version/  \"version\"\: /} # remove `  "version": `
