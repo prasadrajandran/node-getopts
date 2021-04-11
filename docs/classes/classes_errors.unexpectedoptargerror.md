@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.2](../README.md) / [classes/errors](../modules/classes_errors.md) / UnexpectedOptArgError
+[getopts - v1.0.0-beta.3](../README.md) / [classes/errors](../modules/classes_errors.md) / UnexpectedOptArgError
 
 # Class: UnexpectedOptArgError
 
@@ -48,7 +48,7 @@ Unexpected CLI option argument error.
 
 Overrides: [ParseError](classes_errors.parseerror.md)
 
-Defined in: [src/classes/errors.ts:60](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L60)
+Defined in: [src/classes/errors.ts:62](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L62)
 
 ## Properties
 
@@ -60,7 +60,7 @@ Additional error data.
 
 Inherited from: [ParseError](classes_errors.parseerror.md).[details](classes_errors.parseerror.md#details)
 
-Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L12)
+Defined in: [src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L14)
 
 ---
 
@@ -80,7 +80,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 Overrides: [ParseError](classes_errors.parseerror.md).[name](classes_errors.parseerror.md#name)
 
-Defined in: [src/classes/errors.ts:60](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L60)
+Defined in: [src/classes/errors.ts:62](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L62)
 
 ---
 

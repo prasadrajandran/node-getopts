@@ -84,6 +84,8 @@ describe('schema - opts', () => {
       'argAccepted',
       'argRequired',
       'argFilter',
+      'parsedDuplicates',
+      'parsed',
     ]);
   });
 
@@ -101,6 +103,8 @@ describe('schema - opts', () => {
       'argAccepted',
       'argRequired',
       'argFilter',
+      'parsedDuplicates',
+      'parsed',
     ]);
   });
 

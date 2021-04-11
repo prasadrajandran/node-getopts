@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.2](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / Schema
+[getopts - v1.0.0-beta.3](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / Schema
 
 # Interface: Schema
 
@@ -43,7 +43,7 @@ Notes:
 - Filters are executed within a try/catch block. If an error is thrown, it
   will be captured and stored inside the `errors` array.
 
-Defined in: [src/interfaces/schema.ts:129](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/interfaces/schema.ts#L129)
+Defined in: [src/interfaces/schema.ts:129](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/interfaces/schema.ts#L129)
 
 ---
 
@@ -58,7 +58,7 @@ Define all commands that the CLI is capable of receiving here.
 If this is defined, it is assumed that the CLI expects commands instead of
 arguments (this affects what `minArgs` and `maxArgs` do).
 
-Defined in: [src/interfaces/schema.ts:91](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/interfaces/schema.ts#L91)
+Defined in: [src/interfaces/schema.ts:91](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/interfaces/schema.ts#L91)
 
 ---
 
@@ -77,7 +77,7 @@ If the CLI expects commands (i.e. `cmds` is defined):
 - The only valid value is 1. This should ideally be left undefined if
   commands are expected.
 
-Defined in: [src/interfaces/schema.ts:114](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/interfaces/schema.ts#L114)
+Defined in: [src/interfaces/schema.ts:114](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/interfaces/schema.ts#L114)
 
 ---
 
@@ -97,7 +97,7 @@ If the CLI expects commands (i.e. `cmds` is defined):
   required)
 - The default is 1 (command is required)
 
-Defined in: [src/interfaces/schema.ts:103](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/interfaces/schema.ts#L103)
+Defined in: [src/interfaces/schema.ts:103](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/interfaces/schema.ts#L103)
 
 ---
 
@@ -109,4 +109,4 @@ CLI options.
 
 Define all options that the CLI is capable of receiving here.
 
-Defined in: [src/interfaces/schema.ts:82](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/interfaces/schema.ts#L82)
+Defined in: [src/interfaces/schema.ts:82](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/interfaces/schema.ts#L82)

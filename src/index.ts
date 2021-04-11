@@ -1,5 +1,5 @@
 import { parse as getopts } from './parse';
-import { Schema } from './interfaces/schema';
+import { Schema, CmdSchema, OptSchema } from './interfaces/schema';
 import { Settings } from './interfaces/settings';
 
-export { getopts, Schema, Settings };
+export { getopts, Schema, CmdSchema, OptSchema, Settings };

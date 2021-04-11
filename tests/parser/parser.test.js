@@ -36,18 +36,10 @@ testData.forEach(([description, testData]) => {
           } else {
             expect(errors).toHaveLength(0);
           }
-          if (cmdValues) {
-            expect(cmds).toStrictEqual(cmdValues);
-          }
-          if (argValues) {
-            expect(args).toStrictEqual(argValues);
-          }
-          if (optNames) {
-            expect(Array.from(opts.keys())).toStrictEqual(optNames);
-          }
-          if (optArgs) {
-            expect(Array.from(opts.values())).toStrictEqual(optArgs);
-          }
+          expect(cmds).toStrictEqual(cmdValues || []);
+          expect(args).toStrictEqual(argValues || []);
+          expect(Array.from(opts.keys())).toStrictEqual(optNames || []);
+          expect(Array.from(opts.values())).toStrictEqual(optArgs || []);
         });
       },
     );

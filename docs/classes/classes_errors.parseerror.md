@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.2](../README.md) / [classes/errors](../modules/classes_errors.md) / ParseError
+[getopts - v1.0.0-beta.3](../README.md) / [classes/errors](../modules/classes_errors.md) / ParseError
 
 # Class: ParseError
 
@@ -29,6 +29,8 @@
   ↳↳ [_CmdExpectedError_](classes_errors.cmdexpectederror.md)
 
   ↳↳ [_DuplicateOptError_](classes_errors.duplicateopterror.md)
+
+  ↳↳ [_DuplicateAliasOptError_](classes_errors.duplicatealiasopterror.md)
 
 ## Table of contents
 
@@ -63,7 +65,7 @@
 
 **Returns:** [_ParseError_](classes_errors.parseerror.md)
 
-Inherited from: void
+Inherited from: Error.constructor
 
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:978
 
@@ -75,7 +77,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:978
 
 Additional error data.
 
-Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L12)
+Defined in: [src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L14)
 
 ---
 
@@ -83,7 +85,7 @@ Defined in: [src/classes/errors.ts:12](https://github.com/prasadrajandran/node-g
 
 • **message**: _string_
 
-Inherited from: void
+Inherited from: Error.message
 
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
@@ -93,9 +95,9 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 • **name**: _string_= 'ParseError'
 
-Overrides: void
+Overrides: Error.name
 
-Defined in: [src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/classes/errors.ts#L8)
+Defined in: [src/classes/errors.ts:10](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L10)
 
 ---
 
@@ -103,7 +105,7 @@ Defined in: [src/classes/errors.ts:8](https://github.com/prasadrajandran/node-ge
 
 • `Optional` **stack**: _string_
 
-Inherited from: void
+Inherited from: Error.stack
 
 Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
 
@@ -132,7 +134,7 @@ Optional override for formatting stack traces
 
 Defined in: node_modules/@types/node/globals.d.ts:11
 
-Inherited from: void
+Inherited from: Error.prepareStackTrace
 
 Defined in: node_modules/@types/node/globals.d.ts:11
 
@@ -142,7 +144,7 @@ Defined in: node_modules/@types/node/globals.d.ts:11
 
 ▪ `Static` **stackTraceLimit**: _number_
 
-Inherited from: void
+Inherited from: Error.stackTraceLimit
 
 Defined in: node_modules/@types/node/globals.d.ts:13
 
@@ -163,6 +165,6 @@ Create .stack property on a target object
 
 **Returns:** _void_
 
-Inherited from: void
+Inherited from: Error.captureStackTrace
 
 Defined in: node_modules/@types/node/globals.d.ts:4

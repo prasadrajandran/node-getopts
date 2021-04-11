@@ -9,8 +9,13 @@ npx sort-package-json
 echo "3. cleaning dist dir..."
 rm -rf dist
 
-echo "4. cleaning docs dir..."
-rm -rf docs
+if [ "$1" != 'test' ]
+then
+  echo "4. cleaning docs dir..."
+  rm -rf docs
+else
+  echo "4. test mode activated, will not clear docs dir..."
+fi
 
 echo "5. building..."
 npm run build
@@ -19,12 +24,17 @@ echo "6. stripping comments from dist JS files..."
 shopt -s globstar # enable recursive globbing
 npx stripcomments ./dist/**/*.js --write --confirm-overwrite
 
-echo "7. building docs..."
-npm run build-docs
 
-# Remove the first two lines from README file. The title is duplicated for
-# some reason.
-tail -n +3 ./docs/README.md > ./docs/temp && mv ./docs/temp ./docs/README.md
+if [ "$1" != 'test' ]
+then
+  echo "7. building docs..."
+  npm run build-docs
+  # Remove the first two lines from README file. The title is duplicated for
+  # some reason.
+  tail -n +3 ./docs/README.md > ./docs/temp && mv ./docs/temp ./docs/README.md
+else
+  echo "7. test mode activated, will not build docs..."
+fi
 
 echo "8. linting..."
 npm run lint
@@ -35,16 +45,22 @@ npm run prettier-fix
 echo "10. testing..."
 npm test
 
-package_version=`cat package.json | grep version`
-package_version=${package_version/  \"version\"\: /} # remove `  "version": `
-package_version=${package_version/,/} # remove `,`
+if [ "$1" != 'test' ]
+then
+  package_version=`cat package.json | grep version`
+  package_version=${package_version/  \"version\"\: /} # remove `  "version": `
+  package_version=${package_version/,/} # remove `,`
 
-echo
-echo "--- RELEASE PREP COMPLETE ---"
-echo
-echo "1. update the package version if necessary: $package_version"
-echo "2. do not forget to run \"npm install\" if the package version is updated so that the lockfile is updated too"
-echo "3. create PR to main (from development), merge PR, and create a GitHub release"
-echo "4. switch to the main branch locally and run \"git pull\""
-echo "5. to publish the package run: \"npm publish --access public\""
-echo "6. switch back to development, merge main, and run \"git push\""
+
+  echo
+  echo "--- RELEASE PREP COMPLETE ---"
+  echo
+  echo "1. update the package version if necessary: $package_version"
+  echo "2. do not forget to run \"npm install\" if the package version is updated so that the lockfile is updated too"
+  echo "3. create PR to main (from development), merge PR, and create a GitHub release"
+  echo "4. switch to the main branch locally and run \"git pull\""
+  echo "5. to publish the package run: \"npm publish --access public\""
+  echo "6. switch back to development, merge main, and run \"git push\""
+else
+  echo "--- PREP COMPLETE FOR TESTING ---"
+fi

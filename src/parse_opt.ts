@@ -1,3 +1,4 @@
+import { OPT_SCHEMA_REGEX } from './parse_opt_schema';
 import { OptMap } from './interfaces/opt_map';
 import { OptConfigMap } from './interfaces/config';
 import {
@@ -6,6 +7,7 @@ import {
   OptArgFilterError,
   OptMissingArgError,
   UnknownOptError,
+  DuplicateAliasOptError,
 } from './classes/errors';
 
 /**
@@ -13,8 +15,8 @@ import {
  * @param optSchema - Option's schema.
  * @param errors - Errors are appended to this.
  * @param opts - Options are added to this.
- * @param duplicateOpts - Set to ensure that only unique instances of
- *     "DuplicateOptError" and "UnknownOptError" are generated.
+ * @param unknownOpts - Set to ensure that only unique instances of
+ *     "UnknownOptError" are generated.
  * @param input - Input to parse. E.g. "-a", "-abc", "-a500", etc.
  * @param nextInput - Next input (used if the option requires arguments and the
  *     argument is separated by a space).
@@ -31,10 +33,12 @@ export const parseOpt = (
   optSchema: OptConfigMap,
   errors: ParseError[],
   opts: OptMap,
-  duplicateOpts: Set<string>,
+  unknownOpts: Set<string>,
   input: string,
   nextInput?: string,
-): { nextArgConsumed: boolean } => {
+): { valid: boolean; nextArgConsumed: boolean } => {
+  const parsedOpts: OptMap = new Map([...opts]);
+  let valid = true;
   let nextArgConsumed = false;
 
   for (let i = 1; i < input.length; i++) {
@@ -42,16 +46,25 @@ export const parseOpt = (
     const optConfig = optSchema.get(optName);
 
     if (optConfig) {
-      const { argRequired, argFilter } = optConfig;
+      const { argRequired, argFilter, parsedDuplicates } = optConfig;
 
       // Note: Processing is not halted even though an error has been generated
       // because this gives users the option to ignore this error.
-      if (opts.has(optName) && !duplicateOpts.has(optName)) {
-        duplicateOpts.add(optName);
+      if (parsedOpts.has(optName) && !parsedDuplicates.has(optName)) {
+        parsedDuplicates.add(optName);
         errors.push(new DuplicateOptError(optName));
       }
 
-      opts.set(optName, undefined);
+      if (!optConfig.parsed) {
+        optConfig.parsed = optName;
+      }
+      parsedOpts.set(optName, undefined);
+
+      // Note: Processing is not halted even though an error has been generated
+      // because this gives users the option to ignore this error.
+      if (optConfig.parsed !== optName && !parsedDuplicates.has(optName)) {
+        errors.push(new DuplicateAliasOptError(optConfig.parsed, optName));
+      }
 
       // Note: We do not check if the next input might be an option or even the
       // `STOP_PROCESSING_OPTS_FLAG` flag because if the option requires an
@@ -62,7 +75,7 @@ export const parseOpt = (
         nextArgConsumed = !input[i + 1] && Boolean(nextInput);
 
         try {
-          opts.set(optName, argFilter(optArg));
+          parsedOpts.set(optName, argFilter(optArg));
         } catch (err) {
           errors.push(new OptArgFilterError(optName, optArg, argFilter, err));
         }
@@ -70,11 +83,20 @@ export const parseOpt = (
       } else if (argRequired) {
         errors.push(new OptMissingArgError(optName));
       }
-    } else if (!duplicateOpts.has(optName)) {
-      duplicateOpts.add(optName);
+    } else if (!OPT_SCHEMA_REGEX.test(optName)) {
+      valid = false;
+      break;
+    } else if (!unknownOpts.has(optName)) {
+      unknownOpts.add(optName);
       errors.push(new UnknownOptError(optName));
     }
   }
 
-  return { nextArgConsumed };
+  if (valid) {
+    parsedOpts.forEach((optArg, optName) => {
+      opts.set(optName, optArg);
+    });
+  }
+
+  return { valid, nextArgConsumed };
 };

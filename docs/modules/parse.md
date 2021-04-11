@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.2](../README.md) / parse
+[getopts - v1.0.0-beta.3](../README.md) / parse
 
 # Module: parse
 
@@ -25,4 +25,4 @@ Parse CLI arguments.
 
 **Returns:** [_ParsedArgs_](../interfaces/interfaces_parsed_args.parsedargs.md)
 
-Defined in: [src/parse.ts:59](https://github.com/prasadrajandran/node-getopts/blob/a583df7/src/parse.ts#L59)
+Defined in: [src/parse.ts:59](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/parse.ts#L59)

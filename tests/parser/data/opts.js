@@ -3,16 +3,18 @@ const {
   UnknownOptError,
   DuplicateOptError,
   OptArgFilterError,
+  DuplicateAliasOptError,
 } = require('../../../dist/classes/errors');
 
 const schemaWithCmd = {
   opts: [
     { name: '-a' },
-    { name: '-b' },
+    { name: '-b', longName: '--b' },
     { name: '-c', longName: '--c', arg: 'optional' },
     { name: '-d', arg: 'required' },
     {
       name: '-e',
+      longName: '--e',
       arg: 'required',
       argFilter: (v) => {
         const num = Number(v);
@@ -41,7 +43,7 @@ opts.set(`[opts] "--" operator`, [
     argv: 'up arg1 - -abc',
     cmdValues: ['up'],
     optNames: ['-a', '-b', '-c'],
-    optValues: [undefined, undefined, undefined],
+    optArgs: [undefined, undefined, undefined],
     argValues: ['arg1', '-'],
   },
   {
@@ -62,7 +64,35 @@ opts.set(`[opts] "--" operator`, [
     cmdValues: ['up'],
     argValues: ['arg1', '-abcd'],
     optNames: ['-a', '-b', '-c', '-d'],
-    optValues: [undefined, undefined, undefined, '500'],
+    optArgs: [undefined, undefined, undefined, '500'],
+  },
+]);
+
+opts.set(`[opts] invalid opts are considered args`, [
+  {
+    schema: schemaWithCmd,
+    argv: 'up -a=500',
+    cmdValues: ['up'],
+    argValues: ['-a=500'],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up -abc=500',
+    cmdValues: ['up'],
+    argValues: ['-abc=500'],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up -abc?500',
+    cmdValues: ['up'],
+    argValues: ['-abc?500'],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up -d=500',
+    cmdValues: ['up'],
+    optNames: ['-d'],
+    optArgs: ['=500'],
   },
 ]);
 
@@ -169,6 +199,7 @@ opts.set(`[opts] errors`, [
   {
     schema: schemaWithCmd,
     argv: '-x up -abc',
+    cmdValues: ['up'],
     optNames: ['-a', '-b', '-c'],
     optArgs: [undefined, undefined, undefined],
     errorClasses: [UnknownOptError],
@@ -190,6 +221,7 @@ opts.set(`[opts] errors`, [
   {
     schema: schemaWithCmd,
     argv: '-abc up -d',
+    cmdValues: ['up'],
     optNames: ['-a', '-b', '-c', '-d'],
     optArgs: [undefined, undefined, undefined, undefined],
     errorClasses: [OptMissingArgError],
@@ -232,6 +264,7 @@ opts.set(`[opts] errors`, [
   {
     schema: schemaWithCmd,
     argv: '-b up -a -b',
+    cmdValues: ['up'],
     optNames: ['-b', '-a'],
     optArgs: [undefined, undefined],
     errorClasses: [DuplicateOptError],
@@ -256,15 +289,59 @@ opts.set(`[opts] errors`, [
   },
   {
     schema: schemaWithCmd,
-    argv: '-x up arg1 arg2 -bbb -a -e evalue -d',
+    argv: 'up --b -b',
+    cmdValues: ['up'],
+    optNames: ['--b', '-b'],
+    optArgs: [undefined, undefined],
+    errorClasses: [DuplicateAliasOptError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up -b --b',
+    cmdValues: ['up'],
+    optNames: ['-b', '--b'],
+    optArgs: [undefined, undefined],
+    errorClasses: [DuplicateAliasOptError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up -b -e500 --b arg1 --e=500',
+    cmdValues: ['up'],
+    argValues: ['arg1'],
+    optNames: ['-b', '-e', '--b', '--e'],
+    optArgs: [undefined, 500, undefined, 500],
+    errorClasses: [DuplicateAliasOptError, DuplicateAliasOptError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up -b --e=500 --b arg1 -e500',
+    cmdValues: ['up'],
+    argValues: ['arg1'],
+    optNames: ['-b', '--e', '--b', '-e'],
+    optArgs: [undefined, 500, undefined, 500],
+    errorClasses: [DuplicateAliasOptError, DuplicateAliasOptError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up -b --b arg1 --b --b',
+    cmdValues: ['up'],
+    argValues: ['arg1'],
+    optNames: ['-b', '--b'],
+    optArgs: [undefined, undefined],
+    errorClasses: [DuplicateAliasOptError, DuplicateOptError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '-x up arg1 arg2 -bbb -e evalue -a --e=500 -d',
     cmdValues: ['up'],
     argValues: ['arg1', 'arg2'],
-    optNames: ['-b', '-a', '-e', '-d'],
-    optArgs: [undefined, undefined, undefined, undefined],
+    optNames: ['-b', '-e', '-a', '--e', '-d'],
+    optArgs: [undefined, undefined, undefined, 500, undefined],
     errorClasses: [
       UnknownOptError,
       DuplicateOptError,
       OptArgFilterError,
+      DuplicateAliasOptError,
       OptMissingArgError,
     ],
   },

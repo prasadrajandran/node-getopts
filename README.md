@@ -33,9 +33,34 @@ The most relevant parts are:
 npm i @prasadrajandran/getopts
 ```
 
+#### CommonJS
+
 ```JavaScript
 const { getopts } = require('@prasadrajandran/getopts');
 ```
+
+#### ES Modules
+
+```JavaScript
+import { getopts } from '@prasadrajandran/getopts';
+```
+
+See [this](https://nodejs.medium.com/announcing-core-node-js-support-for-ecmascript-modules-c5d6dc29b663)
+for more info.
+
+#### TypeScript
+
+```TypeScript
+import {
+  getopts,
+  Schema,
+  CmdSchema,
+  OptSchema,
+  Settings,
+} from '@prasadrajandran/getopts';
+```
+
+TypeScript interfaces can be used too.
 
 ### Examples
 
