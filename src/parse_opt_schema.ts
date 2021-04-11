@@ -33,6 +33,7 @@ export const parseOptSchema = (optSchemas: OptSchema[]): OptConfigMap => {
       argAccepted: arg === 'required' || arg === 'optional',
       argRequired: arg === 'required',
       argFilter: argFilter || ((arg: string) => arg),
+      duplicatedParsedNames: new Set(),
     };
 
     if (!name && !longName) {

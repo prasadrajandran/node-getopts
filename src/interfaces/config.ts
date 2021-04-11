@@ -17,6 +17,11 @@ export interface OptConfig {
    * Process the CLI option's argument.
    */
   argFilter: OptArgFilter;
+  /**
+   * Keeps track of duplicated parsed options. This is so that the `errors`
+   * array will only contain unique instances of "DuplicatedOptError".
+   */
+  duplicatedParsedNames: Set<OptName | OptLongName>;
 }
 
 /**

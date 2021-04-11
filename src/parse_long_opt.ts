@@ -14,8 +14,8 @@ import {
  * @param optSchema - Option's schema.
  * @param errors - Any parsing errors will be appended to this.
  * @param opts - Parsed options will be added to this.
- * @param duplicateOpts - Set to ensure that only unique instances of
- *     "DuplicateOptError" and "UnknownOptError" are generated.
+ * @param unknownOpts - Set to ensure that only unique instances of
+ *     "UnknownOptError" are generated.
  * @param input - Input to parse.
  *
  * Note: the following parameters are modified directly (i.e. sideffect):
@@ -26,19 +26,24 @@ export const parseLongOpt = (
   optSchema: OptConfigMap,
   errors: ParseError[],
   opts: OptMap,
-  duplicateOpts: Set<string>,
+  unknownOpts: Set<string>,
   input: string,
 ): void => {
   const [, optName, optArg] = input.match(/^(--[^=]+)=?(.*)/) || [];
 
   const optConfig = optSchema.get(optName);
   if (optConfig) {
-    const { argAccepted, argRequired, argFilter } = optConfig;
+    const {
+      argAccepted,
+      argRequired,
+      argFilter,
+      duplicatedParsedNames,
+    } = optConfig;
 
     // Note: Processing is not halted even though an error has been generated
     // because this gives users the option to ignore this error.
-    if (opts.has(optName) && !duplicateOpts.has(optName)) {
-      duplicateOpts.add(optName);
+    if (opts.has(optName) && !duplicatedParsedNames.has(optName)) {
+      duplicatedParsedNames.add(optName);
       errors.push(new DuplicateOptError(optName));
     }
 
@@ -55,8 +60,8 @@ export const parseLongOpt = (
     } else if (argRequired && !optArg) {
       errors.push(new OptMissingArgError(optName));
     }
-  } else if (!duplicateOpts.has(optName)) {
-    duplicateOpts.add(optName);
+  } else if (!unknownOpts.has(optName)) {
+    unknownOpts.add(optName);
     errors.push(new UnknownOptError(optName));
   }
 };
