@@ -7,6 +7,7 @@ import {
   OptMissingArgError,
   UnexpectedOptArgError,
   UnknownOptError,
+  DuplicateAliasOptError,
 } from './classes/errors';
 
 /**
@@ -47,7 +48,16 @@ export const parseLongOpt = (
       errors.push(new DuplicateOptError(optName));
     }
 
+    if (!optConfig.parsed) {
+      optConfig.parsed = optName;
+    }
     opts.set(optName, undefined);
+
+    // Note: Processing is not halted even though an error has been generated
+    // because this gives users the option to ignore this error.
+    if (optConfig.parsed !== optName && !duplicatedParsedNames.has(optName)) {
+      errors.push(new DuplicateAliasOptError(optConfig.parsed, optName));
+    }
 
     if (argAccepted && optArg) {
       try {

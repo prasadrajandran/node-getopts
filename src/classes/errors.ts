@@ -1,3 +1,5 @@
+import { CmdName } from '../interfaces/config';
+import { OptLongName, OptName } from '../interfaces/opt_map';
 import { ArgFilter, OptArgFilter } from '../interfaces/schema';
 
 export class SchemaError extends Error {
@@ -19,7 +21,7 @@ export class UnknownOptError extends ParseError {
    * Unknown CLI option error.
    * @param unknownOpt - Name of the unknown CLI option.
    */
-  constructor(unknownOpt: string) {
+  constructor(unknownOpt: OptName | OptLongName) {
     super(`"${unknownOpt}" not recognized`);
     this.details.set('unknownOpt', unknownOpt);
   }
@@ -33,7 +35,7 @@ export class UnknownCmdError extends ParseError {
    * @param unknownCmd - Name of the unknown CLI command.
    * @param expectedCmds - CLI commands that were expected.
    */
-  constructor(unknownCmd: string, expectedCmds: string[]) {
+  constructor(unknownCmd: string, expectedCmds: CmdName[]) {
     super(
       `Got "${unknownCmd}" but expected ` +
         `${expectedCmds.map((cmd) => `"${cmd}"`).join(', ')}`,
@@ -50,7 +52,7 @@ export class OptMissingArgError extends ParseError {
    * CLI option missing argument error.
    * @param opt - CLI option that is missing its argument.
    */
-  constructor(opt: string) {
+  constructor(opt: OptName | OptLongName) {
     super(`${opt} requires an argument`);
     this.details.set('opt', opt);
   }
@@ -65,7 +67,7 @@ export class UnexpectedOptArgError extends ParseError {
    * @param arg - The unexpected argument the option (that doesn't accept
    *     arguments) was provided.
    */
-  constructor(opt: string, arg: string) {
+  constructor(opt: OptLongName, arg: string) {
     super(`"${opt}" does not accept an argument but was given "${arg}"`);
     this.details.set('opt', opt);
     this.details.set('arg', arg);
@@ -113,7 +115,7 @@ export class OptArgFilterError extends ParseError {
    *     argument filter.
    */
   constructor(
-    opt: string,
+    opt: OptName | OptLongName,
     arg: string,
     argFilter: OptArgFilter,
     argFilterError: Error | unknown,
@@ -185,7 +187,7 @@ export class CmdExpectedError extends ParseError {
    * Expected CLI command error.
    * @param expectedCmds - CLI commands that were expected.
    */
-  constructor(expectedCmds: string[]) {
+  constructor(expectedCmds: CmdName[]) {
     super(
       `The following ${expectedCmds.map((cmd) => `"${cmd}"`).join(', ')} ` +
         `was expected`,
@@ -201,8 +203,26 @@ export class DuplicateOptError extends ParseError {
    * Duplicate CLI option error.
    * @param duplicateOpt - The duplicate option.
    */
-  constructor(duplicateOpt: string) {
+  constructor(duplicateOpt: OptName | OptLongName) {
     super(`"${duplicateOpt}" was entered more than once`);
     this.details.set('duplicateOpt', duplicateOpt);
+  }
+}
+
+export class DuplicateAliasOptError extends ParseError {
+  name = 'DuplicateAliasOptError';
+
+  /**
+   * Duplicate alias CLI option error.
+   * @param parsedOpt - Option that was parsed.
+   * @param aliasOpt - Alias of parsed option.
+   */
+  constructor(
+    parsedOpt: OptName | OptLongName,
+    aliasOpt: OptName | OptLongName,
+  ) {
+    super(`"${parsedOpt}" and "${aliasOpt} are aliases"`);
+    this.details.set('parsedOpt', parsedOpt);
+    this.details.set('aliasOpt', aliasOpt);
   }
 }

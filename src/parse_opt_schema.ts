@@ -29,11 +29,16 @@ export const parseOptSchema = (optSchemas: OptSchema[]): OptConfigMap => {
   const opts: OptConfigMap = new Map();
 
   for (const { name, longName, arg, argFilter } of optSchemas) {
+    // Note: The fact that the "OptConfig" object is shared (i.e. it's the same
+    // object reference) between option and long option is intentional. If a
+    // property is updated in the OptConfig, we want that to affect all options
+    // that share that object.
     const config: OptConfig = {
       argAccepted: arg === 'required' || arg === 'optional',
       argRequired: arg === 'required',
       argFilter: argFilter || ((arg: string) => arg),
       duplicatedParsedNames: new Set(),
+      parsed: false,
     };
 
     if (!name && !longName) {

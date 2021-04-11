@@ -7,6 +7,7 @@ import {
   OptArgFilterError,
   OptMissingArgError,
   UnknownOptError,
+  DuplicateAliasOptError,
 } from './classes/errors';
 
 /**
@@ -54,7 +55,16 @@ export const parseOpt = (
         errors.push(new DuplicateOptError(optName));
       }
 
+      if (!optConfig.parsed) {
+        optConfig.parsed = optName;
+      }
       parsedOpts.set(optName, undefined);
+
+      // Note: Processing is not halted even though an error has been generated
+      // because this gives users the option to ignore this error.
+      if (optConfig.parsed !== optName && !duplicatedParsedNames.has(optName)) {
+        errors.push(new DuplicateAliasOptError(optConfig.parsed, optName));
+      }
 
       // Note: We do not check if the next input might be an option or even the
       // `STOP_PROCESSING_OPTS_FLAG` flag because if the option requires an

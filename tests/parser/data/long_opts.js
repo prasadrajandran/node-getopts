@@ -4,6 +4,7 @@ const {
   DuplicateOptError,
   UnexpectedOptArgError,
   OptArgFilterError,
+  DuplicateAliasOptError,
 } = require('../../../dist/classes/errors');
 
 const schemaWithCmd = {
@@ -166,17 +167,36 @@ longOpts.set(`[long opts] errors`, [
   },
   {
     schema: schemaWithCmd,
-    argv: '--x --a up arg1 --d --b=5 --c=something --a',
+    argv: '--a --c up arg1 -a',
     cmdValues: ['up'],
     argValues: ['arg1'],
-    optNames: ['--a', '--d', '--b', '--c'],
-    optArgs: [undefined, undefined, undefined, undefined],
+    optNames: ['--a', '--c', '-a'],
+    optArgs: [undefined, undefined, undefined],
+    errorClasses: [DuplicateAliasOptError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--a --c up -a arg1 -a',
+    cmdValues: ['up'],
+    argValues: ['arg1'],
+    optNames: ['--a', '--c', '-a'],
+    optArgs: [undefined, undefined, undefined],
+    errorClasses: [DuplicateAliasOptError, DuplicateOptError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--x --a up arg1 --d --b=5 --c=something --a -b',
+    cmdValues: ['up'],
+    argValues: ['arg1'],
+    optNames: ['--a', '--d', '--b', '--c', '-b'],
+    optArgs: [undefined, undefined, undefined, undefined, undefined],
     errorClasses: [
       UnknownOptError,
       OptMissingArgError,
       UnexpectedOptArgError,
       OptArgFilterError,
       DuplicateOptError,
+      DuplicateAliasOptError,
     ],
   },
 ]);
