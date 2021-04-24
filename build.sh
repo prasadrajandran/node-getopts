@@ -50,6 +50,14 @@ echo "10. testing..."
 npm test
 
 if [ "$1" != 'test' ]
+then 
+  echo "11. check for outdated dependencies..."
+  npm outdated
+else
+  echo "[SKIPPED] 11. check for outdated dependencies..."
+fi
+
+if [ "$1" != 'test' ]
 then
   package_version=`cat package.json | grep version`
   package_version=${package_version/  \"version\"\: /} # remove `  "version": `
@@ -57,7 +65,7 @@ then
 
 
   echo
-  echo "--- RELEASE PREP COMPLETE ---"
+  echo "--- BUILD COMPLETE ---"
   echo
   echo "1. update the package version if necessary: $package_version"
   echo "2. do not forget to run \"npm install\" if the package version is updated so that the lockfile is updated too"
@@ -66,5 +74,5 @@ then
   echo "5. to publish the package run: \"npm publish --access public\""
   echo "6. switch back to development, merge main, and run \"git push\""
 else
-  echo "--- PREP COMPLETE FOR TESTING ---"
+  echo "--- TEST BUILD COMPLETE ---"
 fi
