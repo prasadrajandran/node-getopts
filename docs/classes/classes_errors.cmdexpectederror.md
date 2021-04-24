@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.3](../README.md) / [classes/errors](../modules/classes_errors.md) / CmdExpectedError
+[getopts - v1.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / CmdExpectedError
 
 # Class: CmdExpectedError
 
@@ -47,7 +47,7 @@ Expected CLI command error.
 
 Overrides: [ParseError](classes_errors.parseerror.md)
 
-Defined in: [src/classes/errors.ts:184](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L184)
+Defined in: [src/classes/errors.ts:184](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/classes/errors.ts#L184)
 
 ## Properties
 
@@ -59,7 +59,7 @@ Additional error data.
 
 Inherited from: [ParseError](classes_errors.parseerror.md).[details](classes_errors.parseerror.md#details)
 
-Defined in: [src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L14)
+Defined in: [src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/classes/errors.ts#L14)
 
 ---
 
@@ -79,7 +79,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 Overrides: [ParseError](classes_errors.parseerror.md).[name](classes_errors.parseerror.md#name)
 
-Defined in: [src/classes/errors.ts:184](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L184)
+Defined in: [src/classes/errors.ts:184](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/classes/errors.ts#L184)
 
 ---
 

@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.3](../README.md) / classes/errors
+[getopts - v1.0.0](../README.md) / classes/errors
 
 # Module: classes/errors
 
