@@ -1,6 +1,6 @@
 # getopts
 
-Takes care of CLI argument parsing and validation so you don't have to.
+Build CLI utilities effortlessly.
 
 ## Highlights
 
@@ -15,6 +15,7 @@ Takes care of CLI argument parsing and validation so you don't have to.
   - Argument validation
   - Type casting
   - etc.
+- Built-in TypeScript type declarations
 
 ## How Do I Use It?
 
@@ -96,7 +97,7 @@ if (opts.has('--help')) {
 } else {
   const limit = opts.get('-l') || opts.get('--limit') || Infinity;
   const filename = args[0];
-  // Do things...
+  // Run utility...
 }
 ```
 
