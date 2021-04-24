@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ "$1" == 'test' ]
+then
+  echo "[INFO] test mode activated"
+fi
+
 echo "1. run npm install"
 npm install
 
@@ -14,7 +19,7 @@ then
   echo "4. cleaning docs dir..."
   rm -rf docs
 else
-  echo "4. test mode activated, will not clear docs dir..."
+  echo "[SKIPPED] 4. cleaning docs dir..."
 fi
 
 echo "5. building..."
@@ -24,7 +29,6 @@ echo "6. stripping comments from dist JS files..."
 shopt -s globstar # enable recursive globbing
 npx stripcomments ./dist/**/*.js --write --confirm-overwrite
 
-
 if [ "$1" != 'test' ]
 then
   echo "7. building docs..."
@@ -33,7 +37,7 @@ then
   # some reason.
   tail -n +3 ./docs/README.md > ./docs/temp && mv ./docs/temp ./docs/README.md
 else
-  echo "7. test mode activated, will not build docs..."
+  echo "[SKIPPED] 7. building docs..."
 fi
 
 echo "8. linting..."
