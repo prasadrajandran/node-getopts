@@ -1,4 +1,4 @@
-[getopts - v1.0.0-beta.3](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
+[getopts - v1.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
 
 # Class: SchemaError
 
@@ -64,7 +64,7 @@ Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
 
 Overrides: Error.name
 
-Defined in: [src/classes/errors.ts:6](https://github.com/prasadrajandran/node-getopts/blob/11bb392/src/classes/errors.ts#L6)
+Defined in: [src/classes/errors.ts:6](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/classes/errors.ts#L6)
 
 ---
 

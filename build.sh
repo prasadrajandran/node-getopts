@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ "$1" == 'test' ]
+then
+  echo "[INFO] test mode activated"
+fi
+
 echo "1. run npm install"
 npm install
 
@@ -14,7 +19,7 @@ then
   echo "4. cleaning docs dir..."
   rm -rf docs
 else
-  echo "4. test mode activated, will not clear docs dir..."
+  echo "[SKIPPED] 4. cleaning docs dir..."
 fi
 
 echo "5. building..."
@@ -24,7 +29,6 @@ echo "6. stripping comments from dist JS files..."
 shopt -s globstar # enable recursive globbing
 npx stripcomments ./dist/**/*.js --write --confirm-overwrite
 
-
 if [ "$1" != 'test' ]
 then
   echo "7. building docs..."
@@ -33,7 +37,7 @@ then
   # some reason.
   tail -n +3 ./docs/README.md > ./docs/temp && mv ./docs/temp ./docs/README.md
 else
-  echo "7. test mode activated, will not build docs..."
+  echo "[SKIPPED] 7. building docs..."
 fi
 
 echo "8. linting..."
@@ -46,6 +50,14 @@ echo "10. testing..."
 npm test
 
 if [ "$1" != 'test' ]
+then 
+  echo "11. check for outdated dependencies..."
+  npm outdated
+else
+  echo "[SKIPPED] 11. check for outdated dependencies..."
+fi
+
+if [ "$1" != 'test' ]
 then
   package_version=`cat package.json | grep version`
   package_version=${package_version/  \"version\"\: /} # remove `  "version": `
@@ -53,7 +65,7 @@ then
 
 
   echo
-  echo "--- RELEASE PREP COMPLETE ---"
+  echo "--- BUILD COMPLETE ---"
   echo
   echo "1. update the package version if necessary: $package_version"
   echo "2. do not forget to run \"npm install\" if the package version is updated so that the lockfile is updated too"
@@ -62,5 +74,5 @@ then
   echo "5. to publish the package run: \"npm publish --access public\""
   echo "6. switch back to development, merge main, and run \"git push\""
 else
-  echo "--- PREP COMPLETE FOR TESTING ---"
+  echo "--- TEST BUILD COMPLETE ---"
 fi

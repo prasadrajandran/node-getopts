@@ -1,4 +1,4 @@
-# getopts - v1.0.0-beta.3
+# getopts - v1.0.0
 
 ## Table of contents
 

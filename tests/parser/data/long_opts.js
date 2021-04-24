@@ -28,6 +28,21 @@ const schemaWithCmd = {
   minArgs: 0,
 };
 
+const schemaWithTwoCmds = {
+  opts: [{ longName: '--verbose' }],
+  cmds: [
+    {
+      name: 'read',
+      opts: [{ longName: '--fast' }],
+    },
+    {
+      name: 'list',
+      opts: [{ longName: '--group' }],
+    },
+  ],
+  minArgs: 1,
+};
+
 const longOpts = new Map();
 
 longOpts.set(`[long opts] "--" operator`, [
@@ -198,6 +213,26 @@ longOpts.set(`[long opts] errors`, [
       DuplicateOptError,
       DuplicateAliasOptError,
     ],
+  },
+
+  // Schema with two commands
+  {
+    schema: schemaWithTwoCmds,
+    argv: '--verbose read --group arg1',
+    cmdValues: ['read'],
+    argValues: ['arg1'],
+    optNames: ['--verbose'],
+    optArgs: [undefined],
+    errorClasses: [UnknownOptError],
+  },
+  {
+    schema: schemaWithTwoCmds,
+    argv: '--verbose list arg1 --fast',
+    cmdValues: ['list'],
+    argValues: ['arg1'],
+    optNames: ['--verbose'],
+    optArgs: [undefined],
+    errorClasses: [UnknownOptError],
   },
 ]);
 

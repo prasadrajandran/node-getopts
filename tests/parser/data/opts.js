@@ -29,6 +29,21 @@ const schemaWithCmd = {
   minArgs: 0,
 };
 
+const schemaWithTwoCmds = {
+  opts: [{ name: '-a' }],
+  cmds: [
+    {
+      name: 'up',
+      opts: [{ name: '-b' }],
+    },
+    {
+      name: 'down',
+      opts: [{ name: '-c' }],
+    },
+  ],
+  minArgs: 1,
+};
+
 const opts = new Map();
 
 opts.set(`[opts] "--" operator`, [
@@ -344,6 +359,26 @@ opts.set(`[opts] errors`, [
       DuplicateAliasOptError,
       OptMissingArgError,
     ],
+  },
+
+  // Schema with two commands
+  {
+    schema: schemaWithTwoCmds,
+    argv: '-a up -c arg1',
+    cmdValues: ['up'],
+    argValues: ['arg1'],
+    optNames: ['-a'],
+    optArgs: [undefined],
+    errorClasses: [UnknownOptError],
+  },
+  {
+    schema: schemaWithTwoCmds,
+    argv: '-a down -b arg1',
+    cmdValues: ['down'],
+    argValues: ['arg1'],
+    optNames: ['-a'],
+    optArgs: [undefined],
+    errorClasses: [UnknownOptError],
   },
 ]);
 
