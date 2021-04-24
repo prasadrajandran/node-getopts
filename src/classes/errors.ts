@@ -90,7 +90,7 @@ export class ArgFilterError extends ParseError {
     argFilterError: Error | unknown,
   ) {
     super(
-      `Processing "${arg}" through the argument filter threw an exception: ` +
+      `Argument filter failed to process "${arg}": ` +
         `${
           argFilterError instanceof Error
             ? `${argFilterError.name} - ${argFilterError.message}`
@@ -121,7 +121,7 @@ export class OptArgFilterError extends ParseError {
     argFilterError: Error | unknown,
   ) {
     super(
-      `${opt}'s argument filter threw an exception when processing "${arg}": ` +
+      `${opt}'s argument filter failed to process "${arg}": ` +
         `${
           argFilterError instanceof Error
             ? `${argFilterError.name} - ${argFilterError.message}`
@@ -188,10 +188,7 @@ export class CmdExpectedError extends ParseError {
    * @param expectedCmds - CLI commands that were expected.
    */
   constructor(expectedCmds: CmdName[]) {
-    super(
-      `The following ${expectedCmds.map((cmd) => `"${cmd}"`).join(', ')} ` +
-        `was expected`,
-    );
+    super(`${expectedCmds.map((cmd) => `"${cmd}"`).join(', ')} expected`);
     this.details.set('expectedCmds', expectedCmds);
   }
 }
@@ -221,7 +218,7 @@ export class DuplicateAliasOptError extends ParseError {
     parsedOpt: OptName | OptLongName,
     aliasOpt: OptName | OptLongName,
   ) {
-    super(`"${parsedOpt}" and "${aliasOpt} are aliases"`);
+    super(`"${parsedOpt}" and "${aliasOpt} cannot be used at the same time"`);
     this.details.set('parsedOpt', parsedOpt);
     this.details.set('aliasOpt', aliasOpt);
   }
