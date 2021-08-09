@@ -5,7 +5,7 @@ const {
   UnexpectedOptArgError,
   OptArgFilterError,
   DuplicateAliasOptError,
-} = require('../../../dist/classes/errors');
+} = require('../../../d/classes/errors');
 
 const schemaWithCmd = {
   opts: [

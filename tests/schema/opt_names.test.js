@@ -1,4 +1,4 @@
-const { getopts } = require('../../dist/index');
+const { getopts } = require('../../d/index');
 
 const ALPHABET_LOWERCASE = 'abcdefghijklmnopqrstuvwxyz';
 const ALPHABET_UPPERCASE = ALPHABET_LOWERCASE.toUpperCase();

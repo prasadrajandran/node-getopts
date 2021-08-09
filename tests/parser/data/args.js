@@ -2,7 +2,7 @@ const {
   ArgFilterError,
   ExcessArgsError,
   InsufficientArgsError,
-} = require('../../../dist/classes/errors');
+} = require('../../../d/classes/errors');
 
 const schema = {
   argFilter: (v) => {

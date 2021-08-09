@@ -52,13 +52,13 @@ for more info.
 #### TypeScript
 
 ```TypeScript
+import { getopts } from '@prasadrajandran/getopts';
 import {
-  getopts,
   Schema,
   CmdSchema,
   OptSchema,
-  Settings,
-} from '@prasadrajandran/getopts';
+} from '@prasadrajandran/getopts/d/interfaces/schema';
+import { Settings } from '@prasadrajandran/getopts/d/interfaces/settings';
 ```
 
 TypeScript interfaces can be used too.

@@ -1,5 +1,5 @@
 const setArgv = require('./helpers/set_argv');
-const { getopts } = require('../dist/index');
+const { getopts } = require('../d/index');
 
 const resetArgv = () => setArgv('');
 
