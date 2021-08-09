@@ -3,6 +3,7 @@ import { ArgFilter, OptArgFilter } from './schema';
 
 /**
  * A CLI option's configuration object.
+ * @internal
  */
 export interface OptConfig {
   /**
@@ -32,22 +33,26 @@ export interface OptConfig {
 
 /**
  * Map of a CLI option's name to its configuration object.
+ * @internal
  */
 export type OptConfigMap = Map<OptName | OptLongName, OptConfig>;
 
 /**
  * CLI command's name.
+ * @internal
  */
 export type CmdName = string;
 
 /**
  * Map of a CLI command's name to its configuration object.
+ * @internal
  */
 // eslint-disable-next-line no-use-before-define
 export type CmdConfigMap = Map<CmdName, Config>;
 
 /**
  * CLI config.
+ * @internal
  */
 export interface Config {
   /**

@@ -12,6 +12,7 @@ import {
 
 /**
  * Parse an option.
+ * @internal
  * @param optSchema - Option's schema.
  * @param errors - Errors are appended to this.
  * @param opts - Options are added to this.

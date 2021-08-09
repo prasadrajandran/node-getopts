@@ -8,6 +8,7 @@ import { SchemaError } from './classes/errors';
  * E.g.:
  * - '-a'
  * - '-B'
+ * @internal
  */
 export const OPT_SCHEMA_REGEX = /^-[a-zA-Z\d]$/;
 
@@ -18,11 +19,13 @@ export const OPT_SCHEMA_REGEX = /^-[a-zA-Z\d]$/;
  * E.g.:
  * - '--help'
  * - '--show-hidden-files'
+ * @internal
  */
 export const LONG_OPT_SCHEMA_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*$/;
 
 /**
  * Parse an option's schema.
+ * @internal
  * @param optSchemas - OptSchemas
  */
 export const parseOptSchema = (optSchemas: OptSchema[]): OptConfigMap => {

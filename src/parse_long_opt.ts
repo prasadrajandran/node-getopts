@@ -12,6 +12,7 @@ import {
 
 /**
  * Parses a long option.
+ * @internal
  * @param optSchema - Option's schema.
  * @param errors - Any parsing errors will be appended to this.
  * @param opts - Parsed options will be added to this.

@@ -6,6 +6,7 @@ import { SchemaError } from './classes/errors';
 
 /**
  * Parse a schema.
+ * @internal
  * @param schema - Schema to parse.
  * @param alreadyDefinedOpts - A map of options that have already been defined
  *     in this sequence. This prevents duplicate options from being defined for
