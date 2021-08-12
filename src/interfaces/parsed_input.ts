@@ -1,4 +1,3 @@
-
 import { ParserError } from '../classes/errors';
 
 /**
