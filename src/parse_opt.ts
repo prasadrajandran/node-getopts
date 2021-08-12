@@ -2,7 +2,7 @@ import { OPT_SCHEMA_REGEX } from './parse_opt_schema';
 import { OptMap } from './interfaces/parsed_input';
 import { ParsedOptSchemaMap } from './interfaces/parsed_schema';
 import {
-  ParseError,
+  ParserError,
   DuplicateOptError,
   OptArgFilterError,
   OptMissingArgError,
@@ -32,7 +32,7 @@ import {
  */
 export const parseOpt = (
   parsedOptSchemaMap: ParsedOptSchemaMap,
-  errors: ParseError[],
+  errors: ParserError[],
   opts: OptMap,
   unknownOpts: Set<string>,
   input: string,

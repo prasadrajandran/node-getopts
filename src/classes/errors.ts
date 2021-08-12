@@ -6,15 +6,15 @@ export class SchemaError extends Error {
   name = 'SchemaError';
 }
 
-export class ParseError extends Error {
-  name = 'ParseError';
+export class ParserError extends Error {
+  name = 'ParserError';
   /**
    * Additional error data.
    */
   details = new Map<string, unknown>();
 }
 
-export class UnknownOptError extends ParseError {
+export class UnknownOptError extends ParserError {
   name = 'UnknownOptError';
 
   /**
@@ -27,7 +27,7 @@ export class UnknownOptError extends ParseError {
   }
 }
 
-export class UnknownCmdError extends ParseError {
+export class UnknownCmdError extends ParserError {
   name = 'UnknownCmdError';
 
   /**
@@ -45,7 +45,7 @@ export class UnknownCmdError extends ParseError {
   }
 }
 
-export class OptMissingArgError extends ParseError {
+export class OptMissingArgError extends ParserError {
   name = 'OptMissingArgError';
 
   /**
@@ -58,7 +58,7 @@ export class OptMissingArgError extends ParseError {
   }
 }
 
-export class UnexpectedOptArgError extends ParseError {
+export class UnexpectedOptArgError extends ParserError {
   name = 'UnexpectedOptArgError';
 
   /**
@@ -74,7 +74,7 @@ export class UnexpectedOptArgError extends ParseError {
   }
 }
 
-export class ArgFilterError extends ParseError {
+export class ArgFilterError extends ParserError {
   name = 'ArgFilterError';
 
   /**
@@ -103,7 +103,7 @@ export class ArgFilterError extends ParseError {
   }
 }
 
-export class OptArgFilterError extends ParseError {
+export class OptArgFilterError extends ParserError {
   name = 'OptArgFilterError';
 
   /**
@@ -135,7 +135,7 @@ export class OptArgFilterError extends ParseError {
   }
 }
 
-export class ExcessArgsError extends ParseError {
+export class ExcessArgsError extends ParserError {
   name = 'ExcessArgsError';
 
   /**
@@ -161,7 +161,7 @@ export class ExcessArgsError extends ParseError {
   }
 }
 
-export class InsufficientArgsError extends ParseError {
+export class InsufficientArgsError extends ParserError {
   name = 'InsufficientArgsError';
 
   /**
@@ -180,7 +180,7 @@ export class InsufficientArgsError extends ParseError {
   }
 }
 
-export class CmdExpectedError extends ParseError {
+export class CmdExpectedError extends ParserError {
   name = 'CmdExpectedError';
 
   /**
@@ -193,7 +193,7 @@ export class CmdExpectedError extends ParseError {
   }
 }
 
-export class DuplicateOptError extends ParseError {
+export class DuplicateOptError extends ParserError {
   name = 'DuplicateOptError';
 
   /**
@@ -206,7 +206,7 @@ export class DuplicateOptError extends ParseError {
   }
 }
 
-export class DuplicateAliasOptError extends ParseError {
+export class DuplicateAliasOptError extends ParserError {
   name = 'DuplicateAliasOptError';
 
   /**

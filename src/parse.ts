@@ -5,7 +5,7 @@ import { parseSchema } from './parse_schema';
 import { parseOpt } from './parse_opt';
 import { parseLongOpt } from './parse_long_opt';
 import {
-  ParseError,
+  ParserError,
   ArgFilterError,
   CmdExpectedError,
   InsufficientArgsError,
@@ -68,7 +68,7 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
   // "UnknownOptError" are generated.
   const unknownOpts: Set<string> = new Set();
 
-  const errors: ParseError[] = [];
+  const errors: ParserError[] = [];
   const cmds: string[] = [];
   const opts: OptMap = new Map();
   const args: unknown[] = [];

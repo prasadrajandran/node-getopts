@@ -1,4 +1,5 @@
-import { ParseError } from '../classes/errors'; // rename to parsererror?
+
+import { ParserError } from '../classes/errors';
 
 /**
  * CLI option's name.
@@ -45,5 +46,5 @@ export interface ParsedInput {
   /**
    * Parser, argument filter, and option filter errors.
    */
-  errors: ParseError[];
+  errors: ParserError[];
 }
