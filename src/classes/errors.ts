@@ -1,5 +1,5 @@
-import { CmdName } from '../interfaces/config';
-import { OptLongName, OptName } from '../interfaces/opt_map';
+import { CmdName } from '../interfaces/parsed_schema';
+import { OptLongName, OptName } from '../interfaces/parsed_input';
 import { ArgFilter, OptArgFilter } from '../interfaces/schema';
 
 export class SchemaError extends Error {

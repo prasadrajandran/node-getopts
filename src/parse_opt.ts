@@ -1,6 +1,6 @@
 import { OPT_SCHEMA_REGEX } from './parse_opt_schema';
-import { OptMap } from './interfaces/opt_map';
-import { OptConfigMap } from './interfaces/config';
+import { OptMap } from './interfaces/parsed_input';
+import { ParsedOptSchemaMap } from './interfaces/parsed_schema';
 import {
   ParseError,
   DuplicateOptError,
@@ -13,7 +13,7 @@ import {
 /**
  * Parse an option.
  * @internal
- * @param optSchema - Option's schema.
+ * @param parsedOptSchemaMap - Option's parsed schema map.
  * @param errors - Errors are appended to this.
  * @param opts - Options are added to this.
  * @param unknownOpts - Set to ensure that only unique instances of
@@ -31,7 +31,7 @@ import {
  * - opts
  */
 export const parseOpt = (
-  optSchema: OptConfigMap,
+  parsedOptSchemaMap: ParsedOptSchemaMap,
   errors: ParseError[],
   opts: OptMap,
   unknownOpts: Set<string>,
@@ -44,10 +44,10 @@ export const parseOpt = (
 
   for (let i = 1; i < input.length; i++) {
     const optName = `-${input[i]}`;
-    const optConfig = optSchema.get(optName);
+    const parsedOptSchema = parsedOptSchemaMap.get(optName);
 
-    if (optConfig) {
-      const { argRequired, argFilter, parsedDuplicates } = optConfig;
+    if (parsedOptSchema) {
+      const { argRequired, argFilter, parsedDuplicates } = parsedOptSchema;
 
       // Note: Processing is not halted even though an error has been generated
       // because this gives users the option to ignore this error.
@@ -56,15 +56,20 @@ export const parseOpt = (
         errors.push(new DuplicateOptError(optName));
       }
 
-      if (!optConfig.parsed) {
-        optConfig.parsed = optName;
+      if (!parsedOptSchema.parsedName) {
+        parsedOptSchema.parsedName = optName;
       }
       parsedOpts.set(optName, undefined);
 
       // Note: Processing is not halted even though an error has been generated
       // because this gives users the option to ignore this error.
-      if (optConfig.parsed !== optName && !parsedDuplicates.has(optName)) {
-        errors.push(new DuplicateAliasOptError(optConfig.parsed, optName));
+      if (
+        parsedOptSchema.parsedName !== optName &&
+        !parsedDuplicates.has(optName)
+      ) {
+        errors.push(
+          new DuplicateAliasOptError(parsedOptSchema.parsedName, optName),
+        );
       }
 
       // Note: We do not check if the next input might be an option or even the

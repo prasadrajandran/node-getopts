@@ -1,5 +1,8 @@
 import { CmdSchema } from './interfaces/schema';
-import { OptConfigMap, CmdConfigMap } from './interfaces/config';
+import {
+  ParsedOptSchemaMap,
+  ParsedCmdSchemaMap,
+} from './interfaces/parsed_schema';
 import { parseSchema } from './parse_schema';
 import { SchemaError } from './classes/errors';
 
@@ -13,9 +16,9 @@ import { SchemaError } from './classes/errors';
  */
 export const parseCmdSchema = (
   cmdSchemas: CmdSchema[],
-  alreadyDefinedOpts: OptConfigMap,
-): CmdConfigMap => {
-  const cmds: CmdConfigMap = new Map();
+  alreadyDefinedOpts: ParsedOptSchemaMap,
+): ParsedCmdSchemaMap => {
+  const cmds: ParsedCmdSchemaMap = new Map();
 
   for (const { name, ...schema } of cmdSchemas) {
     if (cmds.has(name)) {

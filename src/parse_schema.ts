@@ -1,5 +1,5 @@
 import { Schema } from './interfaces/schema';
-import { Config, OptConfigMap } from './interfaces/config';
+import { ParsedSchema, ParsedOptSchemaMap } from './interfaces/parsed_schema';
 import { parseCmdSchema } from './parse_cmd_schema';
 import { parseOptSchema } from './parse_opt_schema';
 import { SchemaError } from './classes/errors';
@@ -15,8 +15,8 @@ import { SchemaError } from './classes/errors';
  */
 export const parseSchema = (
   schema: Schema,
-  alreadyDefinedOpts: OptConfigMap = new Map(),
-): Config => {
+  alreadyDefinedOpts: ParsedOptSchemaMap = new Map(),
+): ParsedSchema => {
   const expectsCmd = Boolean(schema.cmds?.length);
   const minArgs = schema.minArgs ?? (expectsCmd ? 1 : 0);
   const maxArgs = schema.maxArgs ?? (expectsCmd ? 1 : Infinity);
