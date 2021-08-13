@@ -24,9 +24,9 @@ Full API documentation can be found [here](https://github.com/prasadrajandran/no
 The most relevant parts are:
 
 - [getopts()](https://github.com/prasadrajandran/node-getopts/blob/main/docs/modules/parse.md) (internally known as `parse()`)
-  - [GetOptsSchema](https://github.com/prasadrajandran/node-getopts/blob/main/docs/interfaces/interfaces_schema.schema.md) (#1 argument)
-  - [GetOptsSettings](https://github.com/prasadrajandran/node-getopts/blob/main/docs/interfaces/interfaces_settings.settings.md) (#2 argument which is optional)
-- [ParsedArgs](https://github.com/prasadrajandran/node-getopts/blob/main/docs/interfaces/interfaces_parsed_args.parsedargs.md) - what `getopts()` returns.
+  - [Schema](https://github.com/prasadrajandran/node-getopts/blob/main/docs/interfaces/interfaces_schema.schema.md) (#1 argument)
+  - [Config](https://github.com/prasadrajandran/node-getopts/blob/main/docs/interfaces/interfaces_config.Config.md) (#2 argument which is optional)
+- [ParsedInput](https://github.com/prasadrajandran/node-getopts/blob/main/docs/interfaces/interfaces_parsed_input.ParsedInput.md) - what `getopts()` returns.
 
 ### Installation
 
@@ -58,7 +58,7 @@ import {
   CmdSchema,
   OptSchema,
 } from '@prasadrajandran/getopts/d/interfaces/schema';
-import { Settings } from '@prasadrajandran/getopts/d/interfaces/settings';
+import { Config } from '@prasadrajandran/getopts/d/interfaces/config';
 ```
 
 TypeScript interfaces can be used too.
