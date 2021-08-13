@@ -1,5 +1,8 @@
 import { OptSchema } from './interfaces/schema';
-import { OptConfigMap, OptConfig } from './interfaces/config';
+import {
+  ParsedOptSchemaMap,
+  ParsedOptSchema,
+} from './interfaces/parsed_schema';
 import { SchemaError } from './classes/errors';
 
 /**
@@ -8,6 +11,7 @@ import { SchemaError } from './classes/errors';
  * E.g.:
  * - '-a'
  * - '-B'
+ * @internal
  */
 export const OPT_SCHEMA_REGEX = /^-[a-zA-Z\d]$/;
 
@@ -18,41 +22,47 @@ export const OPT_SCHEMA_REGEX = /^-[a-zA-Z\d]$/;
  * E.g.:
  * - '--help'
  * - '--show-hidden-files'
+ * @internal
  */
 export const LONG_OPT_SCHEMA_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*$/;
 
 /**
  * Parse an option's schema.
+ * @internal
  * @param optSchemas - OptSchemas
  */
-export const parseOptSchema = (optSchemas: OptSchema[]): OptConfigMap => {
-  const opts: OptConfigMap = new Map();
+export const parseOptSchema = (optSchemas: OptSchema[]): ParsedOptSchemaMap => {
+  const opts: ParsedOptSchemaMap = new Map();
 
   for (const { name, longName, arg, argFilter } of optSchemas) {
-    // Note: The fact that the "OptConfig" object is shared (i.e. it's the same
-    // object reference) between option and long option is intentional. If a
-    // property is updated in the OptConfig, we want that to affect all options
-    // that share that object.
-    const config: OptConfig = {
+    // Note: The fact that the "ParsedOptSchema" object is shared (i.e. it's the
+    // same object reference) between option and long option is intentional. If
+    // a property is updated in the ParsedOptSchema, we want that to affect all
+    // options that share that object.
+    const parsedOptSchema: ParsedOptSchema = {
       argAccepted: arg === 'required' || arg === 'optional',
       argRequired: arg === 'required',
       argFilter: argFilter || ((arg: string) => arg),
       parsedDuplicates: new Set(),
-      parsed: false,
+      parsedName: null,
     };
 
     if (!name && !longName) {
       throw new SchemaError(`Option must have a name or a long name defined`);
     }
 
-    if (!config.argAccepted && argFilter) {
+    if (!parsedOptSchema.argAccepted && argFilter) {
       throw new SchemaError(
         `argFilter provided but "${name || longName}" does not accept an ` +
           `argument. Do not forget to set the "arg" property too.`,
       );
     }
 
-    if (config.argAccepted && !config.argRequired && !longName) {
+    if (
+      parsedOptSchema.argAccepted &&
+      !parsedOptSchema.argRequired &&
+      !longName
+    ) {
       throw new SchemaError(
         `Since arguments are optional for "${name}", a long option must also ` +
           `be defined because only long options are able to accept optional ` +
@@ -66,7 +76,7 @@ export const parseOptSchema = (optSchemas: OptSchema[]): OptConfigMap => {
       } else if (opts.has(name)) {
         throw new SchemaError(`"${name}" is a duplicate option`);
       }
-      opts.set(name, config);
+      opts.set(name, parsedOptSchema);
     }
 
     if (longName) {
@@ -77,7 +87,7 @@ export const parseOptSchema = (optSchemas: OptSchema[]): OptConfigMap => {
       } else if (opts.has(longName)) {
         throw new SchemaError(`"${longName}" is a duplicate long option`);
       }
-      opts.set(longName, config);
+      opts.set(longName, parsedOptSchema);
     }
   }
 

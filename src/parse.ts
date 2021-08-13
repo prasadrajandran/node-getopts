@@ -1,12 +1,11 @@
 import { Schema } from './interfaces/schema';
-import { Settings } from './interfaces/settings';
-import { OptMap } from './interfaces/opt_map';
-import { ParsedArgs } from './interfaces/parsed_args';
+import { Config } from './interfaces/config';
+import { ParsedInput, OptMap } from './interfaces/parsed_input';
 import { parseSchema } from './parse_schema';
 import { parseOpt } from './parse_opt';
 import { parseLongOpt } from './parse_long_opt';
 import {
-  ParseError,
+  ParserError,
   ArgFilterError,
   CmdExpectedError,
   InsufficientArgsError,
@@ -54,32 +53,32 @@ const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.*)?$/;
 /**
  * Parse CLI arguments.
  * @param schema - CLI schema.
- * @param settings - CLI settings.
+ * @param config - CLI config.
  */
-export const parse = (schema?: Schema, settings?: Settings): ParsedArgs => {
+export const parse = (schema?: Schema, config?: Config): ParsedInput => {
   const { argv: inputArgs } = Object.assign(
     {
       argv: process.argv.slice(ARGS_INDEX),
     },
-    settings || {},
+    config || {},
   );
-  const config = parseSchema(schema || {});
+  const parsedSchema = parseSchema(schema || {});
 
   // Keep track of unknown opts so that only unique instances of
   // "UnknownOptError" are generated.
   const unknownOpts: Set<string> = new Set();
 
-  const errors: ParseError[] = [];
+  const errors: ParserError[] = [];
   const cmds: string[] = [];
   const opts: OptMap = new Map();
   const args: unknown[] = [];
 
-  let optConfigMap = config.opts;
-  let cmdConfigMap = config.cmds;
-  let minArgs = config.minArgs;
-  let maxArgs = config.maxArgs;
-  let argFilter = config.argFilter;
-  let expectsCmd = config.expectsCmd;
+  let parsedOptSchemaMap = parsedSchema.opts;
+  let parsedCmdSchemaMap = parsedSchema.cmds;
+  let minArgs = parsedSchema.minArgs;
+  let maxArgs = parsedSchema.maxArgs;
+  let argFilter = parsedSchema.argFilter;
+  let expectsCmd = parsedSchema.expectsCmd;
   let unknownCmdReceived = false;
   let stillAcceptingOpts = true;
   let argPos = 0;
@@ -95,7 +94,7 @@ export const parse = (schema?: Schema, settings?: Settings): ParsedArgs => {
     // (2) OPTIONS
     if (stillAcceptingOpts && OPT_REGEX.test(inputArg)) {
       const { valid, nextArgConsumed } = parseOpt(
-        optConfigMap,
+        parsedOptSchemaMap,
         errors,
         opts,
         unknownOpts,
@@ -112,27 +111,30 @@ export const parse = (schema?: Schema, settings?: Settings): ParsedArgs => {
 
     // (3) LONG OPTIONS
     if (stillAcceptingOpts && LONG_OPT_REGEX.test(inputArg)) {
-      parseLongOpt(optConfigMap, errors, opts, unknownOpts, inputArg);
+      parseLongOpt(parsedOptSchemaMap, errors, opts, unknownOpts, inputArg);
       continue;
     }
 
     // (4) COMMANDS
     if (expectsCmd) {
-      const cmdConfig = cmdConfigMap.get(inputArg);
-      if (!cmdConfig) {
-        const cmds = Array.from(cmdConfigMap.keys());
+      const parsedCmdSchema = parsedCmdSchemaMap.get(inputArg);
+      if (!parsedCmdSchema) {
+        const cmds = Array.from(parsedCmdSchemaMap.keys());
         errors.push(new UnknownCmdError(inputArg, cmds));
         unknownCmdReceived = true;
         break;
       }
 
       cmds.push(inputArg);
-      expectsCmd = cmdConfig.expectsCmd;
-      optConfigMap = new Map([...optConfigMap, ...cmdConfig.opts]);
-      cmdConfigMap = cmdConfig.cmds;
-      minArgs = cmdConfig.minArgs;
-      maxArgs = cmdConfig.maxArgs;
-      argFilter = cmdConfig.argFilter;
+      expectsCmd = parsedCmdSchema.expectsCmd;
+      parsedOptSchemaMap = new Map([
+        ...parsedOptSchemaMap,
+        ...parsedCmdSchema.opts,
+      ]);
+      parsedCmdSchemaMap = parsedCmdSchema.cmds;
+      minArgs = parsedCmdSchema.minArgs;
+      maxArgs = parsedCmdSchema.maxArgs;
+      argFilter = parsedCmdSchema.argFilter;
 
       continue;
     }
@@ -166,7 +168,7 @@ export const parse = (schema?: Schema, settings?: Settings): ParsedArgs => {
   // applicable.
   if (!unknownCmdReceived && argPos < minArgs) {
     if (expectsCmd) {
-      const cmds = Array.from(cmdConfigMap.keys());
+      const cmds = Array.from(parsedCmdSchemaMap.keys());
       errors.push(new CmdExpectedError(cmds));
     } else {
       errors.push(new InsufficientArgsError(args.length, minArgs));

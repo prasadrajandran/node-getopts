@@ -1,4 +1,4 @@
-const { parseSchema } = require('../../dist/parse_schema');
+const { parseSchema } = require('../../d/parse_schema');
 
 describe('schema', () => {
   test('defaults', () => {
@@ -85,7 +85,7 @@ describe('schema - opts', () => {
       'argRequired',
       'argFilter',
       'parsedDuplicates',
-      'parsed',
+      'parsedName',
     ]);
   });
 
@@ -104,7 +104,7 @@ describe('schema - opts', () => {
       'argRequired',
       'argFilter',
       'parsedDuplicates',
-      'parsed',
+      'parsedName',
     ]);
   });
 

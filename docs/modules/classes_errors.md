@@ -1,4 +1,4 @@
-[getopts - v1.0.0](../README.md) / classes/errors
+[getopts - v2.0.0](../README.md) / classes/errors
 
 # Module: classes/errors
 
@@ -6,16 +6,16 @@
 
 ### Classes
 
-- [ArgFilterError](../classes/classes_errors.argfiltererror.md)
-- [CmdExpectedError](../classes/classes_errors.cmdexpectederror.md)
-- [DuplicateAliasOptError](../classes/classes_errors.duplicatealiasopterror.md)
-- [DuplicateOptError](../classes/classes_errors.duplicateopterror.md)
-- [ExcessArgsError](../classes/classes_errors.excessargserror.md)
-- [InsufficientArgsError](../classes/classes_errors.insufficientargserror.md)
-- [OptArgFilterError](../classes/classes_errors.optargfiltererror.md)
-- [OptMissingArgError](../classes/classes_errors.optmissingargerror.md)
-- [ParseError](../classes/classes_errors.parseerror.md)
-- [SchemaError](../classes/classes_errors.schemaerror.md)
-- [UnexpectedOptArgError](../classes/classes_errors.unexpectedoptargerror.md)
-- [UnknownCmdError](../classes/classes_errors.unknowncmderror.md)
-- [UnknownOptError](../classes/classes_errors.unknownopterror.md)
+- [ArgFilterError](../classes/classes_errors.ArgFilterError.md)
+- [CmdExpectedError](../classes/classes_errors.CmdExpectedError.md)
+- [DuplicateAliasOptError](../classes/classes_errors.DuplicateAliasOptError.md)
+- [DuplicateOptError](../classes/classes_errors.DuplicateOptError.md)
+- [ExcessArgsError](../classes/classes_errors.ExcessArgsError.md)
+- [InsufficientArgsError](../classes/classes_errors.InsufficientArgsError.md)
+- [OptArgFilterError](../classes/classes_errors.OptArgFilterError.md)
+- [OptMissingArgError](../classes/classes_errors.OptMissingArgError.md)
+- [ParserError](../classes/classes_errors.ParserError.md)
+- [SchemaError](../classes/classes_errors.SchemaError.md)
+- [UnexpectedOptArgError](../classes/classes_errors.UnexpectedOptArgError.md)
+- [UnknownCmdError](../classes/classes_errors.UnknownCmdError.md)
+- [UnknownOptError](../classes/classes_errors.UnknownOptError.md)

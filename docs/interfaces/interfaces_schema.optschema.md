@@ -1,4 +1,4 @@
-[getopts - v1.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
+[getopts - v2.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
 
 # Interface: OptSchema
 
@@ -10,10 +10,10 @@ Schema for a CLI option.
 
 ### Properties
 
-- [arg](interfaces_schema.optschema.md#arg)
-- [argFilter](interfaces_schema.optschema.md#argfilter)
-- [longName](interfaces_schema.optschema.md#longname)
-- [name](interfaces_schema.optschema.md#name)
+- [arg](interfaces_schema.OptSchema.md#arg)
+- [argFilter](interfaces_schema.OptSchema.md#argfilter)
+- [longName](interfaces_schema.OptSchema.md#longname)
+- [name](interfaces_schema.OptSchema.md#name)
 
 ## Properties
 
@@ -30,13 +30,15 @@ Notes:
   an argument.
 - Only the long option is capable of receiving an optional argument.
 
-Defined in: [src/interfaces/schema.ts:46](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/interfaces/schema.ts#L46)
+#### Defined in
+
+[src/interfaces/schema.ts:46](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L46)
 
 ---
 
 ### argFilter
 
-• `Optional` **argFilter**: [_OptArgFilter_](interfaces_schema.optargfilter.md)
+• `Optional` **argFilter**: [`OptArgFilter`](interfaces_schema.OptArgFilter.md)
 
 Pass the CLI option's argument through a filter.
 
@@ -51,26 +53,32 @@ Notes:
 - Filters are executed within a try/catch block. If an error is thrown, it
   will be captured and stored inside the `errors` array.
 
-Defined in: [src/interfaces/schema.ts:59](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/interfaces/schema.ts#L59)
+#### Defined in
+
+[src/interfaces/schema.ts:59](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L59)
 
 ---
 
 ### longName
 
-• `Optional` **longName**: _string_
+• `Optional` **longName**: `string`
 
 Long name of the CLI option.
 E.g.: "--sort-by", "--append", etc.
 
-Defined in: [src/interfaces/schema.ts:36](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/interfaces/schema.ts#L36)
+#### Defined in
+
+[src/interfaces/schema.ts:36](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L36)
 
 ---
 
 ### name
 
-• `Optional` **name**: _string_
+• `Optional` **name**: `string`
 
 Name of the CLI option.
 E.g.: "-a", "-A", etc.
 
-Defined in: [src/interfaces/schema.ts:31](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/interfaces/schema.ts#L31)
+#### Defined in
+
+[src/interfaces/schema.ts:31](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L31)

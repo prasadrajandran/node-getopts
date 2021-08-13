@@ -1,4 +1,4 @@
-[getopts - v1.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
+[getopts - v2.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
 
 # Interface: ArgFilter
 
@@ -8,17 +8,23 @@ Callback function to filter CLI argument(s).
 
 ## Callable
 
-▸ **ArgFilter**(`arg`: _string_, `pos`: _number_): _unknown_
+### ArgFilter
+
+▸ **ArgFilter**(`arg`, `pos`): `unknown`
 
 Callback function to filter CLI argument(s).
 
-#### Parameters:
+#### Parameters
 
 | Name  | Type     | Description                                                                 |
 | :---- | :------- | :-------------------------------------------------------------------------- |
-| `arg` | _string_ | Argument value.                                                             |
-| `pos` | _number_ | Position of the argument. Starts from 0. E.g. someutility arg0 arg1 arg2... |
+| `arg` | `string` | Argument value.                                                             |
+| `pos` | `number` | Position of the argument. Starts from 0. E.g. someutility arg0 arg1 arg2... |
 
-**Returns:** _unknown_
+#### Returns
 
-Defined in: [src/interfaces/schema.ts:4](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/interfaces/schema.ts#L4)
+`unknown`
+
+#### Defined in
+
+[src/interfaces/schema.ts:10](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L10)

@@ -1,4 +1,4 @@
-[getopts - v1.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
+[getopts - v2.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
 
 # Class: SchemaError
 
@@ -6,132 +6,158 @@
 
 ## Hierarchy
 
-- _Error_
+- `Error`
 
-  ↳ **SchemaError**
+  ↳ **`SchemaError`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](classes_errors.schemaerror.md#constructor)
+- [constructor](classes_errors.SchemaError.md#constructor)
 
 ### Properties
 
-- [message](classes_errors.schemaerror.md#message)
-- [name](classes_errors.schemaerror.md#name)
-- [stack](classes_errors.schemaerror.md#stack)
-- [prepareStackTrace](classes_errors.schemaerror.md#preparestacktrace)
-- [stackTraceLimit](classes_errors.schemaerror.md#stacktracelimit)
+- [message](classes_errors.SchemaError.md#message)
+- [name](classes_errors.SchemaError.md#name)
+- [stack](classes_errors.SchemaError.md#stack)
+- [prepareStackTrace](classes_errors.SchemaError.md#preparestacktrace)
+- [stackTraceLimit](classes_errors.SchemaError.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](classes_errors.schemaerror.md#capturestacktrace)
+- [captureStackTrace](classes_errors.SchemaError.md#capturestacktrace)
 
 ## Constructors
 
 ### constructor
 
-\+ **new SchemaError**(`message?`: _string_): [_SchemaError_](classes_errors.schemaerror.md)
+• **new SchemaError**(`message?`)
 
-#### Parameters:
+#### Parameters
 
 | Name       | Type     |
 | :--------- | :------- |
-| `message?` | _string_ |
+| `message?` | `string` |
 
-**Returns:** [_SchemaError_](classes_errors.schemaerror.md)
+#### Inherited from
 
-Inherited from: Error.constructor
+Error.constructor
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:978
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:979
 
 ## Properties
 
 ### message
 
-• **message**: _string_
+• **message**: `string`
 
-Inherited from: Error.message
+#### Inherited from
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
+Error.message
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:974
 
 ---
 
 ### name
 
-• **name**: _string_= 'SchemaError'
+• **name**: `string` = `'SchemaError'`
 
-Overrides: Error.name
+#### Overrides
 
-Defined in: [src/classes/errors.ts:6](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/classes/errors.ts#L6)
+Error.name
+
+#### Defined in
+
+[src/classes/errors.ts:6](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L6)
 
 ---
 
 ### stack
 
-• `Optional` **stack**: _string_
+• `Optional` **stack**: `string`
 
-Inherited from: Error.stack
+#### Inherited from
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
+Error.stack
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:975
 
 ---
 
 ### prepareStackTrace
 
-▪ `Static` `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => _any_
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
+
+#### Type declaration
+
+▸ (`err`, `stackTraces`): `any`
 
 Optional override for formatting stack traces
 
-**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+##### Parameters
 
-#### Type declaration:
+| Name          | Type         |
+| :------------ | :----------- |
+| `err`         | `Error`      |
+| `stackTraces` | `CallSite`[] |
 
-▸ (`err`: Error, `stackTraces`: CallSite[]): _any_
+##### Returns
 
-#### Parameters:
+`any`
 
-| Name          | Type       |
-| :------------ | :--------- |
-| `err`         | Error      |
-| `stackTraces` | CallSite[] |
+#### Inherited from
 
-**Returns:** _any_
+Error.prepareStackTrace
 
-Defined in: node_modules/@types/node/globals.d.ts:11
+#### Defined in
 
-Inherited from: Error.prepareStackTrace
-
-Defined in: node_modules/@types/node/globals.d.ts:11
+node_modules/@types/node/globals.d.ts:11
 
 ---
 
 ### stackTraceLimit
 
-▪ `Static` **stackTraceLimit**: _number_
+▪ `Static` **stackTraceLimit**: `number`
 
-Inherited from: Error.stackTraceLimit
+#### Inherited from
 
-Defined in: node_modules/@types/node/globals.d.ts:13
+Error.stackTraceLimit
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
 ### captureStackTrace
 
-▸ `Static`**captureStackTrace**(`targetObject`: _object_, `constructorOpt?`: Function): _void_
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
 
 Create .stack property on a target object
 
-#### Parameters:
+#### Parameters
 
-| Name              | Type     |
-| :---------------- | :------- |
-| `targetObject`    | _object_ |
-| `constructorOpt?` | Function |
+| Name              | Type       |
+| :---------------- | :--------- |
+| `targetObject`    | `object`   |
+| `constructorOpt?` | `Function` |
 
-**Returns:** _void_
+#### Returns
 
-Inherited from: Error.captureStackTrace
+`void`
 
-Defined in: node_modules/@types/node/globals.d.ts:4
+#### Inherited from
+
+Error.captureStackTrace
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:4

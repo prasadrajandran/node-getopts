@@ -1,5 +1,5 @@
 const setArgv = require('./helpers/set_argv');
-const { getopts } = require('../dist/index');
+const { getopts } = require('../d');
 
 const resetArgv = () => setArgv('');
 
@@ -12,8 +12,7 @@ describe('smoke test', () => {
   });
 
   test('parses options/commands/arguments', () => {
-    const argvInput = '-n5 --verbose create -f -- somefile1 somefile2 -x';
-    setArgv(argvInput);
+    setArgv('-n5 --verbose create -f -- somefile1 somefile2 -x');
 
     const { opts, cmds, args, errors } = getopts({
       opts: [
