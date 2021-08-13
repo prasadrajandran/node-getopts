@@ -34,7 +34,7 @@
   ],
   "scripts": {
     "build": "tsc --build tsconfig.json",
-    "build-docs": "typedoc --readme none --name getopts --includeVersion ./src/interfaces/opt_map.ts ./src/interfaces/parsed_args.ts ./src/interfaces/schema.ts ./src/interfaces/settings.ts ./src/classes ./src/parse.ts",
+    "build-docs": "typedoc",
     "lint": "eslint ./src",
     "prettier-fix": "npx prettier --write .",
     "test": "jest --silent",

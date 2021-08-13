@@ -1,0 +1,8 @@
+{
+  "name": "getopts",
+  "readme": "none",
+  "includeVersion": true,
+  "entryPoints": ["./src/"],
+  "out": "docs",
+  "exclude": ["./src/+(parse_*|index).ts", "./src/interfaces/parsed_schema.ts"]
+}
