@@ -28,7 +28,6 @@
   "license": "MIT",
   "author": "Prasad Rajandran",
   "main": "./d/index.js",
-  "types": "./d/index.d.ts",
   "files": [
     "d/"
   ],
