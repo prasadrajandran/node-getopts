@@ -1,4 +1,4 @@
-[getopts - v1.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
+[getopts - v2.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
 
 # Interface: OptArgFilter
 
@@ -8,16 +8,22 @@ Callback function to filter a CLI option's argument.
 
 ## Callable
 
-▸ **OptArgFilter**(`arg`: _string_): _unknown_
+### OptArgFilter
+
+▸ **OptArgFilter**(`arg`): `unknown`
 
 Callback function to filter a CLI option's argument.
 
-#### Parameters:
+#### Parameters
 
 | Name  | Type     | Description     |
 | :---- | :------- | :-------------- |
-| `arg` | _string_ | Argument value. |
+| `arg` | `string` | Argument value. |
 
-**Returns:** _unknown_
+#### Returns
 
-Defined in: [src/interfaces/schema.ts:16](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/interfaces/schema.ts#L16)
+`unknown`
+
+#### Defined in
+
+[src/interfaces/schema.ts:20](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L20)

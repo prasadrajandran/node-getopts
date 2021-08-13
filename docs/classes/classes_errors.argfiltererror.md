@@ -1,4 +1,4 @@
-[getopts - v1.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / ArgFilterError
+[getopts - v2.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / ArgFilterError
 
 # Class: ArgFilterError
 
@@ -6,149 +6,179 @@
 
 ## Hierarchy
 
-- [_ParseError_](classes_errors.parseerror.md)
+- [`ParserError`](classes_errors.ParserError.md)
 
-  ↳ **ArgFilterError**
+  ↳ **`ArgFilterError`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](classes_errors.argfiltererror.md#constructor)
+- [constructor](classes_errors.ArgFilterError.md#constructor)
 
 ### Properties
 
-- [details](classes_errors.argfiltererror.md#details)
-- [message](classes_errors.argfiltererror.md#message)
-- [name](classes_errors.argfiltererror.md#name)
-- [stack](classes_errors.argfiltererror.md#stack)
-- [prepareStackTrace](classes_errors.argfiltererror.md#preparestacktrace)
-- [stackTraceLimit](classes_errors.argfiltererror.md#stacktracelimit)
+- [details](classes_errors.ArgFilterError.md#details)
+- [message](classes_errors.ArgFilterError.md#message)
+- [name](classes_errors.ArgFilterError.md#name)
+- [stack](classes_errors.ArgFilterError.md#stack)
+- [prepareStackTrace](classes_errors.ArgFilterError.md#preparestacktrace)
+- [stackTraceLimit](classes_errors.ArgFilterError.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](classes_errors.argfiltererror.md#capturestacktrace)
+- [captureStackTrace](classes_errors.ArgFilterError.md#capturestacktrace)
 
 ## Constructors
 
 ### constructor
 
-\+ **new ArgFilterError**(`arg`: _string_, `argFilter`: [_ArgFilter_](../interfaces/interfaces_schema.argfilter.md), `argFilterError`: _unknown_): [_ArgFilterError_](classes_errors.argfiltererror.md)
+• **new ArgFilterError**(`arg`, `argFilter`, `argFilterError`)
 
 CLI argument filter error.
 
-#### Parameters:
+#### Parameters
 
 | Name             | Type                                                        | Description                                             |
 | :--------------- | :---------------------------------------------------------- | :------------------------------------------------------ |
-| `arg`            | _string_                                                    | CLI argument value.                                     |
-| `argFilter`      | [_ArgFilter_](../interfaces/interfaces_schema.argfilter.md) | CLI argument's filter that threw the exception.         |
-| `argFilterError` | _unknown_                                                   | Exception that was thrown by the CLI argument's filter. |
+| `arg`            | `string`                                                    | CLI argument value.                                     |
+| `argFilter`      | [`ArgFilter`](../interfaces/interfaces_schema.ArgFilter.md) | CLI argument's filter that threw the exception.         |
+| `argFilterError` | `unknown`                                                   | Exception that was thrown by the CLI argument's filter. |
 
-**Returns:** [_ArgFilterError_](classes_errors.argfiltererror.md)
+#### Overrides
 
-Overrides: [ParseError](classes_errors.parseerror.md)
+[ParserError](classes_errors.ParserError.md).[constructor](classes_errors.ParserError.md#constructor)
 
-Defined in: [src/classes/errors.ts:78](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/classes/errors.ts#L78)
+#### Defined in
+
+[src/classes/errors.ts:87](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L87)
 
 ## Properties
 
 ### details
 
-• **details**: _Map_<string, unknown\>
+• **details**: `Map`<`string`, `unknown`\>
 
 Additional error data.
 
-Inherited from: [ParseError](classes_errors.parseerror.md).[details](classes_errors.parseerror.md#details)
+#### Inherited from
 
-Defined in: [src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/classes/errors.ts#L14)
+[ParserError](classes_errors.ParserError.md).[details](classes_errors.ParserError.md#details)
+
+#### Defined in
+
+[src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L14)
 
 ---
 
 ### message
 
-• **message**: _string_
+• **message**: `string`
 
-Inherited from: [ParseError](classes_errors.parseerror.md).[message](classes_errors.parseerror.md#message)
+#### Inherited from
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
+[ParserError](classes_errors.ParserError.md).[message](classes_errors.ParserError.md#message)
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:974
 
 ---
 
 ### name
 
-• **name**: _string_= 'ArgFilterError'
+• **name**: `string` = `'ArgFilterError'`
 
-Overrides: [ParseError](classes_errors.parseerror.md).[name](classes_errors.parseerror.md#name)
+#### Overrides
 
-Defined in: [src/classes/errors.ts:78](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/classes/errors.ts#L78)
+[ParserError](classes_errors.ParserError.md).[name](classes_errors.ParserError.md#name)
+
+#### Defined in
+
+[src/classes/errors.ts:78](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L78)
 
 ---
 
 ### stack
 
-• `Optional` **stack**: _string_
+• `Optional` **stack**: `string`
 
-Inherited from: [ParseError](classes_errors.parseerror.md).[stack](classes_errors.parseerror.md#stack)
+#### Inherited from
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
+[ParserError](classes_errors.ParserError.md).[stack](classes_errors.ParserError.md#stack)
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:975
 
 ---
 
 ### prepareStackTrace
 
-▪ `Static` `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => _any_
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
+
+#### Type declaration
+
+▸ (`err`, `stackTraces`): `any`
 
 Optional override for formatting stack traces
 
-**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+##### Parameters
 
-#### Type declaration:
+| Name          | Type         |
+| :------------ | :----------- |
+| `err`         | `Error`      |
+| `stackTraces` | `CallSite`[] |
 
-▸ (`err`: Error, `stackTraces`: CallSite[]): _any_
+##### Returns
 
-#### Parameters:
+`any`
 
-| Name          | Type       |
-| :------------ | :--------- |
-| `err`         | Error      |
-| `stackTraces` | CallSite[] |
+#### Inherited from
 
-**Returns:** _any_
+[ParserError](classes_errors.ParserError.md).[prepareStackTrace](classes_errors.ParserError.md#preparestacktrace)
 
-Defined in: node_modules/@types/node/globals.d.ts:11
+#### Defined in
 
-Inherited from: [ParseError](classes_errors.parseerror.md).[prepareStackTrace](classes_errors.parseerror.md#preparestacktrace)
-
-Defined in: node_modules/@types/node/globals.d.ts:11
+node_modules/@types/node/globals.d.ts:11
 
 ---
 
 ### stackTraceLimit
 
-▪ `Static` **stackTraceLimit**: _number_
+▪ `Static` **stackTraceLimit**: `number`
 
-Inherited from: [ParseError](classes_errors.parseerror.md).[stackTraceLimit](classes_errors.parseerror.md#stacktracelimit)
+#### Inherited from
 
-Defined in: node_modules/@types/node/globals.d.ts:13
+[ParserError](classes_errors.ParserError.md).[stackTraceLimit](classes_errors.ParserError.md#stacktracelimit)
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
 ### captureStackTrace
 
-▸ `Static`**captureStackTrace**(`targetObject`: _object_, `constructorOpt?`: Function): _void_
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
 
 Create .stack property on a target object
 
-#### Parameters:
+#### Parameters
 
-| Name              | Type     |
-| :---------------- | :------- |
-| `targetObject`    | _object_ |
-| `constructorOpt?` | Function |
+| Name              | Type       |
+| :---------------- | :--------- |
+| `targetObject`    | `object`   |
+| `constructorOpt?` | `Function` |
 
-**Returns:** _void_
+#### Returns
 
-Inherited from: [ParseError](classes_errors.parseerror.md)
+`void`
 
-Defined in: node_modules/@types/node/globals.d.ts:4
+#### Inherited from
+
+[ParserError](classes_errors.ParserError.md).[captureStackTrace](classes_errors.ParserError.md#capturestacktrace)
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:4

@@ -1,4 +1,4 @@
-[getopts - v1.0.0](../README.md) / parse
+[getopts - v2.0.0](../README.md) / parse
 
 # Module: parse
 
@@ -12,17 +12,21 @@
 
 ### parse
 
-▸ `Const`**parse**(`schema?`: [_Schema_](../interfaces/interfaces_schema.schema.md), `settings?`: [_Settings_](../interfaces/interfaces_settings.settings.md)): [_ParsedArgs_](../interfaces/interfaces_parsed_args.parsedargs.md)
+▸ `Const` **parse**(`schema?`, `config?`): [`ParsedInput`](../interfaces/interfaces_parsed_input.ParsedInput.md)
 
 Parse CLI arguments.
 
-#### Parameters:
+#### Parameters
 
-| Name        | Type                                                        | Description   |
-| :---------- | :---------------------------------------------------------- | :------------ |
-| `schema?`   | [_Schema_](../interfaces/interfaces_schema.schema.md)       | CLI schema.   |
-| `settings?` | [_Settings_](../interfaces/interfaces_settings.settings.md) | CLI settings. |
+| Name      | Type                                                  | Description |
+| :-------- | :---------------------------------------------------- | :---------- |
+| `schema?` | [`Schema`](../interfaces/interfaces_schema.Schema.md) | CLI schema. |
+| `config?` | [`Config`](../interfaces/interfaces_config.Config.md) | CLI config. |
 
-**Returns:** [_ParsedArgs_](../interfaces/interfaces_parsed_args.parsedargs.md)
+#### Returns
 
-Defined in: [src/parse.ts:59](https://github.com/prasadrajandran/node-getopts/blob/c78e9e9/src/parse.ts#L59)
+[`ParsedInput`](../interfaces/interfaces_parsed_input.ParsedInput.md)
+
+#### Defined in
+
+[src/parse.ts:58](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/parse.ts#L58)
