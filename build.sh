@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Fail immediately on error
+set -e
+
 if [ "$1" == 'test' ]
 then
   echo "[INFO] test mode activated"
