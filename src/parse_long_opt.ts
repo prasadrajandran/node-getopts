@@ -35,7 +35,7 @@ export const parseLongOpt = (
 
   const parsedOptSchema = parsedOptSchemaMap.get(optName);
   if (parsedOptSchema) {
-    const { argAccepted, argRequired, argFilter, parsedDuplicates } =
+    const { argAccepted, argRequired, optArgFilter, parsedDuplicates } =
       parsedOptSchema;
 
     // Note: Processing is not halted even though an error has been generated
@@ -63,9 +63,9 @@ export const parseLongOpt = (
 
     if (argAccepted && optArg) {
       try {
-        opts.set(optName, argFilter(optArg));
+        opts.set(optName, optArgFilter(optArg));
       } catch (err) {
-        errors.push(new OptArgFilterError(optName, optArg, argFilter, err));
+        errors.push(new OptArgFilterError(optName, optArg, optArgFilter, err));
       }
     } else if (!argAccepted && optArg) {
       errors.push(new UnexpectedOptArgError(optName, optArg));

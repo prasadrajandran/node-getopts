@@ -14,7 +14,7 @@ const schemaWithCmd = {
     {
       longName: '--c',
       arg: 'optional',
-      argFilter: (v) => {
+      optArgFilter: (v) => {
         const num = Number(v);
         if (!Number.isFinite(num)) {
           throw new Error(`${v} is not a finite number`);

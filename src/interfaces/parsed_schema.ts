@@ -17,7 +17,7 @@ export interface ParsedOptSchema {
   /**
    * Processes the CLI option's argument.
    */
-  argFilter: OptArgFilter;
+  optArgFilter: OptArgFilter;
   /**
    * Keeps track of parsed duplicate options. This is so that the `errors` array
    * will only contain unique instances of "DuplicateOptError".

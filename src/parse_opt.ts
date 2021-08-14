@@ -47,7 +47,7 @@ export const parseOpt = (
     const parsedOptSchema = parsedOptSchemaMap.get(optName);
 
     if (parsedOptSchema) {
-      const { argRequired, argFilter, parsedDuplicates } = parsedOptSchema;
+      const { argRequired, optArgFilter, parsedDuplicates } = parsedOptSchema;
 
       // Note: Processing is not halted even though an error has been generated
       // because this gives users the option to ignore this error.
@@ -81,9 +81,11 @@ export const parseOpt = (
         nextArgConsumed = !input[i + 1] && Boolean(nextInput);
 
         try {
-          parsedOpts.set(optName, argFilter(optArg));
+          parsedOpts.set(optName, optArgFilter(optArg));
         } catch (err) {
-          errors.push(new OptArgFilterError(optName, optArg, argFilter, err));
+          errors.push(
+            new OptArgFilterError(optName, optArg, optArgFilter, err),
+          );
         }
         break;
       } else if (argRequired) {

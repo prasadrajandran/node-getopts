@@ -16,7 +16,7 @@ describe('smoke test', () => {
 
     const { opts, cmds, args, errors } = getopts({
       opts: [
-        { name: '-n', arg: 'required', argFilter: (v) => parseInt(v, 10) },
+        { name: '-n', arg: 'required', optArgFilter: (v) => parseInt(v, 10) },
         { longName: '--verbose' },
       ],
       cmds: [{ name: 'create', opts: [{ name: '-f' }] }],

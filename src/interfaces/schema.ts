@@ -56,7 +56,7 @@ export interface OptSchema {
    * - Filters are executed within a try/catch block. If an error is thrown, it
    *   will be captured and stored inside the `errors` array.
    */
-  argFilter?: OptArgFilter;
+  optArgFilter?: OptArgFilter;
 }
 
 /**

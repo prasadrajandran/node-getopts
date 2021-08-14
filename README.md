@@ -70,7 +70,7 @@ TypeScript interfaces can be used too.
 ```JavaScript
 const { opts, args, errors } = getopts({
   opts: [
-    { name: '-l', longName: '--limit', argFilter: (arg) => parseInt(arg) },
+    { name: '-l', longName: '--limit', optArgFilter: (arg) => parseInt(arg) },
     { longName: '--version' },
     { longName: '--help' },
   ],

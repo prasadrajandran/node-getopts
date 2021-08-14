@@ -34,7 +34,7 @@ export const LONG_OPT_SCHEMA_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*$/;
 export const parseOptSchema = (optSchemas: OptSchema[]): ParsedOptSchemaMap => {
   const opts: ParsedOptSchemaMap = new Map();
 
-  for (const { name, longName, arg, argFilter } of optSchemas) {
+  for (const { name, longName, arg, optArgFilter } of optSchemas) {
     // Note: The fact that the "ParsedOptSchema" object is shared (i.e. it's the
     // same object reference) between option and long option is intentional. If
     // a property is updated in the ParsedOptSchema, we want that to affect all
@@ -42,7 +42,7 @@ export const parseOptSchema = (optSchemas: OptSchema[]): ParsedOptSchemaMap => {
     const parsedOptSchema: ParsedOptSchema = {
       argAccepted: arg === 'required' || arg === 'optional',
       argRequired: arg === 'required',
-      argFilter: argFilter || ((arg: string) => arg),
+      optArgFilter: optArgFilter || ((arg: string) => arg),
       parsedDuplicates: new Set(),
       parsedName: null,
     };
@@ -51,9 +51,9 @@ export const parseOptSchema = (optSchemas: OptSchema[]): ParsedOptSchemaMap => {
       throw new SchemaError(`Option must have a name or a long name defined`);
     }
 
-    if (!parsedOptSchema.argAccepted && argFilter) {
+    if (!parsedOptSchema.argAccepted && optArgFilter) {
       throw new SchemaError(
-        `argFilter provided but "${name || longName}" does not accept an ` +
+        `optArgFilter provided but "${name || longName}" does not accept an ` +
           `argument. Do not forget to set the "arg" property too.`,
       );
     }

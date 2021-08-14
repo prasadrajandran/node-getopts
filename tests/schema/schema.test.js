@@ -79,11 +79,11 @@ describe('schema - opts', () => {
 
     expect(aOptSchema.argAccepted).toBe(false);
     expect(aOptSchema.argRequired).toBe(false);
-    expect(aOptSchema.argFilter).toBeInstanceOf(Function);
+    expect(aOptSchema.optArgFilter).toBeInstanceOf(Function);
     expect(Array.from(Object.keys(aOptSchema))).toStrictEqual([
       'argAccepted',
       'argRequired',
-      'argFilter',
+      'optArgFilter',
       'parsedDuplicates',
       'parsedName',
     ]);
@@ -98,11 +98,11 @@ describe('schema - opts', () => {
 
     expect(aOptSchema.argAccepted).toBe(false);
     expect(aOptSchema.argRequired).toBe(false);
-    expect(aOptSchema.argFilter).toBeInstanceOf(Function);
+    expect(aOptSchema.optArgFilter).toBeInstanceOf(Function);
     expect(Array.from(Object.keys(aOptSchema))).toStrictEqual([
       'argAccepted',
       'argRequired',
-      'argFilter',
+      'optArgFilter',
       'parsedDuplicates',
       'parsedName',
     ]);
