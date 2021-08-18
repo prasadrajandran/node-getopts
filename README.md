@@ -57,8 +57,8 @@ import {
   Schema,
   CmdSchema,
   OptSchema,
-} from '@prasadrajandran/getopts/d/interfaces/schema';
-import { Config } from '@prasadrajandran/getopts/d/interfaces/config';
+} from '@prasadrajandran/getopts/dist/interfaces/schema';
+import { Config } from '@prasadrajandran/getopts/dist/interfaces/config';
 ```
 
 TypeScript interfaces can be used too.

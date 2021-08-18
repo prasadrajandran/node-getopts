@@ -27,9 +27,9 @@
   },
   "license": "MIT",
   "author": "Prasad Rajandran",
-  "main": "./d/index.js",
+  "main": "./dist/index.js",
   "files": [
-    "d/"
+    "dist/"
   ],
   "scripts": {
     "build": "tsc --build tsconfig.json",

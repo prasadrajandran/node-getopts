@@ -14,8 +14,8 @@ npm install
 echo "2. sort package.json"
 npx sort-package-json
 
-echo "3. cleaning d dir..."
-rm -rf d
+echo "3. cleaning dist dir..."
+rm -rf dist
 
 if [ "$1" != 'test' ]
 then
@@ -28,9 +28,9 @@ fi
 echo "5. building..."
 npm run build
 
-echo "6. stripping comments from d JS files..."
+echo "6. stripping comments from dist JS files..."
 shopt -s globstar # enable recursive globbing
-npx stripcomments ./d/**/*.js --write --confirm-overwrite
+npx stripcomments ./dist/**/*.js --write --confirm-overwrite
 
 if [ "$1" != 'test' ]
 then
