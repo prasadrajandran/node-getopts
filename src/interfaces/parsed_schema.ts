@@ -15,6 +15,11 @@ export interface ParsedOptSchema {
    */
   argRequired: boolean;
   /**
+   * Is the user allowed to repeat the option so that multiple arguments can
+   * be provided?
+   */
+  supportsMultipleArgs: boolean;
+  /**
    * Processes the CLI option's argument.
    */
   optArgFilter: OptArgFilter;

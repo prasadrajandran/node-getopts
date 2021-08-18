@@ -18,7 +18,7 @@ import {
  * @param opts - Parsed options will be added to this.
  * @param unknownOpts - Set to ensure that only unique instances of
  *     "UnknownOptError" are generated.
- * @param input - Input to parse.
+ * @param token - Token to parse.
  *
  * Note: the following parameters are modified directly (i.e. sideffect):
  * - errors
@@ -29,18 +29,27 @@ export const parseLongOpt = (
   errors: ParserError[],
   opts: OptMap,
   unknownOpts: Set<string>,
-  input: string,
+  token: string,
 ): void => {
-  const [, optName, optArg] = input.match(/^(--[^=]+)=?(.*)/) || [];
+  const [, optName, optArg] = token.match(/^(--[^=]+)=?(.*)/) || [];
 
   const parsedOptSchema = parsedOptSchemaMap.get(optName);
   if (parsedOptSchema) {
-    const { argAccepted, argRequired, optArgFilter, parsedDuplicates } =
-      parsedOptSchema;
+    const {
+      argAccepted,
+      argRequired,
+      supportsMultipleArgs,
+      optArgFilter,
+      parsedDuplicates,
+    } = parsedOptSchema;
 
     // Note: Processing is not halted even though an error has been generated
     // because this gives users the option to ignore this error.
-    if (opts.has(optName) && !parsedDuplicates.has(optName)) {
+    if (
+      !supportsMultipleArgs &&
+      opts.has(optName) &&
+      !parsedDuplicates.has(optName)
+    ) {
       parsedDuplicates.add(optName);
       errors.push(new DuplicateOptError(optName));
     }
@@ -48,7 +57,12 @@ export const parseLongOpt = (
     if (!parsedOptSchema.parsedName) {
       parsedOptSchema.parsedName = optName;
     }
-    opts.set(optName, undefined);
+    const existingArgs = (opts.get(optName) as unknown[]) || [];
+    if (supportsMultipleArgs) {
+      opts.set(optName, []);
+    } else {
+      opts.set(optName, undefined);
+    }
 
     // Note: Processing is not halted even though an error has been generated
     // because this gives users the option to ignore this error.
@@ -62,10 +76,20 @@ export const parseLongOpt = (
     }
 
     if (argAccepted && optArg) {
+      let validArg = true;
+      let filteredArg;
       try {
-        opts.set(optName, optArgFilter(optArg));
+        filteredArg = optArgFilter(optArg);
       } catch (err) {
+        validArg = false;
         errors.push(new OptArgFilterError(optName, optArg, optArgFilter, err));
+      }
+      if (validArg) {
+        if (supportsMultipleArgs) {
+          opts.set(optName, existingArgs.concat(filteredArg));
+        } else {
+          opts.set(optName, filteredArg);
+        }
       }
     } else if (!argAccepted && optArg) {
       errors.push(new UnexpectedOptArgError(optName, optArg));

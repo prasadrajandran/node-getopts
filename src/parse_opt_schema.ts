@@ -34,28 +34,50 @@ export const LONG_OPT_SCHEMA_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*$/;
 export const parseOptSchema = (optSchemas: OptSchema[]): ParsedOptSchemaMap => {
   const opts: ParsedOptSchemaMap = new Map();
 
-  for (const { name, longName, arg, optArgFilter } of optSchemas) {
+  for (const { name, arg } of optSchemas) {
     // Note: The fact that the "ParsedOptSchema" object is shared (i.e. it's the
     // same object reference) between option and long option is intentional. If
     // a property is updated in the ParsedOptSchema, we want that to affect all
     // options that share that object.
     const parsedOptSchema: ParsedOptSchema = {
-      argAccepted: arg === 'required' || arg === 'optional',
-      argRequired: arg === 'required',
-      optArgFilter: optArgFilter || ((arg: string) => arg),
+      argAccepted: Boolean(arg),
+      argRequired: Boolean(arg?.required),
+      supportsMultipleArgs: Boolean(arg?.multiple),
+      optArgFilter: arg?.filter || ((arg: string) => arg),
       parsedDuplicates: new Set(),
       parsedName: null,
     };
 
-    if (!name && !longName) {
+    let shortName = null;
+    let longName = null;
+
+    if (!name.length) {
       throw new SchemaError(`Option must have a name or a long name defined`);
     }
 
-    if (!parsedOptSchema.argAccepted && optArgFilter) {
-      throw new SchemaError(
-        `optArgFilter provided but "${name || longName}" does not accept an ` +
-          `argument. Do not forget to set the "arg" property too.`,
-      );
+    for (const n of ([] as string[]).concat(name)) {
+      if (!n.length) {
+        throw new SchemaError(`Option name cannot be empty`);
+      }
+
+      const isShortName = OPT_SCHEMA_REGEX.test(n);
+      const isLongName = LONG_OPT_SCHEMA_REGEX.test(n);
+
+      if (!shortName && isShortName) {
+        shortName = n;
+      }
+
+      if (!longName && isLongName) {
+        longName = n;
+      }
+
+      if (!isShortName && !isLongName) {
+        throw new SchemaError(`"${n}" is an invalid name for an option`);
+      } else if (opts.has(n)) {
+        throw new SchemaError(`"${n}" is a duplicate option`);
+      }
+
+      opts.set(n, parsedOptSchema);
     }
 
     if (
@@ -64,30 +86,10 @@ export const parseOptSchema = (optSchemas: OptSchema[]): ParsedOptSchemaMap => {
       !longName
     ) {
       throw new SchemaError(
-        `Since arguments are optional for "${name}", a long option must also ` +
-          `be defined because only long options are able to accept optional ` +
-          `arguments`,
+        `Since arguments are optional for "${shortName}", a long option must ` +
+          `also be defined because only long options are able to accept ` +
+          `optional arguments`,
       );
-    }
-
-    if (name) {
-      if (!OPT_SCHEMA_REGEX.test(name)) {
-        throw new SchemaError(`"${name}" is an invalid name for an option`);
-      } else if (opts.has(name)) {
-        throw new SchemaError(`"${name}" is a duplicate option`);
-      }
-      opts.set(name, parsedOptSchema);
-    }
-
-    if (longName) {
-      if (!LONG_OPT_SCHEMA_REGEX.test(longName)) {
-        throw new SchemaError(
-          `"${longName}" is an invalid name for a long option`,
-        );
-      } else if (opts.has(longName)) {
-        throw new SchemaError(`"${longName}" is a duplicate long option`);
-      }
-      opts.set(longName, parsedOptSchema);
     }
   }
 

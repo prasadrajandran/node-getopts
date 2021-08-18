@@ -21,10 +21,16 @@ export const parseCmdSchema = (
   const cmds: ParsedCmdSchemaMap = new Map();
 
   for (const { name, ...schema } of cmdSchemas) {
-    if (cmds.has(name)) {
-      throw new SchemaError(`"${name}" is a duplicate command`);
+    const parsedSchema = parseSchema(schema, alreadyDefinedOpts);
+    for (const n of ([] as string[]).concat(name)) {
+      if (!n.length) {
+        throw new SchemaError('Command name cannot be empty');
+      }
+      if (cmds.has(n)) {
+        throw new SchemaError(`"${n}" is a duplicate command`);
+      }
+      cmds.set(n, parsedSchema);
     }
-    cmds.set(name, parseSchema(schema, alreadyDefinedOpts));
   }
 
   return cmds;

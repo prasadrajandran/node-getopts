@@ -18,41 +18,44 @@ export const parseSchema = (
   alreadyDefinedOpts: ParsedOptSchemaMap = new Map(),
 ): ParsedSchema => {
   const expectsCmd = Boolean(schema.cmds?.length);
-  const minArgs = schema.minArgs ?? (expectsCmd ? 1 : 0);
-  const maxArgs = schema.maxArgs ?? (expectsCmd ? 1 : Infinity);
+  const minArgs = schema.args?.min ?? (expectsCmd ? 1 : 0);
+  const maxArgs = schema.args?.max ?? (expectsCmd ? 1 : Infinity);
 
   if (expectsCmd) {
     if (Number.isFinite(minArgs) && minArgs !== 0 && minArgs !== 1) {
       throw new SchemaError(
-        `If a command is expected (instead of args), the only valid values ` +
-          `for "minArgs" is 0 (command is optional) or 1 (command is required` +
-          `) If left undefined, it will be set to 1 by default. Got ` +
-          `"${minArgs}"`,
+        `If a command is expected (instead of arguments), the only valid ` +
+          `values for "args.min" is 0 (command is optional) or 1 (command is ` +
+          `required) If left undefined, it will be set to 1 by default. ` +
+          `Received "${minArgs}"`,
       );
     } else if (Number.isFinite(maxArgs) && maxArgs !== 1) {
       throw new SchemaError(
-        `If a command is expected (instead of args), the only valid value for` +
-          ` "maxArgs" is 1. It should ideally be left undefined as it would ` +
-          `automatically be set to 1. Got "${maxArgs}"`,
+        `If a command is expected (instead of arguments), the only valid ` +
+          `value for "args.max" is 1. It should ideally be left undefined as ` +
+          `it would automatically be set to 1. Received "${maxArgs}"`,
       );
     }
   }
 
   if (minArgs < 0) {
-    throw new SchemaError(`"minArgs" cannot be less than 1. Got "${minArgs}"`);
+    throw new SchemaError(
+      `"args.min" cannot be less than 1. Received "${minArgs}"`,
+    );
   } else if (!Number.isInteger(minArgs)) {
     throw new SchemaError(
-      `"minArgs" is expected to be a whole number. Got "${minArgs}"`,
+      `"args.min" is expected to be a whole number. Received "${minArgs}"`,
     );
   }
 
   if (minArgs > maxArgs) {
     throw new SchemaError(
-      `"minArgs" cannot be more than "maxArgs": ${minArgs}, ${maxArgs}`,
+      `"args.min" cannot be more than "args.max". Received "${minArgs}" and ` +
+        `"${maxArgs}"`,
     );
   } else if (!Number.isInteger(maxArgs) && maxArgs !== Infinity) {
     throw new SchemaError(
-      `"maxArgs" is expected to be a whole number or Infinity. Got ` +
+      `"args.max" is expected to be a whole number or Infinity. Received ` +
         `"${maxArgs}"`,
     );
   }
@@ -74,7 +77,7 @@ export const parseSchema = (
     ),
     minArgs,
     maxArgs,
-    argFilter: schema.argFilter || ((arg: string) => arg),
+    argFilter: schema.args?.filter || ((arg: string) => arg),
     expectsCmd,
   };
 };

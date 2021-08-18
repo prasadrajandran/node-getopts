@@ -56,7 +56,7 @@ const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.*)?$/;
  * @param config - CLI config.
  */
 export const parse = (schema?: Schema, config?: Config): ParsedInput => {
-  const { argv: inputArgs } = Object.assign(
+  const { argv: tokens } = Object.assign(
     {
       argv: process.argv.slice(ARGS_INDEX),
     },
@@ -82,24 +82,24 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
   let unknownCmdReceived = false;
   let stillAcceptingOpts = true;
   let argPos = 0;
-  for (let i = 0; i < inputArgs.length; i++) {
-    const inputArg = inputArgs[i];
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
 
     // (1) STOP PROCESSING ARGUMENT FLAG
-    if (stillAcceptingOpts && inputArg === STOP_PROCESSING_OPTS_FLAG) {
+    if (stillAcceptingOpts && token === STOP_PROCESSING_OPTS_FLAG) {
       stillAcceptingOpts = false;
       continue;
     }
 
     // (2) OPTIONS
-    if (stillAcceptingOpts && OPT_REGEX.test(inputArg)) {
+    if (stillAcceptingOpts && OPT_REGEX.test(token)) {
       const { valid, nextArgConsumed } = parseOpt(
         parsedOptSchemaMap,
         errors,
         opts,
         unknownOpts,
-        inputArg,
-        inputArgs[i + 1],
+        token,
+        tokens[i + 1],
       );
       if (valid && nextArgConsumed) {
         i++;
@@ -110,22 +110,22 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
     }
 
     // (3) LONG OPTIONS
-    if (stillAcceptingOpts && LONG_OPT_REGEX.test(inputArg)) {
-      parseLongOpt(parsedOptSchemaMap, errors, opts, unknownOpts, inputArg);
+    if (stillAcceptingOpts && LONG_OPT_REGEX.test(token)) {
+      parseLongOpt(parsedOptSchemaMap, errors, opts, unknownOpts, token);
       continue;
     }
 
     // (4) COMMANDS
     if (expectsCmd) {
-      const parsedCmdSchema = parsedCmdSchemaMap.get(inputArg);
+      const parsedCmdSchema = parsedCmdSchemaMap.get(token);
       if (!parsedCmdSchema) {
         const cmds = Array.from(parsedCmdSchemaMap.keys());
-        errors.push(new UnknownCmdError(inputArg, cmds));
+        errors.push(new UnknownCmdError(token, cmds));
         unknownCmdReceived = true;
         break;
       }
 
-      cmds.push(inputArg);
+      cmds.push(token);
       expectsCmd = parsedCmdSchema.expectsCmd;
       parsedOptSchemaMap = new Map([
         ...parsedOptSchemaMap,
@@ -143,12 +143,18 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
     if (args.length >= maxArgs) {
       // Too many arguments, no need to run the extra arguments through the
       // argument filter.
-      args.push(inputArg);
+      args.push(token);
     } else {
+      let validArg = true;
+      let filteredArg;
       try {
-        args.push(argFilter(inputArg, argPos));
+        filteredArg = argFilter(token, argPos);
       } catch (err) {
-        errors.push(new ArgFilterError(inputArg, argFilter, err));
+        validArg = false;
+        errors.push(new ArgFilterError(token, argFilter, err));
+      }
+      if (validArg) {
+        args.push(filteredArg);
       }
     }
     argPos++;
