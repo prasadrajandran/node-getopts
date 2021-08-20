@@ -30,7 +30,7 @@ export interface OptArgSchema {
    * Note: Only long options support optional arguments. So if this is set to
    * false, at least one long option must be defined.
    */
-  required?: boolean;
+  required: boolean;
   /**
    * Can the CLI option be repeated so that its arguments are stored in an
    * array? The default is false.
@@ -64,9 +64,7 @@ export interface OptSchema {
    */
   name: OptName | OptLongName | (OptName | OptLongName)[];
   /**
-   * If the CLI option accepts an argument, configure it here. Simply defining
-   * this property (i.e. setting it to `{}`) means that the CLI option accepts
-   * an argument.
+   * Configuration object of the CLI option (if applicable).
    */
   arg?: OptArgSchema;
 }

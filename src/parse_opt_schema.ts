@@ -35,6 +35,10 @@ export const parseOptSchema = (optSchemas: OptSchema[]): ParsedOptSchemaMap => {
   const opts: ParsedOptSchemaMap = new Map();
 
   for (const { name, arg } of optSchemas) {
+    if (arg && typeof arg.required !== 'boolean') {
+      throw new SchemaError(`"opts[].arg.required" must be a boolean`);
+    }
+
     // Note: The fact that the "ParsedOptSchema" object is shared (i.e. it's the
     // same object reference) between option and long option is intentional. If
     // a property is updated in the ParsedOptSchema, we want that to affect all
