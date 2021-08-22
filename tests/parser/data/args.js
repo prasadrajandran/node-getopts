@@ -2,18 +2,20 @@ const {
   ArgFilterError,
   ExcessArgsError,
   InsufficientArgsError,
-} = require('../../../d/classes/errors');
+} = require('../../../dist/classes/errors');
 
 const schema = {
-  argFilter: (v) => {
-    const num = Number(v);
-    if (!Number.isFinite(num)) {
-      throw new Error(`${v} is not a finite number`);
-    }
-    return num;
+  args: {
+    filter: (v) => {
+      const num = Number(v);
+      if (!Number.isFinite(num)) {
+        throw new Error(`${v} is not a finite number`);
+      }
+      return num;
+    },
+    min: 2,
+    max: 5,
   },
-  minArgs: 2,
-  maxArgs: 5,
 };
 
 const args = new Map();
