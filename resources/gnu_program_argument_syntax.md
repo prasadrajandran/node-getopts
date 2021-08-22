@@ -28,8 +28,10 @@ Taken from: [25.1.1 Program Argument Syntax Conventions](https://www.gnu.org/sof
 - Options may be supplied in any order, or appear multiple times. The
   interpretation is left up to the particular application program.
   - Note: [@prasadrajandran/getopts](https://github.com/prasadrajandran/node-getopts)
-    will generate an error if an option appears multiple times. Users may choose
-    to ignore it.
+    will generate an error if an option appears multiple times (users may choose
+    to ignore it), unless "opts[].arg.multiple" is set to true. If
+    "opts[].arg.multiple" is set to true, the option can be repeated and the
+    arguments are stored into an array.
 
 GNU adds long options to these conventions. Long options consist of "--"
 followed by a name made of alphanumeric characters and dashes. Option names are
