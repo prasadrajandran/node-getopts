@@ -24,8 +24,7 @@ export interface OptArgFilter {
 
 export interface OptArgSchema {
   /**
-   * Is the CLI option's argument required (true) or optional (false)? The
-   * default is false.
+   * Is the CLI option's argument required (true) or optional (false)?
    *
    * Note: Only long options support optional arguments. So if this is set to
    * false, at least one long option must be defined.
