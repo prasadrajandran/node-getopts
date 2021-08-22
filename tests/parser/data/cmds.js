@@ -4,26 +4,47 @@ const {
   ArgFilterError,
   ExcessArgsError,
   InsufficientArgsError,
-} = require('../../../d/classes/errors');
+} = require('../../../dist/classes/errors');
 
 const schema = {
   cmds: [
     {
       name: 'up',
-      argFilter: (v) => {
-        const num = Number(v);
-        if (!Number.isFinite(num)) {
-          throw new Error(`${v} is not a finite number`);
-        }
-        return num;
+      args: {
+        filter: (v) => {
+          const num = Number(v);
+          if (!Number.isFinite(num)) {
+            throw new Error(`${v} is not a finite number`);
+          }
+          return num;
+        },
+        min: 2,
+        max: 5,
       },
-      minArgs: 2,
-      maxArgs: 5,
     },
   ],
 };
 
+const schemaWithCmdAliases = {
+  cmds: [{ ...schema.cmds[0], name: ['up', 'above'] }],
+};
+
 const cmds = new Map();
+
+cmds.set(`[cmds] aliases`, [
+  {
+    schema: schemaWithCmdAliases,
+    argv: 'up 200 500',
+    cmdValues: ['up'],
+    argValues: [200, 500],
+  },
+  {
+    schema: schemaWithCmdAliases,
+    argv: 'above 200 500',
+    cmdValues: ['above'],
+    argValues: [200, 500],
+  },
+]);
 
 cmds.set(`[cmds] errors`, [
   {
@@ -42,6 +63,14 @@ cmds.set(`[cmds] errors`, [
     cmdValues: ['up'],
     argValues: [500],
     errorClasses: [ArgFilterError],
+  },
+  {
+    // Command's alias is considered an argument
+    schema,
+    argv: 'up above',
+    cmdValues: ['up'],
+    argValues: [],
+    errorClasses: [ArgFilterError, InsufficientArgsError],
   },
   {
     schema,
