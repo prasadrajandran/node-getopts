@@ -5,42 +5,50 @@ const {
   UnexpectedOptArgError,
   OptArgFilterError,
   DuplicateAliasOptError,
-} = require('../../../d/classes/errors');
+} = require('../../../dist/classes/errors');
 
 const schemaWithCmd = {
   opts: [
-    { name: '-a', longName: '--a' },
-    { name: '-b', longName: '--b' },
+    { name: ['-a', '--a'] },
+    { name: ['--b', '-b'] },
     {
-      longName: '--c',
-      arg: 'optional',
-      optArgFilter: (v) => {
-        const num = Number(v);
-        if (!Number.isFinite(num)) {
-          throw new Error(`${v} is not a finite number`);
-        }
-        return num;
+      name: '--c',
+      arg: {
+        required: false,
+        filter: (v) => {
+          const num = Number(v);
+          if (!Number.isFinite(num)) {
+            throw new Error(`${v} is not a finite number`);
+          }
+          return num;
+        },
       },
     },
-    { longName: '--d', arg: 'required' },
+    { name: '--d', arg: { required: true } },
+    { name: '--e', arg: { required: false, multiple: true } },
+    { name: '--f', arg: { required: true, multiple: true } },
   ],
   cmds: [{ name: 'up' }],
-  minArgs: 0,
+  args: {
+    min: 0,
+  },
 };
 
 const schemaWithTwoCmds = {
-  opts: [{ longName: '--verbose' }],
+  opts: [{ name: '--verbose' }],
   cmds: [
     {
       name: 'read',
-      opts: [{ longName: '--fast' }],
+      opts: [{ name: '--fast' }],
     },
     {
       name: 'list',
-      opts: [{ longName: '--group' }],
+      opts: [{ name: '--group' }],
     },
   ],
-  minArgs: 1,
+  args: {
+    min: 1,
+  },
 };
 
 const longOpts = new Map();
@@ -112,6 +120,44 @@ longOpts.set(`[long opts] order of options and option arguments`, [
     optNames: ['--a', '--b', '--c', '--d'],
     optArgs: [undefined, undefined, undefined, '500'],
   },
+  {
+    schema: schemaWithCmd,
+    argv: 'up arg1 arg2 --a --e=50',
+    cmdValues: ['up'],
+    argValues: ['arg1', 'arg2'],
+    optNames: ['--a', '--e'],
+    optArgs: [undefined, ['50']],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up --a --e',
+    cmdValues: ['up'],
+    optNames: ['--a', '--e'],
+    optArgs: [undefined, []],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '--e up --e --a --e --e',
+    cmdValues: ['up'],
+    optNames: ['--e', '--a'],
+    optArgs: [[], undefined],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up arg1 arg2 --a --e=50 --e=50',
+    cmdValues: ['up'],
+    argValues: ['arg1', 'arg2'],
+    optNames: ['--a', '--e'],
+    optArgs: [undefined, ['50', '50']],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up arg1 arg2 --e= --a --e=50',
+    cmdValues: ['up'],
+    argValues: ['arg1', 'arg2'],
+    optNames: ['--e', '--a'],
+    optArgs: [['50'], undefined],
+  },
 ]);
 
 longOpts.set(`[long opts] errors`, [
@@ -144,6 +190,15 @@ longOpts.set(`[long opts] errors`, [
     argValues: ['arg1', 'arg2'],
     optNames: ['--c', '--a', '--d'],
     optArgs: [undefined, undefined, undefined],
+    errorClasses: [OptMissingArgError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: 'up arg1 --d=5 --f',
+    cmdValues: ['up'],
+    argValues: ['arg1'],
+    optNames: ['--d', '--f'],
+    optArgs: ['5', []],
     errorClasses: [OptMissingArgError],
   },
   {

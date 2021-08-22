@@ -4,29 +4,33 @@ const {
   DuplicateOptError,
   OptArgFilterError,
   DuplicateAliasOptError,
-} = require('../../../d/classes/errors');
+} = require('../../../dist/classes/errors');
 
 const schemaWithCmd = {
   opts: [
     { name: '-a' },
-    { name: '-b', longName: '--b' },
-    { name: '-c', longName: '--c', arg: 'optional' },
-    { name: '-d', arg: 'required' },
+    { name: ['-b', '--b'] },
+    { name: ['-c', '--c'], arg: { required: false } },
+    { name: '-d', arg: { required: true } },
     {
-      name: '-e',
-      longName: '--e',
-      arg: 'required',
-      optArgFilter: (v) => {
-        const num = Number(v);
-        if (!Number.isFinite(num)) {
-          throw new Error(`${v} is not a finite number`);
-        }
-        return num;
+      name: ['-e', '--e'],
+      arg: {
+        required: true,
+        filter: (v) => {
+          const num = Number(v);
+          if (!Number.isFinite(num)) {
+            throw new Error(`${v} is not a finite number`);
+          }
+          return num;
+        },
       },
     },
+    { name: '-f', arg: { required: true, multiple: true } },
   ],
   cmds: [{ name: 'up' }],
-  minArgs: 0,
+  args: {
+    min: 0,
+  },
 };
 
 const schemaWithTwoCmds = {
@@ -41,7 +45,9 @@ const schemaWithTwoCmds = {
       opts: [{ name: '-c' }],
     },
   ],
-  minArgs: 1,
+  args: {
+    min: 1,
+  },
 };
 
 const opts = new Map();
@@ -194,6 +200,18 @@ opts.set(`[opts] order of options and option arguments`, [
     optNames: ['-a', '-b', '-d'],
     optArgs: [undefined, undefined, '--'],
   },
+  {
+    schema: schemaWithCmd,
+    argv: '-abf hello -f 50 -f400',
+    optNames: ['-a', '-b', '-f'],
+    optArgs: [undefined, undefined, ['hello', '50', '400']],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '-abf --',
+    optNames: ['-a', '-b', '-f'],
+    optArgs: [undefined, undefined, ['--']],
+  },
 ]);
 
 opts.set(`[opts] errors`, [
@@ -239,6 +257,14 @@ opts.set(`[opts] errors`, [
     cmdValues: ['up'],
     optNames: ['-a', '-b', '-c', '-d'],
     optArgs: [undefined, undefined, undefined, undefined],
+    errorClasses: [OptMissingArgError],
+  },
+  {
+    schema: schemaWithCmd,
+    argv: '-abc up -f',
+    cmdValues: ['up'],
+    optNames: ['-a', '-b', '-c', '-f'],
+    optArgs: [undefined, undefined, undefined, []],
     errorClasses: [OptMissingArgError],
   },
   {
