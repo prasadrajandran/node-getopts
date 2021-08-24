@@ -6,7 +6,7 @@
 const setArgv = (input) => {
   process.argv = [process.argv[0], process.argv[1]];
   if (input) {
-    process.argv = process.argv.concat(input.split(' '));
+    process.argv = process.argv.concat(input.split(' ').filter((t) => t));
   }
 };
 

@@ -56,12 +56,17 @@ const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.*)?$/;
  * @param config - CLI config.
  */
 export const parse = (schema?: Schema, config?: Config): ParsedInput => {
-  const { argv: tokens } = Object.assign(
-    {
-      argv: process.argv.slice(ARGS_INDEX),
-    },
-    config || {},
-  );
+  let argv = process.argv.slice(ARGS_INDEX);
+
+  if (config?.argv) {
+    if (Array.isArray(config.argv)) {
+      argv = config.argv;
+    } else {
+      argv = config.argv.split(' ').filter((t) => t);
+    }
+  }
+
+  const { argv: tokens } = Object.assign(config || {}, { argv });
   const parsedSchema = parseSchema(schema || {});
 
   // Keep track of unknown opts so that only unique instances of
