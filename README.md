@@ -11,10 +11,11 @@ Build CLI utilities effortlessly.
   - Errors are collected into an array
 - Subcommand support (with infinite nesting)
   - Subcommands support their own set of options and arguments
-- Argument and option argument filters
-  - Argument validation
+- Argument filters that allow for:
+  - Validation
   - Type casting
   - etc.
+- Command and option aliases
 - Built-in TypeScript type declarations
 
 ## How Do I Use It?
@@ -70,35 +71,43 @@ TypeScript interfaces can be used too.
 ```JavaScript
 const { opts, args, errors } = getopts({
   opts: [
-    { name: '-l', longName: '--limit', optArgFilter: (arg) => parseInt(arg) },
-    { longName: '--version' },
-    { longName: '--help' },
+    {
+      name: ['-l', '--limit'],
+      arg: { required: true, filter: (arg) => parseInt(arg) }
+    },
+    { name: '--version' },
+    { name: '--help' },
   ],
-  minArgs: 1,
-  maxArgs: 1,
-  argFilter: (arg) => {
-    const filename = path.resolve(arg);
-    if (!fs.lstatSync(filename).isFile()) {
-      throw new Error(`${filename} is not a file`);
-    }
-    return filename;
+  args: {
+    min: 1,
+    max: 1,
+    filter: (arg) => {
+      const filename = path.resolve(arg);
+      if (!fs.lstatSync(filename).isFile()) {
+        throw new Error(`${filename} is not a file`);
+      }
+      return filename;
+    },
   },
 });
 
 if (opts.has('--help')) {
   printHelp();
+  process.exit(0);
 } else if (opts.has('--version')) {
   printVersion();
+  process.exit(0);
 } else if (errors.length) {
-  errors.forEach(({ name, message }) => {
-    console.error(`[${name}] ${message}`);
+  errors.forEach(({ message }) => {
+    console.error(`${packageName}: ${message}`);
   });
   printHelp();
-} else {
-  const limit = opts.get('-l') || opts.get('--limit') || Infinity;
-  const filename = args[0];
-  // Run utility...
+  process.exit(1);
 }
+
+const limit = opts.get('-l') || opts.get('--limit') || Infinity;
+const filename = args[0];
+// Run utility...
 ```
 
 #### 2. Parsing Commands
@@ -109,22 +118,19 @@ const { cmds, opts, errors } = getopts({
     {
       name: 'up',
       opts: [
-        { name: '-v', longName: '--verbose' },
+        { name: ['-v', '--verbose'] },
       ],
-      maxArgs: 0,
+      args: { max: 0 },
     },
     {
       name: 'down',
-      maxArgs: 0,
+      args: { max: 0 },
     },
   ],
   opts: [
-    { longName: '--version' },
-    { longName: '--help' },
+    { name: '--version' },
+    { name: '--help' },
   ],
-  // Expects one argument so that means that the command is required. If set to
-  // 0, the command would be optional.
-  minArgs: 1,
 });
 
 const cmd = cmds[0];
