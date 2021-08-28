@@ -1,5 +1,15 @@
 import { Schema } from './interfaces/schema';
-import { Config } from './interfaces/config';
+import {
+  Config,
+  HelpOptHook,
+  VersionOptHook,
+  ParserErrorHook,
+  DEFAULT_HELP_OPT_HOOK_OPT_NAME,
+  DEFAULT_HELP_OPT_HOOK_EXIT_CODE,
+  DEFAULT_VERSION_OPT_HOOK_OPT_NAME,
+  DEFAULT_VERSION_OPT_HOOK_EXIT_CODE,
+  DEFAULT_PARSER_ERROR_HOOK_EXIT_CODE,
+} from './interfaces/config';
 import { ParsedInput, OptMap } from './interfaces/parsed_input';
 import { parseSchema } from './parse_schema';
 import { parseOpt } from './parse_opt';
@@ -56,18 +66,16 @@ const LONG_OPT_REGEX = /^--[a-zA-Z\d]+(-([a-zA-Z\d])+)*(=.*)?$/;
  * @param config - CLI config.
  */
 export const parse = (schema?: Schema, config?: Config): ParsedInput => {
-  let argv = process.argv.slice(ARGS_INDEX);
-
-  if (config?.argv) {
-    if (Array.isArray(config.argv)) {
-      argv = config.argv;
-    } else {
-      argv = config.argv.split(' ').filter((t) => t);
-    }
-  }
-
-  const { argv: tokens } = Object.assign(config || {}, { argv });
+  const cfg = config || {};
   const parsedSchema = parseSchema(schema || {});
+  const tokens = (() => {
+    if (Array.isArray(cfg.argv)) {
+      return cfg.argv;
+    } else if (cfg.argv) {
+      return cfg.argv.split(' ').filter((t) => t);
+    }
+    return process.argv.slice(ARGS_INDEX);
+  })();
 
   // Keep track of unknown opts so that only unique instances of
   // "UnknownOptError" are generated.
@@ -186,10 +194,38 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
     }
   }
 
-  return {
-    cmds,
-    opts,
-    args,
-    errors,
-  };
+  const parsedInput = { cmds, opts, args, errors };
+
+  if (cfg.hooks) {
+    const helpOpt = cfg.hooks.helpOpt
+      ? ([] as string[]).concat(
+          cfg.hooks.helpOpt?.name || DEFAULT_HELP_OPT_HOOK_OPT_NAME,
+        )
+      : [];
+    const versionOpt = cfg.hooks.versionOpt
+      ? ([] as string[]).concat(
+          cfg.hooks.versionOpt?.name || DEFAULT_VERSION_OPT_HOOK_OPT_NAME,
+        )
+      : [];
+    const runHook = (
+      hook: HelpOptHook | VersionOptHook | ParserErrorHook,
+      defaultExitCode: number,
+    ) => {
+      const { exitCode, callback } = hook;
+      callback(parsedInput);
+      if (exitCode !== false) {
+        process.exit(exitCode ?? defaultExitCode);
+      }
+    };
+
+    if (cfg.hooks.helpOpt && helpOpt.some((n) => opts.has(n))) {
+      runHook(cfg.hooks.helpOpt, DEFAULT_HELP_OPT_HOOK_EXIT_CODE);
+    } else if (cfg.hooks.versionOpt && versionOpt.some((n) => opts.has(n))) {
+      runHook(cfg.hooks.versionOpt, DEFAULT_VERSION_OPT_HOOK_EXIT_CODE);
+    } else if (cfg.hooks.parserError && errors.length) {
+      runHook(cfg.hooks.parserError, DEFAULT_PARSER_ERROR_HOOK_EXIT_CODE);
+    }
+  }
+
+  return parsedInput;
 };
