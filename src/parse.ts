@@ -3,7 +3,7 @@ import {
   Config,
   HelpOptHook,
   VersionOptHook,
-  ParserErrorHook,
+  ParserErrorsHook,
   DEFAULT_HELP_OPT_HOOK_OPT_NAME,
   DEFAULT_HELP_OPT_HOOK_EXIT_CODE,
   DEFAULT_VERSION_OPT_HOOK_OPT_NAME,
@@ -208,7 +208,7 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
         )
       : [];
     const runHook = (
-      hook: HelpOptHook | VersionOptHook | ParserErrorHook,
+      hook: HelpOptHook | VersionOptHook | ParserErrorsHook,
       defaultExitCode: number,
     ) => {
       const { exitCode, callback } = hook;
@@ -222,8 +222,8 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
       runHook(cfg.hooks.helpOpt, DEFAULT_HELP_OPT_HOOK_EXIT_CODE);
     } else if (cfg.hooks.versionOpt && versionOpt.some((n) => opts.has(n))) {
       runHook(cfg.hooks.versionOpt, DEFAULT_VERSION_OPT_HOOK_EXIT_CODE);
-    } else if (cfg.hooks.parserError && errors.length) {
-      runHook(cfg.hooks.parserError, DEFAULT_PARSER_ERROR_HOOK_EXIT_CODE);
+    } else if (cfg.hooks.parserErrors && errors.length) {
+      runHook(cfg.hooks.parserErrors, DEFAULT_PARSER_ERROR_HOOK_EXIT_CODE);
     }
   }
 

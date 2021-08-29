@@ -78,7 +78,7 @@ export interface VersionOptHook {
   callback: HookCallback;
 }
 
-export interface ParserErrorHook {
+export interface ParserErrorsHook {
   /**
    * If the hook is activated, it will terminate the process after the callback
    * is executed. This behaviour can be disabled by setting it to false. The
@@ -109,7 +109,7 @@ export interface ConfigHooks {
   /**
    * Hook for parser errors.
    */
-  parserError?: ParserErrorHook;
+  parserErrors?: ParserErrorsHook;
 }
 
 /**
