@@ -1,7 +1,6 @@
 const setArgv = require('./helpers/set_argv');
+const resetArgv = require('./helpers/reset_argv');
 const { getopts } = require('../dist');
-
-const resetArgv = () => setArgv('');
 
 beforeEach(resetArgv);
 
