@@ -1,4 +1,4 @@
-[getopts - v2.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / UnknownOptError
+[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / UnknownOptError
 
 # Class: UnknownOptError
 
@@ -49,7 +49,7 @@ Unknown CLI option error.
 
 #### Defined in
 
-[src/classes/errors.ts:24](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L24)
+[src/classes/errors.ts:27](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L27)
 
 ## Properties
 
@@ -65,7 +65,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L14)
+[src/classes/errors.ts:17](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L17)
 
 ---
 
@@ -93,7 +93,7 @@ node_modules/typescript/lib/lib.es5.d.ts:974
 
 #### Defined in
 
-[src/classes/errors.ts:18](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L18)
+[src/classes/errors.ts:21](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L21)
 
 ---
 

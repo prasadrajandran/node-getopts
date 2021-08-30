@@ -1,4 +1,4 @@
-[getopts - v2.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / ExcessArgsError
+[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / ExcessArgsError
 
 # Class: ExcessArgsError
 
@@ -51,7 +51,7 @@ Excess CLI arguments error.
 
 #### Defined in
 
-[src/classes/errors.ts:147](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L147)
+[src/classes/errors.ts:148](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L148)
 
 ## Properties
 
@@ -67,7 +67,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L14)
+[src/classes/errors.ts:17](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L17)
 
 ---
 
@@ -95,7 +95,7 @@ node_modules/typescript/lib/lib.es5.d.ts:974
 
 #### Defined in
 
-[src/classes/errors.ts:139](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L139)
+[src/classes/errors.ts:140](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L140)
 
 ---
 

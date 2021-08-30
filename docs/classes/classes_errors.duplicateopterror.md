@@ -1,4 +1,4 @@
-[getopts - v2.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / DuplicateOptError
+[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / DuplicateOptError
 
 # Class: DuplicateOptError
 
@@ -49,7 +49,7 @@ Duplicate CLI option error.
 
 #### Defined in
 
-[src/classes/errors.ts:203](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L203)
+[src/classes/errors.ts:201](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L201)
 
 ## Properties
 
@@ -65,7 +65,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L14)
+[src/classes/errors.ts:17](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L17)
 
 ---
 
@@ -93,7 +93,7 @@ node_modules/typescript/lib/lib.es5.d.ts:974
 
 #### Defined in
 
-[src/classes/errors.ts:197](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L197)
+[src/classes/errors.ts:195](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L195)
 
 ---
 
