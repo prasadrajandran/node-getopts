@@ -9,13 +9,11 @@ Build CLI utilities effortlessly.
   - [GNU guidelines (for long options)](https://github.com/prasadrajandran/node-getopts/blob/development/resources/gnu_program_argument_syntax.md)
 - Strict input validation
   - Errors are collected into an array
-- Subcommand support (with infinite nesting)
+- Subcommand support with infinite nesting
   - Subcommands support their own set of options and arguments
-- Argument filters that allow for:
-  - Validation
-  - Type casting
-  - etc.
-- Command and option aliases
+- Argument filters that allow for argument validation, type casting, etc.
+- Option aliases
+- Hooks to simplify handling the help option, version option, and parser errors.
 - Built-in TypeScript type declarations
 
 ## How Do I Use It?
@@ -91,6 +89,8 @@ const { opts, args, errors } = getopts({
   },
 });
 
+// Note: This behaviour can be simplified by the use of hooks. Have a look at
+// the CLI config documentation for more info.
 if (opts.has('--help')) {
   printHelp();
   process.exit(0);
