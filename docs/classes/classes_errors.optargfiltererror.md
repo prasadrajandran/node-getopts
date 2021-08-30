@@ -1,4 +1,4 @@
-[getopts - v2.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / OptArgFilterError
+[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / OptArgFilterError
 
 # Class: OptArgFilterError
 
@@ -33,18 +33,18 @@
 
 ### constructor
 
-• **new OptArgFilterError**(`opt`, `arg`, `argFilter`, `argFilterError`)
+• **new OptArgFilterError**(`opt`, `arg`, `optArgFilter`, `optArgFilterError`)
 
 CLI option argument filter error.
 
 #### Parameters
 
-| Name             | Type                                                              | Description                                                    |
-| :--------------- | :---------------------------------------------------------------- | :------------------------------------------------------------- |
-| `opt`            | `string`                                                          | CLI option that owns the filter that threw the exception.      |
-| `arg`            | `string`                                                          | CLI option's argument that generated the exception.            |
-| `argFilter`      | [`OptArgFilter`](../interfaces/interfaces_schema.OptArgFilter.md) | CLI option's argument filter that threw the exception.         |
-| `argFilterError` | `unknown`                                                         | Exception that was thrown by the CLI option's argument filter. |
+| Name                | Type                                                              | Description                                                    |
+| :------------------ | :---------------------------------------------------------------- | :------------------------------------------------------------- |
+| `opt`               | `string`                                                          | CLI option that owns the filter that threw the exception.      |
+| `arg`               | `string`                                                          | CLI option's argument that generated the exception.            |
+| `optArgFilter`      | [`OptArgFilter`](../interfaces/interfaces_schema.OptArgFilter.md) | CLI option's argument filter that threw the exception.         |
+| `optArgFilterError` | `unknown`                                                         | Exception that was thrown by the CLI option's argument filter. |
 
 #### Overrides
 
@@ -52,7 +52,7 @@ CLI option argument filter error.
 
 #### Defined in
 
-[src/classes/errors.ts:117](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L117)
+[src/classes/errors.ts:118](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L118)
 
 ## Properties
 
@@ -68,7 +68,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L14)
+[src/classes/errors.ts:17](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L17)
 
 ---
 
@@ -96,7 +96,7 @@ node_modules/typescript/lib/lib.es5.d.ts:974
 
 #### Defined in
 
-[src/classes/errors.ts:107](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L107)
+[src/classes/errors.ts:107](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L107)
 
 ---
 

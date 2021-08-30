@@ -1,3 +1,5 @@
+import { OptLongName, OptName } from './parsed_input';
+
 /**
  * Callback function to filter CLI argument(s).
  */
@@ -20,43 +22,90 @@ export interface OptArgFilter {
   (arg: string): unknown;
 }
 
+export interface OptArgSchema {
+  /**
+   * Is the CLI option's argument required (true) or optional (false)?
+   *
+   * Note: Only long options support optional arguments. So if this is set to
+   * false, at least one long option must be defined.
+   */
+  required: boolean;
+  /**
+   * Can the CLI option be repeated so that its arguments are stored in an
+   * array? The default is false.
+   */
+  multiple?: boolean;
+  /**
+   * Run the CLI option's argument through a filter.
+   *
+   * Example use cases:
+   * - Input validation (is it within some defined range)
+   * - Type casting (convert the string to a number)
+   *
+   * Note: Filters are executed within a try/catch block. If an error is thrown,
+   * it will be captured and stored inside the `errors` array.
+   */
+  filter?: OptArgFilter;
+}
+
 /**
  * Schema for a CLI option.
  */
 export interface OptSchema {
   /**
-   * Name of the CLI option.
-   * E.g.: "-a", "-A", etc.
-   */
-  name?: string;
-  /**
-   * Long name of the CLI option.
-   * E.g.: "--sort-by", "--append", etc.
-   */
-  longName?: string;
-  /**
-   * Specify if the CLI option accepts an argument. If so, further specify if
-   * the argument is required or optional.
+   * Name or long name of the CLI option. Also accepts an array of names.
    *
-   * Notes:
-   * - If this is defined, it is automatically assumed that the option accepts
-   *   an argument.
-   * - Only the long option is capable of receiving an optional argument.
+   * Examples:
+   * - "-a", "-A", etc.
+   * - "--sort-by", "--append", etc.
+   * - ["-S", "--sort-by"]
+   * - ["-S", "--sort", "--sort-by"]
    */
-  arg?: 'required' | 'optional';
+  name: OptName | OptLongName | (OptName | OptLongName)[];
   /**
-   * Pass the CLI option's argument through a filter.
+   * Configuration object of the CLI option (if applicable).
+   */
+  arg?: OptArgSchema;
+}
+
+export interface ArgsSchema {
+  /**
+   * Minimum number of CLI arguments expected.
+   *
+   * If the CLI expects arguments (i.e. `cmds` is undefined):
+   * - The default is 0 (arguments are optional)
+   *
+   * If the CLI expects commands (i.e. `cmds` is defined):
+   * - The only valid values are 0 (command is optional) or 1 (command is
+   *   required)
+   * - The default is 1 (command is required)
+   */
+  min?: number;
+  /**
+   * Maximum number of CLI arguments expected.
+   *
+   * If the CLI expects arguments (i.e. `cmds` is undefined):
+   * - The default is 0 (arguments are optional)
+   *
+   * If the CLI expects commands (i.e. `cmds` is defined):
+   * - The only valid value is 1. This should ideally be left undefined if
+   *   commands are expected.
+   */
+  max?: number;
+  /**
+   * Run the CLI arguments through a filter.
    *
    * Example use cases:
    * - Input validation (is it within some defined range)
    * - Type casting (convert the string to a number)
-   * - etc
    *
    * Notes:
+   * - This filter is only meant to process arguments. If `cmds` is defined,
+   *   this filter will be ignored.
    * - Filters are executed within a try/catch block. If an error is thrown, it
    *   will be captured and stored inside the `errors` array.
    */
-  argFilter?: OptArgFilter;
+  filter?: ArgFilter;
 }
 
 /**
@@ -65,9 +114,9 @@ export interface OptSchema {
 // eslint-disable-next-line no-use-before-define
 export interface CmdSchema extends Schema {
   /**
-   * Name of the CLI command.
+   * Name of the CLI command. Also accepts an array of names.
    */
-  name: string;
+  name: string | string[];
 }
 
 /**
@@ -81,7 +130,7 @@ export interface Schema {
    */
   opts?: OptSchema[];
   /**
-   * CLI Commands.
+   * CLI commands.
    *
    * Define all commands that the CLI is capable of receiving here.
    *
@@ -90,41 +139,7 @@ export interface Schema {
    */
   cmds?: CmdSchema[];
   /**
-   * Minimum number of CLI arguments expected.
-   *
-   * If the CLI expects arguments (i.e. `cmds` is undefined):
-   * - The default is 0 (arguments are optional)
-   *
-   * If the CLI expects commands (i.e. `cmds` is defined):
-   * - The only valid values are 0 (command is optional) or 1 (command is
-   *   required)
-   * - The default is 1 (command is required)
+   * CLI arguments.
    */
-  minArgs?: number;
-  /**
-   * Maximum number of CLI arguments expected.
-   *
-   * If the CLI expects arguments (i.e. `cmds` is undefined):
-   * - The default is 0 (arguments are optional)
-   *
-   * If the CLI expects commands (i.e. `cmds` is defined):
-   * - The only valid value is 1. This should ideally be left undefined if
-   *   commands are expected.
-   */
-  maxArgs?: number;
-  /**
-   * Pass the CLI arguments through a filter.
-   *
-   * Example use cases:
-   * - Input validation (is it within some defined range)
-   * - Type casting (convert the string to a number)
-   * - etc
-   *
-   * Notes:
-   * - This filter is only meant to process arguments. If `cmds` is defined,
-   *   this filter will be ignored.
-   * - Filters are executed within a try/catch block. If an error is thrown, it
-   *   will be captured and stored inside the `errors` array.
-   */
-  argFilter?: ArgFilter;
+  args?: ArgsSchema;
 }

@@ -1,4 +1,4 @@
-const { getopts } = require('../../d/index');
+const { getopts } = require('../../dist/index');
 const setArgv = require('../helpers/set_argv');
 const cmdsTestData = require('./data/cmds');
 const argsTestData = require('./data/args');

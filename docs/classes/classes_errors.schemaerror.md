@@ -1,8 +1,10 @@
-[getopts - v2.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
+[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
 
 # Class: SchemaError
 
 [classes/errors](../modules/classes_errors.md).SchemaError
+
+**`internal`**
 
 ## Hierarchy
 
@@ -74,7 +76,7 @@ Error.name
 
 #### Defined in
 
-[src/classes/errors.ts:6](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L6)
+[src/classes/errors.ts:9](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L9)
 
 ---
 

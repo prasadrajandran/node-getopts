@@ -15,9 +15,14 @@ export interface ParsedOptSchema {
    */
   argRequired: boolean;
   /**
+   * Is the user allowed to repeat the option so that multiple arguments can
+   * be provided?
+   */
+  supportsMultipleArgs: boolean;
+  /**
    * Processes the CLI option's argument.
    */
-  argFilter: OptArgFilter;
+  optArgFilter: OptArgFilter;
   /**
    * Keeps track of parsed duplicate options. This is so that the `errors` array
    * will only contain unique instances of "DuplicateOptError".

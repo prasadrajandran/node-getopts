@@ -2,6 +2,9 @@ import { CmdName } from '../interfaces/parsed_schema';
 import { OptLongName, OptName } from '../interfaces/parsed_input';
 import { ArgFilter, OptArgFilter } from '../interfaces/schema';
 
+/**
+ * @internal
+ */
 export class SchemaError extends Error {
   name = 'SchemaError';
 }
@@ -36,10 +39,7 @@ export class UnknownCmdError extends ParserError {
    * @param expectedCmds - CLI commands that were expected.
    */
   constructor(unknownCmd: string, expectedCmds: CmdName[]) {
-    super(
-      `Got "${unknownCmd}" but expected ` +
-        `${expectedCmds.map((cmd) => `"${cmd}"`).join(', ')}`,
-    );
+    super(`"${unknownCmd}" not recognized`);
     this.details.set('unknownCmd', unknownCmd);
     this.details.set('expectedCmds', expectedCmds);
   }
@@ -68,7 +68,7 @@ export class UnexpectedOptArgError extends ParserError {
    *     arguments) was provided.
    */
   constructor(opt: OptLongName, arg: string) {
-    super(`"${opt}" does not accept an argument but was given "${arg}"`);
+    super(`"${opt}" does not accept an argument`);
     this.details.set('opt', opt);
     this.details.set('arg', arg);
   }
@@ -90,10 +90,10 @@ export class ArgFilterError extends ParserError {
     argFilterError: Error | unknown,
   ) {
     super(
-      `Argument filter failed to process "${arg}": ` +
+      `Filtering "${arg}" raised an exception: ` +
         `${
           argFilterError instanceof Error
-            ? `${argFilterError.name} - ${argFilterError.message}`
+            ? `${argFilterError.name}: ${argFilterError.message}`
             : argFilterError
         }`,
     );
@@ -110,28 +110,29 @@ export class OptArgFilterError extends ParserError {
    * CLI option argument filter error.
    * @param opt - CLI option that owns the filter that threw the exception.
    * @param arg - CLI option's argument that generated the exception.
-   * @param argFilter - CLI option's argument filter that threw the exception.
-   * @param argFilterError - Exception that was thrown by the CLI option's
+   * @param optArgFilter - CLI option's argument filter that threw the
+   *      exception.
+   * @param optArgFilterError - Exception that was thrown by the CLI option's
    *     argument filter.
    */
   constructor(
     opt: OptName | OptLongName,
     arg: string,
-    argFilter: OptArgFilter,
-    argFilterError: Error | unknown,
+    optArgFilter: OptArgFilter,
+    optArgFilterError: Error | unknown,
   ) {
     super(
-      `${opt}'s argument filter failed to process "${arg}": ` +
+      `Filtering "${arg}" through ${opt}'s filter raised an exception: ` +
         `${
-          argFilterError instanceof Error
-            ? `${argFilterError.name} - ${argFilterError.message}`
-            : argFilterError
+          optArgFilterError instanceof Error
+            ? `${optArgFilterError.name}: ${optArgFilterError.message}`
+            : optArgFilterError
         }`,
     );
     this.details.set('opt', opt);
     this.details.set('arg', arg);
-    this.details.set('argFilter', argFilter);
-    this.details.set('argFilterError', argFilterError);
+    this.details.set('optArgFilter', optArgFilter);
+    this.details.set('optArgFilterError', optArgFilterError);
   }
 }
 
@@ -150,10 +151,9 @@ export class ExcessArgsError extends ParserError {
     maxArgsExpected: number,
   ) {
     super(
-      `Only ${maxArgsExpected} argument${maxArgsExpected > 1 ? 's' : ''} ` +
-        `expected but got ${excessArgs.length > 1 ? 'these' : 'this'} ` +
-        `${excessArgs.map((arg) => `"${arg}"`).join(', ')} additional ` +
-        `argument${excessArgs.length > 1 ? 's' : ''}`,
+      maxArgsExpected === 0
+        ? 'Did not expect to receive arguments'
+        : 'Too many arguments received',
     );
     this.details.set('excessArgs', excessArgs);
     this.details.set('numArgsReceived', numArgsReceived);
@@ -171,9 +171,7 @@ export class InsufficientArgsError extends ParserError {
    */
   constructor(numArgsReceived: number, minArgsExpected: number) {
     super(
-      `At least ${minArgsExpected} argument${
-        minArgsExpected > 1 ? 's' : ''
-      } expected but only got ${numArgsReceived}`,
+      minArgsExpected === 1 ? 'Argument expected' : 'More arguments expected',
     );
     this.details.set('numArgsReceived', numArgsReceived);
     this.details.set('minArgsExpected', minArgsExpected);
@@ -188,7 +186,7 @@ export class CmdExpectedError extends ParserError {
    * @param expectedCmds - CLI commands that were expected.
    */
   constructor(expectedCmds: CmdName[]) {
-    super(`${expectedCmds.map((cmd) => `"${cmd}"`).join(', ')} expected`);
+    super('Command expected');
     this.details.set('expectedCmds', expectedCmds);
   }
 }
@@ -201,7 +199,7 @@ export class DuplicateOptError extends ParserError {
    * @param duplicateOpt - The duplicate option.
    */
   constructor(duplicateOpt: OptName | OptLongName) {
-    super(`"${duplicateOpt}" was entered more than once`);
+    super(`"${duplicateOpt}" received multiple times`);
     this.details.set('duplicateOpt', duplicateOpt);
   }
 }
@@ -218,7 +216,7 @@ export class DuplicateAliasOptError extends ParserError {
     parsedOpt: OptName | OptLongName,
     aliasOpt: OptName | OptLongName,
   ) {
-    super(`"${parsedOpt}" and "${aliasOpt} cannot be used at the same time"`);
+    super(`"${parsedOpt}" and "${aliasOpt}" are aliases`);
     this.details.set('parsedOpt', parsedOpt);
     this.details.set('aliasOpt', aliasOpt);
   }

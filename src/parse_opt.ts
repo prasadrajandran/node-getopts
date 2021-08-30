@@ -18,11 +18,11 @@ import {
  * @param opts - Options are added to this.
  * @param unknownOpts - Set to ensure that only unique instances of
  *     "UnknownOptError" are generated.
- * @param input - Input to parse. E.g. "-a", "-abc", "-a500", etc.
- * @param nextInput - Next input (used if the option requires arguments and the
+ * @param token - Token to parse. E.g. "-a", "-abc", "-a500", etc.
+ * @param nextToken - Next token (used if the option requires arguments and the
  *     argument is separated by a space).
  * @returns If the option requires an argument and the argument is separated by
- *     a space, then we would have to consume the next input in order to acquire
+ *     a space, then we would have to consume the next token in order to acquire
  *     the value of the argument and if that happens, `nextArgConsumed` will be
  *     set to true.
  *
@@ -35,23 +35,32 @@ export const parseOpt = (
   errors: ParserError[],
   opts: OptMap,
   unknownOpts: Set<string>,
-  input: string,
-  nextInput?: string,
+  token: string,
+  nextToken?: string,
 ): { valid: boolean; nextArgConsumed: boolean } => {
   const parsedOpts: OptMap = new Map([...opts]);
   let valid = true;
   let nextArgConsumed = false;
 
-  for (let i = 1; i < input.length; i++) {
-    const optName = `-${input[i]}`;
+  for (let i = 1; i < token.length; i++) {
+    const optName = `-${token[i]}`;
     const parsedOptSchema = parsedOptSchemaMap.get(optName);
 
     if (parsedOptSchema) {
-      const { argRequired, argFilter, parsedDuplicates } = parsedOptSchema;
+      const {
+        argRequired,
+        supportsMultipleArgs,
+        optArgFilter,
+        parsedDuplicates,
+      } = parsedOptSchema;
 
       // Note: Processing is not halted even though an error has been generated
       // because this gives users the option to ignore this error.
-      if (parsedOpts.has(optName) && !parsedDuplicates.has(optName)) {
+      if (
+        !supportsMultipleArgs &&
+        parsedOpts.has(optName) &&
+        !parsedDuplicates.has(optName)
+      ) {
         parsedDuplicates.add(optName);
         errors.push(new DuplicateOptError(optName));
       }
@@ -59,7 +68,12 @@ export const parseOpt = (
       if (!parsedOptSchema.parsedName) {
         parsedOptSchema.parsedName = optName;
       }
-      parsedOpts.set(optName, undefined);
+      const existingArgs = (parsedOpts.get(optName) as unknown[]) || [];
+      if (supportsMultipleArgs) {
+        parsedOpts.set(optName, []);
+      } else {
+        parsedOpts.set(optName, undefined);
+      }
 
       // Note: Processing is not halted even though an error has been generated
       // because this gives users the option to ignore this error.
@@ -72,18 +86,29 @@ export const parseOpt = (
         );
       }
 
-      // Note: We do not check if the next input might be an option or even the
+      // Note: We do not check if the next token might be an option or even the
       // `STOP_PROCESSING_OPTS_FLAG` flag because if the option requires an
       // argument, the next item will be treated as the argument no matter what.
-      const optArg = input.slice(i + 1) || (nextInput as string);
+      const optArg = token.slice(i + 1) || (nextToken as string);
 
       if (argRequired && optArg) {
-        nextArgConsumed = !input[i + 1] && Boolean(nextInput);
-
+        nextArgConsumed = !token[i + 1] && Boolean(nextToken);
+        let validArg = true;
+        let filteredArg;
         try {
-          parsedOpts.set(optName, argFilter(optArg));
+          filteredArg = optArgFilter(optArg);
         } catch (err) {
-          errors.push(new OptArgFilterError(optName, optArg, argFilter, err));
+          validArg = false;
+          errors.push(
+            new OptArgFilterError(optName, optArg, optArgFilter, err),
+          );
+        }
+        if (validArg) {
+          if (supportsMultipleArgs) {
+            parsedOpts.set(optName, existingArgs.concat(filteredArg));
+          } else {
+            parsedOpts.set(optName, filteredArg);
+          }
         }
         break;
       } else if (argRequired) {

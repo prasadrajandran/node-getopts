@@ -1,4 +1,4 @@
-const { parseSchema } = require('../../d/parse_schema');
+const { parseSchema } = require('../../dist/parse_schema');
 
 describe('schema', () => {
   test('defaults', () => {
@@ -26,111 +26,143 @@ describe('schema', () => {
     expect(() => parseSchema()).toThrowError();
   });
 
-  test('valid and invalid minArgs/maxArgs values', () => {
-    ['a', '1', -1, -Infinity, Infinity].forEach((minArgs) => {
-      expect(() => parseSchema({ minArgs })).toThrowError();
+  test('valid and invalid min/max values', () => {
+    ['a', '1', -1, -Infinity, Infinity].forEach((min) => {
+      expect(() => parseSchema({ args: { min } })).toThrowError();
     });
 
-    ['a', '1', -1, -Infinity, Number.NEGATIVE_INFINITY].forEach((maxArgs) => {
-      expect(() => parseSchema({ maxArgs })).toThrowError();
+    ['a', '1', -1, -Infinity, Number.NEGATIVE_INFINITY].forEach((max) => {
+      expect(() => parseSchema({ args: { max } })).toThrowError();
     });
 
-    [0, Infinity, Number.POSITIVE_INFINITY].forEach((maxArgs) => {
-      expect(() => parseSchema({ maxArgs })).not.toThrowError();
+    [0, Infinity, Number.POSITIVE_INFINITY].forEach((max) => {
+      expect(() => parseSchema({ args: { max } })).not.toThrowError();
     });
 
-    [[0, 0]].forEach(([minArgs, maxArgs]) => {
-      expect(() => parseSchema({ minArgs, maxArgs })).not.toThrowError();
+    [[0, 0]].forEach(([min, max]) => {
+      expect(() => parseSchema({ args: { min, max } })).not.toThrowError();
     });
 
-    [[1, 0]].forEach(([minArgs, maxArgs]) => {
-      expect(() => parseSchema({ minArgs, maxArgs })).toThrowError();
+    [[1, 0]].forEach(([min, max]) => {
+      expect(() => parseSchema({ args: { min, max } })).toThrowError();
     });
   });
 
-  test('minArgs/maxArgs when cmds is defined', () => {
+  test('min/max when cmds is defined', () => {
     const cmds = [{ name: 'up' }];
 
-    [0, 1].forEach((minArgs) => {
-      expect(() => parseSchema({ cmds, minArgs })).not.toThrowError();
+    [0, 1].forEach((min) => {
+      expect(() => parseSchema({ cmds, args: { min } })).not.toThrowError();
     });
 
-    [1].forEach((maxArgs) => {
-      expect(() => parseSchema({ cmds, maxArgs })).not.toThrowError();
+    [1].forEach((max) => {
+      expect(() => parseSchema({ cmds, args: { max } })).not.toThrowError();
     });
 
-    [-1, 2].forEach((minArgs) => {
-      expect(() => parseSchema({ cmds, minArgs })).toThrowError();
+    [-1, 2].forEach((min) => {
+      expect(() => parseSchema({ cmds, args: { min } })).toThrowError();
     });
 
-    [0, 2].forEach((maxArgs) => {
-      expect(() => parseSchema({ cmds, maxArgs })).toThrowError();
+    [0, 2].forEach((max) => {
+      expect(() => parseSchema({ cmds, args: { max } })).toThrowError();
     });
   });
 });
 
 describe('schema - opts', () => {
   test('option defaults', () => {
-    const schema = parseSchema({ opts: [{ name: '-a' }] });
+    ['-a', ['-a']].forEach((name) => {
+      const schema = parseSchema({ opts: [{ name }] });
 
-    expect(schema.opts.size).toBe(1);
+      expect(schema.opts.size).toBe(1);
 
-    const aOptSchema = schema.opts.get('-a');
+      const aOptSchema = schema.opts.get('-a');
 
-    expect(aOptSchema.argAccepted).toBe(false);
-    expect(aOptSchema.argRequired).toBe(false);
-    expect(aOptSchema.argFilter).toBeInstanceOf(Function);
-    expect(Array.from(Object.keys(aOptSchema))).toStrictEqual([
-      'argAccepted',
-      'argRequired',
-      'argFilter',
-      'parsedDuplicates',
-      'parsedName',
-    ]);
+      expect(aOptSchema.argAccepted).toBe(false);
+      expect(aOptSchema.argRequired).toBe(false);
+      expect(aOptSchema.supportsMultipleArgs).toBe(false);
+      expect(aOptSchema.optArgFilter).toBeInstanceOf(Function);
+      expect(aOptSchema.parsedDuplicates).toBeInstanceOf(Set);
+      expect(aOptSchema.parsedName).toBe(null);
+      expect(Array.from(Object.keys(aOptSchema))).toStrictEqual([
+        'argAccepted',
+        'argRequired',
+        'supportsMultipleArgs',
+        'optArgFilter',
+        'parsedDuplicates',
+        'parsedName',
+      ]);
+    });
   });
 
   test('long option defaults', () => {
-    const schema = parseSchema({ opts: [{ longName: '--a' }] });
+    ['--a', ['--a']].forEach((name) => {
+      const schema = parseSchema({ opts: [{ name }] });
 
-    expect(schema.opts.size).toBe(1);
+      expect(schema.opts.size).toBe(1);
 
-    const aOptSchema = schema.opts.get('--a');
+      const aOptSchema = schema.opts.get('--a');
 
-    expect(aOptSchema.argAccepted).toBe(false);
-    expect(aOptSchema.argRequired).toBe(false);
-    expect(aOptSchema.argFilter).toBeInstanceOf(Function);
-    expect(Array.from(Object.keys(aOptSchema))).toStrictEqual([
-      'argAccepted',
-      'argRequired',
-      'argFilter',
-      'parsedDuplicates',
-      'parsedName',
-    ]);
+      expect(aOptSchema.argAccepted).toBe(false);
+      expect(aOptSchema.argRequired).toBe(false);
+      expect(aOptSchema.supportsMultipleArgs).toBe(false);
+      expect(aOptSchema.optArgFilter).toBeInstanceOf(Function);
+      expect(aOptSchema.parsedDuplicates).toBeInstanceOf(Set);
+      expect(aOptSchema.parsedName).toBe(null);
+      expect(Array.from(Object.keys(aOptSchema))).toStrictEqual([
+        'argAccepted',
+        'argRequired',
+        'supportsMultipleArgs',
+        'optArgFilter',
+        'parsedDuplicates',
+        'parsedName',
+      ]);
+    });
   });
 
   test('arg property', () => {
     expect(() =>
-      parseSchema({ opts: [{ name: '-a', arg: 'required' }] }),
+      parseSchema({ opts: [{ name: '-a', arg: { required: true } }] }),
     ).not.toThrowError();
     expect(() =>
-      parseSchema({ opts: [{ name: '-a', arg: 'optional' }] }),
+      parseSchema({ opts: [{ name: '-a', arg: { required: false } }] }),
+    ).toThrowError();
+    expect(() =>
+      parseSchema({
+        opts: [{ name: '-a', arg: {} }],
+      }),
+    ).toThrowError();
+    expect(() =>
+      parseSchema({
+        opts: [{ name: '-a', arg: { required: 'something' } }],
+      }),
     ).toThrowError();
 
     expect(() =>
-      parseSchema({ opts: [{ longName: '--a', arg: 'required' }] }),
+      parseSchema({ opts: [{ name: '--a', arg: { required: true } }] }),
     ).not.toThrowError();
     expect(() =>
-      parseSchema({ opts: [{ longName: '--a', arg: 'optional' }] }),
+      parseSchema({ opts: [{ name: '--a', arg: { required: false } }] }),
     ).not.toThrowError();
+    expect(() =>
+      parseSchema({
+        opts: [{ name: '--a', arg: {} }],
+      }),
+    ).toThrowError();
+    expect(() =>
+      parseSchema({
+        opts: [{ name: '--a', arg: { required: 'something' } }],
+      }),
+    ).toThrowError();
   });
 
   test('option and long option can have the same name', () => {
     [
       {
-        opts: [{ name: '-a', longName: '--a' }],
+        opts: [{ name: ['-a', '--a'] }],
       },
       {
-        cmds: [{ name: 'up', opts: [{ name: '-a', longName: '--a' }] }],
+        cmds: [{ name: 'up', opts: [{ name: ['-a', '--a'] }] }],
       },
     ].forEach((schema) => {
       expect(() => parseSchema(schema)).not.toThrowError();
@@ -143,7 +175,16 @@ describe('schema - opts', () => {
         opts: [{ name: '-a' }, { name: '-a' }],
       },
       {
-        opts: [{ name: '-y' }, { name: '-b' }, { name: '-y' }],
+        opts: [{ name: '--a' }, { name: '--a' }],
+      },
+      {
+        opts: [{ name: ['-a', '-a'] }],
+      },
+      {
+        opts: [{ name: ['--a', '--a'] }],
+      },
+      {
+        opts: [{ name: '-y' }, { name: '-b' }, { name: ['-y'] }],
       },
       {
         opts: [{ name: '-c' }],
@@ -154,7 +195,16 @@ describe('schema - opts', () => {
           {
             name: 'up',
             opts: [{ name: '-t' }],
-            cmds: [{ name: 'down', opts: '-t' }],
+            cmds: [{ name: 'down', opts: [{ name: '-t' }] }],
+          },
+        ],
+      },
+      {
+        cmds: [
+          {
+            name: 'up',
+            opts: [{ name: '--t' }],
+            cmds: [{ name: 'down', opts: [{ name: '--t' }] }],
           },
         ],
       },
@@ -166,43 +216,45 @@ describe('schema - opts', () => {
 
 describe('schema - cmds', () => {
   test('defaults', () => {
-    const schema = parseSchema({ cmds: [{ name: 'up' }] });
+    ['up', ['up']].forEach((name) => {
+      const schema = parseSchema({ cmds: [{ name }] });
 
-    expect(schema.opts).toBeInstanceOf(Map);
-    expect(schema.opts).toHaveProperty('size', 0);
-    expect(schema.cmds).toBeInstanceOf(Map);
-    expect(schema.cmds).toHaveProperty('size', 1);
-    expect(schema.minArgs).toBe(1);
-    expect(schema.maxArgs).toBe(1);
-    expect(schema.argFilter).toBeInstanceOf(Function);
-    expect(schema.expectsCmd).toBe(true);
-    expect(Array.from(Object.keys(schema))).toStrictEqual([
-      'opts',
-      'cmds',
-      'minArgs',
-      'maxArgs',
-      'argFilter',
-      'expectsCmd',
-    ]);
+      expect(schema.opts).toBeInstanceOf(Map);
+      expect(schema.opts).toHaveProperty('size', 0);
+      expect(schema.cmds).toBeInstanceOf(Map);
+      expect(schema.cmds).toHaveProperty('size', 1);
+      expect(schema.minArgs).toBe(1);
+      expect(schema.maxArgs).toBe(1);
+      expect(schema.argFilter).toBeInstanceOf(Function);
+      expect(schema.expectsCmd).toBe(true);
+      expect(Array.from(Object.keys(schema))).toStrictEqual([
+        'opts',
+        'cmds',
+        'minArgs',
+        'maxArgs',
+        'argFilter',
+        'expectsCmd',
+      ]);
 
-    const upCmdSchema = schema.cmds.get('up');
+      const upCmdSchema = schema.cmds.get('up');
 
-    expect(upCmdSchema.opts).toBeInstanceOf(Map);
-    expect(upCmdSchema.opts).toHaveProperty('size', 0);
-    expect(upCmdSchema.cmds).toBeInstanceOf(Map);
-    expect(upCmdSchema.cmds).toHaveProperty('size', 0);
-    expect(upCmdSchema.minArgs).toBe(0);
-    expect(upCmdSchema.maxArgs).toBe(Infinity);
-    expect(upCmdSchema.argFilter).toBeInstanceOf(Function);
-    expect(upCmdSchema.expectsCmd).toBe(false);
-    expect(Array.from(Object.keys(upCmdSchema))).toStrictEqual([
-      'opts',
-      'cmds',
-      'minArgs',
-      'maxArgs',
-      'argFilter',
-      'expectsCmd',
-    ]);
+      expect(upCmdSchema.opts).toBeInstanceOf(Map);
+      expect(upCmdSchema.opts).toHaveProperty('size', 0);
+      expect(upCmdSchema.cmds).toBeInstanceOf(Map);
+      expect(upCmdSchema.cmds).toHaveProperty('size', 0);
+      expect(upCmdSchema.minArgs).toBe(0);
+      expect(upCmdSchema.maxArgs).toBe(Infinity);
+      expect(upCmdSchema.argFilter).toBeInstanceOf(Function);
+      expect(upCmdSchema.expectsCmd).toBe(false);
+      expect(Array.from(Object.keys(upCmdSchema))).toStrictEqual([
+        'opts',
+        'cmds',
+        'minArgs',
+        'maxArgs',
+        'argFilter',
+        'expectsCmd',
+      ]);
+    });
   });
 
   test('cmds array must be populated in order for `expectsCmd` to be true', () => {
@@ -264,13 +316,22 @@ describe('schema - cmds', () => {
         cmds: [{ name: 'down' }, { name: 'down' }],
       },
       {
-        cmds: [{ name: 'down' }, { name: 'up' }, { name: 'down' }],
+        cmds: [{ name: ['down', 'down'] }],
+      },
+      {
+        cmds: [{ name: 'down' }, { name: 'up' }, { name: ['down'] }],
       },
       {
         cmds: [
           {
             name: 'down',
             cmds: [{ name: 'list' }, { name: 'up' }, { name: 'list' }],
+          },
+        ],
+        cmds: [
+          {
+            name: 'down',
+            cmds: [{ name: 'list' }, { name: 'up' }, { name: ['list'] }],
           },
         ],
       },

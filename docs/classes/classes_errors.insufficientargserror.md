@@ -1,4 +1,4 @@
-[getopts - v2.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / InsufficientArgsError
+[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / InsufficientArgsError
 
 # Class: InsufficientArgsError
 
@@ -50,7 +50,7 @@ Insufficient CLI arguments error.
 
 #### Defined in
 
-[src/classes/errors.ts:172](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L172)
+[src/classes/errors.ts:172](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L172)
 
 ## Properties
 
@@ -66,7 +66,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/errors.ts:14](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L14)
+[src/classes/errors.ts:17](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L17)
 
 ---
 
@@ -94,7 +94,7 @@ node_modules/typescript/lib/lib.es5.d.ts:974
 
 #### Defined in
 
-[src/classes/errors.ts:165](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/classes/errors.ts#L165)
+[src/classes/errors.ts:165](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L165)
 
 ---
 

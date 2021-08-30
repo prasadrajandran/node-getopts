@@ -1,11 +1,11 @@
 {
   "extends": "@tsconfig/node10/tsconfig.json",
   "compilerOptions": {
-    "outDir": "d",
+    "outDir": "dist",
     "declaration": true,
     "noEmitOnError": true,
     "newLine": "lf"
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "d/"]
+  "exclude": ["node_modules", "dist/"]
 }

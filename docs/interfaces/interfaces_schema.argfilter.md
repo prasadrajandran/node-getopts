@@ -1,4 +1,4 @@
-[getopts - v2.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
+[getopts - v3.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgFilter
 
 # Interface: ArgFilter
 
@@ -27,4 +27,4 @@ Callback function to filter CLI argument(s).
 
 #### Defined in
 
-[src/interfaces/schema.ts:10](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L10)
+[src/interfaces/schema.ts:12](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/schema.ts#L12)

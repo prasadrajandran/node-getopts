@@ -6,6 +6,8 @@ import {
 import { parseSchema } from './parse_schema';
 import { SchemaError } from './classes/errors';
 
+const CMD_SCHEMA_REGEX = /^[a-zA-Z\d][a-zA-Z\d-]*$/;
+
 /**
  * Parse a command schema.
  * @internal
@@ -21,10 +23,22 @@ export const parseCmdSchema = (
   const cmds: ParsedCmdSchemaMap = new Map();
 
   for (const { name, ...schema } of cmdSchemas) {
-    if (cmds.has(name)) {
-      throw new SchemaError(`"${name}" is a duplicate command`);
+    const parsedSchema = parseSchema(schema, alreadyDefinedOpts);
+    for (const n of ([] as string[]).concat(name)) {
+      if (!n.length) {
+        throw new SchemaError('Command name cannot be empty');
+      }
+      if (cmds.has(n)) {
+        throw new SchemaError(`"${n}" is a duplicate command`);
+      }
+      if (!CMD_SCHEMA_REGEX.test(n)) {
+        throw new SchemaError(
+          `"${n}" is not a valid name for a command. ` +
+            `Valid characters are "${CMD_SCHEMA_REGEX}"`,
+        );
+      }
+      cmds.set(n, parsedSchema);
     }
-    cmds.set(name, parseSchema(schema, alreadyDefinedOpts));
   }
 
   return cmds;

@@ -1,4 +1,4 @@
-[getopts - v2.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / Schema
+[getopts - v3.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / Schema
 
 # Interface: Schema
 
@@ -16,36 +16,21 @@ CLI schema.
 
 ### Properties
 
-- [argFilter](interfaces_schema.Schema.md#argfilter)
+- [args](interfaces_schema.Schema.md#args)
 - [cmds](interfaces_schema.Schema.md#cmds)
-- [maxArgs](interfaces_schema.Schema.md#maxargs)
-- [minArgs](interfaces_schema.Schema.md#minargs)
 - [opts](interfaces_schema.Schema.md#opts)
 
 ## Properties
 
-### argFilter
+### args
 
-• `Optional` **argFilter**: [`ArgFilter`](interfaces_schema.ArgFilter.md)
+• `Optional` **args**: [`ArgsSchema`](interfaces_schema.ArgsSchema.md)
 
-Pass the CLI arguments through a filter.
-
-Example use cases:
-
-- Input validation (is it within some defined range)
-- Type casting (convert the string to a number)
-- etc
-
-Notes:
-
-- This filter is only meant to process arguments. If `cmds` is defined,
-  this filter will be ignored.
-- Filters are executed within a try/catch block. If an error is thrown, it
-  will be captured and stored inside the `errors` array.
+CLI arguments.
 
 #### Defined in
 
-[src/interfaces/schema.ts:129](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L129)
+[src/interfaces/schema.ts:144](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/schema.ts#L144)
 
 ---
 
@@ -53,7 +38,7 @@ Notes:
 
 • `Optional` **cmds**: [`CmdSchema`](interfaces_schema.CmdSchema.md)[]
 
-CLI Commands.
+CLI commands.
 
 Define all commands that the CLI is capable of receiving here.
 
@@ -62,50 +47,7 @@ arguments (this affects what `minArgs` and `maxArgs` do).
 
 #### Defined in
 
-[src/interfaces/schema.ts:91](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L91)
-
----
-
-### maxArgs
-
-• `Optional` **maxArgs**: `number`
-
-Maximum number of CLI arguments expected.
-
-If the CLI expects arguments (i.e. `cmds` is undefined):
-
-- The default is 0 (arguments are optional)
-
-If the CLI expects commands (i.e. `cmds` is defined):
-
-- The only valid value is 1. This should ideally be left undefined if
-  commands are expected.
-
-#### Defined in
-
-[src/interfaces/schema.ts:114](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L114)
-
----
-
-### minArgs
-
-• `Optional` **minArgs**: `number`
-
-Minimum number of CLI arguments expected.
-
-If the CLI expects arguments (i.e. `cmds` is undefined):
-
-- The default is 0 (arguments are optional)
-
-If the CLI expects commands (i.e. `cmds` is defined):
-
-- The only valid values are 0 (command is optional) or 1 (command is
-  required)
-- The default is 1 (command is required)
-
-#### Defined in
-
-[src/interfaces/schema.ts:103](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L103)
+[src/interfaces/schema.ts:140](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/schema.ts#L140)
 
 ---
 
@@ -119,4 +61,4 @@ Define all options that the CLI is capable of receiving here.
 
 #### Defined in
 
-[src/interfaces/schema.ts:82](https://github.com/prasadrajandran/node-getopts/blob/f04388b/src/interfaces/schema.ts#L82)
+[src/interfaces/schema.ts:131](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/schema.ts#L131)
