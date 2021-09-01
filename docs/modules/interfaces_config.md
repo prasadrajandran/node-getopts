@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / interfaces/config
+[getopts - v3.1.0](../README.md) / interfaces/config
 
 # Module: interfaces/config
 
@@ -32,7 +32,7 @@ Default process exit code for the help option hook.
 
 #### Defined in
 
-[src/interfaces/config.ts:13](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/config.ts#L13)
+[src/interfaces/config.ts:13](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L13)
 
 ---
 
@@ -46,7 +46,7 @@ Default option name of the help option hook.
 
 #### Defined in
 
-[src/interfaces/config.ts:7](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/config.ts#L7)
+[src/interfaces/config.ts:7](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L7)
 
 ---
 
@@ -60,7 +60,7 @@ Default process exit code for the parser error hook.
 
 #### Defined in
 
-[src/interfaces/config.ts:31](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/config.ts#L31)
+[src/interfaces/config.ts:31](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L31)
 
 ---
 
@@ -74,7 +74,7 @@ Default process exit code for the version option hook.
 
 #### Defined in
 
-[src/interfaces/config.ts:25](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/config.ts#L25)
+[src/interfaces/config.ts:25](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L25)
 
 ---
 
@@ -88,4 +88,4 @@ Default option name of the version option hook.
 
 #### Defined in
 
-[src/interfaces/config.ts:19](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/config.ts#L19)
+[src/interfaces/config.ts:19](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L19)

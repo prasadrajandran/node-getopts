@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / interfaces/parsed_input
+[getopts - v3.1.0](../README.md) / interfaces/parsed_input
 
 # Module: interfaces/parsed_input
 
@@ -10,12 +10,26 @@
 
 ### Type aliases
 
+- [CmdName](interfaces_parsed_input.md#cmdname)
 - [OptArg](interfaces_parsed_input.md#optarg)
 - [OptLongName](interfaces_parsed_input.md#optlongname)
-- [OptMap](interfaces_parsed_input.md#optmap)
 - [OptName](interfaces_parsed_input.md#optname)
 
 ## Type aliases
+
+### CmdName
+
+Ƭ **CmdName**: `string`
+
+CLI command name.
+
+**`internal`**
+
+#### Defined in
+
+[src/interfaces/parsed_input.ts:8](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/parsed_input.ts#L8)
+
+---
 
 ### OptArg
 
@@ -23,9 +37,11 @@
 
 CLI option's argument.
 
+**`internal`**
+
 #### Defined in
 
-[src/interfaces/parsed_input.ts:16](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/parsed_input.ts#L16)
+[src/interfaces/parsed_input.ts:26](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/parsed_input.ts#L26)
 
 ---
 
@@ -35,28 +51,11 @@ CLI option's argument.
 
 CLI option's long name.
 
-#### Defined in
-
-[src/interfaces/parsed_input.ts:11](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/parsed_input.ts#L11)
-
----
-
-### OptMap
-
-Ƭ **OptMap**: `Map`<[`OptName`](interfaces_parsed_input.md#optname) \| [`OptLongName`](interfaces_parsed_input.md#optlongname), [`OptArg`](interfaces_parsed_input.md#optarg)\>
-
-Map of a CLI option to its argument.
-
-Notes:
-
-- If the CLI option does not accept an argument, its argument value will be
-  undefined.
-- If the argument is optional and an argument wasn't provided, the argument
-  value will be undefined.
+**`internal`**
 
 #### Defined in
 
-[src/interfaces/parsed_input.ts:27](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/parsed_input.ts#L27)
+[src/interfaces/parsed_input.ts:20](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/parsed_input.ts#L20)
 
 ---
 
@@ -66,6 +65,8 @@ Notes:
 
 CLI option's name.
 
+**`internal`**
+
 #### Defined in
 
-[src/interfaces/parsed_input.ts:6](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/parsed_input.ts#L6)
+[src/interfaces/parsed_input.ts:14](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/parsed_input.ts#L14)

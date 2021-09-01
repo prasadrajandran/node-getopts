@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / DuplicateAliasOptError
+[getopts - v3.1.0](../README.md) / [classes/errors](../modules/classes_errors.md) / DuplicateAliasOptError
 
 # Class: DuplicateAliasOptError
 
@@ -50,7 +50,7 @@ Duplicate alias CLI option error.
 
 #### Defined in
 
-[src/classes/errors.ts:215](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L215)
+[src/classes/errors.ts:214](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L214)
 
 ## Properties
 
@@ -66,7 +66,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/errors.ts:17](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L17)
+[src/classes/errors.ts:16](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L16)
 
 ---
 
@@ -94,7 +94,7 @@ node_modules/typescript/lib/lib.es5.d.ts:974
 
 #### Defined in
 
-[src/classes/errors.ts:208](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L208)
+[src/classes/errors.ts:207](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L207)
 
 ---
 

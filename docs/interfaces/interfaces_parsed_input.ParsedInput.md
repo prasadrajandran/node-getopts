@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / [interfaces/parsed_input](../modules/interfaces_parsed_input.md) / ParsedInput
+[getopts - v3.1.0](../README.md) / [interfaces/parsed_input](../modules/interfaces_parsed_input.md) / ParsedInput
 
 # Interface: ParsedInput
 
@@ -25,7 +25,7 @@ Parsed CLI arguments.
 
 #### Defined in
 
-[src/interfaces/parsed_input.ts:44](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/parsed_input.ts#L44)
+[src/interfaces/parsed_input.ts:43](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/parsed_input.ts#L43)
 
 ---
 
@@ -37,7 +37,7 @@ Parsed CLI commands.
 
 #### Defined in
 
-[src/interfaces/parsed_input.ts:36](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/parsed_input.ts#L36)
+[src/interfaces/parsed_input.ts:35](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/parsed_input.ts#L35)
 
 ---
 
@@ -49,16 +49,16 @@ Parser, argument filter, and option filter errors.
 
 #### Defined in
 
-[src/interfaces/parsed_input.ts:48](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/parsed_input.ts#L48)
+[src/interfaces/parsed_input.ts:47](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/parsed_input.ts#L47)
 
 ---
 
 ### opts
 
-• **opts**: [`OptMap`](../modules/interfaces_parsed_input.md#optmap)
+• **opts**: [`OptMap`](../classes/classes_opt_map.OptMap.md)
 
 Parsed CLI options.
 
 #### Defined in
 
-[src/interfaces/parsed_input.ts:40](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/parsed_input.ts#L40)
+[src/interfaces/parsed_input.ts:39](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/parsed_input.ts#L39)

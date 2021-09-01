@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
+[getopts - v3.1.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptSchema
 
 # Interface: OptSchema
 
@@ -23,7 +23,7 @@ Configuration object of the CLI option (if applicable).
 
 #### Defined in
 
-[src/interfaces/schema.ts:68](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/schema.ts#L68)
+[src/interfaces/schema.ts:68](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/schema.ts#L68)
 
 ---
 
@@ -42,4 +42,4 @@ Examples:
 
 #### Defined in
 
-[src/interfaces/schema.ts:64](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/schema.ts#L64)
+[src/interfaces/schema.ts:64](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/schema.ts#L64)

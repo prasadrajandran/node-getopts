@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / ParserError
+[getopts - v3.1.0](../README.md) / [classes/errors](../modules/classes_errors.md) / ParserError
 
 # Class: ParserError
 
@@ -81,7 +81,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/errors.ts:17](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L17)
+[src/classes/errors.ts:16](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L16)
 
 ---
 
@@ -109,7 +109,7 @@ Error.name
 
 #### Defined in
 
-[src/classes/errors.ts:13](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L13)
+[src/classes/errors.ts:12](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L12)
 
 ---
 
