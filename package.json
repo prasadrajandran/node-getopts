@@ -1,6 +1,6 @@
 {
   "name": "@prasadrajandran/getopts",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "POSIX/GNU compliant CLI argument parser",
   "keywords": [
     "command",
