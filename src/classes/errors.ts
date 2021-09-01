@@ -1,5 +1,4 @@
-import { CmdName } from '../interfaces/parsed_schema';
-import { OptLongName, OptName } from '../interfaces/parsed_input';
+import { CmdName, OptLongName, OptName } from '../interfaces/parsed_input';
 import { ArgFilter, OptArgFilter } from '../interfaces/schema';
 
 /**

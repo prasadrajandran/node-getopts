@@ -10,10 +10,16 @@ import {
   DEFAULT_VERSION_OPT_HOOK_EXIT_CODE,
   DEFAULT_PARSER_ERROR_HOOK_EXIT_CODE,
 } from './interfaces/config';
-import { ParsedInput, OptMap } from './interfaces/parsed_input';
+import {
+  ParsedInput,
+  CmdName,
+  OptName,
+  OptLongName,
+} from './interfaces/parsed_input';
 import { parseSchema } from './parse_schema';
 import { parseOpt } from './parse_opt';
 import { parseLongOpt } from './parse_long_opt';
+import { OptMap } from './classes/opt_map';
 import {
   ParserError,
   ArgFilterError,
@@ -79,11 +85,11 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
 
   // Keep track of unknown opts so that only unique instances of
   // "UnknownOptError" are generated.
-  const unknownOpts: Set<string> = new Set();
+  const unknownOpts: Set<OptName | OptLongName> = new Set();
 
   const errors: ParserError[] = [];
-  const cmds: string[] = [];
-  const opts: OptMap = new Map();
+  const cmds: CmdName[] = [];
+  const opts = new OptMap();
   const args: unknown[] = [];
 
   let parsedOptSchemaMap = parsedSchema.opts;
@@ -106,7 +112,7 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
 
     // (2) OPTIONS
     if (stillAcceptingOpts && OPT_REGEX.test(token)) {
-      const { valid, nextArgConsumed } = parseOpt(
+      const { valid, nextTokenConsumed } = parseOpt(
         parsedOptSchemaMap,
         errors,
         opts,
@@ -114,7 +120,7 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
         token,
         tokens[i + 1],
       );
-      if (valid && nextArgConsumed) {
+      if (valid && nextTokenConsumed) {
         i++;
       }
       if (valid) {
@@ -218,9 +224,9 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
       }
     };
 
-    if (cfg.hooks.helpOpt && helpOpt.some((n) => opts.has(n))) {
+    if (cfg.hooks.helpOpt && opts.has(helpOpt)) {
       runHook(cfg.hooks.helpOpt, DEFAULT_HELP_OPT_HOOK_EXIT_CODE);
-    } else if (cfg.hooks.versionOpt && versionOpt.some((n) => opts.has(n))) {
+    } else if (cfg.hooks.versionOpt && opts.has(versionOpt)) {
       runHook(cfg.hooks.versionOpt, DEFAULT_VERSION_OPT_HOOK_EXIT_CODE);
     } else if (cfg.hooks.parserErrors && errors.length) {
       runHook(cfg.hooks.parserErrors, DEFAULT_PARSER_ERROR_HOOK_EXIT_CODE);
