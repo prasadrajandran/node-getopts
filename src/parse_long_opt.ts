@@ -1,5 +1,5 @@
-import { OptMap } from './interfaces/parsed_input';
 import { ParsedOptSchemaMap } from './interfaces/parsed_schema';
+import { OptMap } from './classes/opt_map';
 import {
   ParserError,
   DuplicateOptError,

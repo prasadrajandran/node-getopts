@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / [interfaces/config](../modules/interfaces_config.md) / ParserErrorsHook
+[getopts - v3.1.0](../README.md) / [interfaces/config](../modules/interfaces_config.md) / ParserErrorsHook
 
 # Interface: ParserErrorsHook
 
@@ -22,7 +22,7 @@ stderr.
 
 #### Defined in
 
-[src/interfaces/config.ts:94](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/config.ts#L94)
+[src/interfaces/config.ts:94](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L94)
 
 ---
 
@@ -38,4 +38,4 @@ default is 1.
 
 #### Defined in
 
-[src/interfaces/config.ts:89](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/config.ts#L89)
+[src/interfaces/config.ts:89](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L89)

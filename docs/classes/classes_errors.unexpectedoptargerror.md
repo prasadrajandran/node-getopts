@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / UnexpectedOptArgError
+[getopts - v3.1.0](../README.md) / [classes/errors](../modules/classes_errors.md) / UnexpectedOptArgError
 
 # Class: UnexpectedOptArgError
 
@@ -50,7 +50,7 @@ Unexpected CLI option argument error.
 
 #### Defined in
 
-[src/classes/errors.ts:70](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L70)
+[src/classes/errors.ts:69](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L69)
 
 ## Properties
 
@@ -66,7 +66,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/errors.ts:17](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L17)
+[src/classes/errors.ts:16](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L16)
 
 ---
 
@@ -94,7 +94,7 @@ node_modules/typescript/lib/lib.es5.d.ts:974
 
 #### Defined in
 
-[src/classes/errors.ts:62](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L62)
+[src/classes/errors.ts:61](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L61)
 
 ---
 

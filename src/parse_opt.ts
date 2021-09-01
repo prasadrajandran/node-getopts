@@ -1,6 +1,6 @@
 import { OPT_SCHEMA_REGEX } from './parse_opt_schema';
-import { OptMap } from './interfaces/parsed_input';
 import { ParsedOptSchemaMap } from './interfaces/parsed_schema';
+import { OptMap } from './classes/opt_map';
 import {
   ParserError,
   DuplicateOptError,
@@ -23,8 +23,8 @@ import {
  *     argument is separated by a space).
  * @returns If the option requires an argument and the argument is separated by
  *     a space, then we would have to consume the next token in order to acquire
- *     the value of the argument and if that happens, `nextArgConsumed` will be
- *     set to true.
+ *     the value of the argument and if that happens, `nextTokenConsumed` will
+ *     be set to true.
  *
  * Note: the following parameters are modified directly (i.e. sideffect):
  * - errors
@@ -37,10 +37,10 @@ export const parseOpt = (
   unknownOpts: Set<string>,
   token: string,
   nextToken?: string,
-): { valid: boolean; nextArgConsumed: boolean } => {
-  const parsedOpts: OptMap = new Map([...opts]);
+): { valid: boolean; nextTokenConsumed: boolean } => {
+  const parsedOpts = new Map([...opts]);
   let valid = true;
-  let nextArgConsumed = false;
+  let nextTokenConsumed = false;
 
   for (let i = 1; i < token.length; i++) {
     const optName = `-${token[i]}`;
@@ -89,10 +89,11 @@ export const parseOpt = (
       // Note: We do not check if the next token might be an option or even the
       // `STOP_PROCESSING_OPTS_FLAG` flag because if the option requires an
       // argument, the next item will be treated as the argument no matter what.
-      const optArg = token.slice(i + 1) || (nextToken as string);
+      const optArg = token.slice(i + 1) || nextToken;
 
       if (argRequired && optArg) {
-        nextArgConsumed = !token[i + 1] && Boolean(nextToken);
+        nextTokenConsumed = !token[i + 1];
+
         let validArg = true;
         let filteredArg;
         try {
@@ -110,6 +111,10 @@ export const parseOpt = (
             parsedOpts.set(optName, filteredArg);
           }
         }
+
+        // Since the opt requires an argument, it would have either consumed the
+        // remaining characters or the next token, so we can safely break out
+        // of this loop.
         break;
       } else if (argRequired) {
         errors.push(new OptMissingArgError(optName));
@@ -129,5 +134,5 @@ export const parseOpt = (
     });
   }
 
-  return { valid, nextArgConsumed };
+  return { valid, nextTokenConsumed };
 };

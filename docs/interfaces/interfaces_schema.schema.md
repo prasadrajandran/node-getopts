@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / Schema
+[getopts - v3.1.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / Schema
 
 # Interface: Schema
 
@@ -30,7 +30,7 @@ CLI arguments.
 
 #### Defined in
 
-[src/interfaces/schema.ts:144](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/schema.ts#L144)
+[src/interfaces/schema.ts:144](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/schema.ts#L144)
 
 ---
 
@@ -47,7 +47,7 @@ arguments (this affects what `minArgs` and `maxArgs` do).
 
 #### Defined in
 
-[src/interfaces/schema.ts:140](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/schema.ts#L140)
+[src/interfaces/schema.ts:140](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/schema.ts#L140)
 
 ---
 
@@ -61,4 +61,4 @@ Define all options that the CLI is capable of receiving here.
 
 #### Defined in
 
-[src/interfaces/schema.ts:131](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/interfaces/schema.ts#L131)
+[src/interfaces/schema.ts:131](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/schema.ts#L131)

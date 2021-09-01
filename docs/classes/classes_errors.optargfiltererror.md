@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / OptArgFilterError
+[getopts - v3.1.0](../README.md) / [classes/errors](../modules/classes_errors.md) / OptArgFilterError
 
 # Class: OptArgFilterError
 
@@ -52,7 +52,7 @@ CLI option argument filter error.
 
 #### Defined in
 
-[src/classes/errors.ts:118](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L118)
+[src/classes/errors.ts:117](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L117)
 
 ## Properties
 
@@ -68,7 +68,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/errors.ts:17](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L17)
+[src/classes/errors.ts:16](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L16)
 
 ---
 
@@ -96,7 +96,7 @@ node_modules/typescript/lib/lib.es5.d.ts:974
 
 #### Defined in
 
-[src/classes/errors.ts:107](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L107)
+[src/classes/errors.ts:106](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L106)
 
 ---
 

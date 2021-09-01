@@ -1,4 +1,4 @@
-import { OptName, OptLongName } from './parsed_input';
+import { CmdName, OptName, OptLongName } from './parsed_input';
 import { ArgFilter, OptArgFilter } from './schema';
 
 /**
@@ -41,12 +41,6 @@ export interface ParsedOptSchema {
  * @internal
  */
 export type ParsedOptSchemaMap = Map<OptName | OptLongName, ParsedOptSchema>;
-
-/**
- * CLI command's name.
- * @internal
- */
-export type CmdName = string;
 
 /**
  * Map of a CLI command's name to its parsed schema.

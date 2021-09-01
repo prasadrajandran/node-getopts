@@ -1,4 +1,4 @@
-[getopts - v3.0.0](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
+[getopts - v3.1.0](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
 
 # Class: SchemaError
 
@@ -76,7 +76,7 @@ Error.name
 
 #### Defined in
 
-[src/classes/errors.ts:9](https://github.com/prasadrajandran/node-getopts/blob/43d0c83/src/classes/errors.ts#L9)
+[src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L8)
 
 ---
 

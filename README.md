@@ -105,6 +105,9 @@ if (opts.has('--help')) {
   process.exit(1);
 }
 
+// Note: `opts` is an instance of `OptMap` (see API docs). So the line below
+// could be rewritten like this:
+// `const limit = opts.get(['-l', '--limit'], Infinity)`;
 const limit = opts.get('-l') || opts.get('--limit') || Infinity;
 const filename = args[0];
 // Run utility...
@@ -137,7 +140,9 @@ const cmd = cmds[0];
 
 switch (cmd) {
   case 'up':
-    const verbose = opts.has('-v') || opts.has('--verbose');
+    // Note: `opts` is an instance of `OptMap` (see API docs) so `opts.has()`
+    // can also accept an array of option names.
+    const verbose = opts.has(['-v', '--verbose']);
     // up...
     break;
   case 'down':
