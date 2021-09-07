@@ -3,6 +3,9 @@
 # Fail immediately on error
 set -e
 
+# Change working directory
+cd $(dirname $0)
+
 if [ "$1" == 'test' ]
 then
   echo "[INFO] test mode activated"
