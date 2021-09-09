@@ -84,6 +84,12 @@ export const parseOptSchema = (optSchemas: OptSchema[]): ParsedOptSchemaMap => {
       opts.set(n, parsedOptSchema);
     }
 
+    if (arg?.filter && typeof arg.filter !== 'function') {
+      throw new SchemaError(
+        `${shortName || longName}'s argument filter must be a function`,
+      );
+    }
+
     if (
       parsedOptSchema.argAccepted &&
       !parsedOptSchema.argRequired &&

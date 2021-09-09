@@ -36,6 +36,12 @@ export const parseSchema = (
           `it would automatically be set to 1. Received "${maxArgs}"`,
       );
     }
+
+    if (schema.args?.filter) {
+      throw new SchemaError(
+        `An argument filter has no effect if a command is expected.`,
+      );
+    }
   }
 
   if (minArgs < 0) {
@@ -66,6 +72,16 @@ export const parseSchema = (
       throw new SchemaError(
         `Duplicate option, "${optName}", found in this command sequence`,
       );
+    }
+  }
+
+  if (schema.args?.filter) {
+    if (maxArgs === 0) {
+      throw new SchemaError(
+        'An argument filter has no effect if arguments are not expected',
+      );
+    } else if (typeof schema.args.filter !== 'function') {
+      throw new SchemaError('An argument filter must be a function');
     }
   }
 
