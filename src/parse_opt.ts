@@ -32,7 +32,7 @@ import {
  */
 export const parseOpt = (
   parsedOptSchemaMap: ParsedOptSchemaMap,
-  errors: ParserError[],
+  errors: ParserError<Record<string, unknown>>[],
   opts: OptMap,
   unknownOpts: Set<string>,
   token: string,
@@ -62,7 +62,7 @@ export const parseOpt = (
         !parsedDuplicates.has(optName)
       ) {
         parsedDuplicates.add(optName);
-        errors.push(new DuplicateOptError(optName));
+        errors.push(new DuplicateOptError({ duplicateOpt: optName }));
       }
 
       if (!parsedOptSchema.parsedName) {
@@ -82,7 +82,10 @@ export const parseOpt = (
         !parsedDuplicates.has(optName)
       ) {
         errors.push(
-          new DuplicateAliasOptError(parsedOptSchema.parsedName, optName),
+          new DuplicateAliasOptError({
+            parsedOpt: parsedOptSchema.parsedName,
+            aliasOpt: optName,
+          }),
         );
       }
 
@@ -101,7 +104,12 @@ export const parseOpt = (
         } catch (err) {
           validArg = false;
           errors.push(
-            new OptArgFilterError(optName, optArg, optArgFilter, err),
+            new OptArgFilterError({
+              opt: optName,
+              arg: optArg,
+              optArgFilter,
+              optArgFilterError: err,
+            }),
           );
         }
         if (validArg) {
@@ -117,14 +125,14 @@ export const parseOpt = (
         // of this loop.
         break;
       } else if (argRequired) {
-        errors.push(new OptMissingArgError(optName));
+        errors.push(new OptMissingArgError({ opt: optName }));
       }
     } else if (!OPT_SCHEMA_REGEX.test(optName)) {
       valid = false;
       break;
     } else if (!unknownOpts.has(optName)) {
       unknownOpts.add(optName);
-      errors.push(new UnknownOptError(optName));
+      errors.push(new UnknownOptError({ unknownOpt: optName }));
     }
   }
 

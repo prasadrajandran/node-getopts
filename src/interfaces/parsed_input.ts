@@ -44,5 +44,5 @@ export interface ParsedInput {
   /**
    * Parser, argument filter, and option filter errors.
    */
-  errors: ParserError[];
+  errors: ParserError<Record<string, unknown>>[];
 }
