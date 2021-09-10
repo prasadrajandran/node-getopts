@@ -1,4 +1,4 @@
-[getopts - v3.1.0](../README.md) / [interfaces/config](../modules/interfaces_config.md) / VersionOptHook
+[getopts - v4.0.0](../README.md) / [interfaces/config](../modules/interfaces_config.md) / VersionOptHook
 
 # Interface: VersionOptHook
 
@@ -23,7 +23,7 @@ stdout.
 
 #### Defined in
 
-[src/interfaces/config.ts:78](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L78)
+[src/interfaces/config.ts:78](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L78)
 
 ---
 
@@ -39,7 +39,7 @@ default is 0.
 
 #### Defined in
 
-[src/interfaces/config.ts:73](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L73)
+[src/interfaces/config.ts:73](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L73)
 
 ---
 
@@ -53,4 +53,4 @@ Note: This option must also be defined in the schema.
 
 #### Defined in
 
-[src/interfaces/config.ts:65](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L65)
+[src/interfaces/config.ts:65](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L65)
