@@ -8,7 +8,7 @@ import {
   UnexpectedOptArgError,
   UnknownOptError,
   DuplicateAliasOptError,
-} from './classes/errors';
+} from './classes/parser_errors';
 
 /**
  * Parses a long option.
@@ -26,7 +26,7 @@ import {
  */
 export const parseLongOpt = (
   parsedOptSchemaMap: ParsedOptSchemaMap,
-  errors: ParserError[],
+  errors: ParserError<Record<string, unknown>>[],
   opts: OptMap,
   unknownOpts: Set<string>,
   token: string,
@@ -51,7 +51,7 @@ export const parseLongOpt = (
       !parsedDuplicates.has(optName)
     ) {
       parsedDuplicates.add(optName);
-      errors.push(new DuplicateOptError(optName));
+      errors.push(new DuplicateOptError({ duplicateOpt: optName }));
     }
 
     if (!parsedOptSchema.parsedName) {
@@ -71,7 +71,10 @@ export const parseLongOpt = (
       !parsedDuplicates.has(optName)
     ) {
       errors.push(
-        new DuplicateAliasOptError(parsedOptSchema.parsedName, optName),
+        new DuplicateAliasOptError({
+          parsedOpt: parsedOptSchema.parsedName,
+          aliasOpt: optName,
+        }),
       );
     }
 
@@ -82,7 +85,14 @@ export const parseLongOpt = (
         filteredArg = optArgFilter(optArg);
       } catch (err) {
         validArg = false;
-        errors.push(new OptArgFilterError(optName, optArg, optArgFilter, err));
+        errors.push(
+          new OptArgFilterError({
+            opt: optName,
+            arg: optArg,
+            optArgFilter,
+            optArgFilterError: err,
+          }),
+        );
       }
       if (validArg) {
         if (supportsMultipleArgs) {
@@ -92,12 +102,12 @@ export const parseLongOpt = (
         }
       }
     } else if (!argAccepted && optArg) {
-      errors.push(new UnexpectedOptArgError(optName, optArg));
+      errors.push(new UnexpectedOptArgError({ opt: optName, arg: optArg }));
     } else if (argRequired && !optArg) {
-      errors.push(new OptMissingArgError(optName));
+      errors.push(new OptMissingArgError({ opt: optName }));
     }
   } else if (!unknownOpts.has(optName)) {
     unknownOpts.add(optName);
-    errors.push(new UnknownOptError(optName));
+    errors.push(new UnknownOptError({ unknownOpt: optName }));
   }
 };

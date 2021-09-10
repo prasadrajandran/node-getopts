@@ -1,8 +1,8 @@
-[getopts - v3.1.0](../README.md) / [classes/errors](../modules/classes_errors.md) / SchemaError
+[getopts - v4.0.0](../README.md) / [classes/schema_error](../modules/classes_schema_error.md) / SchemaError
 
 # Class: SchemaError
 
-[classes/errors](../modules/classes_errors.md).SchemaError
+[classes/schema_error](../modules/classes_schema_error.md).SchemaError
 
 **`internal`**
 
@@ -16,19 +16,19 @@
 
 ### Constructors
 
-- [constructor](classes_errors.SchemaError.md#constructor)
+- [constructor](classes_schema_error.SchemaError.md#constructor)
 
 ### Properties
 
-- [message](classes_errors.SchemaError.md#message)
-- [name](classes_errors.SchemaError.md#name)
-- [stack](classes_errors.SchemaError.md#stack)
-- [prepareStackTrace](classes_errors.SchemaError.md#preparestacktrace)
-- [stackTraceLimit](classes_errors.SchemaError.md#stacktracelimit)
+- [message](classes_schema_error.SchemaError.md#message)
+- [name](classes_schema_error.SchemaError.md#name)
+- [stack](classes_schema_error.SchemaError.md#stack)
+- [prepareStackTrace](classes_schema_error.SchemaError.md#preparestacktrace)
+- [stackTraceLimit](classes_schema_error.SchemaError.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](classes_errors.SchemaError.md#capturestacktrace)
+- [captureStackTrace](classes_schema_error.SchemaError.md#capturestacktrace)
 
 ## Constructors
 
@@ -36,19 +36,21 @@
 
 • **new SchemaError**(`message?`)
 
+Schema Error.
+
 #### Parameters
 
-| Name       | Type     |
-| :--------- | :------- |
-| `message?` | `string` |
+| Name       | Type     | Description           |
+| :--------- | :------- | :-------------------- |
+| `message?` | `string` | Schema error message. |
 
-#### Inherited from
+#### Overrides
 
 Error.constructor
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:979
+[src/classes/schema_error.ts:10](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/schema_error.ts#L10)
 
 ## Properties
 
@@ -76,7 +78,7 @@ Error.name
 
 #### Defined in
 
-[src/classes/errors.ts:8](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/errors.ts#L8)
+[src/classes/schema_error.ts:5](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/schema_error.ts#L5)
 
 ---
 

@@ -1,4 +1,4 @@
-[getopts - v3.1.0](../README.md) / [interfaces/config](../modules/interfaces_config.md) / Config
+[getopts - v4.0.0](../README.md) / [interfaces/config](../modules/interfaces_config.md) / Config
 
 # Interface: Config
 
@@ -28,7 +28,7 @@ Accepts a string or an array of strings. E.g.:
 
 #### Defined in
 
-[src/interfaces/config.ts:126](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L126)
+[src/interfaces/config.ts:126](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L126)
 
 ---
 
@@ -46,4 +46,4 @@ both (1) and (2) are activated, only (1) will run.
 
 #### Defined in
 
-[src/interfaces/config.ts:136](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L136)
+[src/interfaces/config.ts:136](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L136)

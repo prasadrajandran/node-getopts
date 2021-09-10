@@ -27,7 +27,7 @@ import {
   InsufficientArgsError,
   ExcessArgsError,
   UnknownCmdError,
-} from './classes/errors';
+} from './classes/parser_errors';
 
 /**
  * Starting index of command line arguments in `process.argv`.
@@ -87,7 +87,7 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
   // "UnknownOptError" are generated.
   const unknownOpts: Set<OptName | OptLongName> = new Set();
 
-  const errors: ParserError[] = [];
+  const errors: ParserError<Record<string, unknown>>[] = [];
   const cmds: CmdName[] = [];
   const opts = new OptMap();
   const args: unknown[] = [];
@@ -139,7 +139,9 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
       const parsedCmdSchema = parsedCmdSchemaMap.get(token);
       if (!parsedCmdSchema) {
         const cmds = Array.from(parsedCmdSchemaMap.keys());
-        errors.push(new UnknownCmdError(token, cmds));
+        errors.push(
+          new UnknownCmdError({ unknownCmd: token, expectedCmds: cmds }),
+        );
         unknownCmdReceived = true;
         break;
       }
@@ -170,7 +172,9 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
         filteredArg = argFilter(token, argPos);
       } catch (err) {
         validArg = false;
-        errors.push(new ArgFilterError(token, argFilter, err));
+        errors.push(
+          new ArgFilterError({ arg: token, argFilter, argFilterError: err }),
+        );
       }
       if (validArg) {
         args.push(filteredArg);
@@ -186,7 +190,13 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
     // Note: The use of `splice` is intentional as we want to remove the
     // extra arguments from `args`.
     const excessArgs = args.splice(maxArgs, Infinity) as string[];
-    errors.push(new ExcessArgsError(excessArgs, numArgsReceived, maxArgs));
+    errors.push(
+      new ExcessArgsError({
+        excessArgs,
+        numArgsReceived,
+        maxArgsExpected: maxArgs,
+      }),
+    );
   }
 
   // Add "insufficient arguments error" or "command expected error" if
@@ -194,9 +204,14 @@ export const parse = (schema?: Schema, config?: Config): ParsedInput => {
   if (!unknownCmdReceived && argPos < minArgs) {
     if (expectsCmd) {
       const cmds = Array.from(parsedCmdSchemaMap.keys());
-      errors.push(new CmdExpectedError(cmds));
+      errors.push(new CmdExpectedError({ expectedCmds: cmds }));
     } else {
-      errors.push(new InsufficientArgsError(args.length, minArgs));
+      errors.push(
+        new InsufficientArgsError({
+          numArgsReceived: args.length,
+          minArgsExpected: minArgs,
+        }),
+      );
     }
   }
 

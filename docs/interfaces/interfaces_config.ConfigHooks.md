@@ -1,4 +1,4 @@
-[getopts - v3.1.0](../README.md) / [interfaces/config](../modules/interfaces_config.md) / ConfigHooks
+[getopts - v4.0.0](../README.md) / [interfaces/config](../modules/interfaces_config.md) / ConfigHooks
 
 # Interface: ConfigHooks
 
@@ -24,7 +24,7 @@ Hook for the "help" option.
 
 #### Defined in
 
-[src/interfaces/config.ts:104](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L104)
+[src/interfaces/config.ts:104](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L104)
 
 ---
 
@@ -36,7 +36,7 @@ Hook for parser errors.
 
 #### Defined in
 
-[src/interfaces/config.ts:112](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L112)
+[src/interfaces/config.ts:112](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L112)
 
 ---
 
@@ -48,4 +48,4 @@ Hook for the "version" option.
 
 #### Defined in
 
-[src/interfaces/config.ts:108](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/config.ts#L108)
+[src/interfaces/config.ts:108](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L108)

@@ -1,4 +1,4 @@
-[getopts - v3.1.0](../README.md) / [classes/opt_map](../modules/classes_opt_map.md) / OptMap
+[getopts - v4.0.0](../README.md) / [classes/opt_map](../modules/classes_opt_map.md) / OptMap
 
 # Class: OptMap
 
@@ -81,7 +81,7 @@ node_modules/typescript/lib/lib.es2015.iterable.d.ts:160
 
 #### Inherited from
 
-Map.\_\_@toStringTag@46
+Map.\_\_@toStringTag@131
 
 #### Defined in
 
@@ -109,7 +109,7 @@ node_modules/typescript/lib/lib.es2015.collection.d.ts:28
 
 #### Inherited from
 
-Map.\_\_@species@30
+Map.\_\_@species@122
 
 #### Defined in
 
@@ -129,7 +129,7 @@ Returns an iterable of entries in the map.
 
 #### Inherited from
 
-Map.\_\_@iterator@44
+Map.\_\_@iterator@99
 
 #### Defined in
 
@@ -253,7 +253,7 @@ Map.get
 
 #### Defined in
 
-[src/classes/opt_map.ts:20](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/opt_map.ts#L20)
+[src/classes/opt_map.ts:20](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/opt_map.ts#L20)
 
 ---
 
@@ -279,7 +279,7 @@ Map.has
 
 #### Defined in
 
-[src/classes/opt_map.ts:39](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/classes/opt_map.ts#L39)
+[src/classes/opt_map.ts:39](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/opt_map.ts#L39)
 
 ---
 

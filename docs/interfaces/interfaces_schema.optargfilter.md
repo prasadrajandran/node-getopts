@@ -1,4 +1,4 @@
-[getopts - v3.1.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
+[getopts - v4.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgFilter
 
 # Interface: OptArgFilter
 
@@ -26,4 +26,4 @@ Callback function to filter a CLI option's argument.
 
 #### Defined in
 
-[src/interfaces/schema.ts:22](https://github.com/prasadrajandran/node-getopts/blob/ff39d95/src/interfaces/schema.ts#L22)
+[src/interfaces/schema.ts:22](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L22)

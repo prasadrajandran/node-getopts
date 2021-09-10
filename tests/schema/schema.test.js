@@ -67,6 +67,25 @@ describe('schema', () => {
       expect(() => parseSchema({ cmds, args: { max } })).toThrowError();
     });
   });
+
+  test('an argument filter must be a function', () => {
+    expect(() =>
+      parseSchema({ args: { filter: () => {} } }),
+    ).not.toThrowError();
+    expect(() => parseSchema({ args: { filter: 'a' } })).toThrowError();
+  });
+
+  test('an argument filter serves no purpose if arguments are not accepted', () => {
+    expect(() =>
+      parseSchema({ args: { max: 0, filter: () => {} } }),
+    ).toThrowError();
+  });
+
+  test('an argument filter serves no purpose if commands are expected', () => {
+    expect(() =>
+      parseSchema({ cmds: [{ name: '-a' }], args: { filter: () => {} } }),
+    ).toThrowError();
+  });
 });
 
 describe('schema - opts', () => {
@@ -154,6 +173,20 @@ describe('schema - opts', () => {
         opts: [{ name: '--a', arg: { required: 'something' } }],
       }),
     ).toThrowError();
+  });
+
+  test(`option's argument filter must be a function`, () => {
+    expect(() => {
+      parseSchema({
+        opts: [{ name: '-a', arg: { required: true, filter: () => {} } }],
+      });
+    }).not.toThrowError();
+
+    expect(() => {
+      parseSchema({
+        opts: [{ name: '-a', arg: { required: true, filter: 1 } }],
+      });
+    }).toThrowError();
   });
 
   test('option and long option can have the same name', () => {

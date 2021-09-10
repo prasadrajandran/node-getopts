@@ -3,6 +3,9 @@
 # Fail immediately on error
 set -e
 
+# Change working directory
+cd $(dirname $0)
+
 if [ "$1" == 'test' ]
 then
   echo "[INFO] test mode activated"
@@ -50,6 +53,11 @@ echo "9. run prettier..."
 npm run prettier-fix
 
 echo "10. testing..."
+echo "testing when NODE_ENV=production"
+export NODE_ENV=production
+npm test
+echo "testing when NODE_ENV=development"
+export NODE_ENV=development
 npm test
 
 if [ "$1" != 'test' ]
