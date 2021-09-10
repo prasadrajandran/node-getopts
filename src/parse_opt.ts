@@ -8,7 +8,7 @@ import {
   OptMissingArgError,
   UnknownOptError,
   DuplicateAliasOptError,
-} from './classes/errors';
+} from './classes/parser_errors';
 
 /**
  * Parse an option.

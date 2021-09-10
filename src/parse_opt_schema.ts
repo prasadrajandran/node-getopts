@@ -3,7 +3,7 @@ import {
   ParsedOptSchemaMap,
   ParsedOptSchema,
 } from './interfaces/parsed_schema';
-import { SchemaError } from './classes/errors';
+import { SchemaError } from './classes/schema_error';
 
 /**
  * A option can only be made out of alphanumeric characters.

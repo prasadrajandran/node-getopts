@@ -4,7 +4,7 @@ const {
   DuplicateOptError,
   OptArgFilterError,
   DuplicateAliasOptError,
-} = require('../../../dist/classes/errors');
+} = require('../../../dist/classes/parser_errors');
 
 const schemaWithCmd = {
   opts: [

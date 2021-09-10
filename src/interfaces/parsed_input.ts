@@ -1,4 +1,4 @@
-import { ParserError } from '../classes/errors';
+import { ParserError } from '../classes/parser_errors';
 import { OptMap } from '../classes/opt_map';
 
 /**

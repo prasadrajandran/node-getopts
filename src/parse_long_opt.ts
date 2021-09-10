@@ -8,7 +8,7 @@ import {
   UnexpectedOptArgError,
   UnknownOptError,
   DuplicateAliasOptError,
-} from './classes/errors';
+} from './classes/parser_errors';
 
 /**
  * Parses a long option.

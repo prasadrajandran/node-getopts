@@ -2,7 +2,7 @@ const {
   ArgFilterError,
   ExcessArgsError,
   InsufficientArgsError,
-} = require('../../../dist/classes/errors');
+} = require('../../../dist/classes/parser_errors');
 
 const schema = {
   args: {

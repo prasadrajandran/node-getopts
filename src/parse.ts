@@ -27,7 +27,7 @@ import {
   InsufficientArgsError,
   ExcessArgsError,
   UnknownCmdError,
-} from './classes/errors';
+} from './classes/parser_errors';
 
 /**
  * Starting index of command line arguments in `process.argv`.

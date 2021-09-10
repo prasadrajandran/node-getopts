@@ -4,7 +4,7 @@ import {
   ParsedCmdSchemaMap,
 } from './interfaces/parsed_schema';
 import { parseSchema } from './parse_schema';
-import { SchemaError } from './classes/errors';
+import { SchemaError } from './classes/schema_error';
 
 const CMD_SCHEMA_REGEX = /^[a-zA-Z\d][a-zA-Z\d-]*$/;
 

@@ -2,7 +2,7 @@ import { Schema } from './interfaces/schema';
 import { ParsedSchema, ParsedOptSchemaMap } from './interfaces/parsed_schema';
 import { parseCmdSchema } from './parse_cmd_schema';
 import { parseOptSchema } from './parse_opt_schema';
-import { SchemaError } from './classes/errors';
+import { SchemaError } from './classes/schema_error';
 
 /**
  * Parse a schema.
