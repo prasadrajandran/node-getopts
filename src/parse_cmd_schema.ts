@@ -26,15 +26,25 @@ export const parseCmdSchema = (
     const parsedSchema = parseSchema(schema, alreadyDefinedOpts);
     for (const n of ([] as string[]).concat(name)) {
       if (!n.length) {
-        throw new SchemaError('Command name cannot be empty');
+        throw new SchemaError(
+          process.env.NODE_ENV !== 'production'
+            ? 'Command name cannot be empty'
+            : '',
+        );
       }
       if (cmds.has(n)) {
-        throw new SchemaError(`"${n}" is a duplicate command`);
+        throw new SchemaError(
+          process.env.NODE_ENV !== 'production'
+            ? `"${n}" is a duplicate command`
+            : '',
+        );
       }
       if (!CMD_SCHEMA_REGEX.test(n)) {
         throw new SchemaError(
-          `"${n}" is not a valid name for a command. ` +
-            `Valid characters are "${CMD_SCHEMA_REGEX}"`,
+          process.env.NODE_ENV !== 'production'
+            ? `"${n}" is not a valid name for a command. ` +
+              `Valid characters are "${CMD_SCHEMA_REGEX}"`
+            : '',
         );
       }
       cmds.set(n, parsedSchema);

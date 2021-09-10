@@ -27,6 +27,7 @@
   },
   "license": "MIT",
   "author": "Prasad Rajandran",
+  "sideEffects": false,
   "main": "./dist/index.js",
   "files": [
     "dist/"
