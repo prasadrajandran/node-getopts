@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / parse
+[getopts - v4.0.1](../README.md) / parse
 
 # Module: parse
 
@@ -29,4 +29,4 @@ Parse CLI arguments.
 
 #### Defined in
 
-[src/parse.ts:74](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/parse.ts#L74)
+[src/parse.ts:74](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/parse.ts#L74)

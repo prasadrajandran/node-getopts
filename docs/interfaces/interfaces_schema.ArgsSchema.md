@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgsSchema
+[getopts - v4.0.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / ArgsSchema
 
 # Interface: ArgsSchema
 
@@ -34,7 +34,7 @@ Notes:
 
 #### Defined in
 
-[src/interfaces/schema.ts:108](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L108)
+[src/interfaces/schema.ts:108](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/schema.ts#L108)
 
 ---
 
@@ -55,7 +55,7 @@ If the CLI expects commands (i.e. `cmds` is defined):
 
 #### Defined in
 
-[src/interfaces/schema.ts:94](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L94)
+[src/interfaces/schema.ts:94](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/schema.ts#L94)
 
 ---
 
@@ -77,4 +77,4 @@ If the CLI expects commands (i.e. `cmds` is defined):
 
 #### Defined in
 
-[src/interfaces/schema.ts:83](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L83)
+[src/interfaces/schema.ts:83](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/schema.ts#L83)

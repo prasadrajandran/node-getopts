@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [classes/parser_errors](../modules/classes_parser_errors.md) / ParserError
+[getopts - v4.0.1](../README.md) / [classes/parser_errors](../modules/classes_parser_errors.md) / ParserError
 
 # Class: ParserError<T\>
 
@@ -86,7 +86,7 @@ Error.constructor
 
 #### Defined in
 
-[src/classes/parser_errors.ts:30](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/parser_errors.ts#L30)
+[src/classes/parser_errors.ts:30](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/classes/parser_errors.ts#L30)
 
 ## Properties
 
@@ -98,7 +98,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/parser_errors.ts:23](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/parser_errors.ts#L23)
+[src/classes/parser_errors.ts:23](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/classes/parser_errors.ts#L23)
 
 ---
 
@@ -112,7 +112,7 @@ Error.message
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:974
+node_modules/typescript/lib/lib.es5.d.ts:1023
 
 ---
 
@@ -126,7 +126,7 @@ Error.name
 
 #### Defined in
 
-[src/classes/parser_errors.ts:19](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/parser_errors.ts#L19)
+[src/classes/parser_errors.ts:19](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/classes/parser_errors.ts#L19)
 
 ---
 
@@ -140,7 +140,7 @@ Error.stack
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:975
+node_modules/typescript/lib/lib.es5.d.ts:1024
 
 ---
 
@@ -153,6 +153,8 @@ node_modules/typescript/lib/lib.es5.d.ts:975
 ▸ (`err`, `stackTraces`): `any`
 
 Optional override for formatting stack traces
+
+**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 ##### Parameters
 

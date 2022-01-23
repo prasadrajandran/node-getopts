@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
+[getopts - v4.0.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / CmdSchema
 
 # Interface: CmdSchema
 
@@ -35,7 +35,7 @@ CLI arguments.
 
 #### Defined in
 
-[src/interfaces/schema.ts:144](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L144)
+[src/interfaces/schema.ts:144](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/schema.ts#L144)
 
 ---
 
@@ -56,7 +56,7 @@ arguments (this affects what `minArgs` and `maxArgs` do).
 
 #### Defined in
 
-[src/interfaces/schema.ts:140](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L140)
+[src/interfaces/schema.ts:140](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/schema.ts#L140)
 
 ---
 
@@ -68,7 +68,7 @@ Name of the CLI command. Also accepts an array of names.
 
 #### Defined in
 
-[src/interfaces/schema.ts:119](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L119)
+[src/interfaces/schema.ts:119](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/schema.ts#L119)
 
 ---
 
@@ -86,4 +86,4 @@ Define all options that the CLI is capable of receiving here.
 
 #### Defined in
 
-[src/interfaces/schema.ts:131](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L131)
+[src/interfaces/schema.ts:131](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/schema.ts#L131)

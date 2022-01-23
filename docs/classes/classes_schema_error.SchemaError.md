@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [classes/schema_error](../modules/classes_schema_error.md) / SchemaError
+[getopts - v4.0.1](../README.md) / [classes/schema_error](../modules/classes_schema_error.md) / SchemaError
 
 # Class: SchemaError
 
@@ -50,7 +50,7 @@ Error.constructor
 
 #### Defined in
 
-[src/classes/schema_error.ts:10](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/schema_error.ts#L10)
+[src/classes/schema_error.ts:10](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/classes/schema_error.ts#L10)
 
 ## Properties
 
@@ -64,7 +64,7 @@ Error.message
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:974
+node_modules/typescript/lib/lib.es5.d.ts:1023
 
 ---
 
@@ -78,7 +78,7 @@ Error.name
 
 #### Defined in
 
-[src/classes/schema_error.ts:5](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/schema_error.ts#L5)
+[src/classes/schema_error.ts:5](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/classes/schema_error.ts#L5)
 
 ---
 
@@ -92,7 +92,7 @@ Error.stack
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:975
+node_modules/typescript/lib/lib.es5.d.ts:1024
 
 ---
 
@@ -105,6 +105,8 @@ node_modules/typescript/lib/lib.es5.d.ts:975
 ▸ (`err`, `stackTraces`): `any`
 
 Optional override for formatting stack traces
+
+**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 ##### Parameters
 

@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/config](../modules/interfaces_config.md) / HelpOptHook
+[getopts - v4.0.1](../README.md) / [interfaces/config](../modules/interfaces_config.md) / HelpOptHook
 
 # Interface: HelpOptHook
 
@@ -23,7 +23,7 @@ stdout.
 
 #### Defined in
 
-[src/interfaces/config.ts:56](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L56)
+[src/interfaces/config.ts:56](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/config.ts#L56)
 
 ---
 
@@ -39,7 +39,7 @@ default is 0.
 
 #### Defined in
 
-[src/interfaces/config.ts:51](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L51)
+[src/interfaces/config.ts:51](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/config.ts#L51)
 
 ---
 
@@ -53,4 +53,4 @@ Note: This option must also be defined in the schema.
 
 #### Defined in
 
-[src/interfaces/config.ts:43](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/config.ts#L43)
+[src/interfaces/config.ts:43](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/config.ts#L43)

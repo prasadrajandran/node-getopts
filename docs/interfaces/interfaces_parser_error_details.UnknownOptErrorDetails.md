@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / UnknownOptErrorDetails
+[getopts - v4.0.1](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / UnknownOptErrorDetails
 
 # Interface: UnknownOptErrorDetails
 
@@ -28,4 +28,4 @@ Name of the unknown CLI option.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:11](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L11)
+[src/interfaces/parser_error_details.ts:11](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L11)

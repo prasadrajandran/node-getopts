@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [classes/parser_errors](../modules/classes_parser_errors.md) / ArgFilterError
+[getopts - v4.0.1](../README.md) / [classes/parser_errors](../modules/classes_parser_errors.md) / ArgFilterError
 
 # Class: ArgFilterError
 
@@ -49,7 +49,7 @@ Construct a new parser error.
 
 #### Defined in
 
-[src/classes/parser_errors.ts:66](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/parser_errors.ts#L66)
+[src/classes/parser_errors.ts:66](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/classes/parser_errors.ts#L66)
 
 ## Properties
 
@@ -65,7 +65,7 @@ Additional error data.
 
 #### Defined in
 
-[src/classes/parser_errors.ts:23](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/parser_errors.ts#L23)
+[src/classes/parser_errors.ts:23](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/classes/parser_errors.ts#L23)
 
 ---
 
@@ -79,7 +79,7 @@ Additional error data.
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:974
+node_modules/typescript/lib/lib.es5.d.ts:1023
 
 ---
 
@@ -93,7 +93,7 @@ node_modules/typescript/lib/lib.es5.d.ts:974
 
 #### Defined in
 
-[src/classes/parser_errors.ts:65](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/parser_errors.ts#L65)
+[src/classes/parser_errors.ts:65](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/classes/parser_errors.ts#L65)
 
 ---
 
@@ -107,7 +107,7 @@ node_modules/typescript/lib/lib.es5.d.ts:974
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:975
+node_modules/typescript/lib/lib.es5.d.ts:1024
 
 ---
 
@@ -120,6 +120,8 @@ node_modules/typescript/lib/lib.es5.d.ts:975
 ▸ (`err`, `stackTraces`): `any`
 
 Optional override for formatting stack traces
+
+**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 ##### Parameters
 

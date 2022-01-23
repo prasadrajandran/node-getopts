@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / DuplicateOptErrorDetails
+[getopts - v4.0.1](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / DuplicateOptErrorDetails
 
 # Interface: DuplicateOptErrorDetails
 
@@ -28,4 +28,4 @@ The duplicate option.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:142](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L142)
+[src/interfaces/parser_error_details.ts:142](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L142)

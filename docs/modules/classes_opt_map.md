@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / classes/opt_map
+[getopts - v4.0.1](../README.md) / classes/opt_map
 
 # Module: classes/opt_map
 

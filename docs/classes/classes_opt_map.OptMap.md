@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [classes/opt_map](../modules/classes_opt_map.md) / OptMap
+[getopts - v4.0.1](../README.md) / [classes/opt_map](../modules/classes_opt_map.md) / OptMap
 
 # Class: OptMap
 
@@ -253,7 +253,7 @@ Map.get
 
 #### Defined in
 
-[src/classes/opt_map.ts:20](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/opt_map.ts#L20)
+[src/classes/opt_map.ts:20](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/classes/opt_map.ts#L20)
 
 ---
 
@@ -279,7 +279,7 @@ Map.has
 
 #### Defined in
 
-[src/classes/opt_map.ts:39](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/classes/opt_map.ts#L39)
+[src/classes/opt_map.ts:39](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/classes/opt_map.ts#L39)
 
 ---
 

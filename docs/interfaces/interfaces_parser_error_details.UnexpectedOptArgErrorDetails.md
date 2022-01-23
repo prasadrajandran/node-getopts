@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / UnexpectedOptArgErrorDetails
+[getopts - v4.0.1](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / UnexpectedOptArgErrorDetails
 
 # Interface: UnexpectedOptArgErrorDetails
 
@@ -30,7 +30,7 @@ provided.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:50](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L50)
+[src/interfaces/parser_error_details.ts:50](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L50)
 
 ---
 
@@ -42,4 +42,4 @@ Option that received the unexpected argument.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:45](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L45)
+[src/interfaces/parser_error_details.ts:45](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L45)
