@@ -2,7 +2,11 @@
   "name": "getopts",
   "readme": "none",
   "includeVersion": true,
+  "plugin": "typedoc-plugin-markdown",
   "entryPoints": ["./src/"],
+  "entryPointStrategy": "expand",
   "out": "docs",
-  "exclude": ["./src/+(parse_*|index).ts", "./src/interfaces/parsed_schema.ts"]
+  "cleanOutputDir": true,
+  "exclude": ["./src/+(parse_*|index).ts", "./src/interfaces/parsed_schema.ts"],
+  "githubPages": false
 }

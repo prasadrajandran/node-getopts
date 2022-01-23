@@ -20,39 +20,31 @@ npx sort-package-json
 echo "3. cleaning dist dir..."
 rm -rf dist
 
-if [ "$1" != 'test' ]
-then
-  echo "4. cleaning docs dir..."
-  rm -rf docs
-else
-  echo "[SKIPPED] 4. cleaning docs dir..."
-fi
-
-echo "5. building..."
+echo "4. building..."
 npm run build
 
-echo "6. stripping comments from dist JS files..."
+echo "5. stripping comments from dist JS files..."
 shopt -s globstar # enable recursive globbing
 npx stripcomments ./dist/**/*.js --write --confirm-overwrite
 
 if [ "$1" != 'test' ]
 then
-  echo "7. building docs..."
+  echo "6. building docs..."
   npm run build-docs
   # Remove the first two lines from README file. The title is duplicated for
   # some reason.
   tail -n +3 ./docs/README.md > ./docs/temp && mv ./docs/temp ./docs/README.md
 else
-  echo "[SKIPPED] 7. building docs..."
+  echo "[SKIPPED] 6. building docs..."
 fi
 
-echo "8. linting..."
+echo "7. linting..."
 npm run lint
 
-echo "9. run prettier..."
+echo "8. run prettier..."
 npm run prettier-fix
 
-echo "10. testing..."
+echo "9. testing..."
 echo "testing when NODE_ENV=production"
 export NODE_ENV=production
 npm test
@@ -62,10 +54,10 @@ npm test
 
 if [ "$1" != 'test' ]
 then 
-  echo "11. check for outdated dependencies..."
+  echo "10. check for outdated dependencies..."
   npm outdated
 else
-  echo "[SKIPPED] 11. check for outdated dependencies..."
+  echo "[SKIPPED] 10. check for outdated dependencies..."
 fi
 
 if [ "$1" != 'test' ]
