@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / interfaces/parsed_input
+[getopts - v4.0.1](../README.md) / interfaces/parsed_input
 
 # Module: interfaces/parsed_input
 
@@ -27,7 +27,7 @@ CLI command name.
 
 #### Defined in
 
-[src/interfaces/parsed_input.ts:8](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parsed_input.ts#L8)
+[src/interfaces/parsed_input.ts:8](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parsed_input.ts#L8)
 
 ---
 
@@ -41,7 +41,7 @@ CLI option's argument.
 
 #### Defined in
 
-[src/interfaces/parsed_input.ts:26](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parsed_input.ts#L26)
+[src/interfaces/parsed_input.ts:26](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parsed_input.ts#L26)
 
 ---
 
@@ -55,7 +55,7 @@ CLI option's long name.
 
 #### Defined in
 
-[src/interfaces/parsed_input.ts:20](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parsed_input.ts#L20)
+[src/interfaces/parsed_input.ts:20](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parsed_input.ts#L20)
 
 ---
 
@@ -69,4 +69,4 @@ CLI option's name.
 
 #### Defined in
 
-[src/interfaces/parsed_input.ts:14](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parsed_input.ts#L14)
+[src/interfaces/parsed_input.ts:14](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parsed_input.ts#L14)

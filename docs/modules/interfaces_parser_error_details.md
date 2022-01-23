@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / interfaces/parser_error_details
+[getopts - v4.0.1](../README.md) / interfaces/parser_error_details
 
 # Module: interfaces/parser_error_details
 

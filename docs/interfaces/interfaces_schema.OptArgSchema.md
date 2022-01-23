@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgSchema
+[getopts - v4.0.1](../README.md) / [interfaces/schema](../modules/interfaces_schema.md) / OptArgSchema
 
 # Interface: OptArgSchema
 
@@ -30,7 +30,7 @@ it will be captured and stored inside the `errors` array.
 
 #### Defined in
 
-[src/interfaces/schema.ts:48](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L48)
+[src/interfaces/schema.ts:48](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/schema.ts#L48)
 
 ---
 
@@ -43,7 +43,7 @@ array? The default is false.
 
 #### Defined in
 
-[src/interfaces/schema.ts:37](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L37)
+[src/interfaces/schema.ts:37](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/schema.ts#L37)
 
 ---
 
@@ -58,4 +58,4 @@ false, at least one long option must be defined.
 
 #### Defined in
 
-[src/interfaces/schema.ts:32](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/schema.ts#L32)
+[src/interfaces/schema.ts:32](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/schema.ts#L32)

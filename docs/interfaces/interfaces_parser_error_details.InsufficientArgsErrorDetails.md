@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / InsufficientArgsErrorDetails
+[getopts - v4.0.1](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / InsufficientArgsErrorDetails
 
 # Interface: InsufficientArgsErrorDetails
 
@@ -29,7 +29,7 @@ The minimum number of arguments the CLI expects.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:122](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L122)
+[src/interfaces/parser_error_details.ts:122](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L122)
 
 ---
 
@@ -41,4 +41,4 @@ The total number of CLI arguments received.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:118](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L118)
+[src/interfaces/parser_error_details.ts:118](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L118)

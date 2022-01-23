@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / OptMissingArgErrorDetails
+[getopts - v4.0.1](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / OptMissingArgErrorDetails
 
 # Interface: OptMissingArgErrorDetails
 
@@ -28,4 +28,4 @@ CLI option that is missing its argument.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:35](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L35)
+[src/interfaces/parser_error_details.ts:35](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L35)

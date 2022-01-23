@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / OptArgFilterErrorDetails
+[getopts - v4.0.1](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / OptArgFilterErrorDetails
 
 # Interface: OptArgFilterErrorDetails
 
@@ -31,7 +31,7 @@ CLI option's argument that generated the exception.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:82](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L82)
+[src/interfaces/parser_error_details.ts:82](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L82)
 
 ---
 
@@ -43,7 +43,7 @@ CLI option that owns the filter that threw the exception.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:78](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L78)
+[src/interfaces/parser_error_details.ts:78](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L78)
 
 ---
 
@@ -55,7 +55,7 @@ CLI option's argument filter that threw the exception.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:86](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L86)
+[src/interfaces/parser_error_details.ts:86](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L86)
 
 ---
 
@@ -67,4 +67,4 @@ Exception that was thrown by the CLI option's argument filter.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:90](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L90)
+[src/interfaces/parser_error_details.ts:90](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L90)

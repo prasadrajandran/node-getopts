@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / classes/schema_error
+[getopts - v4.0.1](../README.md) / classes/schema_error
 
 # Module: classes/schema_error
 

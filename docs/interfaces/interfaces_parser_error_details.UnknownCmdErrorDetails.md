@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / UnknownCmdErrorDetails
+[getopts - v4.0.1](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / UnknownCmdErrorDetails
 
 # Interface: UnknownCmdErrorDetails
 
@@ -29,7 +29,7 @@ CLI commands that were expected.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:25](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L25)
+[src/interfaces/parser_error_details.ts:25](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L25)
 
 ---
 
@@ -41,4 +41,4 @@ Name of the unknown CLI command.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:21](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L21)
+[src/interfaces/parser_error_details.ts:21](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L21)

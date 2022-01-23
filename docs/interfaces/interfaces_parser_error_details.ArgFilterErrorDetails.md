@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / ArgFilterErrorDetails
+[getopts - v4.0.1](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / ArgFilterErrorDetails
 
 # Interface: ArgFilterErrorDetails
 
@@ -30,7 +30,7 @@ CLI argument value.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:60](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L60)
+[src/interfaces/parser_error_details.ts:60](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L60)
 
 ---
 
@@ -42,7 +42,7 @@ CLI argument's filter that threw the exception.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:64](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L64)
+[src/interfaces/parser_error_details.ts:64](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L64)
 
 ---
 
@@ -54,4 +54,4 @@ Exception that was thrown by the CLI argument's filter.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:68](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L68)
+[src/interfaces/parser_error_details.ts:68](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L68)

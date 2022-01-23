@@ -1,4 +1,4 @@
-# getopts - v4.0.0
+# getopts - v4.0.1
 
 ## Table of contents
 

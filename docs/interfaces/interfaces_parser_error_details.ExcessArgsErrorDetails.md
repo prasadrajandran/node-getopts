@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / ExcessArgsErrorDetails
+[getopts - v4.0.1](../README.md) / [interfaces/parser_error_details](../modules/interfaces_parser_error_details.md) / ExcessArgsErrorDetails
 
 # Interface: ExcessArgsErrorDetails
 
@@ -30,7 +30,7 @@ The excess CLI arguments.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:100](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L100)
+[src/interfaces/parser_error_details.ts:100](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L100)
 
 ---
 
@@ -42,7 +42,7 @@ The maximum number of arguments the CLI accepts.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:108](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L108)
+[src/interfaces/parser_error_details.ts:108](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L108)
 
 ---
 
@@ -54,4 +54,4 @@ The total number of arguments the CLI received.
 
 #### Defined in
 
-[src/interfaces/parser_error_details.ts:104](https://github.com/prasadrajandran/node-getopts/blob/09d8331/src/interfaces/parser_error_details.ts#L104)
+[src/interfaces/parser_error_details.ts:104](https://github.com/prasadrajandran/node-getopts/blob/6df82cf/src/interfaces/parser_error_details.ts#L104)

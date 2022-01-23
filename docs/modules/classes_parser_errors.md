@@ -1,4 +1,4 @@
-[getopts - v4.0.0](../README.md) / classes/parser_errors
+[getopts - v4.0.1](../README.md) / classes/parser_errors
 
 # Module: classes/parser_errors
 
